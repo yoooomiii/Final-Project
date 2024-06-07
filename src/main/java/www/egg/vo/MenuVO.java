@@ -1,6 +1,7 @@
 package www.egg.vo;
 
 public class MenuVO {	//메뉴 테이블
+	
 	private String code = null;	//메뉴 고유 코드
 	private int no = 0;			//메뉴 등록 순서
 	private String name = null;	//메뉴 이름

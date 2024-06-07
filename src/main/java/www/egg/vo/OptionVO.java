@@ -1,7 +1,8 @@
 package www.egg.vo;
 
 public class OptionVO {		//사이드 메뉴 테이블
-	private String code = null;	//사이드 메뉴 고유 코드
+	
+	private String scode = null;	//사이드 메뉴 고유 코드
 	private int no = 0;			//사이드 메뉴 등록 순서
 	private String name = null;	//사이드 메뉴 이름
 	private int price = 0;		//사이드 메뉴 가격
@@ -11,14 +12,14 @@ public class OptionVO {		//사이드 메뉴 테이블
 	
 	@Override
 	public String toString() {
-		return "OptionVO [code=" + code + ", no=" + no + ", name=" + name + ", price=" + price + ", ex=" + ex
+		return "OptionVO [scode=" + scode + ", no=" + no + ", name=" + name + ", price=" + price + ", ex=" + ex
 				+ ", star=" + star + ", file=" + file + "]";
 	}
-	public String getCode() {
-		return code;
+	public String getScode() {
+		return scode;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setScode(String scode) {
+		this.scode = scode;
 	}
 	public int getNo() {
 		return no;
@@ -56,5 +57,4 @@ public class OptionVO {		//사이드 메뉴 테이블
 	public void setFile(String file) {
 		this.file = file;
 	}
-
 }
