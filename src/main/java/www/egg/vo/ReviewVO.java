@@ -4,18 +4,16 @@ public class ReviewVO {
 
 	private int num = 0;
 	private String id = null;
-	private String code = null;
-	private String scode = null;
 	private String ex = null;
 	private int star = 0;
 	private String file1 = null;
 	private String file2 = null;
 	private String file3 = null;
-	
+
 	@Override
 	public String toString() {
-		return "ReviewVO [num=" + num + ", id=" + id + ", code=" + code + ", scode=" + scode + ", ex=" + ex + ", star="
-				+ star + ", file1=" + file1 + ", file2=" + file2 + ", file3=" + file3 + "]";
+		return "ReviewVO [num=" + num + ", id=" + id + ", ex=" + ex + ", star=" + star + ", file1=" + file1 + ", file2="
+				+ file2 + ", file3=" + file3 + "]";
 	}
 
 	public int getNum() {
@@ -32,22 +30,6 @@ public class ReviewVO {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getScode() {
-		return scode;
-	}
-
-	public void setScode(String scode) {
-		this.scode = scode;
 	}
 
 	public String getEx() {
@@ -89,4 +71,5 @@ public class ReviewVO {
 	public void setFile3(String file3) {
 		this.file3 = file3;
 	}
+	
 }

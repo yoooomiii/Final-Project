@@ -4,10 +4,8 @@ public class PaymentVO {
 
 	private int no =0;
 	private int num =0;
-	private String code =null;
-	private String scode=null;
-	private String pick =null;
 	private int tip = 0;
+	private int total = 0;
 	private int point = 0;
 	private String pay = null;
 	private String card = null;
@@ -16,9 +14,8 @@ public class PaymentVO {
 	
 	@Override
 	public String toString() {
-		return "PaymentVO [no=" + no + ", num=" + num + ", code=" + code + ", scode=" + scode + ", pick=" + pick
-				+ ", tip=" + tip + ", point=" + point + ", pay=" + pay + ", card=" + card + ", in_date=" + in_date
-				+ ", address=" + address + "]";
+		return "PaymentVO [no=" + no + ", num=" + num + ", tip=" + tip + ", total=" + total + ", point=" + point
+				+ ", pay=" + pay + ", card=" + card + ", in_date=" + in_date + ", address=" + address + "]";
 	}
 
 	public int getNo() {
@@ -37,36 +34,20 @@ public class PaymentVO {
 		this.num = num;
 	}
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getScode() {
-		return scode;
-	}
-
-	public void setScode(String scode) {
-		this.scode = scode;
-	}
-
-	public String getPick() {
-		return pick;
-	}
-
-	public void setPick(String pick) {
-		this.pick = pick;
-	}
-
 	public int getTip() {
 		return tip;
 	}
 
 	public void setTip(int tip) {
 		this.tip = tip;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
 	}
 
 	public int getPoint() {
@@ -108,5 +89,5 @@ public class PaymentVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 }
-
