@@ -38,11 +38,11 @@
 
 	<context:component-scan
 		base-package="www.silver.hom" />
-	<context:component-scan
+<!-- 	<context:component-scan
 		base-package="www.silver.dao" />
 	<context:component-scan
 		base-package="www.silver.vo" />
 	<context:component-scan
-		base-package="www.silver.service" />
+		base-package="www.silver.service" /> -->
 
 </beans:beans>
