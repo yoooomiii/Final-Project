@@ -1,14 +1,14 @@
 package www.egg.vo;
 
-public class MenuVO {	//ë©”ë‰´ í…Œì´ë¸”
+public class MenuVO {	
 	
-	private String code = null;	//ë©”ë‰´ ê³ ìœ  ì½”ë“œ
-	private int no = 0;			//ë©”ë‰´ ë“±ë¡ ìˆœì„œ
-	private String name = null;	//ë©”ë‰´ ì´ë¦„
-	private int price = 0;		//ë©”ë‰´ ê°€ê²©
-	private String ex = null;	//ë©”ë‰´ ì„¤ëª…
-	private int star = 0;		//ë©”ë‰´ ë³„ì 
-	private String file = null;	//ë©”ë‰´ ì‚¬ì§„
+	private String code = null;	 // ¸ŞÀÎ¸Ş´ºÄÚµå
+	private int no = 0;			 // ¸Ş´º¹øÈ£
+	private String name = null;	 // ¸Ş´ºÀÌ¸§
+	private int price = 0;		 // ¸Ş´º°¡°İ
+	private String ex = null;	 // ¸Ş´º¼³¸í
+	private int star = 0;		 // º°Á¡
+	private String file = null;	 // ¸Ş´º»çÁø 
 	
 	@Override
 	public String toString() {
