@@ -37,12 +37,12 @@
 	</beans:bean>
 
 	<context:component-scan
-		base-package="www.silver.hom" />
+		base-package="www.egg.hom" />
 	<context:component-scan
-		base-package="www.silver.dao" />
+		base-package="www.egg.dao" />
 	<context:component-scan
-		base-package="www.silver.vo" />
+		base-package="www.egg.vo" />
 	<context:component-scan
-		base-package="www.silver.service" />
+		base-package="www.egg.service" />
 
 </beans:beans>
