@@ -37,12 +37,22 @@
 	</beans:bean>
 
 	<context:component-scan
+<<<<<<< HEAD
 		base-package="www.silver.hom" />
 <!-- 	<context:component-scan
 		base-package="www.silver.dao" />
+=======
+		base-package="www.egg.hom" />
 	<context:component-scan
-		base-package="www.silver.vo" />
+		base-package="www.egg.dao" />
+>>>>>>> 4871790f9c39c170eb828a6af7f2ffb156eafe87
 	<context:component-scan
+		base-package="www.egg.vo" />
+	<context:component-scan
+<<<<<<< HEAD
 		base-package="www.silver.service" /> -->
+=======
+		base-package="www.egg.service" />
+>>>>>>> 4871790f9c39c170eb828a6af7f2ffb156eafe87
 
 </beans:beans>

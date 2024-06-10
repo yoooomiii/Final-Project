@@ -1,4 +1,4 @@
-package www.silver.hom;
+package www.egg.hom;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
