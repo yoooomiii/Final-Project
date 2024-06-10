@@ -1,4 +1,4 @@
-package www.egg.hom;
+package www.silver.hom;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,15 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MypageController {
 	
-	@GetMapping(value="/mypage")
+	@GetMapping(value="/main")
 	public String home() {
-		return "mypage";
-	}
-	
-	@GetMapping(value="/mymodpage")
-	public String mymod() {
-		System.out.println("여기?");
-		return "mymod";
+		return "main";
 	}
 
 }
