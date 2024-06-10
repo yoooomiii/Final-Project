@@ -2,23 +2,22 @@ package www.egg.vo;
 
 public class BasketVO {
 
-	private int num =0;
+	private int no =0;
 	private String id =null;
-	private String code=null;
-	private String scode=null;
+	private int price = 0;
 	private String pick =null;
-
+	
 	@Override
 	public String toString() {
-		return "BasketVO [num=" + num + ", id=" + id + ", code=" + code + ", scode=" + scode + ", pick=" + pick + "]";
+		return "BasketVO [no=" + no + ", id=" + id + ", price=" + price + ", pick=" + pick + "]";
 	}
 
-	public int getNum() {
-		return num;
+	public int getNo() {
+		return no;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getId() {
@@ -29,20 +28,12 @@ public class BasketVO {
 		this.id = id;
 	}
 
-	public String getCode() {
-		return code;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getScode() {
-		return scode;
-	}
-
-	public void setScode(String scode) {
-		this.scode = scode;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public String getPick() {
@@ -52,4 +43,5 @@ public class BasketVO {
 	public void setPick(String pick) {
 		this.pick = pick;
 	}
+
 }
