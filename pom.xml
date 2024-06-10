@@ -145,12 +145,12 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.6.0</version>
-		</dependency> 
-
+		</dependency>  -->
+ 
 		<!-- mariaDB -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
