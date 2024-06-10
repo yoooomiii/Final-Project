@@ -2,13 +2,13 @@ package www.egg.vo;
 
 public class MemberVO {
 
-	private String id = null;
-	private String pw = null;
-	private String name = null;
-	private String call = null;
-	private String email = null;
-	private String address = null;
-	private int master = 0;
+	private String id = null;       // 회원id
+	private String pw = null;       // 회원pw
+	private String name = null;     // 회원이름
+	private String call = null;     // 휴대전화
+	private String email = null;    // 이메일 
+	private String address = null;  // 현재주소
+	private int master = 0;         // 회원권한
 
 	@Override
 	public String toString() {

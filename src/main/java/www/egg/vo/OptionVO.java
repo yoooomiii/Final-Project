@@ -1,14 +1,14 @@
 package www.egg.vo;
 
-public class OptionVO {		//사이드 메뉴 테이블
+public class OptionVO {		
 	
-	private String scode = null;	//사이드 메뉴 고유 코드
-	private int no = 0;			//사이드 메뉴 등록 순서
-	private String name = null;	//사이드 메뉴 이름
-	private int price = 0;		//사이드 메뉴 가격
-	private String ex = null;	//사이드 메뉴 설명
-	private int star = 0;		//사이드 메뉴 별점
-	private String file = null;	//사이드 메뉴 사진
+	private String scode = null;	
+	private int no = 0;			
+	private String name = null;	 
+	private int price = 0;		
+	private String ex = null;	
+	private int star = 0;		
+	private String file = null;	
 	
 	@Override
 	public String toString() {

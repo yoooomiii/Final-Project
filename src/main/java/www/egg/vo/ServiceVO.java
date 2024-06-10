@@ -2,7 +2,7 @@ package www.egg.vo;
 
 public class ServiceVO {
 
-	private int num = 0;
+	private Integer num = 0;
 	private String id = null;
 	private String title = null;
 	private String ex = null;
@@ -11,15 +11,10 @@ public class ServiceVO {
 	private int in_date = 0;
 	private String file = null;
 	
-	@Override
-	public String toString() {
-		return "ServiceVO [num=" + num + ", id=" + id + ", title=" + title + ", ex=" + ex + ", re=" + re + ", check="
-				+ check + ", in_date=" + in_date + ", file=" + file + "]";
-	}
-	public int getNum() {
+	public Integer getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(Integer num) {
 		this.num = num;
 	}
 	public String getId() {
@@ -64,5 +59,7 @@ public class ServiceVO {
 	public void setFile(String file) {
 		this.file = file;
 	}
+	
+	
 	
 }
