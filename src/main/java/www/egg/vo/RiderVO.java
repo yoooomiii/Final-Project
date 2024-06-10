@@ -2,24 +2,17 @@ package www.egg.vo;
 
 public class RiderVO {
 
-	private int num = 0;
+	private Integer num = 0;
 	private String name = null;
 	private int age = 0;
 	private String address = null;
 	private String pick = null;
 	private String info = null;
 	
-	
-	@Override
-	public String toString() {
-		return "RiderVO [num=" + num + ", name=" + name + ", age=" + age + ", address=" + address + ", pick=" + pick
-				+ ", info=" + info + "]";
-	}
-	
-	public int getNum() {
+	public Integer getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(Integer num) {
 		this.num = num;
 	}
 	public String getName() {
@@ -52,5 +45,13 @@ public class RiderVO {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "RiderVO [num=" + num + ", name=" + name + ", age=" + age + ", address=" + address + ", pick=" + pick
+				+ ", info=" + info + "]";
+	}
+	
+	
+	
 }
