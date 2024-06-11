@@ -28,7 +28,7 @@ public class LoginController {
 	public String signUp(@ModelAttribute MemberVO mvo) {
 		lservice.signUp(mvo);
 		//System.out.println(mvo.toString());
-		return "login/signForm";
+		return "redirect:loginForm";
 	}
 	@RequestMapping(value = "signIn", method = RequestMethod.GET) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임)
 	public String signIn(@RequestParam("id") String id,
@@ -65,6 +65,12 @@ public class LoginController {
 		
 	
 	}
+	@GetMapping("logout") // 로그아웃 (세션 삭제) 
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:loginForm";
+	}
+	
 	@RequestMapping(value = "myPage", method = RequestMethod.GET) // 회원만이 접근할 수 있는 페이지라는 설정...
 	public String myPage() {
 		return "ownPage";

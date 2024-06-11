@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 전용 페이지</title>
 </head>
 <body>
 	  	<div>
@@ -14,7 +14,7 @@
 	  		<div>
 	  			<!-- 사용자 session에서 정보 가져와 띄우는 부분 (변수명 수정해야)-->
 				<c:if test="${userid != null }">
-					<span> 사용자 정보: ${userid } / ${username } / ${grade }</span>
+					<span> 사용자 정보: ${userid } / ${username } / ${usergrade }</span>
 					<span> <a href="logout">로그아웃</a> </span>
 				</c:if>
 			</div>
