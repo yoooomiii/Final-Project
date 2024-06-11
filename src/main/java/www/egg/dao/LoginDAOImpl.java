@@ -20,4 +20,10 @@ public class LoginDAOImpl implements IF_LoginDAO{
 		
 	}
 
+	@Override
+	public MemberVO selectMemberId(String id) {
+		return  sqlSession.selectOne(mapperQuery+".selectoneid", id); 
+		
+	}
+
 }

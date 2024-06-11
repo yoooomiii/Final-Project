@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.service.IF_LoginService;
 import www.egg.vo.MemberVO;
@@ -29,8 +30,14 @@ public class LoginController {
 		return "login/signForm";
 	}
 	@RequestMapping(value = "signIn", method = RequestMethod.GET) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임)
-	public String signIn() {
-		return "login/welcome";
+	public String signIn(@RequestParam("id") String id,
+			@RequestParam("pw") String pw) {
+		// return "login/welcome";
+		// System.out.println("id/pw: "+id+"/"+pw);
+		
+		MemberVO mvo = lservice.signIn(id);
+		System.out.println("홈단 mvo: "+mvo);
+		return "redirect:loginForm";
 	}
 	@RequestMapping(value = "myPage", method = RequestMethod.GET) // 회원만이 접근할 수 있는 페이지라는 설정...
 	public String myPage() {

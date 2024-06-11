@@ -19,4 +19,10 @@ public class LoginServiceImpl implements IF_LoginService {
 		
 	}
 
+	@Override
+	public MemberVO signIn(String id) {
+		// TODO Auto-generated method stub
+		return logindao.selectMemberId(id);
+	}
+
 }

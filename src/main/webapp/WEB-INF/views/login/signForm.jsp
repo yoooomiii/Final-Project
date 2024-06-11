@@ -48,7 +48,7 @@
           <!-- Sign in form -->
           <div id="sign-in-container" class="hide">
             <h3>로그인</h3>
-            <form action="/login" method="get">
+            <form action="signIn" method="get">
               <label for="username">회원 ID</label>
               <input type="text" name="id" id="username" placeholder="user@example.com">
   
@@ -57,7 +57,7 @@
               <input type="password" name="pw" id="password" placeholder="">
   
               <div id="form-controls">
-                <button type="button" id="toggleSignIn">로그인</button>
+                <button type="submit" id="toggleSignIn">로그인</button>
               </div>
   
             </form>
