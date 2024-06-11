@@ -30,7 +30,6 @@
               <div id="form-controls">
                 <button type="submit">이메일 인증하기</button>
                 <button type="submit">가입</button>
-                <button type="button" id="toggleSignIn">로그인</button>
               </div>
   
               <input type="checkbox" name="terms" id="terms">
