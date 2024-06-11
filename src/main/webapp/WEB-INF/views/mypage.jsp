@@ -111,6 +111,25 @@ h3 {
 h2{
 	font-size: large;
 }
+tr,td,th {
+	border: 1px solid black;
+}
+#allmlist{
+	float :left;
+	width:250px;
+	height: 500px;
+	border: 1px solid black;
+}
+#mlist{
+	float :left;
+	width:925px;
+	height: 500px;
+	margin-left:20px;
+	border: 1px solid black;
+}
+#mtable{
+	border: 1px solid black;
+}
 </style>
 <body>
 	<div id="login"></div>
@@ -140,20 +159,20 @@ h2{
 			
 			<div id="icon">
 				<div class="iconimg">
-					<img src="./img/주문내역.png" width="100" height="90">
-					<h2>주문내역</h2>
+					<img src="./resources/img/주문내역2.png" width="100" height="90">
+					<h3>주문내역</h3>
 				</div>
 				<div class="iconimg">
-					<img src="./img/찜목록2.PNG" width="100" height="90">
-					<h2>찜목록</h2>
+					<img src="./resources/img/찜목록2.png" width="100" height="90">
+					<h3>찜목록</h3>
 				</div>
 				<div class="iconimg">
-					<img src="/Final Project/img/리뷰.png" width="100" height="90">
-					<h2>찜목록</h2>
+					<img src="./resources/img/리뷰.png" width="100" height="90">
+					<h3>리뷰</h3>
 				</div>
 				<div class="iconimg">
-					<img src="/Final Project/img/포인트.png" width="100" height="90">
-					<h2>찜목록</h2>
+					<img src="./resources/img/포인트.png" width="100" height="90">
+					<h3>포인트</h3>
 				</div>
 
 
@@ -161,14 +180,50 @@ h2{
 		</section>
 
 		<section id="page">
-			<h3>클릭할때마다 화면 바뀜</h3>
+			
+			<div id="allmlist">
+				<h3>전체 주문 내역</h3>
+					
+			</div>
+			<div id="mlist">
+				<table id="mtable">
+						
+							<tr>
+								<th>주문번호</th>
+								<th>메뉴</th>
+								<th>배달주소</th>
+								<th>수령방법</th>
+								<th>주문일시</th>
+							</tr>
+						
+							<tr>
+								<th>002</th>
+								<th>간장치킨</th>
+								<th>수원시 장안구 연무동</th>
+								<th>배달</th>
+								<th>2024.06.11/14.20.12</th>
+							</tr>
+					
+					
+					
+					</table>
+			</div>
 		</section>
 
 
 		<footer>
-			<h3>회사 정보</h3>
+		
 		</footer>
 
 	</section>
+	<script>
+		
+	function list() {
+		alert("됬냐");
+	}
+	
+	
+	
+	</script>
 </body>
 </html>

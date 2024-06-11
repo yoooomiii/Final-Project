@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="www.egg.dao.IF_MypageDAO">
+	
+	<insert id="insert" parameterType="www.egg.vo.MemberVO">
+		insert into member values (#{id},#{pw},#{name}, #{call},#{email},#{address},#{master})
+	</insert>    <!-- 이건 나중에 업데이트로 바꿔여함 이건 걍 테스트용 -->
+</mapper>

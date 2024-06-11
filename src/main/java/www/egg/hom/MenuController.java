@@ -18,7 +18,7 @@ public class MenuController {
 	@PostMapping(value="/inputSave")
 	public String input(@ModelAttribute MenuVO mvo) throws Exception {
 		mservice.insert(mvo);
-		System.out.println("¿©±â?");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½?");
 		return null;
 	}
 	
