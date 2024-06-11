@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>메뉴 등록창입니다</h1>
-	<form action="inputSave" method="post" encType="multipart/form-data">
+	<form action="menu_inputSave" method="post" encType="multipart/form-data">
 	메뉴 코드<input type=text name="menu_code">
 	<br>
 	메뉴 이름<input type=text name="menu_name">

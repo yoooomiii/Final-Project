@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import www.egg.service.IF_MenuService;
@@ -18,59 +19,70 @@ import www.egg.vo.MenuVO;
 
 @Controller
 public class MenuController {
-	
+
 	@Inject
 	IF_MenuService mservice;
-	
+
 	@Inject
 	FileDataUtil filedatautil;
+
+	@GetMapping(value ="/viewDetail")
+	public String viewDetail(@RequestParam("menu_code") String no,
+			Model model) throws Exception {		//치킨 정보 보기
+		MenuVO mvo = mservice.modno(no);
+		List<String> attackList = mservice.getFilename(no);
+		model.addAttribute("mvo", mvo);
+		model.addAttribute("attackList", attackList);
+		return "menuPick";
+	}
 	
-	@GetMapping(value ="/input")
+	@GetMapping(value ="/menu_input")
 	public String input() {		//입력 창으로
 
 		return "menuInput";
 	}
-	
-	@PostMapping(value="/inputSave")
+
+	@PostMapping(value="/menu_inputSave")
 	public String input(@ModelAttribute MenuVO mvo, 
 			MultipartFile[] file) throws Exception {	//입력
-		/*
-		 * String[] filename = filedatautil.fileUpload(file); for(int i=0;
-		 * i<filename.length; i++) { System.out.println(filename[i]); }
-		 * mvo.setFilename(filename);
-		 */
-		mservice.insert(mvo);
+		String[] filename = filedatautil.fileUpload(file);
 		
-		return "redirect:List";
+		for(int i=0; i<filename.length; i++) {
+			System.out.println(filename[i]);
+		}
+		mvo.setFilename(filename);
+		mservice.insert(mvo);
+
+		return "redirect:menu_List";
 	}
-	
-	@RequestMapping("/List")
+
+	@RequestMapping("/menu_List")
 	public String allList(@ModelAttribute MenuVO mvo, Model model) throws Exception {	//전체보기
 		List<MenuVO> allList = mservice.menuList();
 		model.addAttribute("menuList", allList);
-		
+
 		return "menuList";
 	}
-	
-	@PostMapping(value = "/delete")
+
+	@PostMapping(value = "/menu_delete")
 	public String delete(@ModelAttribute MenuVO mvo) throws Exception {	//삭제
 		mservice.delete(mvo);
-		
-		return "redirect:List";
+
+		return "redirect:menu_List";
 	}
-	
-	@GetMapping(value ="/update")
+
+	@GetMapping(value ="/menu_update")
 	public String up(@ModelAttribute MenuVO mvo, Model model) {		//수정 창으로
 		model.addAttribute("mvo", mvo);
-		
+
 		return "menuUpdate";
 	}
-	
-	@PostMapping(value ="/updateset")
+
+	@PostMapping(value ="/menu_updateset")
 	public String update(@ModelAttribute MenuVO mvo) throws Exception {	//수정
 		mservice.update(mvo);
-		
-		return "redirect:List";
+
+		return "redirect:menu_List";
 	}
 
 }

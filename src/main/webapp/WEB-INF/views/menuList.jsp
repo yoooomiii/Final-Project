@@ -27,7 +27,7 @@
 		<tbody>
 			<c:forEach items="${menuList}" var="menuvo" varStatus="status">
 				<tr>
-					<form action="update" method="get">
+					<form action="menu_update" method="get">
 					<td>${menuvo.menu_code}</td>
 					<td>${menuvo.menu_no}</td>
 					<td><a href="viewDetail?menu_code=${menuvo.menu_code}">${menuvo.menu_name}</a></td>
@@ -35,9 +35,9 @@
 					<td>${menuvo.menu_ex}</td>
 					<td>${menuvo.menu_star}</td>
 					<td>${menuvo.menu_file}</td>
-					<td><button type=submit value="${menuvo.menu_code}", "${menuvo.menu_name}" name="menu_code">수정</button></td>
+					<td><button type=submit value="${menuvo.menu_code}" name="menu_code">수정</button></td>
 					</form>
-					<form action="delete" method="post">
+					<form action="menu_delete" method="post">
 					<td><button type=submit value="${menuvo.menu_code}" name="menu_code">삭제</button></td>
 					</form>
 				</tr>

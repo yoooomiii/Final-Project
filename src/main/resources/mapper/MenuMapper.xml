@@ -19,8 +19,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM MENU WHERE menu_code = #{menu_code}
 	</delete>
 	<!-- 삭제 -->
-	<select id="getFiles" resultType="www.egg.vo.MenuVO">
-		SELECT menu_file FROM MENU WHERE menu_code = #{menu_code}
+	<insert id="saveFile" parameterType="String">
+		INSERT INTO MENU VALUES #{filename}
+	</insert>
+	<!-- 사진 넣기 -->
+	<select id="selectone" resultType="www.egg.vo.MenuVO">
+		SELECT * FROM MENU WHERE menu_code = #{menu_code}
 	</select>
-	<!-- 사진찾기 -->
+	<!-- 사진 불러오기 -->
+	<select id="getFiles" resultType="String">
+		SELECT filename FROM MENU WHERE menu_code = #{menu_code}
+	</select>
 </mapper>

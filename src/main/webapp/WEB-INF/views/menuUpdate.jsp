@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>수정이가 수정을 해보아요</h1>
-	<form action="updateset" method="post">
+	<form action="menu_updateset" method="post">
 		<input type=hidden value="${mvo.menu_code}" name="menu_code">
 		<input type=hidden value="${mvo.menu_no}" name="menu_no">
 		<br>
