@@ -97,16 +97,15 @@ span{
 			</div>
 		</div>
 		<div id="ex">
-			아이디    <input type="text" name="id" class="tx"> <br> <br>
+			아이디    <input type="text" name="id" class="tx" value="${mvo.id}" > <br> <br>
 			
-			이름       <input type="text" name="name" class="tx"> <br> <br>
-			전화번호   <input type="text" name="address" class="tx">
-			이메일    <input type="text" name="email" class="tx"> <br> <br>
-			<span>주소</span> <input type="text name="address" class="tx">
+			이름       <input type="text" name="name" class="tx" value="${mvo.name}"> <br> <br>
+			전화번호   <input type="text" name="address" class="tx" value="${mvo.phone}"><br> <br>
+			이메일    <input type="text" name="email" class="tx" value="${mvo.email}"> <br> <br>
+			주소      <input type="text name="address" class="tx" value="${mvo.address}">
 			<button type="button" id="search" onclick="findaddr()">주소검색</button>
-			<br> <br> 
-			
-			<br> <input type="submit" value="저장" id="savebtn">
+		
+			<input type="submit" value="저장" id="savebtn">
 			</div>
 			</form>
 		</div>

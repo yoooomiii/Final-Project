@@ -152,7 +152,7 @@ tr,td,th {
 				<h2>이메일: ?????</h2>
 				<h2>최근 주소: ?????</h2>	
 				<form action="mymodpage" method="get">		
-				<input type="submit" id="modbutton" value="나의정보수정">
+				<input type="submit" id="modbutton" value="나의 정보 수정">
 				</form>
 			</div>
 			
@@ -163,7 +163,7 @@ tr,td,th {
 					<h3>주문내역</h3>
 				</div>
 				<div class="iconimg">
-					<img src="./resources/img/찜목록2.png" width="100" height="90">
+					<img src="./resources/img/찜목록2.png" width="100" height="90" onclick="location='detail.jsp'">
 					<h3>찜목록</h3>
 				</div>
 				<div class="iconimg">

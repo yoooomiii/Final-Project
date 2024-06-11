@@ -21,4 +21,10 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.insert(mapperQuery + ".insert", mvo);
 	}
 
+	@Override
+	public MemberVO selectone(MemberVO mvo) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(mapperQuery + ".selectone", mvo);
+	}
+
 }

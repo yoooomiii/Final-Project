@@ -18,6 +18,12 @@ public class MypageServiceImpl implements IF_MypageService {
 	public void insert(MemberVO mvo) throws Exception {
 		// TODO Auto-generated method stub
 		mpdao.insert(mvo);
+	} 
+
+	@Override
+	public MemberVO selectone(MemberVO mvo) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.selectone(mvo);
 	}
 
 }
