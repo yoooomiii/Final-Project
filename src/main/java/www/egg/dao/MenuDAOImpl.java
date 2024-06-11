@@ -5,14 +5,13 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MenuVO;
 
-@Repository
-public class MenuDAOImpl implements IF_MenuDAO {
-	private static String mapperQuery = "www.egg.dao.IF_MenuDAO";
+
+public class MenuDAOImpl {
 	
+
 	@Inject
 	private SqlSession sqlSession;
 
@@ -45,5 +44,6 @@ public class MenuDAOImpl implements IF_MenuDAO {
 		// TODO Auto-generated method stub
 		sqlSession.update(mapperQuery+".update", mvo);
 	}
+
 
 }

@@ -1,10 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="kor">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>메뉴 고르기</title>
-<link rel="stylesheet" href="./gold.css">
+<link href="${path}/resources/css/main.css" rel="stylesheet"/>
+<title> Home </title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -16,174 +21,90 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
-body {
-	margin: 0px;
-}
 
-#Box {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 4000px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-}
-
-header {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 100px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(222, 252, 213) */
-}
-
-nav {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 50px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(208, 249, 252) */
-}
-
-aside {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 150px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(101, 206, 145) */
-}
-
-#bar {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 150px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(204, 159, 224) */
-}
-
-section {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 3500px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(192, 240, 188) */
-}
-
-footer {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 140px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	margin-top: 20px;
-	/* background-color: rgb(97, 128, 212) */
-}
-
-.manuList {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 340px; /*가로 넓이*/
-	height: 300px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	margin-top: 80px;
-	margin-left: 55px;
-	/* background-color: rgb(234, 247, 52) */
-}
-
-.but {
-	float: left;
-	border: 2px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 135px; /*가로 넓이*/
-	height: 50px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	margin-left: 100px;
-	padding-top: 10px;
-	/* background-color: rgb(234, 247, 52) */
-}
-
-.logo {
-	float: left;
-	border: 2px solid black;
-	width: 300px; /*가로 넓이*/
-	height: 100px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(163, 221, 54) */
-}
-
-.login {
-	float: left;
-	border: 2px solid black;
-	width: 300px; /*가로 넓이*/
-	height: 100px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	margin-left: 340px;
-	/* background-color: rgb(240, 71, 41) */
-}
-
-.user {
-	float: left;
-	border: 2px solid black;
-	width: 300px; /*가로 넓이*/
-	height: 100px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(62, 173, 131) */
-}
-
-span {
-	font-size: 20px;
-}
-
-span:hover {
-	color: rgb(252, 3, 3);
-}
 </style>
-<!--시멘틱 태그 div id ="header" 라는 태그랑
-    비슷하지만 header 자체의 의미를 갖고 있다.
-    시멘틱 태그의 종류는
-    header : 홈페이지의 이름 또는 정보
-    nav : 홈페이지의 메뉴를 구성하는 영역
-    secion : 홈페이지의 주요 내용
-    aside : 홈페이지의 사이드 내용 . 광고 같은 것
-    footer : 홈페이지의 개발정보, 업체 정보 등
-    시멘틱 태그를 사용하지 않고 div 로 해도 된다.
-    시멘틱 태그를 사용하면 검색엔진에서 검색시
-    시멘틱 태그로 분석하기 때문에 노출이 용이하다-->
+
 <body>
 	<div id="Box">
 		<header>
-			<div class="logo">
-				<span><b>로고</b></span>
+			<div class="login box">
+				<a href="#"><span> 로그인 </span></a>
 			</div>
-			<div class="login">
-				<span><b>로그인</b></span>
-			</div>
-			<div class="user">
-				<span><b>회원가입</b></span>
+			<div class="join box">
+				<a href="#"><span> 회원가입 </span></a>
 			</div>
 		</header>
+        
 		<nav>
-			<div class="but">
-				<span><b>홈으로</b></span>
+            <div class="logo">
+				<a href="#"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
-			<div class="but">
-				<span><b>브랜드소개</b></span>
-			</div>
-			<div class="but">
-				<span><b>메뉴 주문하기</b></span>
-			</div>
-			<div class="but">
-				<span><b>고객센터</b></span>
-			</div>
-			<div class="but">
-				<span><b>마이페이지</b></span>
+			<div class="menu">
+				<ul>
+                    <li>
+                        <a href="#"> HOME </a>
+                    </li>
+                    <li>
+                        <a href="#"> 브랜드 소개 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 브랜드 소개 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 메뉴 주문하기 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 인기 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 대표 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 치킨 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 사이드 / 음료 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 세트 메뉴 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 고객센터 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 1:1 문의 </a>
+                            </li>
+                            <li>
+                                <a href="#"> FAQ </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 마이 페이지 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 주문 내역 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 찜목록 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 나의 리뷰 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 내 정보관리 </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 			</div>
 		</nav>
 		<aside>
-			<div id="bar">
+			<div id="silde">
 				<div id="carouselExampleInterval" class="carousel slide"
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
@@ -213,95 +134,54 @@ span:hover {
 				</div>
 			</div>
 		</aside>
-		<section>
-			<div class="manuList">
-				<img src="/Gold.html/img/image.png" width="340" , height="250">
-				<span><b><a href="gold01.html" order>후라이드 치킨</a></b></span>
+        <hr>
+		<section class="fame-menu">
+            <div class="title"> 인기 메뉴 </div>
+			<div class="menulist">
+				<div class="menu-img"><img src="${path}/resources/img/image.png"></div>
+				<span><a href="gold01.html" order> 후라이드 치킨 </a></span>
 			</div>
-			<div class="manuList">
-				<img src="/Gold.html/img/egg02.png" width="340" , height="250">
-				<span><b><a href="gold01.html" order>고 추 치킨</a></b></span>
+			<div class="menulist">
+				<div class="menu-img"><img src="${path}/resources/img/egg02.png"></div>
+				<span><a href="gold01.html" order> 고추 치킨 </a></span>
 			</div>
-			<div class="manuList">
-				<img src="/Gold.html/img/egg03.png" width="340" , height="250">
-				<span><b><a href="gold01.html" order>양념 치킨</a></b></span>
+			<div class="menulist">
+				<div class="menu-img"><img src="${path}/resources/img/egg03.png"></div>
+				<span><a href="gold01.html" order> 양념 치킨 </a></span>
 			</div>
-			<div class="manuList">
-				<img src="/Gold.html/img/egg04.png" width="340" , height="250">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
-			<div class="manuList">
-				<span><b><a href="gold01.html" order>치킨이름</a></b></span>
-			</div>
+			<div class="menulist">
+				<div class="menu-img"><img src="${path}/resources/img/egg04.png"></div>
+				<span><a href="gold01.html" order> 간장 치킨 </a></span>
+            </div>
 		</section>
+        <section class="main-banner">
+            <div class="banner notice">
+                <a href="#"> 공지사항 / 안내 </a>
+            </div>
+            <div class="banner event">
+                <a href="#"> 이벤트 </a>
+            </div>
+        </section>
 		<footer>
-			<span><b>회사 정보, 지도, 전화번호, 등등</b></span>
+            <div class="footer-box">
+                <div class="footer-logo">
+                    <a href="#"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
+                </div>
+                <div class="footer-con">
+                    <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>
+                    <div class="con-text"><span> 대표자 : 송유미 </span></div>
+                    <div class="con-text"><span> 사업자등록번호 : 112-00-001234 </span></div>
+                    <div class="con-text"><span> 대표번호 : 031-500-1234 </span></div>
+                    <div class="con-text"><span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span></div>
+                    <div class="con-text"><span> 이메일 : goldenEgg @ gmail.com </span></div>
+                    <div class="con-text"><span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span></div>
+                </div>
+                <div class="sns">
+                    <span><a href="#"><img src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="${path}/resources/img/facebook_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+                </div>
+            </div>
 		</footer>
 	</div>
 </body>

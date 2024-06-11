@@ -10,8 +10,9 @@ import www.egg.dao.IF_MenuDAO;
 import www.egg.vo.MenuVO;
 
 @Service
-public class MenuServiceImpl implements IF_MenuService {
+public class MenuServiceImpl {
 	
+
 	@Inject
 	IF_MenuDAO mdao;
 

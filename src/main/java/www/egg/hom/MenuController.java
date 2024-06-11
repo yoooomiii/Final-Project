@@ -16,6 +16,7 @@ import www.egg.service.IF_MenuService;
 import www.egg.util.FileDataUtil;
 import www.egg.vo.MenuVO;
 
+
 //@Controller
 public class MenuController {
 	
@@ -80,5 +81,7 @@ public class MenuController {
 		
 		return "redirect:List";
 	}
+	
+
 
 }
