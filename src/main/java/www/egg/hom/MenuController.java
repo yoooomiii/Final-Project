@@ -11,16 +11,5 @@ import www.egg.vo.MenuVO;
 
 @Controller
 public class MenuController {
-	
-	@Inject
-	IF_MenuService mservice;
-	
-	@PostMapping(value="/inputSave")
-	public String input(@ModelAttribute MenuVO mvo) throws Exception {
-		mservice.insert(mvo);
-		
-		return null;
-	}
-	
 
 }

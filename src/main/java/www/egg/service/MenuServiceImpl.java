@@ -6,14 +6,5 @@ import www.egg.dao.IF_MenuDAO;
 import www.egg.vo.MenuVO;
 
 public class MenuServiceImpl implements IF_MenuService {
-	
-	@Inject
-	IF_MenuDAO mdao;
-
-	@Override
-	public void insert(MenuVO mvo) throws Exception {	//입력
-		// TODO Auto-generated method stub
-		mdao.insert(mvo);
-	}
 
 }
