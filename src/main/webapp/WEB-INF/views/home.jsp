@@ -11,15 +11,5 @@
 
 	<P>The time on the server is ${serverTime}.</P>
 
-	<form action="inputSave" method="post">
-	<input type=text name="code">
-	<input type=text name="no">
-	<input type=text name="name">
-	<input type=text name="price">
-	<input type=text name="ex">
-	<input type=text name="star">
-	<input type=text name="file">
-	<input type=submit value="저장">
-	</form>
 </body>
 </html>
