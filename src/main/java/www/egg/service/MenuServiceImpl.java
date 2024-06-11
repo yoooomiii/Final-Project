@@ -2,9 +2,12 @@ package www.egg.service;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import www.egg.dao.IF_MenuDAO;
 import www.egg.vo.MenuVO;
 
+@Service
 public class MenuServiceImpl implements IF_MenuService {
 	
 	@Inject
