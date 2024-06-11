@@ -22,10 +22,19 @@ public class LoginController {
 	public String loginForm() {
 		return "login/signForm";
 	}
-	@RequestMapping(value = "signUp", method = RequestMethod.GET)
+	@RequestMapping(value = "signUp", method = RequestMethod.GET) // 회원가입 요청 
 	public String signUp(@ModelAttribute MemberVO mvo) {
 		lservice.signUp(mvo);
 		//System.out.println(mvo.toString());
 		return "login/signForm";
 	}
+	@RequestMapping(value = "signIn", method = RequestMethod.GET) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임)
+	public String signIn() {
+		return "login/welcome";
+	}
+	@RequestMapping(value = "myPage", method = RequestMethod.GET) // 회원만이 접근할 수 있는 페이지라는 설정...
+	public String myPage() {
+		return "ownPage";
+	}
+	
 }
