@@ -35,6 +35,16 @@
 		id="multipartResolver">
 		<beans:property name="maxUploadSize" value="10485760"></beans:property> <!-- 10메가 제한 -->
 	</beans:bean>
+	
+		<interceptors>
+			<interceptor>
+				<mapping path="/**"></mapping> <!-- 모든 요청을 가로챈다. -->
+				<exclude-mapping path="/"/> <!-- /과 login 요청은 제외하고 ^^ -->
+				<exclude-mapping path="/login*"/>
+				<exclude-mapping path="/allList"/>
+				<beans:ref bean="authenticationTnterceptor"></beans:ref>
+			</interceptor>
+		</interceptors>
 
 	<context:component-scan
 		base-package="www.egg.hom" />

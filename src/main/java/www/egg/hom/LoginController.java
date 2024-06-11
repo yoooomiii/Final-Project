@@ -24,8 +24,8 @@ public class LoginController {
 	}
 	@RequestMapping(value = "signUp", method = RequestMethod.GET)
 	public String signUp(@ModelAttribute MemberVO mvo) {
-		//lservice.signUp(mvo);
-		System.out.println(mvo.toString());
+		lservice.signUp(mvo);
+		//System.out.println(mvo.toString());
 		return "login/signForm";
 	}
 }
