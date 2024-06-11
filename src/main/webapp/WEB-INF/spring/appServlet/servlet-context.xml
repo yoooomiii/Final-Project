@@ -42,6 +42,8 @@
 		base-package="www.egg.dao" />
 	<context:component-scan
 		base-package="www.egg.service" />
+	<context:component-scan
+		base-package="www.egg.util" />
 
 
 </beans:beans>
