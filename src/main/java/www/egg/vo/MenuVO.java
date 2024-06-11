@@ -2,60 +2,67 @@ package www.egg.vo;
 
 public class MenuVO {	
 	
-	private String code = null;	 // ¸ŞÀÎ¸Ş´ºÄÚµå
-	private int no = 0;			 // ¸Ş´º¹øÈ£
-	private String name = null;	 // ¸Ş´ºÀÌ¸§
-	private int price = 0;		 // ¸Ş´º°¡°İ
-	private String ex = null;	 // ¸Ş´º¼³¸í
-	private int star = 0;		 // º°Á¡
-	private String file = null;	 // ¸Ş´º»çÁø 
+	private String menu_code = null;	 // ìŒì‹ ê³ ìœ ì½”ë“œ
+	private int menu_no = 0;			 // ìŒì‹ ë“±ë¡ ìˆœì„œ
+	private String menu_name = null;	 // ìŒì‹ ì´ë¦„
+	private int menu_price = 0;		 // ìŒì‹ ê°€ê²©
+	private String menu_ex = null;	 // ìŒì‹ ì„¤ëª…
+	private int menu_star = 0;		 // ìŒì‹ í‰ì 
+	private String menu_file = null;	 // ìŒì‹ ì‚¬ì§„
+	private String[] filename = null;	//ìŒì‹ ë¦¬ìŠ¤íŠ¸
 	
 	@Override
 	public String toString() {
-		return "MenuVO [code=" + code + ", no=" + no + ", name=" + name + ", price=" + price + ", ex=" + ex + ", star="
-				+ star + ", file=" + file + "]";
+		return "MenuVO [menu_code=" + menu_code + ", menu_no=" + menu_no + ", menu_name=" + menu_name + ", menu_price="
+				+ menu_price + ", menu_ex=" + menu_ex + ", menu_star=" + menu_star + ", menu_file=" + menu_file + "]";
 	}
-	public String getCode() {
-		return code;
+	public String getMenu_code() {
+		return menu_code;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setMenu_code(String menu_code) {
+		this.menu_code = menu_code;
 	}
-	public int getNo() {
-		return no;
+	public int getMenu_no() {
+		return menu_no;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setMenu_no(int menu_no) {
+		this.menu_no = menu_no;
 	}
-	public String getName() {
-		return name;
+	public String getMenu_name() {
+		return menu_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMenu_name(String menu_name) {
+		this.menu_name = menu_name;
 	}
-	public int getPrice() {
-		return price;
+	public int getMenu_price() {
+		return menu_price;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setMenu_price(int menu_price) {
+		this.menu_price = menu_price;
 	}
-	public String getEx() {
-		return ex;
+	public String getMenu_ex() {
+		return menu_ex;
 	}
-	public void setEx(String ex) {
-		this.ex = ex;
+	public void setMenu_ex(String menu_ex) {
+		this.menu_ex = menu_ex;
 	}
-	public int getStar() {
-		return star;
+	public int getMenu_star() {
+		return menu_star;
 	}
-	public void setStar(int star) {
-		this.star = star;
+	public void setMenu_star(int menu_star) {
+		this.menu_star = menu_star;
 	}
-	public String getFile() {
-		return file;
+	public String getMenu_file() {
+		return menu_file;
 	}
-	public void setFile(String file) {
-		this.file = file;
+	public void setMenu_file(String menu_file) {
+		this.menu_file = menu_file;
 	}
-
+	public String[] getFilename() {
+		return filename;
+	}
+	public void setFilename(String[] filename) {
+		this.filename = filename;
+	}
+	
 }
