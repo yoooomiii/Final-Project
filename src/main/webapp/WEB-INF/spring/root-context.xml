@@ -12,7 +12,10 @@
 			value="org.mariadb.jdbc.Driver" />
 		<property name="url"
 			value="jdbc:mariadb://192.168.0.55:3305/GoldenEGG" />
-		<property name="username" value="kim" />
+
+
+		<property name="username" value="song" />
+
 		<property name="password" value="1111" />
 	</bean>
 
@@ -20,8 +23,8 @@
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
 		id="sqlSessionFactory">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="mapperLocations"
-			value="classpath:/mapper/*Mapper.xml"></property>
+		 <property name="mapperLocations"
+			value="classpath:/mapper/*Mapper.xml"></property> 
 	</bean>
 	
 	<!-- sqlsessionTemplate spring과 연동하기 위한 객체 -->
