@@ -17,7 +17,8 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-
+		
+		
 		
 		return "main";
 	}
