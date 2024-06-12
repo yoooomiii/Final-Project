@@ -20,14 +20,15 @@ public class LoginController {
 	IF_LoginService lservice;
 	// 집가서 자고 싶다.
 	
-	@RequestMapping(value = "loginForm", method = RequestMethod.GET)
-	public String loginForm() {
-		return "login/signForm";
-	}
-	@RequestMapping(value = "loginForm2", method = RequestMethod.GET)
-	public String loginForm2() {
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login() {
 		return "login/loginForm";
 	}
+	@RequestMapping(value = "join", method = RequestMethod.GET)
+	public String join() {
+		return "login/joinForm";
+	}
+	
 	
 	@RequestMapping(value = "signUp", method = RequestMethod.GET) // 회원가입 요청 
 	public String signUp(@ModelAttribute MemberVO mvo) {
@@ -61,10 +62,10 @@ public class LoginController {
 				return "redirect:/";
 				
 			}else { // request가 잘못된 혹은 없는 비번을 줬을 때 
-				return "redirect:loginForm";
+				return "redirect:login";
 			}
 		}else {
-			return "redirect:loginForm";
+			return "redirect:login";
 		}
 		/* 세션에 값이 제대로 저장되었는지 확인
 		 * System.out.println("session.getAttribute: "+session.getAttribute("userid"));

@@ -46,7 +46,10 @@
 				<exclude-mapping path="/signUp"/>
 				<exclude-mapping path="/signIn"/> 
 				<exclude-mapping path="/loginForm"/>
-				<exclude-mapping path="/loginForm2"/>
+				<exclude-mapping path="/resources/**" />
+				<exclude-mapping path="/css/**" />
+				<exclude-mapping path="/login"/>
+				<exclude-mapping path="/join"/>
 
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
