@@ -53,7 +53,7 @@ public class LoginController {
 				session.setAttribute("useraddress", mvo.getAddress());
 				session.setAttribute("usergrade", mvo.getMaster());
 				
-				return "login/welcome";
+				return "main";
 				
 			}else { // request가 잘못된 혹은 없는 비번을 줬을 때 
 				return "redirect:loginForm";
@@ -72,10 +72,10 @@ public class LoginController {
 	@GetMapping("logout") // 로그아웃 (세션 삭제) 
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:loginForm";
+		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "myPage", method = RequestMethod.GET) // 회원만이 접근할 수 있는 페이지라는 설정...
+	@RequestMapping(value = "myPage", method = RequestMethod.GET) // 회원만이 접근할 수 있는 페이지라는 설정... 테스트용 컨트롤러
 	public String myPage() {
 		return "ownPage";
 	}

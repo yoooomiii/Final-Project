@@ -28,7 +28,7 @@
 	<div id="Box">
 		<header>
 			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
+				<a href="loginForm"><span> 로그인 </span></a>
 			</div>
 			<div class="join box">
 				<a href="#"><span> 회원가입 </span></a>
