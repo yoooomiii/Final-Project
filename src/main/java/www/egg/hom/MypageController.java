@@ -1,8 +1,8 @@
 package www.egg.hom;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +15,7 @@ import www.egg.vo.MemberVO;
 @Controller
 public class MypageController {
 	
-	@Inject
+	@Autowired
 	IF_MypageService mpservice;
 	
 	@GetMapping(value="/mypage")
@@ -45,7 +45,7 @@ public class MypageController {
 		return "mymod";
 	}
 	
-	@PostMapping(value="/modsave")     //집가서 수정
+	@PostMapping(value="/modsave")    //수정 저장 하기
 	public String modnosave(@ModelAttribute MemberVO mvo,HttpSession session) throws Exception  {
 		session.getAttribute("userid");
 		session.getAttribute("username");
