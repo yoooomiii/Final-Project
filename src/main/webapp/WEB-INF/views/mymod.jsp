@@ -3,11 +3,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <html>
 <head>
 <title>Document</title>
-</head>
+</head>f
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundel/postcode/prod/postcode.v2.js"></script>
 
@@ -91,7 +93,7 @@ span{
 	<div id="login"></div>
 	<div id="nav"></div>
 	<div id="box">
-	<form action="modinput" method="get">
+	
 		<div id="profile">
 			<h2>회원 정보 수정</h2>
 			
@@ -100,14 +102,16 @@ span{
 			</div>
 		</div>
 		<div id="ex">
-			아이디    <input type="text" name="id" class="tx" value="${mvo.id}" > <br> <br>
+			<form action="modsave" method="post">
+			아이디    <input type="text" name="id" class="tx" value="${userid}" readonly> <br> <br>
 			
-			이름       <input type="text" name="name" class="tx" > <br> <br>
-			전화번호   <input type="text" name="address" class="tx" ><br> <br>
-			이메일    <input type="text" name="email" class="tx" > <br> <br>
-			주소      <input type="text name="address" class="tx">
+			이름       <input type="text" name="name" class="tx" value="${username}" > <br> <br>
+			<!-- 전화번호   <input type="text" name="address" class="tx"><br> <br> -->
+			이메일    <input type="text" name="email" class="tx" value="${useremail}"> <br> <br>
+			주소      <input type="text" name="address" class="tx" value="${useraddress}">
 			<button type="button" id="search" onclick="findaddr()">주소검색</button>
 			<br>
+			
 			<input type="submit" value="저장" id="savebtn">
 			</div>
 			</form>

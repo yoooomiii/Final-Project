@@ -10,7 +10,7 @@ import www.egg.vo.MemberVO;
 
 @Service
 
-public class MypageServiceImpl implements IF_MypageService {
+public abstract class MypageServiceImpl implements IF_MypageService {
 	
 	@Inject
 	IF_MypageDAO mpdao;
@@ -25,6 +25,12 @@ public class MypageServiceImpl implements IF_MypageService {
 	public MemberVO modid(String id) throws Exception {
 		// TODO Auto-generated method stub
 		return mpdao.modid(id);
+	}
+
+	@Override
+	public void modsave(MemberVO mvo) throws Exception {
+		// TODO Auto-generated method stub
+		mpdao.modsave(mvo);
 	}
 
 }

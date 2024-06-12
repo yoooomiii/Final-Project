@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -183,9 +184,9 @@ td {
 			</div>
 		</nav>
 
-		<form id="line">
+		<div id="line">
 			<div id="mypage">
-				<h2>???님의 마이페이지입니다</h2>
+				<h2>${username}님의마이페이지입니다</h2>
 			</div>
 
 
@@ -196,13 +197,14 @@ td {
 
 				<div id="info">
 
-					<h2>닉네임: ?????</h2>
-					<h2>이메일: ?????</h2>
-					<h2>최근 주소: ?????</h2>
-				<form action="mod" method="get">
-				<button type="submit" value="mymod?id=${mvo.id}">나의 정보 수정</button>
-				</form>		
-				
+					<h2>아이디:${userid}</h2>
+					<h2>이메일:${useremail}</h2>
+					<h2>최근 주소:${useraddress}</h2>
+					<form action="mod" method="get">
+						<button type="submit">나의 정보 수정</button>
+					</form>
+
+
 				</div>
 
 
@@ -228,7 +230,7 @@ td {
 				</div>
 			</div>
 
-		</form>
+		</div>
 
 		<section id="page">
 

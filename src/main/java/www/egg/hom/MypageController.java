@@ -1,12 +1,12 @@
 package www.egg.hom;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import www.egg.service.IF_MypageService;
 import www.egg.vo.MemberVO;
@@ -19,7 +19,12 @@ public class MypageController {
 	IF_MypageService mpservice;
 	
 	@GetMapping(value="/mypage")
-	public String home() {
+	public String home(HttpSession session) {
+		session.getAttribute("userid");
+		session.getAttribute("username");
+		session.getAttribute("useremail");
+		session.getAttribute("useraddress");
+		System.out.println(session.getAttribute("userid"));
 		return "mypage";
 	}
 	
@@ -30,19 +35,23 @@ public class MypageController {
 		return "writereview";
 	}
 	
+	
 	@GetMapping(value="/mod")
-	public String modno(@ModelAttribute MemberVO mvo,Model model) throws Exception  {
-		model.addAttribute("mvo", mvo);
-		System.out.println("fuck");
+	public String modno(HttpSession session) throws Exception  {
+		session.getAttribute("userid");
+		session.getAttribute("username");
+		session.getAttribute("useremail");
+		session.getAttribute("useraddress");
 		return "mymod";
 	}
 	
-	@GetMapping(value="/modsave")
-	public String modno(@RequestParam("id") String id,
-			Model model) throws Exception  {
-		
-		MemberVO mvo = mpservice.modid(id);
-		System.out.println("수정된 글 정보 확인");
+	@PostMapping(value="/modsave")     //집가서 수정
+	public String modnosave(@ModelAttribute MemberVO mvo,HttpSession session) throws Exception  {
+		session.getAttribute("userid");
+		session.getAttribute("username");
+		session.getAttribute("useremail");
+		session.getAttribute("useraddress");
+		mpservice.modsave(mvo);
 		
 		return "redirect:mypage";
 	}

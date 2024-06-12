@@ -28,6 +28,12 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		return sqlsession.selectOne(mapperQuery + ".selectone", id);
 	}
 
+	@Override
+	public void modsave(MemberVO mvo) throws Exception {
+		// TODO Auto-generated method stub
+		sqlsession.update(mapperQuery + ".update", mvo);
+	}
+
 
 
 
