@@ -14,11 +14,13 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		HttpSession session = request.getSession(); // 세션에서 값을 가져온다.
 		Object getSession = session.getAttribute("userid");
+		Object getGrade = session.getAttribute("usergrade");
 		if(getSession==null) { // 로그인한 사람 아님
-			response.sendRedirect(request.getContextPath()+"/login"); /// 처음 화면으로 돌아가라. 
+			response.sendRedirect(request.getContextPath()+"/login"); /// 로그인 화면으로 돌아가라. 
 			System.out.println("preHandle 발동!!!");
 			return false;
 		}
+		
 		return super.preHandle(request, response, handler);
 	}
 	
