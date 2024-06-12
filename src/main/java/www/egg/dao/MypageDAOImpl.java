@@ -1,5 +1,6 @@
 package www.egg.dao;
 
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,5 +27,8 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(mapperQuery + ".selectone", id);
 	}
+
+
+
 
 }

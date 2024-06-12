@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="www.egg.dao.IF_LoginDAO">
+	<insert id="insertone" parameterType="www.egg.vo.MemberVO">
+		insert into member values (#{id},#{pw},#{name},#{call},#{email},#{address},#{master})
+	</insert>
+	<select id="selectoneid" resultType="www.egg.vo.MemberVO">
+		select * from member where id = #{id}
+	</select>
+</mapper>

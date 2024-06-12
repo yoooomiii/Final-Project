@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-
+<%@ page session ="true" %>
 <!DOCTYPE html>
 <html lang="kor">
 <head>
@@ -28,10 +28,15 @@
 	<div id="Box">
 		<header>
 			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
+				<a href="login"><span> 로그인 </span></a>
 			</div>
 			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+				<a href="join"><span> 회원가입 </span></a>
+			</div>
+			<div class="logout box">
+				<c:if test="${userid != null }">
+					<a href="logout"><span> 로그아웃 </span></a>
+				</c:if>
 			</div>
 		</header>
         
