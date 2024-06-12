@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인 메인</title>
-	<link href="${path}./resources/css/login.css" rel="stylesheet"/>
+	<link href="${path}./resources/css/sign.css" rel="stylesheet"/>
 </head>
 <body>
     <div id="form-container">
           <!-- Sign up form -->
           <div id="sign-up-container">
-          	<h3>css 없는 심플 버전의 로그인 페이지입니다. (24-06-11)</h3>
+          	<h3>심플 버전의 로그인 페이지입니다. (24-06-11)</h3>
             <h3>회원가입</h3>
             <form action="signUp" method="get">
               <label for="name">회원 ID</label>
@@ -46,11 +46,11 @@
           <hr>
 
           <!-- Sign in form -->
-          <div id="sign-in-container" class="hide">
+          <div id="sign-in-container" >
             <h3>로그인</h3>
             <form action="signIn" method="get">
               <label for="username">회원 ID</label>
-              <input type="text" name="id" id="username" placeholder="user@example.com">
+              <input type="text" name="id" id="username" >
   
 
               <label for="password">비밀번호</label>

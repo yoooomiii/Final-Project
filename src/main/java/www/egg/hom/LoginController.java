@@ -26,14 +26,14 @@ public class LoginController {
 	}
 	@RequestMapping(value = "loginForm2", method = RequestMethod.GET)
 	public String loginForm2() {
-		return "login/login";
+		return "login/loginForm";
 	}
 	
 	@RequestMapping(value = "signUp", method = RequestMethod.GET) // 회원가입 요청 
 	public String signUp(@ModelAttribute MemberVO mvo) {
 		lservice.signUp(mvo);
 		//System.out.println(mvo.toString());
-		return "redirect:loginForm";
+		return "redirect:/";
 	}
 	@RequestMapping(value = "signIn", method = RequestMethod.GET) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임)
 	public String signIn(@RequestParam("id") String id,
@@ -58,7 +58,7 @@ public class LoginController {
 				session.setAttribute("useraddress", mvo.getAddress());
 				session.setAttribute("usergrade", mvo.getMaster());
 				
-				return "main";
+				return "redirect:/";
 				
 			}else { // request가 잘못된 혹은 없는 비번을 줬을 때 
 				return "redirect:loginForm";

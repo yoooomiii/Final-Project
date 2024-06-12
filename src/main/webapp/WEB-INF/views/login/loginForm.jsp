@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
 
     <title>로그인 메인</title>
-	<link href="${path}./resources/css/login.css" rel="stylesheet"/>
+	<link href="${path}./resources/css/sign.css" rel="stylesheet"/>
 </head>
 <body>
     <div id="form-container">
@@ -15,18 +15,25 @@
           <!-- Sign up form -->
           <div id="sign-up-container">
             <h3>골든에그와 함께하기</h3>
-            <form action="" method="">
-              <label for="name">회원 닉네임</label>
-              <input type="text" name="name" id="name" placeholder="Name">
+            <form action="#" method="get">
+ 			  <label for="name">회원 ID</label>
+              <input type="text" name="id" id="name" placeholder="사용할 아이디">
+              
+              <label for="password">비밀번호</label>
+              <input type="password" name="pw" id="password" placeholder="">
+              
+              <label for="username">회원 이름</label>
+              <input type="text" name="name" id="realname" placeholder="홍길동">
+
+              <label for="username">전화번호 (*선택)</label>
+              <input type="text" name="call" id="callnum" placeholder="01012341234">
+
+              <label for="username">자택 주소 (*메뉴 수령 용도)</label>
+              <input type="text" name="address" id="callnum" placeholder="도로명 주소 ex:)">
+  
   
               <label for="email">Email</label>
               <input type="email" name="email" id="email" placeholder="Email">
-
-              
-              
-              <label for="password">비밀번호</label>
-              <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
-              
               
               <div id="form-controls">
                 <button type="submit">이메일 인증하기</button>
@@ -42,16 +49,16 @@
           <!-- Sign in form -->
           <div id="sign-in-container" class="hide">
             <h3>반가워요!</h3>
-            <form action="" method="">
-              <label for="username">회원 닉네임</label>
-              <input type="text" name="username" id="username" placeholder="user@example.com">
+            <form action="#" method="get">
+              <label for="username">회원 ID</label>
+              <input type="text" name="id" id="userid">
   
               <label for="password">비밀번호</label>
-              <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+              <input type="password" name="pw" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
   
               <div id="form-controls">
-                <button type="submit">가입</button>
-                <button type="button" id="toggleSignIn">로그인</button>
+                <button type="submit">로그인</button>
+                <button type="button" id="toggleSignIn">가입</button>
               </div>
   
               <input type="checkbox" name="terms" id="terms" hidden>
