@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>greeting</title>
 </head>
 <body>
 	  	<div>

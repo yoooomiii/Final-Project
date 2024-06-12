@@ -52,16 +52,20 @@ public class LoginController {
 				session.setAttribute("useremail", mvo.getEmail());
 				session.setAttribute("useraddress", mvo.getAddress());
 				session.setAttribute("usergrade", mvo.getMaster());
-			}else { // request가 잘못된 혹은 없는 비번을 줬을 때 
 				
+				return "login/welcome";
+				
+			}else { // request가 잘못된 혹은 없는 비번을 줬을 때 
+				return "redirect:loginForm";
 			}
+		}else {
+			return "redirect:loginForm";
 		}
 		/* 세션에 값이 제대로 저장되었는지 확인
 		 * System.out.println("session.getAttribute: "+session.getAttribute("userid"));
 		 * System.out.println("session.getAttribute: "+session.getAttribute("username"))
 		 * ;
 		 */
-		return "login/welcome";
 		
 	
 	}
