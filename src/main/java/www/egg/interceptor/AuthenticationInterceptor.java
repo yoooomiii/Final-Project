@@ -15,19 +15,15 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession(); // 세션에서 값을 가져온다.
 		Object getSession = session.getAttribute("userid");
 		if(getSession==null) { // 로그인한 사람 아님
-			response.sendRedirect(request.getContextPath()+"/"); /// 처음 화면으로 돌아가라. 
+			response.sendRedirect(request.getContextPath()+"/loginForm"); /// 처음 화면으로 돌아가라. 
 			System.out.println("preHandle 발동!!!");
 			return false;
 		}
 		return super.preHandle(request, response, handler);
 	}
 	
-	  @Override // 포스트핸들 (컨트롤러 처리가 끝남. model에 넘겨줄 인자가 있는 경우
+	   // 포스트핸들 (컨트롤러 처리가 끝남. model에 넘겨줄 인자가 있는 경우
 	  // 그걸 포스트핸들이 컨트롤러로부터 전달받아서 view로 넘기기 전 마지막으로 조작하거나 참조할 수 있다.)
-	    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-	            ModelAndView modelAndView) throws Exception {
-		  	System.out.println("postHandle 발동!!!");
-	        System.out.println("[ModelAndView][ model 이름 : " + modelAndView.getViewName() + "][ model 내용 :" + modelAndView.getModel() + "]" );
-	    } 
+	   
 
 }

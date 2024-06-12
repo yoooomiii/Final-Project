@@ -24,6 +24,11 @@ public class LoginController {
 	public String loginForm() {
 		return "login/signForm";
 	}
+	@RequestMapping(value = "loginForm2", method = RequestMethod.GET)
+	public String loginForm2() {
+		return "login/login";
+	}
+	
 	@RequestMapping(value = "signUp", method = RequestMethod.GET) // 회원가입 요청 
 	public String signUp(@ModelAttribute MemberVO mvo) {
 		lservice.signUp(mvo);

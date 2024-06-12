@@ -44,8 +44,10 @@
 				<mapping path="/**"></mapping> <!-- 모든 요청을 가로챈다. -->
 				<exclude-mapping path="/"/> <!-- /과 login 요청은 제외하고 ^^ -->
 				<exclude-mapping path="/signUp"/>
+				<exclude-mapping path="/signIn"/> 
 				<exclude-mapping path="/loginForm"/>
-				<exclude-mapping path="/signIn"/> <!-- 이스터에그프로젝트의 로그인 요청 -->
+				<exclude-mapping path="/loginForm2"/>
+
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
 		</interceptors>

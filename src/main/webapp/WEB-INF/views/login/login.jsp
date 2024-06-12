@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,8 +7,8 @@
     <meta charset="UTF-8">
 
     <title>로그인 메인</title>
+	<link href="${path}./resources/css/login.css" rel="stylesheet"/>
 </head>
-<link rel="stylesheet" href="login.css">
 <body>
     <div id="form-container">
         <div id="form-inner-container">
@@ -30,6 +31,7 @@
               <div id="form-controls">
                 <button type="submit">이메일 인증하기</button>
                 <button type="submit">가입</button>
+                <button type="button" id="toggleSignIn">로그인</button>
               </div>
   
               <input type="checkbox" name="terms" id="terms">
@@ -65,7 +67,7 @@
     </div>
 </body>
 </html>
-<script type="">
+<script>
     const signInBtn = document.querySelector('#toggleSignIn');
     const signUpBtn = document.querySelector('#toggleSignUp');
     

@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인 메인</title>
+	<link href="${path}./resources/css/login.css" rel="stylesheet"/>
 </head>
-<link rel="stylesheet" href="#">
 <body>
     <div id="form-container">
           <!-- Sign up form -->
