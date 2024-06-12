@@ -84,19 +84,19 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 마이 페이지 </a>
+                        <a href="mypage"> 마이 페이지 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 주문 내역 </a>
+                                <a href="mypage"> 주문 내역 </a>
                             </li>
                             <li>
-                                <a href="#"> 찜목록 </a>
+                                <a href="mypage"> 찜목록 </a>
                             </li>
                             <li>
-                                <a href="#"> 나의 리뷰 </a>
+                                <a href="mypage"> 나의 리뷰 </a>
                             </li>
                             <li>
-                                <a href="#"> 내 정보관리 </a>
+                                <a href="mypage"> 내 정보관리 </a>
                             </li>
                         </ul>
                     </li>

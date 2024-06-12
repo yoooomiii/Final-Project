@@ -1,43 +1,42 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+
+<!DOCTYPE html>
+<html lang="kor">
 <head>
-<title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="${path}/resources/css/main.css" rel="stylesheet" />
+<title>Home</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+	crossorigin="anonymous"></script>
 </head>
 <style>
-#login {
-	float: left;
-	width: 1200px;
-	height: 50px;
-	border: 1px solid black;
-}
-
-#nav {
-	float: left;
-	width: 1200px;
-	height: 50px;
-	margin-top: 10px;
-	border: 1px solid black;
+#line {
+	width: 1210px;
+	height: 350px;
+	border: 4px solid gray;
+	margin-left: 20px;
+	border-radius: 30px;
 }
 
 #mypage {
 	float: left;
-	width: 1200px;
+	width: 1210px;
 	height: 70px;
-	border: 1px solid black;
-	margin-top: 20px;
-	text-align: center;
-}
-
-#usermod {
-	width: 180px;
-	height: 50px;
-	margin-top: -55px;
-	text-align: center;
 	/* border: 1px solid black; */
-	margin-left: 1000px;
+	margin-top: 20px;
 }
 
 #modbutton {
@@ -52,19 +51,19 @@
 
 #profile {
 	float: left;
-	width: 1200px;
+	width: 1210px;
 	height: 200px;
-	margin-top: 10px;
-	border: 1px solid black;
+	margin-left: 20px;
+	/* border: 1px solid black; */
 }
 
 #photo {
 	float: left;
 	width: 200px;
 	height: 200px;
-	margin-left: 30px;
+	margin-left: 20px;
 	border-radius: 100px;
-	border: 1px solid black;
+	border: 5px solid yellow;;
 }
 
 #info {
@@ -90,15 +89,17 @@
 
 #page {
 	float: left;
-	width: 1200px;
+	width: 1210px;
 	height: 500px;
 	margin-top: 10px;
-	border: 1px solid black;
+	border: 4px solid gray;
+	margin-left: 20px;
+	border-radius: 30px;
 }
 
 footer {
 	float: left;
-	width: 1200px;
+	width: 100%;
 	height: 300px;
 	margin-top: 40px;
 	text-align: center;
@@ -108,122 +109,215 @@ footer {
 h3 {
 	text-align: center;
 }
-h2{
+
+h2 {
 	font-size: large;
 }
-tr,td,th {
-	border: 1px solid black;
+
+table {
+	border-collapse: collapse;
+	width: 1130px;
+	font-size: 16px;
+	margin-left: 28px;
 }
-#allmlist{
-	float :left;
-	width:250px;
-	height: 500px;
-	border: 1px solid black;
+
+thead {
+	text-align: center;
+	font-weight: bold;
 }
-#mlist{
-	float :left;
-	width:925px;
-	height: 500px;
-	margin-left:20px;
-	border: 1px solid black;
+
+tbody {
+	font-size: 12px;
 }
-#mtable{
-	border: 1px solid black;
+
+td {
+	padding: 15px 0px;
+	border-bottom: 2px solid grey;
 }
 </style>
+
 <body>
-	<div id="login"></div>
-	<div id="nav"></div>
-	<section>
-		<div id="mypage">
-			<h2>???님의 마이페이지입니다</h2>
-			<div id="usermod">
-
-				<!-- <h3>나의 정보 수정</h3> -->
+	<div id="Box">
+		<header>
+			<div class="login box">
+				<a href="#"><span> 로그인 </span></a>
 			</div>
-		</div>
-		
-		
-		<section id="profile">
-			<div id="photo"></div>
-			
-			<div id="info">
-				<h2>닉네임: ?????</h2>
-				<h2>이메일: ?????</h2>
-				<h2>최근 주소: ?????</h2>	
-				<form action="mymodpage" method="get">		
-				<input type="submit" id="modbutton" value="나의 정보 수정">
-				</form>
+			<div class="join box">
+				<a href="#"><span> 회원가입 </span></a>
 			</div>
-			
-			
-			<div id="icon">
-				<div class="iconimg">
-					<img src="./resources/img/주문내역2.png" width="100" height="90">
-					<h3>주문내역</h3>
-				</div>
-				<div class="iconimg">
-					<img src="./resources/img/찜목록2.png" width="100" height="90" onclick="location='detail.jsp'">
-					<h3>찜목록</h3>
-				</div>
-				<div class="iconimg">
-					<img src="./resources/img/리뷰.png" width="100" height="90">
-					<h3>리뷰</h3>
-				</div>
-				<div class="iconimg">
-					<img src="./resources/img/포인트.png" width="100" height="90">
-					<h3>포인트</h3>
+		</header>
+
+		<nav>
+			<div class="logo">
+				<a href="#"><span><img
+						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+			</div>
+			<div class="menu">
+				<ul>
+					<li><a href="#"> HOME </a></li>
+					<li><a href="#"> 브랜드 소개 </a>
+						<ul class="submenu">
+							<li><a href="#"> 브랜드 소개 </a></li>
+						</ul></li>
+					<li><a href="#"> 메뉴 주문하기 </a>
+						<ul class="submenu">
+							<li><a href="#"> 인기 메뉴 </a></li>
+							<li><a href="#"> 대표 메뉴 </a></li>
+							<li><a href="#"> 치킨 메뉴 </a></li>
+							<li><a href="#"> 사이드 / 음료 </a></li>
+							<li><a href="#"> 세트 메뉴 </a></li>
+						</ul></li>
+					<li><a href="#"> 고객센터 </a>
+						<ul class="submenu">
+							<li><a href="#"> 1:1 문의 </a></li>
+							<li><a href="#"> FAQ </a></li>
+						</ul></li>
+					<li><a href="mypage"> 마이 페이지 </a>
+						<ul class="submenu">
+							<li><a href="mypage"> 주문 내역 </a></li>
+							<li><a href="mypage"> 찜목록 </a></li>
+							<li><a href="mypage"> 나의 리뷰 </a></li>
+							<li><a href="mypage"> 내 정보관리 </a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</nav>
+
+		<form id="line">
+			<div id="mypage">
+				<h2>???님의 마이페이지입니다</h2>
+			</div>
+
+
+
+
+			<div id="profile">
+				<div id="photo"></div>
+
+				<div id="info">
+
+					<h2>닉네임: ?????</h2>
+					<h2>이메일: ?????</h2>
+					<h2>최근 주소: ?????</h2>
+				<form action="mod" method="get">
+				<button type="submit" value="mymod?id=${mvo.id}">나의 정보 수정</button>
+				</form>		
+				
 				</div>
 
 
+				<div id="icon">
+					<div class="iconimg">
+						<img src="./resources/img/주문내역2.png" width="100" height="90"
+							onclick="list">
+						<h3>주문내역</h3>
+					</div>
+					<div class="iconimg">
+						<img src="./resources/img/찜목록2.png" width="100" height="90"
+							onclick="location='detail.jsp'">
+						<h3>찜목록</h3>
+					</div>
+					<div class="iconimg">
+						<img src="./resources/img/리뷰.png" width="100" height="90">
+						<h3>리뷰</h3>
+					</div>
+					<div class="iconimg">
+						<img src="./resources/img/포인트.png" width="100" height="90">
+						<h3>포인트</h3>
+					</div>
+				</div>
 			</div>
-		</section>
+
+		</form>
 
 		<section id="page">
-			
-			<div id="allmlist">
-				<h3>전체 주문 내역</h3>
-					
-			</div>
+
+
+
 			<div id="mlist">
-				<table id="mtable">
-						
+				<table class="cart__list">
+					<form>
+						<thead>
 							<tr>
-								<th>주문번호</th>
-								<th>메뉴</th>
-								<th>배달주소</th>
-								<th>수령방법</th>
-								<th>주문일시</th>
+								<td colspan="2">(사진)</td>
+								<td>메뉴이름</td>
+								<td>상품금액</td>
+								<td>배송방법</td>
+								<td>리뷰</td>
 							</tr>
-						
-							<tr>
-								<th>002</th>
-								<th>간장치킨</th>
-								<th>수원시 장안구 연무동</th>
-								<th>배달</th>
-								<th>2024.06.11/14.20.12</th>
+						</thead>
+						<tbody>
+							<form action="/review" method="get">
+								<tr class="cart__list__detail">
+									<td style="width: 5%;"></td>
+									<td><span>치킨사진</span></td>
+									<td><a href="#"></a> <span>메뉴이름</span></td>
+									<td><span>상품금액</span></td>
+									<td><span>포장</span><br></td>
+
+									<td><input type="submit" value="리뷰쓰기"></td>
+							</form>
+
 							</tr>
-					
-					
-					
-					</table>
-			</div>
+						</tbody>
+					</form>
+				</table>
 		</section>
+</body>
 
 
-		<footer>
-		
-		</footer>
+</div>
+</section>
 
-	</section>
-	<script>
-		
+
+<footer>
+	<div class="footer-box">
+		<div class="footer-logo">
+			<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+				alt=""></a>
+		</div>
+		<div class="footer-con">
+			<div class="con-text">
+				<span> 상호명 : Golden Egg chicken (골든에그) </span>
+			</div>
+			<div class="con-text">
+				<span> 대표자 : 송유미 </span>
+			</div>
+			<div class="con-text">
+				<span> 사업자등록번호 : 112-00-001234 </span>
+			</div>
+			<div class="con-text">
+				<span> 대표번호 : 031-500-1234 </span>
+			</div>
+			<div class="con-text">
+				<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
+			</div>
+			<div class="con-text">
+				<span> 이메일 : goldenEgg @ gmail.com </span>
+			</div>
+			<div class="con-text">
+				<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
+			</div>
+		</div>
+		<div class="sns">
+			<span><a href="#"><img
+					src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
+				href="#"><img src="${path}/resources/img/facebook_icon.jpg"
+					alt=""></a></span> <span><a href="#"><img
+					src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+		</div>
+	</div>
+</footer>
+
+</section>
+<script>
 	function list() {
-		alert("됬냐");
+		alert("hohoho");
 	}
-	
-	
-	
-	</script>
+
+	function review() {
+		location.href = "main";
+	}
+</script>
 </body>
 </html>

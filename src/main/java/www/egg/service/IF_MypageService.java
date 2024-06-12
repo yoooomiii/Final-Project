@@ -5,5 +5,5 @@ import www.egg.vo.MemberVO;
 public interface IF_MypageService {
 
 	public void insert(MemberVO mvo) throws Exception;
-	public MemberVO selectone(MemberVO mvo) throws Exception;
+	public MemberVO modid(String id) throws Exception;
 }

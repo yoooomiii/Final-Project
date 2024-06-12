@@ -21,9 +21,9 @@ public class MypageServiceImpl implements IF_MypageService {
 	} 
 
 	@Override
-	public MemberVO selectone(MemberVO mvo) throws Exception {
+	public MemberVO modid(String id) throws Exception {
 		// TODO Auto-generated method stub
-		return mpdao.selectone(mvo);
+		return mpdao.modid(id);
 	}
 
 }

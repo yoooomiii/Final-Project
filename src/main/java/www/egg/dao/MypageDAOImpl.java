@@ -22,9 +22,9 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	}
 
 	@Override
-	public MemberVO selectone(MemberVO mvo) throws Exception {
+	public MemberVO modid(String id) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne(mapperQuery + ".selectone", mvo);
+		return sqlsession.selectOne(mapperQuery + ".selectone", id);
 	}
 
 }

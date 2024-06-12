@@ -1,7 +1,9 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <html>
 <head>
 <title>Document</title>
@@ -61,6 +63,7 @@
 	border: 2.5px solid gray;
 	margin-top: 15px;
 	item-align: center;
+	border-radius : 10px;
 }
 
 #savebtn {
@@ -99,12 +102,12 @@ span{
 		<div id="ex">
 			아이디    <input type="text" name="id" class="tx" value="${mvo.id}" > <br> <br>
 			
-			이름       <input type="text" name="name" class="tx" value="${mvo.name}"> <br> <br>
-			전화번호   <input type="text" name="address" class="tx" value="${mvo.phone}"><br> <br>
-			이메일    <input type="text" name="email" class="tx" value="${mvo.email}"> <br> <br>
-			주소      <input type="text name="address" class="tx" value="${mvo.address}">
+			이름       <input type="text" name="name" class="tx" > <br> <br>
+			전화번호   <input type="text" name="address" class="tx" ><br> <br>
+			이메일    <input type="text" name="email" class="tx" > <br> <br>
+			주소      <input type="text name="address" class="tx">
 			<button type="button" id="search" onclick="findaddr()">주소검색</button>
-		
+			<br>
 			<input type="submit" value="저장" id="savebtn">
 			</div>
 			</form>
