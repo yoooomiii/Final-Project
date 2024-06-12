@@ -15,8 +15,7 @@
             <form action="signIn" method="get">
               <label for="username">회원 ID</label>
               <input type="text" name="id" id="username" >
-  
-
+              
               <label for="password">비밀번호</label>
               <input type="password" name="pw" id="password" placeholder="">
   

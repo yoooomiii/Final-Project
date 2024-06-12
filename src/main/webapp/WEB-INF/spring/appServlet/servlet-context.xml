@@ -50,6 +50,7 @@
 				<exclude-mapping path="/css/**" />
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
+				
 
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
