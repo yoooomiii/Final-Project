@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="www.egg.dao.IF_MenuDAO">
 	<insert id="insert" parameterType="www.egg.vo.MenuVO">
-		INSERT INTO MENU VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_star}, #{menu_file}) 
+		INSERT INTO MENU VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_star}) 
 	</insert>
 	<!-- 입력 -->
 	<select id="selectall" resultType="www.egg.vo.MenuVO">
@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 전체보기 -->
 	<update id="update" parameterType="www.egg.vo.MenuVO">
-		UPDATE MENU SET menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_star = #{menu_star}, menu_file = #{menu_file} WHERE menu_code = #{menu_code}
+		UPDATE MENU SET menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_star = #{menu_star} WHERE menu_code = #{menu_code}
 	</update>
 	<!-- 수정 -->
 	<delete id="delete" parameterType="www.egg.vo.MenuVO">
@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<!-- 삭제 -->
 	<insert id="saveFile" parameterType="String">
-		INSERT INTO MENU VALUES #{filename}
+		INSERT INTO PICTURE VALUES ((SELECT max(no) FROM MENU), #{filename})
 	</insert>
 	<!-- 사진 넣기 -->
 	<select id="selectone" resultType="www.egg.vo.MenuVO">
@@ -28,6 +28,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 사진 불러오기 -->
 	<select id="getFiles" resultType="String">
-		SELECT filename FROM MENU WHERE menu_code = #{menu_code}
+		SELECT filename FROM PICTURE WHERE no = #{no}
 	</select>
 </mapper>

@@ -19,7 +19,6 @@
 				<td>메뉴 가격</td>
 				<td>메뉴 설명</td>
 				<td>메뉴 평점</td>
-				<td>메뉴 사진</td>
 				<td>메뉴 수정</td>
 				<td>메뉴 삭제</td>
 			</tr>
@@ -34,7 +33,6 @@
 					<td>${menuvo.menu_price}</td>
 					<td>${menuvo.menu_ex}</td>
 					<td>${menuvo.menu_star}</td>
-					<td>${menuvo.menu_file}</td>
 					<td><button type=submit value="${menuvo.menu_code}" name="menu_code">수정</button></td>
 					</form>
 					<form action="menu_delete" method="post">

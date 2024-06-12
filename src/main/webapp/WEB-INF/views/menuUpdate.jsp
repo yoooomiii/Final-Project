@@ -19,7 +19,6 @@
 		수정할 음식 설명<input type=text value="${mvo.menu_ex}" name="menu_ex">
 		<br>
 		수정할 음식 평점<input type=text value="${mvo.menu_star}" name="menu_star">
-		<input type=hidden value="${mvo.menu_file}" name="menu_file">
 		<br>
 		<input type=submit value="수정하기" name="update">
 	</form>

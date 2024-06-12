@@ -19,7 +19,7 @@
 	<br>
 	메뉴 평점<input type=text name="menu_star">
 	<br>
-	메뉴 사진<input type=test name="menu_file">
+	메뉴 사진<input type=file name="file">
 	<br>
 	<input type=submit value="메뉴 저장">
 	</form>

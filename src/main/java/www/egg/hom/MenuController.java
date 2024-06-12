@@ -25,6 +25,12 @@ public class MenuController {
 
 	@Inject
 	FileDataUtil filedatautil;
+	
+	@GetMapping(value ="/")
+	public String main() {		//메인 창으로
+
+		return "main";
+	}
 
 	@GetMapping(value ="/viewDetail")
 	public String viewDetail(@RequestParam("menu_code") String no,
