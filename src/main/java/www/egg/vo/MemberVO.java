@@ -2,17 +2,17 @@ package www.egg.vo;
 
 public class MemberVO {
 
-	private String id = null;       // È¸¿øid
-	private String pw = null;       // È¸¿øpw
-	private String name = null;     // È¸¿øÀÌ¸§
-	private String call = null;     // ÈÞ´ëÀüÈ­
-	private String email = null;    // ÀÌ¸ÞÀÏ 
-	private String address = null;  // ÇöÀçÁÖ¼Ò
-	private int master = 0;         // È¸¿ø±ÇÇÑ
+	private String id = null;       // È¸ï¿½ï¿½id
+	private String pw = null;       // È¸ï¿½ï¿½pw
+	private String name = null;     // È¸ï¿½ï¿½ï¿½Ì¸ï¿½
+	private String phone = null;     // ï¿½Þ´ï¿½ï¿½ï¿½È­
+	private String email = null;    // ï¿½Ì¸ï¿½ï¿½ï¿½ 
+	private String address = null;  // ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½
+	private int master = 0;         // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", pw=" + pw + ", name=" + name + ", call=" + call + ", email=" + email
+		return "MemberVO [id=" + id + ", pw=" + pw + ", name=" + name + ", phone=" + phone + ", email=" + email
 				+ ", address=" + address + ", master=" + master + "]";
 	}
 
@@ -40,12 +40,12 @@ public class MemberVO {
 		this.name = name;
 	}
 
-	public String getCall() {
-		return call;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setCall(String call) {
-		this.call = call;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {

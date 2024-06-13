@@ -14,10 +14,10 @@
             <h3>로그인</h3>
             <form action="signIn" method="get">
               <label for="username">회원 ID</label>
-              <input type="text" name="id" id="username" >
+              <input type="text" name="id" id="id" >
               
               <label for="password">비밀번호</label>
-              <input type="password" name="pw" id="password" placeholder="">
+              <input type="password" name="pw" id="pw" placeholder="">
   
               <div id="form-controls">
                 <button type="submit" id="toggleSignIn">로그인</button>
