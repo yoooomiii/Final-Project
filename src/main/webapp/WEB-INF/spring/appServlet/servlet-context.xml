@@ -29,10 +29,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<beans:bean class="java.lang.String" id="uploadPath">
-		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
-	</beans:bean>
-
 	<beans:bean
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
 		id="multipartResolver">
@@ -57,6 +53,10 @@
 			</interceptor>
 		</interceptors>
 		
+
+	<beans:bean class="java.lang.String" id="uploadPath">
+		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
+	</beans:bean>
 
 	<context:component-scan
 		base-package="www.egg.hom" />
