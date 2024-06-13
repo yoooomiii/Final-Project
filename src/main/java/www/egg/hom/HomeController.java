@@ -1,26 +1,25 @@
 package www.egg.hom;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-@Controller
+//@Controller
 public class HomeController {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-		
-		
+	@GetMapping("/")
+	public String home() {
 		
 		return "main";
+	}
+	
+
+	@RequestMapping(value = "why", method = RequestMethod.GET)
+	public String why(Model model) {
+		
+		return "test";
 	}
 
 	

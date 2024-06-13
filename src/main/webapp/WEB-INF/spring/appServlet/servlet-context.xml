@@ -17,6 +17,9 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	
+	 <default-servlet-handler />
+	 <!--  스프링이 처리하지 않는 요청을 기본 서블릿으로 전달한다. 24-06-13 -->
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -24,10 +27,6 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
-
-	<beans:bean class="java.lang.String" id="uploadPath">
-		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
 	</beans:bean>
 
 	<beans:bean
@@ -45,26 +44,31 @@
 				<exclude-mapping path="/"/> <!-- /과 login 요청은 제외하고 ^^ -->
 				<exclude-mapping path="/signUp"/>
 				<exclude-mapping path="/signIn"/> 
-				<exclude-mapping path="/loginForm"/>
 				<exclude-mapping path="/resources/**" />
 				<exclude-mapping path="/css/**" />
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
-				
-
+				<exclude-mapping path="/why"/>
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
 		</interceptors>
 		
 
-	<context:component-scan
+	<beans:bean class="java.lang.String" id="uploadPath">
+		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
+	</beans:bean>
+	
+	<context:component-scan base-package="www.egg" />
+	
+
+<!-- 	<context:component-scan
 		base-package="www.egg.hom" />
 	<context:component-scan
 		base-package="www.egg.dao" />
 	<context:component-scan
 		base-package="www.egg.service" />
 	<context:component-scan
-		base-package="www.egg.util" />
-
-
+		base-package="www.egg.util" /> -->
+	
+		
 </beans:beans>

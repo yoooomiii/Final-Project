@@ -14,19 +14,19 @@
             <h3>회원가입</h3>
             <form action="signUp" method="get">
               <label for="name">회원 ID</label>
-              <input type="text" name="id" id="name" placeholder="사용할 아이디">
+              <input type="text" name="id" id="id" placeholder="사용할 아이디">
               
               <label for="password">비밀번호</label>
-              <input type="password" name="pw" id="password" placeholder="">
+              <input type="password" name="pw" id="pw" placeholder="">
               
               <label for="username">회원 이름</label>
-              <input type="text" name="name" id="realname" placeholder="홍길동">
+              <input type="text" name="name" id="name" placeholder="홍길동">
 
               <label for="username">전화번호 (*선택)</label>
-              <input type="text" name="call" id="callnum" placeholder="01012341234">
+              <input type="text" name="phone" id="phone" placeholder="01012341234">
 
               <label for="username">자택 주소 (*메뉴 수령 용도)</label>
-              <input type="text" name="address" id="callnum" placeholder="도로명 주소 ex:)">
+              <input type="text" name="address" id="address" placeholder="도로명 주소 ex:)">
   
   
               <label for="email">Email</label>

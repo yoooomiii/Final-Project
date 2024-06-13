@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>www.silver</groupId>
+	<groupId>www.egg</groupId>
 	<artifactId>hom</artifactId>
 	<name>www</name>
 	<packaging>war</packaging>
@@ -145,11 +145,11 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.6.0</version>
-		</dependency>  -->
+		</dependency>  
  
 		<!-- mariaDB -->
 		<dependency>
