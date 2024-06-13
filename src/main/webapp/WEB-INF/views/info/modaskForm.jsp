@@ -1,15 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<%@ page session ="true" %>
 <!DOCTYPE html>
 <html lang="kor">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/main.css" rel="stylesheet"/>
-<title> Home </title>
+<title> InfoPage </title>
+<link rel="stylesheet" href="/css/infoList.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -28,26 +23,21 @@
 	<div id="Box">
 		<header>
 			<div class="login box">
-				<a href="login"><span> 로그인 </span></a>
+				<a href="#"><span> 로그인 </span></a>
 			</div>
 			<div class="join box">
-				<a href="join"><span> 회원가입 </span></a>
-			</div>
-			<div class="logout box">
-				<c:if test="${userid != null }">
-					<a href="logout"><span> 로그아웃 </span></a>
-				</c:if>
+				<a href="#"><span> 회원가입 </span></a>
 			</div>
 		</header>
         
 		<nav>
             <div class="logo">
-				<a href="main"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="#"><span><img src="/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
                     <li>
-                        <a href="main"> HOME </a>
+                        <a href="#"> HOME </a>
                     </li>
                     <li>
                         <a href="#"> 브랜드 소개 </a>
@@ -81,7 +71,7 @@
                         <a href="#"> 고객센터 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="info/askpage"> 1:1 문의 </a>
+                                <a href="#"> 1:1 문의 </a>
                             </li>
                             <li>
                                 <a href="#"> FAQ </a>
@@ -108,69 +98,36 @@
                 </ul>
 			</div>
 		</nav>
-		<aside>
-			<div id="silde">
-				<div id="carouselExampleInterval" class="carousel slide"
-					data-bs-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active" data-bs-interval="1000">
-							<img src="/Gold.html/img/sing01.png" width="1260" , height="150"
-								class="d-block w-100" alt="준비중">
-						</div>
-						<div class="carousel-item" data-bs-interval="1000">
-							<img src="/Gold.html/img/sing02.png" width="1260" , height="150"
-								class="d-block w-100" alt="준비중">
-						</div>
-						<div class="carousel-item" data-bs-interval="1000">
-							<img src="..." width="1260" , height="150" class="d-block w-100"
-								alt="준비중">
-						</div>
-					</div>
-					<button class="carousel-control-prev" type="button"
-						data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
-					</button>
-					<button class="carousel-control-next" type="button"
-						data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
-					</button>
-				</div>
-			</div>
-		</aside>
-        <hr>
-		<section class="fame-menu">
-            <div class="title"> 인기 메뉴 </div>
-			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/image.png"></div>
-				<span><a href="gold01.html" order> 후라이드 치킨 </a></span>
-			</div>
-			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/egg02.png"></div>
-				<span><a href="gold01.html" order> 고추 치킨 </a></span>
-			</div>
-			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/egg03.png"></div>
-				<span><a href="gold01.html" order> 양념 치킨 </a></span>
-			</div>
-			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/egg04.png"></div>
-				<span><a href="gold01.html" order> 간장 치킨 </a></span>
-            </div>
-		</section>
-        <section class="main-banner">
-            <div class="banner notice">
-                <a href="#"> 공지사항 / 안내 </a>
-            </div>
-            <div class="banner event">
-                <a href="#"> 이벤트 </a>
+        <hr style="border:0px; height: 30px; background : linear-gradient(to left, rgb(230, 217, 15), white, rgb(255, 255, 20))" >
+        <section>
+            <div class="info_form">
+                <div class="title">
+                    <h1> 1 : 1 문 의 하 기 </h1>
+                    <hr style="height: 5px; background-color: rgb(24, 0, 0); border-radius: 2px;">
+                </div>
+                <form action="modSave" method="post">
+                    <h6> * 는 필수 작성 항목입니다. </h6>
+                    <p></p>
+                    <div class="info-title">
+                        <span> * 제 목 </span>
+                        <input type="text" size="20" name="title-text" value="${askvo.title}">
+                    </div>
+                    <p></p>
+                    <div class="info-contents">
+                        <span> * 내 용 </span>
+                        <input type="text" size="100" name="contents-text" value="${askvo.ex}">
+                    </div>
+                    <p></p>
+                    <div class="save"><input type="submit" value="저장하기"></div>
+                    
+                </form>
             </div>
         </section>
-		<footer>
+
+        <footer>
             <div class="footer-box">
                 <div class="footer-logo">
-                    <a href="main"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
+                    <a href="#"><img src="/img/logo1_ size60.png" alt=""></a>
                 </div>
                 <div class="footer-con">
                     <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>
@@ -182,12 +139,9 @@
                     <div class="con-text"><span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span></div>
                 </div>
                 <div class="sns">
-                    <span><a href="#"><img src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span>
-                    <span><a href="#"><img src="${path}/resources/img/facebook_icon.jpg" alt=""></a></span>
-                    <span><a href="#"><img src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="/img/instahram_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="/img/facebook_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="/img/twiter_icon.jpg" alt=""></a></span>
                 </div>
             </div>
 		</footer>
-	</div>
-</body>
-</html>
