@@ -49,12 +49,14 @@ public class LoginController {
 				if(session.getAttribute("userid")!=null) { // session에 이미 담긴 값이 있다면 깨끗이 청소
 					session.removeAttribute("userid");
 					session.removeAttribute("username");
+					session.removeAttribute("userphone");
 					session.removeAttribute("useremail");
 					session.removeAttribute("useraddress");
 					session.removeAttribute("usergrade");
 				}
 				session.setAttribute("userid", mvo.getId()); // session에 가져온 사용자 정보 박기 
 				session.setAttribute("username", mvo.getName());
+				session.setAttribute("userphone", mvo.getPhone());
 				session.setAttribute("useremail", mvo.getEmail());
 				session.setAttribute("useraddress", mvo.getAddress());
 				session.setAttribute("usergrade", mvo.getMaster());
