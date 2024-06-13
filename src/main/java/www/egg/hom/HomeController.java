@@ -20,7 +20,7 @@ public class HomeController {
 	@RequestMapping(value = "why", method = RequestMethod.GET)
 	public String why(Model model) {
 		
-		return "test";
+		return "ownPage";
 	}
 
 	

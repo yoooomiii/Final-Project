@@ -42,12 +42,12 @@
         
 		<nav>
             <div class="logo">
-				<a href="#"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
                     <li>
-                        <a href="#"> HOME </a>
+                        <a href="main"> HOME </a>
                     </li>
                     <li>
                         <a href="#"> 브랜드 소개 </a>
