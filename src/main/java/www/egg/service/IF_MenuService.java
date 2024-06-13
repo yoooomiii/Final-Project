@@ -2,9 +2,12 @@ package www.egg.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
 
+@Service
 public interface IF_MenuService {
 
 	public void option_insert(OptionVO ovo) throws Exception;	//사이드 입력

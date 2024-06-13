@@ -1,5 +1,11 @@
 package www.egg.service;
 
-public interface IF_LoginService {
+import org.springframework.stereotype.Service;
 
+import www.egg.vo.MemberVO;
+
+@Service
+public interface IF_LoginService {
+	public void signUp(MemberVO mvo);
+	public MemberVO signIn(String id);
 }

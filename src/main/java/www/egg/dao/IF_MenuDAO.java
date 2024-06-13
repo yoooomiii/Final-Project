@@ -7,6 +7,7 @@ import www.egg.vo.OptionVO;
 
 public interface IF_MenuDAO {
 
+
 	public void option_insert(OptionVO ovo) throws Exception;	//옵션 입력
 
 	public List<OptionVO> option_List() throws Exception;	//옵션 전체보기
@@ -36,5 +37,6 @@ public interface IF_MenuDAO {
 	public List<String> getFilename(String no) throws Exception;	//사진 불러오기
 
 	public void savepot(String filename) throws Exception;	//사진 테이블 저장
+
 
 }
