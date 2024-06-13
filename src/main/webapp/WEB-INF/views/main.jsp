@@ -58,14 +58,12 @@
 						<ul class="submenu">
 							<li><a href="#"> 브랜드 소개 </a></li>
 						</ul></li>
-					<li><a href="menu_List"> 메뉴 주문하기 </a> <a href="#"> 메뉴 주문하기
-					</a>
+					<li><a href="#"> 메뉴 주문하기</a>
 						<ul class="submenu">
 							<li><a href="#"> 인기 메뉴 </a></li>
 							<li><a href="#"> 대표 메뉴 </a></li>
-							<li><a href="#"> 치킨 메뉴 </a></li>
 							<li><a href="#"> 사이드 / 음료 </a></li>
-							<li><a href="option"> 세트 메뉴 </a> <a href="#"> 세트 메뉴 </a></li>
+							<li><a href="#"> 세트 메뉴 </a></li>
 						</ul></li>
 					<li><a href="#"> 고객센터 </a>
 						<ul class="submenu">
@@ -117,35 +115,33 @@
 		<section class="fame-menu">
 			<div class="title">인기 메뉴</div>
 			<div class="menulist">
-
-				<div class="menu-img">
-					<img src="${path}/resources/img/egg01.png">
-				</div>
-
 				<div class="menu-img">
 					<img src="${path}/resources/img/image.png">
 				</div>
-
 				<span><a href="gold01.html" order> 후라이드 치킨 </a></span>
 			</div>
+			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/egg02.png">
 				</div>
 				<span><a href="gold01.html" order> 고추 치킨 </a></span>
 			</div>
+			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/egg03.png">
 				</div>
 				<span><a href="gold01.html" order> 양념 치킨 </a></span>
 			</div>
+			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/egg04.png">
 				</div>
 				<span><a href="gold01.html" order> 간장 치킨 </a></span>
 			</div>
+			
 		</section>
 		<section class="main-banner">
 			<div class="banner notice">
