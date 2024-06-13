@@ -46,14 +46,18 @@ public class MenuController {
 
 		return "redirect:menu_List";
 	}
-	
-	/*
-	 * @GetMapping(value ="/viewDetail") public String
-	 * option_viewDetail(@RequestParam("option_no") String no, Model model) throws
-	 * Exception { //선택한 사이드 메뉴 정보 보기 OptionVO ovo = mservice.option_modno(no);
-	 * List<String> attackList = mservice.getFilename(no); model.addAttribute("ovo",
-	 * ovo); model.addAttribute("attackList", attackList); return "optionPick"; }
-	 */
+
+
+	/*@GetMapping(value ="/viewDetail")
+	public String option_viewDetail(@RequestParam("option_no") String no,
+			Model model) throws Exception { //선택한 사이드 메뉴 정보 보기
+		OptionVO ovo = mservice.option_modno(no);
+		List<String> attackList = mservice.getFilename(no);
+		model.addAttribute("ovo", ovo);
+		model.addAttribute("attackList", attackList);
+		return "optionPick";
+	}*/
+
 
 	@RequestMapping("/option_List")
 	public String option_allList(@ModelAttribute OptionVO ovo,
