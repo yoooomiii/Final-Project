@@ -52,9 +52,7 @@
 				<exclude-mapping path="/css/**" />
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
-				
 				<exclude-mapping path="/why"/>
-
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
 		</interceptors>
@@ -70,7 +68,4 @@
 		base-package="www.egg.util" />
 	
 		
-		
-
-
 </beans:beans>
