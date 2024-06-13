@@ -3,7 +3,7 @@ package www.egg.vo;
 public class MenuVO {	
 	
 	private String menu_code = null;	 // 음식 고유코드
-	private int menu_no = 0;			 // 음식 등록 순서
+	private int menu_no = 0;			 // 음식 등록 순서(PK)
 	private String menu_name = null;	 // 음식 이름
 	private int menu_price = 0;		 // 음식 가격
 	private String menu_ex = null;	 // 음식 설명

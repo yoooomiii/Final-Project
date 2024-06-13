@@ -24,19 +24,19 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${menuList}" var="menuvo" varStatus="status">
+			<c:forEach items="${menuList}" var="menuvo">
 				<tr>
 					<form action="menu_update" method="get">
 					<td>${menuvo.menu_code}</td>
 					<td>${menuvo.menu_no}</td>
-					<td><a href="viewDetail?menu_code=${menuvo.menu_code}">${menuvo.menu_name}</a></td>
+					<td><a href="viewDetail?menu_no=${menuvo.menu_no}">${menuvo.menu_name}</a></td>
 					<td>${menuvo.menu_price}</td>
 					<td>${menuvo.menu_ex}</td>
 					<td>${menuvo.menu_star}</td>
-					<td><button type=submit value="${menuvo.menu_code}" name="menu_code">수정</button></td>
+					<td><button type=submit value="${menuvo.menu_no}" name="menu_no">수정</button></td>
 					</form>
 					<form action="menu_delete" method="post">
-					<td><button type=submit value="${menuvo.menu_code}" name="menu_code">삭제</button></td>
+					<td><button type=submit value="${menuvo.menu_no}" name="menu_no">삭제</button></td>
 					</form>
 				</tr>
 			</c:forEach>

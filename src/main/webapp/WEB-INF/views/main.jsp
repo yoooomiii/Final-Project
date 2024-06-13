@@ -68,7 +68,7 @@
                                 <a href="#"> 사이드 / 음료 </a>
                             </li>
                             <li>
-                                <a href="#"> 세트 메뉴 </a>
+                                <a href="option"> 세트 메뉴 </a>
                             </li>
                         </ul>
                     </li>
