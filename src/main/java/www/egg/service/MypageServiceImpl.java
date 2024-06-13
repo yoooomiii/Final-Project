@@ -3,16 +3,16 @@ package www.egg.service;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.MemberVO;
 
 @Service
-
 public abstract class MypageServiceImpl implements IF_MypageService {
 	
-	@Inject
+	@Autowired
 	IF_MypageDAO mpdao;
 
 	@Override

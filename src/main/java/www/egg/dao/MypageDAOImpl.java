@@ -1,9 +1,8 @@
 package www.egg.dao;
 
 
-import javax.inject.Inject;
-
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MemberVO;
@@ -13,7 +12,7 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	
 	private static String mapperQuery="www.egg.dao.IF_MypageDAO";
 
-	@Inject
+	@Autowired
 	private SqlSession sqlsession;
 
 	@Override
@@ -33,8 +32,5 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		// TODO Auto-generated method stub
 		sqlsession.update(mapperQuery + ".update", mvo);
 	}
-
-
-
 
 }

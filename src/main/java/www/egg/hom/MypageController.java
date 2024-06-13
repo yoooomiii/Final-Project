@@ -18,6 +18,7 @@ public class MypageController {
 	@Autowired
 	IF_MypageService mpservice;
 	
+	
 	@GetMapping(value="/mypage")
 	public String home(HttpSession session) {
 		session.getAttribute("userid");
