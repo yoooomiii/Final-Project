@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="www.egg.dao.IF_MenuDAO">
 	<insert id="insert" parameterType="www.egg.vo.MenuVO">
-		INSERT INTO MENU VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_star}, #{menu_file}) 
+		INSERT INTO MENU VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_star}) 
 	</insert>
 	<!-- 입력 -->
 	<select id="selectall" resultType="www.egg.vo.MenuVO">
@@ -12,15 +12,54 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 전체보기 -->
 	<update id="update" parameterType="www.egg.vo.MenuVO">
-		UPDATE MENU SET menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_star = #{menu_star}, menu_file = #{menu_file} WHERE menu_code = #{menu_code}
+		UPDATE MENU SET menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_star = #{menu_star} WHERE menu_no = #{menu_no}
 	</update>
 	<!-- 수정 -->
 	<delete id="delete" parameterType="www.egg.vo.MenuVO">
-		DELETE FROM MENU WHERE menu_code = #{menu_code}
+		DELETE FROM MENU WHERE menu_no = #{menu_no}
 	</delete>
 	<!-- 삭제 -->
-	<select id="getFiles" resultType="www.egg.vo.MenuVO">
-		SELECT menu_file FROM MENU WHERE menu_code = #{menu_code}
+	<insert id="saveFile" parameterType="String">
+		INSERT INTO picture VALUES ((SELECT MAX(menu_no) FROM menu), #{filename})
+	</insert>
+	<!-- 사진 넣기 -->
+	<select id="selectone" resultType="www.egg.vo.MenuVO">
+		SELECT * FROM MENU WHERE menu_no = #{menu_no}
 	</select>
-	<!-- 사진찾기 -->
+	<!-- 리스트 불러오기 -->
+	<select id="getFiles" resultType="String">
+		SELECT filename FROM picture WHERE no = #{no}
+	</select>
+	<!-- 사진 불러오기 -->
+	<!-- 메뉴 -->
+	<!-- 사이드 메뉴 메뉴 한번에 -->
+	<!-- 사이드 -->
+	<insert id="sinsert" parameterType="www.egg.vo.OptionVO">
+		INSERT INTO OPTION VALUES (#{side_code}, NEXT VALUE FOR option_cnt, #{side_name}, #{side_price}, #{side_ex}) 
+	</insert>
+	<!-- 사이드 입력 -->
+	<select id="sselectall" resultType="www.egg.vo.OptionVO">
+		SELECT * FROM OPTION
+	</select>
+	<!-- 사이드 전체보기 -->
+	<update id="supdate" parameterType="www.egg.vo.OptionVO">
+		UPDATE OPTION SET side_name = #{side_name}, side_price = #{side_price}, side_ex = #{side_ex} WHERE side_no = #{side_no}
+	</update>
+	<!-- 사이드 수정 -->
+	<delete id="sdelete" parameterType="www.egg.vo.OptionVO">
+		DELETE FROM OPTION WHERE side_no = #{side_no}
+	</delete>
+	<!-- 사이드 삭제 -->
+	<insert id="ssaveFile" parameterType="String">
+		INSERT INTO photo VALUES ((SELECT MAX(side_no) FROM OPTION), #{filename})
+	</insert>
+	<!-- 사이드 사진 넣기 -->
+	<select id="sselectone" resultType="www.egg.vo.OptionVO">
+		SELECT * FROM OPTION WHERE side_no = #{side_no}
+	</select>
+	<!-- 사이드 리스트 불러오기 -->
+	<select id="sgetFiles" resultType="String">
+		SELECT filename FROM photo WHERE no = #{no}
+	</select>
+	<!-- 사이드 사진 불러오기 -->
 </mapper>
