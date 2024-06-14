@@ -28,6 +28,7 @@ public class MypageController {
         session.getAttribute("userphone");
         session.getAttribute("useremail");
         session.getAttribute("useraddress");
+        System.out.println("test");
         return "mypage";
     }
     
