@@ -19,19 +19,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class FileDataUtil {
-	private ArrayList<String> extNameArray = new ArrayList<String>() // Çã¿ëÇÏ´Â È®ÀåÀÚ Á¤ÀÇ¸¦ ÇÑ °Í.
+	private ArrayList<String> extNameArray = new ArrayList<String>() // í—ˆìš©í•˜ëŠ” í™•ì¥ì ì •ì˜ë¥¼ í•œ ê²ƒ.
 	{
 		{
 			add("gif");
 			add("jpg");
 			add("png");
 		}
-	}; // <-- ÇöÀç ÄÚµå´Â È°¿ëÇÏÁö´Â ¾Ê´Â´Ù.. ¾ê´Â ¼±¾ğÀÌÁö ±â´ÉÀÌ µ¿ÀÛÇÏÁö´Â ¾Ê´Â´Ù. Àı´ë ¹Ì¸® ¿¹Ãø ±İÁö..
+	}; // <-- í˜„ì¬ ì½”ë“œëŠ” í™œìš©í•˜ì§€ëŠ” ì•ŠëŠ”ë‹¤.. ì–˜ëŠ” ì„ ì–¸ì´ì§€ ê¸°ëŠ¥ì´ ë™ì‘í•˜ì§€ëŠ” ì•ŠëŠ”ë‹¤. ì ˆëŒ€ ë¯¸ë¦¬ ì˜ˆì¸¡ ê¸ˆì§€..
 
-	// Ã·ºÎÆÄÀÏ ¾÷·Îµå °æ·Î º¯¼ö°ªÀ¸·Î °¡Á®¿È servlet-context.xml
-	@Resource(name = "uploadPath")  // ÀÌ¸§À¸·Î ÁÖÀÔ¹Ş±â, ±×·³ ÀÌ°Å °´Ã¼°¡ ÀÖ¾î¾ß ÇÑ´Ù... 
-	private String uploadPath;	// µğ·ºÅä¸® Á¤º¸.. Á¤º¸ÀÇ °ªÀº ÁÖÀÔ ¹Şµµ·Ï ÄÚµù..
-	// ÄÁÅ×ÀÌ³Ê·Î ºÎÅÍ ÁÖÀÔ ¹Ş´Â ÄÚµå.. @Ingect,, @Resource @Autowired
+	// ì²¨ë¶€íŒŒì¼ ì—…ë¡œë“œ ê²½ë¡œ ë³€ìˆ˜ê°’ìœ¼ë¡œ ê°€ì ¸ì˜´ servlet-context.xml
+	@Resource(name = "uploadPath")  // ì´ë¦„ìœ¼ë¡œ ì£¼ì…ë°›ê¸°, ê·¸ëŸ¼ ì´ê±° ê°ì²´ê°€ ìˆì–´ì•¼ í•œë‹¤... 
+	private String uploadPath;	// ë””ë ‰í† ë¦¬ ì •ë³´.. ì •ë³´ì˜ ê°’ì€ ì£¼ì… ë°›ë„ë¡ ì½”ë”©..
+	// ì»¨í…Œì´ë„ˆë¡œ ë¶€í„° ì£¼ì… ë°›ëŠ” ì½”ë“œ.. @Ingect,, @Resource @Autowired
 
 	public String getUploadPath() {
 		return uploadPath;
@@ -42,11 +42,13 @@ public class FileDataUtil {
 	}
 
 	/**
-	 * °Ô½Ã¹° »ó¼¼º¸±â¿¡¼­ Ã·ºÎÆÄÀÏ ´Ù¿î·Îµå ¸Ş¼­µå ±¸Çö(°øÅë)
+	 * ê²Œì‹œë¬¼ ìƒì„¸ë³´ê¸°ì—ì„œ ì²¨ë¶€íŒŒì¼ ë‹¤ìš´ë¡œë“œ ë©”ì„œë“œ êµ¬í˜„(ê³µí†µ)
 	 */
-	//ÄÁÆ®·Ñ·¯¿¡¼­ ¸ÅÇÎÀÇ ¿ªÈ°À» ÇÕ´Ï´Ù... 
+
+	//è€Œâ‘¦ë“ƒæ¿¡ã…»ìœ­ï¿½ë¿‰ï¿½ê½Œ ï§ã…½ë¸¨ï¿½ì“½ ï¿½ë¿­ï¿½ì†¢ï¿½ì“£ ï¿½ë¹€ï¿½ë•²ï¿½ë–... 
 	@RequestMapping(value = "/download", method = RequestMethod.GET)
-	@ResponseBody // ¾î¶² µ¥ÀÌÅÍ¸¦ Æ÷ÇÔÇÏ¿© Àü¼Û.. ¾î³ëÅ×ÀÌ¼Ç.. viewÁöÁ¤ÇÏÁö ¾Ê°í ¹Ù·Î Å¬¶óÀÌ¾ğÆ® ¿äÃ»À¸·Î ÀÀ´ä.
+	@ResponseBody // ï¿½ë¼±ï¿½ë¼¡ ï¿½ëœ²ï¿½ì” ï¿½ê½£ç‘œï¿½ ï¿½ë£·ï¿½ë¸¿ï¿½ë¸¯ï¿½ë¿¬ ï¿½ìŸ¾ï¿½ë„š.. ï¿½ë¼±ï¿½ë‚ï¿½ë€’ï¿½ì” ï¿½ë€¡.. viewï§ï¿½ï¿½ì ™ï¿½ë¸¯ï§ï¿½ ï¿½ë¸¡æ€¨ï¿½ è«›ë¶¾ì¤ˆ ï¿½ê²¢ï¿½ì”ªï¿½ì” ï¿½ë¼µï¿½ë“ƒ ï¿½ìŠ‚ï§£ï¿½ï¿½ì‘æ¿¡ï¿½ ï¿½ì“³ï¿½ë–Ÿ.
+
 	public FileSystemResource fileDownload(@RequestParam("filename") String fileName, HttpServletResponse response) {
 		File file = new File(uploadPath + "/" + fileName);
 		response.setContentType("application/download; utf-8");
@@ -60,16 +62,16 @@ public class FileDataUtil {
 		response.setContentType("application/download; utf-8");
 		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 		final File fileToDownload = new File(uploadPath + "/" + fileName);
-		InputStream inputStream = null;  //½ºÆ®¸² °´Ã¼¸¦
+		InputStream inputStream = null;  //ìŠ¤íŠ¸ë¦¼ ê°ì²´ë¥¼
 		try {
-			inputStream = new FileInputStream(fileToDownload); //ÆÄÀÏ¿¡¼­ ³Ö¾îÁÖ°í
+			inputStream = new FileInputStream(fileToDownload); //íŒŒì¼ì—ì„œ ë„£ì–´ì£¼ê³ 
 			IOUtils.copy(inputStream, response.getOutputStream());
-			response.flushBuffer();  //ÀÀ´äÇØÁØ´Ù.
+			response.flushBuffer();  //ì‘ë‹µí•´ì¤€ë‹¤.
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				inputStream.close();  //´İ¾ÆÁØ´Ù.
+				inputStream.close();  //ë‹«ì•„ì¤€ë‹¤.
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -77,20 +79,20 @@ public class FileDataUtil {
 	}*/
 
 	/**
-	 * ÆÄÀÏ ¾÷·Îµå ¸Ş¼­µå(°øÅë)
+	 * íŒŒì¼ ì—…ë¡œë“œ ë©”ì„œë“œ(ê³µí†µ)
 	 * 
 	 * @throws IOException
 	 */
-	// Å¬¶óÀÌ¾ğÆ®°¡ ¾÷·ÎµåÇÑ Ã·ºÎÆÄÀÏ ÁöÁ¤µÈ À§Ä¡ (uploadPath ·Î Ä«ÇÇÇÏ´Â ÄÚµå)
+	// í´ë¼ì´ì–¸íŠ¸ê°€ ì—…ë¡œë“œí•œ ì²¨ë¶€íŒŒì¼ ì§€ì •ëœ ìœ„ì¹˜ (uploadPath ë¡œ ì¹´í”¼í•˜ëŠ” ì½”ë“œ)
 	public String[] fileUpload(MultipartFile[] file) throws IOException {
 		String[] files = new String[file.length];
 		for (int i = 0; i < file.length; i++) {
-			if (file[i].getOriginalFilename() != "") { // ½ÇÁ¦ file°´Ã¼°¡ Á¸ÀçÇÑ´Ù¸é
-				String originalName = file[i].getOriginalFilename();// È®ÀåÀÚ°¡Á®¿À±â À§ÇØ¼­ ÀüÃ¼ÆÄÀÏ¸íÀ» °¡Á®¿È.
-				UUID uid = UUID.randomUUID();// ·£´ı¹®ÀÚ ±¸ÇÏ±â ¸¾¿¡¾Èµç´Ù.
-				String saveName = uid.toString() + "." + originalName.split("\\.")[1];// ÇÑ±Û ÆÄÀÏ¸í Ã³¸® ¶§¹®¿¡...
+			if (file[i].getOriginalFilename() != "") { // ì‹¤ì œ fileê°ì²´ê°€ ì¡´ì¬í•œë‹¤ë©´
+				String originalName = file[i].getOriginalFilename();// í™•ì¥ìê°€ì ¸ì˜¤ê¸° ìœ„í•´ì„œ ì „ì²´íŒŒì¼ëª…ì„ ê°€ì ¸ì˜´.
+				UUID uid = UUID.randomUUID();// ëœë¤ë¬¸ì êµ¬í•˜ê¸° ë§˜ì—ì•ˆë“ ë‹¤.
+				String saveName = uid.toString() + "." + originalName.split("\\.")[1];// í•œê¸€ íŒŒì¼ëª… ì²˜ë¦¬ ë•Œë¬¸ì—...
 				//
-//					String[] files = new String[] {saveName}; //Çüº¯È¯  files[0] ÆÄÀÏ¸íÀÌ µé¾î °£´Ù..
+//					String[] files = new String[] {saveName}; //í˜•ë³€í™˜  files[0] íŒŒì¼ëª…ì´ ë“¤ì–´ ê°„ë‹¤..
 				byte[] fileData = file[i].getBytes();
 
 				File target = new File(uploadPath, saveName);

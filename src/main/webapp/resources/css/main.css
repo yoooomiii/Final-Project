@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+@charset "UTF-8";
+=======
+>>>>>>> b7eaed93a6a05e2dc54b2939a08ec03951e07b1d
 @font-face {
     font-family: 'Cafe24Ssurround';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
@@ -91,6 +95,10 @@ header a:hover {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 69f145ea6c31deac0742a9712543cb1dfe325b88
 .logout {
     float: right;
 	width: 100px; /*가로 넓이*/
@@ -99,8 +107,12 @@ header a:hover {
    
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 66a3f42744dc05d9e04189ce18f58add8d3d9fe9
+=======
+>>>>>>> b7eaed93a6a05e2dc54b2939a08ec03951e07b1d
+>>>>>>> 69f145ea6c31deac0742a9712543cb1dfe325b88
 nav {
     position: relative;
 	width: 1260px; /*가로 넓이*/
@@ -333,5 +345,9 @@ footer {
     width: 40px;
     height: 40px;
     margin-right: 20px;
+<<<<<<< HEAD
+}
+=======
 }
 
+>>>>>>> b7eaed93a6a05e2dc54b2939a08ec03951e07b1d

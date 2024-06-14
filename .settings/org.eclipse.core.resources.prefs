@@ -1,5 +1,17 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=69f145ea6c31deac0742a9712543cb1dfe325b88
 eclipse.preferences.version=1
+encoding//src/main/java/www/egg/dao/IF_MenuDAO.java=UTF-8
+encoding//src/main/java/www/egg/dao/MenuDAOImpl.java=UTF-8
 encoding//src/main/java/www/egg/hom/LoginController.java=UTF-8
+encoding//src/main/java/www/egg/hom/MenuController.java=UTF-8
+encoding//src/main/java/www/egg/hom/MypageController.java=UTF-8
+encoding//src/main/java/www/egg/interceptor/AuthenticationInterceptor.java=UTF-8
+encoding//src/main/java/www/egg/service/IF_MenuService.java=UTF-8
+encoding//src/main/java/www/egg/service/MenuServiceImpl.java=UTF-8
+encoding//src/main/java/www/egg/util/FileDataUtil.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/info/modaskForm.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/main.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/mypage.jsp=UTF-8
 encoding//src/main/webapp/resources/css/info.css=UTF-8

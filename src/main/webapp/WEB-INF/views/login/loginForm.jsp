@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session ="true" %>
 <!DOCTYPE html>
 <html lang="kor">
 <head>
@@ -12,7 +14,12 @@
           <!-- Sign in form -->
           <div id="sign-in-container" >
             <h3>로그인</h3>
-            <form action="signIn" method="get">
+            <h5>
+            	<c:if test="${userid != null }">
+					현재 관리자로 접속된 상태입니다. 
+				</c:if>
+            </h5>
+            <form action="signIn" method="post">
               <label for="username">회원 ID</label>
               <input type="text" name="id" id="id" >
               
