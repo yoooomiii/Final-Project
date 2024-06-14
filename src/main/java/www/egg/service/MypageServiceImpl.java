@@ -9,7 +9,6 @@ import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.MemberVO;
 
 @Service
-
 public abstract class MypageServiceImpl implements IF_MypageService {
 	
 	@Inject
@@ -27,11 +26,12 @@ public abstract class MypageServiceImpl implements IF_MypageService {
 		return mpdao.modid(id);
 	}
 
-	@Override
-	public void modsave(MemberVO mvo) throws Exception {
-		// TODO Auto-generated method stub
-		mpdao.modsave(mvo);
-	}
+//	@Override
+//	public MemberVO modsave(MemberVO mvo) throws Exception {
+//		// TODO Auto-generated method stub
+//		mpdao.modsave(mvo);
+//		return null;
+//	}
 
 }
 
