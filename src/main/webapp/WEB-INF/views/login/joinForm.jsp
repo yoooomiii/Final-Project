@@ -56,8 +56,8 @@
           <!-- Sign up form -->
           <div id="sign-up-container">
             <h3>회원가입</h3>
-            <h5>(경고: work in visual studio code)</h5>
-            <form action="signUp" method="get"  onsubmit="return checkForm()">
+            <h5>골든에그와 함께하기!</h5>
+            <form action="signUp" method="post"  onsubmit="return checkForm()">
               <label for="name">회원 ID</label>
               <input type="text" name="id" id="id" placeholder="사용할 아이디">
               

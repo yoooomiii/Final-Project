@@ -19,7 +19,7 @@
 					현재 관리자로 접속된 상태입니다. 
 				</c:if>
             </h5>
-            <form action="signIn" method="get">
+            <form action="signIn" method="post">
               <label for="username">회원 ID</label>
               <input type="text" name="id" id="id" >
               
