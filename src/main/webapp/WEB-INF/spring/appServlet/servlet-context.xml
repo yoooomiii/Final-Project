@@ -18,7 +18,7 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	
-	 <default-servlet-handler />
+	 <!-- <default-servlet-handler /> -->
 	 <!--  스프링이 처리하지 않는 요청을 기본 서블릿으로 전달한다. 24-06-13 -->
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
@@ -39,6 +39,8 @@
 		<beans:property name="maxUploadSize" value="10485760"></beans:property> <!-- 10메가 제한 -->
 	</beans:bean>
 	
+	<beans:bean id="adminTnterceptor"
+		class="www.egg.interceptor.AdminInterceptor"></beans:bean>
 	<beans:bean id="authenticationTnterceptor"
 		class="www.egg.interceptor.AuthenticationInterceptor"></beans:bean>
 		
