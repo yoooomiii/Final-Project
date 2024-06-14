@@ -1,3 +1,4 @@
+
 package www.egg.dao;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
+
 
 @Repository
 public class MenuDAOImpl implements IF_MenuDAO {
@@ -60,7 +62,7 @@ public class MenuDAOImpl implements IF_MenuDAO {
 		sqlSession.insert((mapperQuery)+".saveFile",filename);
 	}
 	
-	//-------------------------------------------------------------메뉴
+
 
 	@Override
 	public void option_insert(OptionVO ovo) throws Exception {	//사이드 메뉴 등록
@@ -94,9 +96,9 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	}
 
 	@Override
-	public List<String> option_getFilename(String no) throws Exception {	//옵션 사진 불러오기
+	public List<String> option_getFilename(String sno) throws Exception {	//옵션 사진 불러오기
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".sgetFiles", no);
+		return sqlSession.selectList(mapperQuery+".sgetFiles", sno);
 	}
 
 	@Override
@@ -106,3 +108,4 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	}
 
 }
+

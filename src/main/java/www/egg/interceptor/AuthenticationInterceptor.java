@@ -9,24 +9,30 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 
-	@Override // 프리핸들 (컨트롤러로 가기 전) : 회원이 현재 접속 상태인지 아닌지에 따라 거르는 action
+	@Override 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		HttpSession session = request.getSession(); // 세션에서 값을 가져온다.
+		HttpSession session = request.getSession(); 
 		Object getSession = session.getAttribute("userid");
+		String usergrade = String.valueOf(session.getAttribute("usergrade"));
 		// Object getGrade = session.getAttribute("usergrade");
-		if(getSession==null) { // 로그인한 사람 아님
-			response.sendRedirect(request.getContextPath()+"/"); /// 로그인 화면으로 돌아가라. 
-			
-			// System.out.println("preHandle 발동!!!"); 
-			return false;
-		}
-		
-		return super.preHandle(request, response, handler);
-	}
-	
-	   // 포스트핸들 (컨트롤러 처리가 끝남. model에 넘겨줄 인자가 있는 경우
-	  // 그걸 포스트핸들이 컨트롤러로부터 전달받아서 view로 넘기기 전 마지막으로 조작하거나 참조할 수 있다.)
-	   
 
+		if(getSession==null) { 
+			response.sendRedirect(request.getContextPath()+"/"); 
+
+			// System.out.println("preHandle"); 
+
+
+			/*
+			 * if(usergrade.equals("1")) { // 愿�由ъ옄 濡쒓렇�씤�씪 �븣
+			 * response.sendRedirect(request.getContextPath()+"/login"); /// 愿�由ъ옄 �솕硫댁쑝濡� �룎�븘媛��씪.
+			 * 
+			 * System.out.println("�씤利� preHandle 諛쒕룞!!! �쁽�옱 愿�由ъ옄 �젒�냽�엯�땲�떎."); return false; }
+			 */
+
+
+		}
+		return super.preHandle(request, response, handler);
+
+	}
 }

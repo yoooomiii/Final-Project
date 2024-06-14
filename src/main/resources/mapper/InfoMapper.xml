@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="www.egg.dao.IF_InfoDAO">
+	<insert id="insert" parameterType="www.egg.vo.AskVO">
+		insert into ask (num, id, title, ex, re, in_date) select (nextval.ask_cnt, id, #{title}, #{ex}, "null", now()) from member where id = "#{userid}"
+	</insert>
+	<select id="selectall" resultType="www.egg.vo.AskVO">
+		select * from ask
+	</select>
+	<select id="selectone" parameterType="www.egg.vo.AskVO">
+		select * from ask where num=#{num}
+	</select>	
+	<delete id="delete">
+		delete from ask where num=#{num}
+	</delete>
+	<update id="update" parameterType="www.egg.vo.AskVO">
+		update ask set id="id", title=#{title}, ex=#{ex}, check=null, in_date=#{in_date} where num=#{num}
+	</update>
+	
+</mapper>

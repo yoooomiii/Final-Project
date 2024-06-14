@@ -26,15 +26,15 @@
 			<c:forEach items="${optionList}" var="optionvo">
 				<tr>
 					<form action="option_update" method="get">
-					<td>${optionvo.option_code}</td>
-					<td>${optionvo.option_no}</td>
-					<td><a href="viewDetail?option_no=${optionvo.option_no}">${optionvo.option_name}</a></td>
-					<td>${optionvo.option_price}</td>
-					<td>${optionvo.option_ex}</td>
-					<td><button type=submit value="${optionvo.option_no}" name="option_no">수정</button></td>
+					<td>${optionvo.side_code}</td>
+					<td>${optionvo.side_no}</td>
+					<td><a href="oviewDetail?side_no=${optionvo.side_no}">${optionvo.side_name}</a></td>
+					<td>${optionvo.side_price}</td>
+					<td>${optionvo.side_ex}</td>
+					<td><button type=submit value="${optionvo.side_no}" name="side_no">수정</button></td>
 					</form>
 					<form action="option_delete" method="post">
-					<td><button type=submit value="${optionvo.option_no}" name="option_no">삭제</button></td>
+					<td><button type=submit value="${optionvo.side_no}" name="side_no">삭제</button></td>
 					</form>
 				</tr>
 			</c:forEach>
