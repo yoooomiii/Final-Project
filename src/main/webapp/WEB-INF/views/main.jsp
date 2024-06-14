@@ -53,6 +53,68 @@
 			</div>
 			<div class="menu">
 				<ul>
+
+                    <li>
+                        <a href="#"> HOME </a>
+                    </li>
+                    <li>
+                        <a href="#"> 브랜드 소개 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 브랜드 소개 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 메뉴 주문하기 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 인기 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 대표 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 치킨 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 사이드 / 음료 </a>
+                            </li>
+                            <li>
+                                <a href="#"> 세트 메뉴 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 고객센터 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 1:1 문의 </a>
+                            </li>
+                            <li>
+                                <a href="#"> FAQ </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="mypage"> 마이 페이지 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="mypage"> 주문 내역 </a>
+                            </li>
+                            <li>
+                                <a href="mypage"> 찜목록 </a>
+                            </li>
+                            <li>
+                                <a href="mypage"> 나의 리뷰 </a>
+                            </li>
+                            <li>
+                                <a href="mypage"> 내 정보관리 </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
 					<li><a href="#"> HOME </a></li>
 					<li><a href="#"> 브랜드 소개 </a>
 						<ul class="submenu">
@@ -78,6 +140,7 @@
 							<li><a href="#"> 내 정보관리 </a></li>
 						</ul></li>
 				</ul>
+
 			</div>
 		</nav>
 		<aside>

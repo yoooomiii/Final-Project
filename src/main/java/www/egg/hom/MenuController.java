@@ -1,3 +1,4 @@
+
 package www.egg.hom;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import www.egg.util.FileDataUtil;
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
 
-@Controller
+//@Controller
 public class MenuController {
 
 	@Inject
@@ -89,7 +90,6 @@ public class MenuController {
 		return "redirect:option_List";
 	}
 
-	//----------------------------------------------------------메뉴
 
 	@GetMapping(value ="/menu_input")
 	public String menu_input() {		//치킨 입력 창으로 이동
@@ -158,3 +158,4 @@ public class MenuController {
 	}
 
 }
+

@@ -14,7 +14,7 @@ import www.egg.service.IF_LoginService;
 import www.egg.vo.MemberVO;
 
 
-//@Controller
+@Controller
 public class LoginController {
 	@Inject
 	IF_LoginService lservice;

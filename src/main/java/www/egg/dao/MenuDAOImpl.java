@@ -1,3 +1,4 @@
+
 package www.egg.dao;
 
 import java.util.List;
@@ -60,7 +61,7 @@ public class MenuDAOImpl implements IF_MenuDAO {
 		sqlSession.insert((mapperQuery)+".saveFile",filename);
 	}
 	
-	//-------------------------------------------------------------메뉴
+
 
 	@Override
 	public void option_insert(OptionVO ovo) throws Exception {	//사이드 메뉴 등록
@@ -106,3 +107,4 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	}
 
 }
+
