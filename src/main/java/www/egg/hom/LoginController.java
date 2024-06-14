@@ -28,6 +28,7 @@ public class LoginController {
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String join() {
 		System.out.println("와아아아아아아ㅏ앙");
+		System.out.println("byeeeeee");
 		return "login/joinForm";
 	}
 	
