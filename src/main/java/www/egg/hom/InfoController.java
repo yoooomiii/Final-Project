@@ -20,7 +20,6 @@ import www.egg.vo.AskVO;
 
 @Controller
 public class InfoController {
-	// 0614 jeong InfoCotrolloer ¿Ï·á
 	@Inject
 	IF_InfoService iservice;
 	
@@ -44,8 +43,7 @@ public class InfoController {
 		avo.setId(session.getId());
 		
 		System.out.println(session.getAttribute("userid"));
-		System.out.println(00);
-		
+		System.out.println("test");
 		
 		return "info/askpage";
 	}
