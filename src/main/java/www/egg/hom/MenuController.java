@@ -29,7 +29,9 @@ public class MenuController {
 
 	@GetMapping(value ="option_input")
 	public String option_input() {	//옵션 입력 창으로 이동
-
+		
+		System.out.println("test우우우이이이");
+		
 		return "optionInput";
 	}
 
