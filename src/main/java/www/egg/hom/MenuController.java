@@ -37,8 +37,6 @@ public class MenuController {
 		
 	}
 
-	
-
 	@PostMapping(value ="/option_inputSave")
 	public String option_input(@ModelAttribute OptionVO ovo,
 			MultipartFile[] file) throws Exception {	//�샃�뀡 �벑濡� 怨쇱젙
@@ -53,7 +51,6 @@ public class MenuController {
 		return "redirect:option_List";
 	}
 
-
 	@GetMapping(value ="/oviewDetail")
 	public String option_viewDetail(@RequestParam("side_no") String sno,
 			Model model) throws Exception { //�꽑�깮�븳 �궗�씠�뱶 硫붾돱 �젙蹂� 蹂닿린
@@ -63,7 +60,6 @@ public class MenuController {
 		model.addAttribute("attackList", attackList);
 		return "optionPick";
 	}
-
 
 	@RequestMapping("/option_List")
 	public String option_allList(@ModelAttribute OptionVO ovo,
@@ -95,7 +91,6 @@ public class MenuController {
 		return "redirect:option_List";
 	}
 
-
 	@GetMapping(value ="/menu_input")
 	public String menu_input() {		//移섑궓 �엯�젰 李쎌쑝濡� �씠�룞
 
@@ -112,7 +107,7 @@ public class MenuController {
 		}
 		mvo.setFilename(filename);
 		mservice.insert(mvo);
-
+		System.out.println("집갈게요");
 		return "redirect:menu_List";
 	}
 
