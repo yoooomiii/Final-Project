@@ -16,12 +16,12 @@ public class UserInterceptor extends HandlerInterceptorAdapter{
 		if(userid!=null) {
 			if(userid.equals("MASTER") && usergrade.equals("1")) { // 관리자 로그인 맞음 
 				
-				response.sendRedirect(request.getContextPath()+"/"); /// 메인 화면으로 돌아가라. 
+				response.sendRedirect(request.getContextPath()+"/login"); /// 로그인으로 돌아가라. 
 				System.out.println("유저 preHandle 발동!!! 현재 관리자 접속 상태입니다."); 
 				return false;
 			}
 		}
-		System.out.println("유저 preHandle 발동!!! you can enter"); 
+		System.out.println("유저 preHandle 발동!!! you can enter user page."); 
 		return super.preHandle(request, response, handler);
 	}
 	

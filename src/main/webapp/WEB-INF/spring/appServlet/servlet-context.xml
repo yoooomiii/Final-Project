@@ -70,8 +70,10 @@
 		
 			<interceptors>
 			<interceptor>
-				<mapping path="/myPage"></mapping> <!-- mypage 요청을 가로챈다. -->
+				<mapping path="/myPage"></mapping>
+				<mapping path="/"></mapping>  <!-- mypage 요청을 가로챈다. -->
 				<beans:ref bean="userTnterceptor"></beans:ref>
+				
 			</interceptor>
 		</interceptors>
 		
