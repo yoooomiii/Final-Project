@@ -27,11 +27,11 @@
 <body>
 	<div id="Box">
 		<header>
+				관리자 HOME입니다. (MASTER) 
 			<div class="login box">
-				<a href="login"><span> 로그인 </span></a>
-			</div>
-			<div class="join box">
-				<a href="join"><span> 회원가입 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
 			<div class="logout box">
 				<c:if test="${userid != null }">
@@ -42,12 +42,12 @@
         
 		<nav>
             <div class="logo">
-				<a href="#"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
                     <li>
-                        <a href="#"> HOME </a>
+                        <a href="main"> HOME </a>
                     </li>
                     <li>
                         <a href="#"> 브랜드 소개 </a>
@@ -89,7 +89,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 마이 페이지 </a>
+                        <a href="#"> 관리자 페이지 </a>
                         <ul class="submenu">
                             <li>
                                 <a href="#"> 주문 내역 </a>

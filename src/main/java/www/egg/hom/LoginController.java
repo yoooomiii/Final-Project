@@ -60,9 +60,12 @@ public class LoginController {
 				session.setAttribute("useremail", mvo.getEmail());
 				session.setAttribute("useraddress", mvo.getAddress());
 				session.setAttribute("usergrade", mvo.getMaster());
-				/*
-				 * if() { return "adminMain"; }
-				 */
+				
+				String grade = String.valueOf(session.getAttribute("usergrade")); // session에서 가져온 사용자 등급
+				if(grade.equals("1")){ // 관리자 등급이면 관리자 페이지로 보내라. 
+					  return "adminMain"; 
+				}
+				 
 				return "redirect:/";
 				
 			}else { // request가 잘못된 혹은 없는 비번을 줬을 때 

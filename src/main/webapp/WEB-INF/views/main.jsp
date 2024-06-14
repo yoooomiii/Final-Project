@@ -28,10 +28,14 @@
 	<div id="Box">
 		<header>
 			<div class="login box">
-				<a href="login"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
 			<div class="join box">
-				<a href="join"><span> 회원가입 </span></a>
+				<c:if test="${userid == null }">
+					<a href="join"><span> 회원가입 </span></a>
+				</c:if>
 			</div>
 			<div class="logout box">
 				<c:if test="${userid != null }">
