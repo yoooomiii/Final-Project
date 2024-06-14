@@ -31,6 +31,8 @@ public class MypageController {
         System.out.println("두번쨰 테스트중우웅");
         
 
+        
+        
         return "mypage";
     }
     
