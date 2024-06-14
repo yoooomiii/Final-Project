@@ -21,7 +21,7 @@ import www.egg.vo.OptionVO;
 
 //@Controller
 public class MenuController {
-
+	//0614_hong 나는 홍성우다. CRUD 끝
 	@Inject
 	IF_MenuService mservice;
 
@@ -29,10 +29,15 @@ public class MenuController {
 	FileDataUtil filedatautil;
 
 	@GetMapping(value ="option_input")
-	public String option_input() {	//�샃�뀡 �엯�젰 李쎌쑝濡� �씠�룞
 
-		return "optionInput";
+	public String option_input() {	//옵션 입력 창으로 이동
+		
+		System.out.println("test우우우이이이");
+		return null;
+		
 	}
+
+	
 
 	@PostMapping(value ="/option_inputSave")
 	public String option_input(@ModelAttribute OptionVO ovo,
@@ -65,7 +70,7 @@ public class MenuController {
 			Model model) throws Exception {	//�샃�뀡 �쟾泥대낫湲�
 		List<OptionVO> allList = mservice.option_List();
 		model.addAttribute("optionList", allList);
-
+		
 		return "optionList";
 	}
 
