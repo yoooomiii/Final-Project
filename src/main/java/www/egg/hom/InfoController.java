@@ -46,6 +46,7 @@ public class InfoController {
 		System.out.println(session.getAttribute("userid"));
 		System.out.println(00);
 		
+		
 		return "info/askpage";
 	}
 	
