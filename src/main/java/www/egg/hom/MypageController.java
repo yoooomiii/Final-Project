@@ -15,7 +15,7 @@ import www.egg.vo.MemberVO;
 
 @Controller
 public class MypageController {
-	
+	//0614 song 수정기능 완료
 	@Inject 
 	IF_MypageServiece mpservice;
 
