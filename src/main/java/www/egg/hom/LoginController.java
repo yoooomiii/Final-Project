@@ -18,6 +18,7 @@ import www.egg.vo.MemberVO;
 public class LoginController {
 	// 0614 김어진 로그인컨트롤러 완료 
 	
+	
 	@Inject
 	IF_LoginService lservice;
 	
