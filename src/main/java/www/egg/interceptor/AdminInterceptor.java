@@ -11,16 +11,18 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession(); // 세션에서 값을 가져온다.
-		Object getSession = session.getAttribute("userid");
-		// Object getGrade = session.getAttribute("usergrade");
-		if(getSession==null) { // 로그인한 사람 아님
-			response.sendRedirect(request.getContextPath()+"/"); /// 로그인 화면으로 돌아가라. 
-			
-			// System.out.println("preHandle 발동!!!"); 
-			return false;
+		String userid = (String)session.getAttribute("userid");
+		String usergrade = String.valueOf(session.getAttribute("usergrade"));
+		if(userid!=null) {
+			if(userid.equals("MASTER") && usergrade.equals("1")) { // 관리자 로그인 맞음 
+				
+				System.out.println("관리자 preHandle 발동!!! you can enter"); 
+				return super.preHandle(request, response, handler);
+			}
 		}
-		
-		return super.preHandle(request, response, handler);
+		response.sendRedirect(request.getContextPath()+"/"); /// 메인 화면으로 돌아가라. 
+		System.out.println("관리자 preHandle 발동!!! you blocked"); 
+		return false;
 	}
 	
 }

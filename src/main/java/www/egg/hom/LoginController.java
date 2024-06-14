@@ -63,7 +63,7 @@ public class LoginController {
 				
 				String grade = String.valueOf(session.getAttribute("usergrade")); // session에서 가져온 사용자 등급
 				if(grade.equals("1")){ // 관리자 등급이면 관리자 페이지로 보내라. 
-					  return "adminMain"; 
+					  return "admin/adminMain"; 
 				}
 				 
 				return "redirect:/";
