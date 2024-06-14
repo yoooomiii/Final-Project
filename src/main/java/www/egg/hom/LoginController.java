@@ -23,6 +23,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login() {
+		System.out.println("test");
 		return "login/loginForm";
 	}
 	@RequestMapping(value = "join", method = RequestMethod.GET)
