@@ -44,34 +44,11 @@
 				<exclude-mapping path="/"/> /과 login 요청은 제외하고 ^^
 				<exclude-mapping path="/signUp"/>
 				<exclude-mapping path="/signIn"/> 
-				<exclude-mapping path="/resources/**" />
-				<exclude-mapping path="/css/**" />
+				<exclude-mapping path="/resources/" />
+				<exclude-mapping path="/css/" />
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
 				<exclude-mapping path="/why"/>
-				<exclude-mapping path="/option_input"/>
-				<exclude-mapping path="/optionInput"/>
-				<exclude-mapping path="/option_inputSave"/>
-				<exclude-mapping path="/option_List"/>
-				<exclude-mapping path="/optionList"/>
-				<exclude-mapping path="/option_delete"/>
-				<exclude-mapping path="/option_update"/>
-				<exclude-mapping path="/optionUpdate"/>
-				<exclude-mapping path="/menu_input"/>
-				<exclude-mapping path="/menuInput"/>
-				<exclude-mapping path="/menu_inputSave"/>
-				<exclude-mapping path="/menu_List"/>
-				<exclude-mapping path="/main"/>
-				<exclude-mapping path="/viewDetail"/>
-				<exclude-mapping path="/menuPick"/>
-				<exclude-mapping path="/menuList"/>
-				<exclude-mapping path="/menu_delete"/>
-				<exclude-mapping path="/menu_update"/>
-				<exclude-mapping path="/menuUpdate"/>
-				<exclude-mapping path="/download?filename/*"/>
-				<exclude-mapping path="/menu_updateset"/>
-				<exclude-mapping path="/viewDetail?menu_no=*"/>
-				<exclude-mapping path="//viewDetail?*"/>
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
 		</interceptors> -->
@@ -80,6 +57,9 @@
 	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
 	</beans:bean>
+	
+<!-- 	<context:component-scan base-package="www.egg" /> -->
+	
 
 	<context:component-scan
 		base-package="www.egg.hom" />
@@ -88,7 +68,7 @@
 	<context:component-scan
 		base-package="www.egg.service" />
 	<context:component-scan
-		base-package="www.egg.util" />
+		base-package="www.egg.util" /> 
 	
 		
 </beans:beans>

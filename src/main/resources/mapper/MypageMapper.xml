@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="www.egg.dao.IF_MypageDAO">
+	
+	<select id="selectone" resultType="www.egg.vo.MemberVO">
+		select id,name,phone,email,address from member where id=#{id}
+	</select>
+	
+	<update id="update" parameterType="www.egg.vo.MemberVO">
+		update member set name=#{name}, phone=#{phone},email=#{email},address=#{address} 
+		where id=#{id}
+	</update>
+	
+</mapper>
