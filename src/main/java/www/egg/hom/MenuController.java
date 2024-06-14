@@ -32,6 +32,7 @@ public class MenuController {
 		
 		System.out.println("test우우우이이이");
 		
+		
 		return "optionInput";
 	}
 
