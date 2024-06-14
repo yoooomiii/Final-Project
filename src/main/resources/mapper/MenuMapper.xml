@@ -51,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<!-- 사이드 삭제 -->
 	<insert id="ssaveFile" parameterType="String">
-		INSERT INTO sphoto VALUES ((SELECT MAX(side_no) FROM OPTION), #{filename})
+		INSERT INTO photo VALUES ((SELECT MAX(side_no) FROM OPTION), #{filename})
 	</insert>
 	<!-- 사이드 사진 넣기 -->
 	<select id="sselectone" resultType="www.egg.vo.OptionVO">
@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 사이드 리스트 불러오기 -->
 	<select id="sgetFiles" resultType="String">
-		SELECT filename FROM sphoto WHERE no = #{no}
+		SELECT filename FROM photo WHERE no = #{no}
 	</select>
 	<!-- 사이드 사진 불러오기 -->
 </mapper>

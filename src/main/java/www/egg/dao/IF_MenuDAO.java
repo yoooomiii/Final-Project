@@ -18,7 +18,7 @@ public interface IF_MenuDAO {
 
 	public OptionVO option_modno(String no) throws Exception;	//옵션 정보 넣기
 
-	public List<String> option_getFilename(String no) throws Exception;	//옵션 사진 불러오기
+	public List<String> option_getFilename(String sno) throws Exception;	//옵션 사진 불러오기
 
 	public void option_savepot(String filename) throws Exception;	//옵션 사진 테이블 저장
 

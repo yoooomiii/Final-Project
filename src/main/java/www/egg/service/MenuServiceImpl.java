@@ -51,17 +51,21 @@ public class MenuServiceImpl implements IF_MenuService {
 	}
 	
 	@Override
-	public List<String> getFilename(String no) throws Exception {	//사진 불러오기
+	public List<String> getFilename(String sno) throws Exception {	//사진 불러오기
 		// TODO Auto-generated method stub
-		return mdao.getFilename(no);
+		return mdao.getFilename(sno);
 	}
 	
 	//--------------------------------------------------------------메뉴
-
+	
 	@Override
 	public void option_insert(OptionVO ovo) throws Exception {		//사이드 등록
 		// TODO Auto-generated method stub
 		mdao.option_insert(ovo);
+		String[] filename = ovo.getFilename();
+		for(String fname : filename) {
+			mdao.option_savepot(fname);
+		}
 	}
 
 	@Override

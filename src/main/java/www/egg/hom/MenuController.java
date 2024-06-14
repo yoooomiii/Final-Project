@@ -45,19 +45,19 @@ public class MenuController {
 		ovo.setFilename(filename);
 		mservice.option_insert(ovo);
 
-		return "redirect:menu_List";
+		return "redirect:option_List";
 	}
 
 
-	/*@GetMapping(value ="/viewDetail")
-	public String option_viewDetail(@RequestParam("option_no") String no,
+	@GetMapping(value ="/oviewDetail")
+	public String option_viewDetail(@RequestParam("side_no") String sno,
 			Model model) throws Exception { //선택한 사이드 메뉴 정보 보기
-		OptionVO ovo = mservice.option_modno(no);
-		List<String> attackList = mservice.getFilename(no);
+		OptionVO ovo = mservice.option_modno(sno);
+		List<String> attackList = mservice.option_getFilename(sno);
 		model.addAttribute("ovo", ovo);
 		model.addAttribute("attackList", attackList);
 		return "optionPick";
-	}*/
+	}
 
 
 	@RequestMapping("/option_List")
@@ -126,6 +126,23 @@ public class MenuController {
 		model.addAttribute("attackList", attackList);
 		return "menuPick";
 	}
+	
+	@GetMapping(value ="/menuch")
+	public String menuKeep(@RequestParam("menu_no") String no,
+			Model model) throws Exception {		//선택한 사진 및 사이드 메뉴 출력
+		MenuVO mvo = mservice.modno(no);
+		List<String> attackList = mservice.getFilename(no);
+		model.addAttribute("mvo", mvo);
+		model.addAttribute("attackList", attackList);
+		return "item";
+	}
+	
+	@GetMapping(value ="/box")
+	public String Keep(@ModelAttribute MenuVO mvo, Model model) {		//주문 상세창 이동 창으로이동
+		model.addAttribute("mvo", mvo);
+		
+		return "menuKeep";
+	}
 
 	@RequestMapping("/menu_List")
 	public String menu_allList(@ModelAttribute MenuVO mvo,
@@ -158,4 +175,3 @@ public class MenuController {
 	}
 
 }
-

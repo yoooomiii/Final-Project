@@ -49,7 +49,6 @@
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
 				<exclude-mapping path="/why"/>
-				<exclude-mapping path="/mypage"/>
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
 		</interceptors> -->

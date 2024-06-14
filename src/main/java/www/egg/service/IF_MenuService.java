@@ -22,7 +22,9 @@ public interface IF_MenuService {
 
 	public OptionVO option_modno(String no) throws Exception;	//�궗�씠�뱶 �젙蹂� �꽔湲�
 
-	public List<String> option_getFilename(String no) throws Exception;	//�궗�씠�뱶 �궗吏� 遺덈윭�삤湲�
+
+	public List<String> option_getFilename(String sno) throws Exception;	//사이드 사진 불러오기
+
 
 	//--------------------------------------------------硫붾돱
 
