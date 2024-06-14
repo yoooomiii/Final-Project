@@ -2,7 +2,10 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="www.egg.dao.IF_MenuDAO">
+	
+	<!-- 입력 -->
 	<insert id="insert" parameterType="www.egg.vo.MenuVO">
 		INSERT INTO MENU VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_star}) 
 	</insert>

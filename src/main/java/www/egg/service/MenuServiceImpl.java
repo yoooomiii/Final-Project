@@ -14,6 +14,7 @@ import www.egg.vo.OptionVO;
 @Service
 public class MenuServiceImpl implements IF_MenuService {
 	
+
 	@Inject
 	IF_MenuDAO mdao;
 

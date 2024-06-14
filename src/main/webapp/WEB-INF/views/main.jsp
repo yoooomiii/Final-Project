@@ -9,8 +9,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+<link href="${path}/resources/css/main.css" rel="stylesheet"/>
+
+<title> main home </title>
+
+=======
 <link href="${path}/resources/css/main.css" rel="stylesheet" />
 <title>Home</title>
+>>>>>>> 69f145ea6c31deac0742a9712543cb1dfe325b88
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -59,7 +66,11 @@
 				<ul>
 
                     <li>
+<<<<<<< HEAD
+                        <a href="./"> HOME </a>
+=======
                         <a href="main"> HOME </a>
+>>>>>>> 69f145ea6c31deac0742a9712543cb1dfe325b88
                     </li>
                     <li>
                         <a href="#"> 브랜드 소개 </a>
@@ -90,10 +101,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 고객센터 </a>
+                        <a href="ask"> 고객센터 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 1:1 문의 </a>
+                                <a href="askpage"> 1:1 문의 </a>
                             </li>
                             <li>
                                 <a href="#"> FAQ </a>
@@ -219,6 +230,27 @@
 			</div>
 		</section>
 		<footer>
+<<<<<<< HEAD
+            <div class="footer-box">
+                <div class="footer-logo">
+                    <a href="main"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
+                </div>
+                <div class="footer-con">
+                    <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>
+                    <div class="con-text"><span> 대표자 : 송유미 </span></div>
+                    <div class="con-text"><span> 사업자등록번호 : 112-00-001234 </span></div>
+                    <div class="con-text"><span> 대표번호 : 031-500-1234 </span></div>
+                    <div class="con-text"><span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span></div>
+                    <div class="con-text"><span> 이메일 : goldenEgg @ gmail.com </span></div>
+                    <div class="con-text"><span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span></div>
+                </div>
+                <div class="sns">
+                    <span><a href="#"><img src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="${path}/resources/img/facebook_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+                </div>
+            </div>
+=======
 			<div class="footer-box">
 				<div class="footer-logo">
 					<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
@@ -255,6 +287,7 @@
 							src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
 				</div>
 			</div>
+>>>>>>> 69f145ea6c31deac0742a9712543cb1dfe325b88
 		</footer>
 	</div>
 </body>

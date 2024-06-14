@@ -44,9 +44,11 @@ public class FileDataUtil {
 	/**
 	 * 게시물 상세보기에서 첨부파일 다운로드 메서드 구현(공통)
 	 */
-	//컨트롤러에서 매핑의 역활을 합니다... 
+
+	//而⑦듃濡ㅻ윭�뿉�꽌 留ㅽ븨�쓽 �뿭�솢�쓣 �빀�땲�떎... 
 	@RequestMapping(value = "/download", method = RequestMethod.GET)
-	@ResponseBody // 어떤 데이터를 포함하여 전송.. 어노테이션.. view지정하지 않고 바로 클라이언트 요청으로 응답.
+	@ResponseBody // �뼱�뼡 �뜲�씠�꽣瑜� �룷�븿�븯�뿬 �쟾�넚.. �뼱�끂�뀒�씠�뀡.. view吏��젙�븯吏� �븡怨� 諛붾줈 �겢�씪�씠�뼵�듃 �슂泥��쑝濡� �쓳�떟.
+
 	public FileSystemResource fileDownload(@RequestParam("filename") String fileName, HttpServletResponse response) {
 		File file = new File(uploadPath + "/" + fileName);
 		response.setContentType("application/download; utf-8");

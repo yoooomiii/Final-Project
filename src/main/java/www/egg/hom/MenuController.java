@@ -29,14 +29,14 @@ public class MenuController {
 	FileDataUtil filedatautil;
 
 	@GetMapping(value ="option_input")
-	public String option_input() {	//옵션 입력 창으로 이동
+	public String option_input() {	//�샃�뀡 �엯�젰 李쎌쑝濡� �씠�룞
 
 		return "optionInput";
 	}
 
 	@PostMapping(value ="/option_inputSave")
 	public String option_input(@ModelAttribute OptionVO ovo,
-			MultipartFile[] file) throws Exception {	//옵션 등록 과정
+			MultipartFile[] file) throws Exception {	//�샃�뀡 �벑濡� 怨쇱젙
 		String[] filename = filedatautil.fileUpload(file);
 
 		for(int i=0; i<filename.length; i++) {
@@ -51,7 +51,7 @@ public class MenuController {
 
 	@GetMapping(value ="/oviewDetail")
 	public String option_viewDetail(@RequestParam("side_no") String sno,
-			Model model) throws Exception { //선택한 사이드 메뉴 정보 보기
+			Model model) throws Exception { //�꽑�깮�븳 �궗�씠�뱶 硫붾돱 �젙蹂� 蹂닿린
 		OptionVO ovo = mservice.option_modno(sno);
 		List<String> attackList = mservice.option_getFilename(sno);
 		model.addAttribute("ovo", ovo);
@@ -62,7 +62,7 @@ public class MenuController {
 
 	@RequestMapping("/option_List")
 	public String option_allList(@ModelAttribute OptionVO ovo,
-			Model model) throws Exception {	//옵션 전체보기
+			Model model) throws Exception {	//�샃�뀡 �쟾泥대낫湲�
 		List<OptionVO> allList = mservice.option_List();
 		model.addAttribute("optionList", allList);
 
@@ -70,21 +70,21 @@ public class MenuController {
 	}
 
 	@PostMapping(value = "/option_delete")
-	public String option_delete(@ModelAttribute OptionVO ovo) throws Exception {	//등록한 옵션 삭제 과정
+	public String option_delete(@ModelAttribute OptionVO ovo) throws Exception {	//�벑濡앺븳 �샃�뀡 �궘�젣 怨쇱젙
 		mservice.option_delete(ovo);
 
 		return "redirect:option_List";
 	}
 
 	@GetMapping(value ="/option_update")
-	public String option_up(@ModelAttribute OptionVO ovo, Model model) {		//옵션 수정 창으로 이동
+	public String option_up(@ModelAttribute OptionVO ovo, Model model) {		//�샃�뀡 �닔�젙 李쎌쑝濡� �씠�룞
 		model.addAttribute("ovo", ovo);
 
 		return "optionUpdate";
 	}
 
 	@PostMapping(value ="/option_updateset")
-	public String option_update(@ModelAttribute OptionVO ovo) throws Exception {	//옵션 수정 동작 과정
+	public String option_update(@ModelAttribute OptionVO ovo) throws Exception {	//�샃�뀡 �닔�젙 �룞�옉 怨쇱젙
 		mservice.option_update(ovo);
 
 		return "redirect:option_List";
@@ -92,14 +92,14 @@ public class MenuController {
 
 
 	@GetMapping(value ="/menu_input")
-	public String menu_input() {		//치킨 입력 창으로 이동
+	public String menu_input() {		//移섑궓 �엯�젰 李쎌쑝濡� �씠�룞
 
 		return "menuInput";
 	}
 
 	@PostMapping(value="/menu_inputSave")
 	public String menu_input(@ModelAttribute MenuVO mvo, 
-			MultipartFile[] file) throws Exception {	//치킨 등록 과정
+			MultipartFile[] file) throws Exception {	//移섑궓 �벑濡� 怨쇱젙
 		String[] filename = filedatautil.fileUpload(file);
 
 		for(int i=0; i<filename.length; i++) {
@@ -112,14 +112,14 @@ public class MenuController {
 	}
 
 	@GetMapping(value ="/")
-	public String main() {		//메인 창으로이동
+	public String main() {		//硫붿씤 李쎌쑝濡쒖씠�룞
 
 		return "main";
 	}
 
 	@GetMapping(value ="/viewDetail")
 	public String menu_viewDetail(@RequestParam("menu_no") String no,
-			Model model) throws Exception {		//선택한 치킨 정보 보기
+			Model model) throws Exception {		//�꽑�깮�븳 移섑궓 �젙蹂� 蹂닿린
 		MenuVO mvo = mservice.modno(no);
 		List<String> attackList = mservice.getFilename(no);
 		model.addAttribute("mvo", mvo);
@@ -129,7 +129,7 @@ public class MenuController {
 	
 	@GetMapping(value ="/menuch")
 	public String menuKeep(@RequestParam("menu_no") String no,
-			Model model) throws Exception {		//선택한 사진 및 사이드 메뉴 출력
+			Model model) throws Exception {		//�꽑�깮�븳 �궗吏� 諛� �궗�씠�뱶 硫붾돱 異쒕젰
 		MenuVO mvo = mservice.modno(no);
 		List<String> attackList = mservice.getFilename(no);
 		model.addAttribute("mvo", mvo);
@@ -138,7 +138,7 @@ public class MenuController {
 	}
 	
 	@GetMapping(value ="/box")
-	public String Keep(@ModelAttribute MenuVO mvo, Model model) {		//주문 상세창 이동 창으로이동
+	public String Keep(@ModelAttribute MenuVO mvo, Model model) {		//二쇰Ц �긽�꽭李� �씠�룞 李쎌쑝濡쒖씠�룞
 		model.addAttribute("mvo", mvo);
 		
 		return "menuKeep";
@@ -146,7 +146,7 @@ public class MenuController {
 
 	@RequestMapping("/menu_List")
 	public String menu_allList(@ModelAttribute MenuVO mvo,
-			Model model) throws Exception {	//전체보기
+			Model model) throws Exception {	//�쟾泥대낫湲�
 		List<MenuVO> allList = mservice.menuList();
 		model.addAttribute("menuList", allList);
 
@@ -154,24 +154,23 @@ public class MenuController {
 	}
 
 	@PostMapping(value = "/menu_delete")
-	public String menu_delete(@ModelAttribute MenuVO mvo) throws Exception {	//등록한 치킨 삭제 과정
+	public String menu_delete(@ModelAttribute MenuVO mvo) throws Exception {	//�벑濡앺븳 移섑궓 �궘�젣 怨쇱젙
 		mservice.delete(mvo);
 
 		return "redirect:menu_List";
 	}
 
 	@GetMapping(value ="/menu_update")
-	public String menu_up(@ModelAttribute MenuVO mvo, Model model) {		//수정 창으로 이동
+	public String menu_up(@ModelAttribute MenuVO mvo, Model model) {		//�닔�젙 李쎌쑝濡� �씠�룞
 		model.addAttribute("mvo", mvo);
 
 		return "menuUpdate";
 	}
 
 	@PostMapping(value ="/menu_updateset")
-	public String menu_update(@ModelAttribute MenuVO mvo) throws Exception {	//수정 동작 과정
+	public String menu_update(@ModelAttribute MenuVO mvo) throws Exception {	//�닔�젙 �룞�옉 怨쇱젙
 		mservice.update(mvo);
 
 		return "redirect:menu_List";
 	}
-
 }

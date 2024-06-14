@@ -42,20 +42,21 @@
 	<beans:bean id="userTnterceptor"
 		class="www.egg.interceptor.UserInterceptor"></beans:bean>
 		
-		<!-- <interceptors>
+<!-- 		<interceptors>
 			<interceptor>
-				<mapping path="/**"></mapping> 모든 요청을 가로챈다.
-				<exclude-mapping path="/"/> /과 login 요청은 제외하고 ^^
+				<mapping path="/**"></mapping> 
+				<exclude-mapping path="/"/> 
 				<exclude-mapping path="/signUp"/>
 				<exclude-mapping path="/signIn"/> 
 				<exclude-mapping path="/resources/" />
 				<exclude-mapping path="/css/" />
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
+				<exclude-mapping path="/ask"/>
 				<exclude-mapping path="/why"/>
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
-		</interceptors> -->
+		</interceptors>  -->
 		
 
 			<interceptors>
@@ -93,5 +94,4 @@
 	<context:component-scan
 		base-package="www.egg.util" /> 
 	
-		
 </beans:beans>
