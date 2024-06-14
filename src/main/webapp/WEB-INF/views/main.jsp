@@ -27,16 +27,19 @@
 <body>
 	<div id="Box">
 		<header>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
-
-				<a href="#"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
+		
 			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a> <a href="login"><span>
-						로그인 </span></a>
-			</div>
-			<div class="join box">
-				<a href="join"><span> 회원가입 </span></a>
+				<c:if test="${userid == null }">
+					<a href="join"><span> 회원가입 </span></a>
+				</c:if>
 			</div>
 			<div class="logout box">
 				<c:if test="${userid != null }">
@@ -47,15 +50,16 @@
 		</header>
 
 		<nav>
-			<div class="logo">
-				<a href="#"><span><img
-						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+
+            <div class="logo">
+				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
+			
 			<div class="menu">
 				<ul>
 
                     <li>
-                        <a href="#"> HOME </a>
+                        <a href="main"> HOME </a>
                     </li>
                     <li>
                         <a href="#"> 브랜드 소개 </a>
