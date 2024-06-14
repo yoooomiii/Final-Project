@@ -18,21 +18,14 @@ public class MypageController {
 
 	@Inject 
 	IF_MypageServiece mpservice;
-
-   
-    
+  
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
     public String home(HttpSession session) {
         session.getAttribute("userid");
         session.getAttribute("username");
         session.getAttribute("userphone");
         session.getAttribute("useremail");
-        session.getAttribute("useraddress");
-        System.out.println("두번쨰 테스트중우웅");
-        
-
-        
-        
+        session.getAttribute("useraddress"); 
         return "mypage";
     }
     

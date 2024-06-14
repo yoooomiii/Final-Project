@@ -115,7 +115,7 @@
 		
 		
 		<div id="box">
-			
+			<div id="star"></div>
 		
 		
 		</div>
