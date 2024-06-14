@@ -20,7 +20,7 @@ import www.egg.vo.OptionVO;
 
 @Controller
 public class MenuController {
-
+	//0614_hong 나는 홍성우다. CRUD 끝
 	@Inject
 	IF_MenuService mservice;
 
@@ -64,7 +64,7 @@ public class MenuController {
 			Model model) throws Exception {	//옵션 전체보기
 		List<OptionVO> allList = mservice.option_List();
 		model.addAttribute("optionList", allList);
-
+		
 		return "optionList";
 	}
 
