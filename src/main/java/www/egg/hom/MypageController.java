@@ -15,7 +15,7 @@ import www.egg.vo.MemberVO;
 
 @Controller
 public class MypageController {
-	
+
 	@Inject 
 	IF_MypageServiece mpservice;
 
@@ -28,6 +28,7 @@ public class MypageController {
         session.getAttribute("userphone");
         session.getAttribute("useremail");
         session.getAttribute("useraddress");
+
         return "mypage";
     }
     
