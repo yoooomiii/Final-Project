@@ -9,8 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MenuVO;
 
-
 public class MenuDAOImpl {
 	
+
+/*
+ * public class MenuDAOImpl implements IF_MenuDAO {
+ * 
+ * }
+ */
 
 }

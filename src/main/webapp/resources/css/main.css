@@ -90,6 +90,7 @@ header a:hover {
    
 }
 
+<<<<<<< HEAD
 .logout {
     float: right;
 	width: 100px; /*가로 넓이*/
@@ -98,6 +99,8 @@ header a:hover {
    
 }
 
+=======
+>>>>>>> 66a3f42744dc05d9e04189ce18f58add8d3d9fe9
 nav {
     position: relative;
 	width: 1260px; /*가로 넓이*/
@@ -167,7 +170,11 @@ nav {
     .submenu {
         position: absolute;
         display: none;
+<<<<<<< HEAD
         top: 75px;
+=======
+        top: 80px;
+>>>>>>> 66a3f42744dc05d9e04189ce18f58add8d3d9fe9
         height: 100%;
         background-color: rgb(248, 248, 243, 0.5);
         font-size: 20px;

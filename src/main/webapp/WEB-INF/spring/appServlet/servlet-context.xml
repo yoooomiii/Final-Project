@@ -52,7 +52,7 @@
 				<exclude-mapping path="/css/**" />
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
-				<exclude-mapping path="/ask"/>
+				<!-- <exclude-mapping path="/ask"/> -->
 				<exclude-mapping path="/why"/>
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
@@ -64,9 +64,8 @@
 	<context:component-scan
 		base-package="www.egg.dao" />
 	<context:component-scan
-		base-package="www.egg.service" />
-	<context:component-scan
 		base-package="www.egg.util" />
-	
-		
+	<context:component-scan
+		base-package="www.egg.service" />
+
 </beans:beans>

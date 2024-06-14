@@ -17,6 +17,6 @@ import www.egg.util.FileDataUtil;
 import www.egg.vo.MenuVO;
 
 public class MenuController {
-	
+
 
 }

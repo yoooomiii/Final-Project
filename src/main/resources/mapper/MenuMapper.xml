@@ -2,6 +2,12 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 <mapper namespace="www.egg.dao.IF_MenuDAO">
 	
+=======
+<mapper namespace="www.egg.dao.">
+	
+	<!-- 입력 -->
+>>>>>>> 66a3f42744dc05d9e04189ce18f58add8d3d9fe9
 </mapper>

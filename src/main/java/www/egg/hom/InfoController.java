@@ -1,5 +1,6 @@
 package www.egg.hom;
 
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -97,7 +98,7 @@ public class InfoController {
 		
 		return "infoList";
 	}
-	
-	
-	
 }
+	
+	
+
