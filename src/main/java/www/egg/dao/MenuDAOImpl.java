@@ -94,9 +94,9 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	}
 
 	@Override
-	public List<String> option_getFilename(String no) throws Exception {	//옵션 사진 불러오기
+	public List<String> option_getFilename(String sno) throws Exception {	//옵션 사진 불러오기
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".sgetFiles", no);
+		return sqlSession.selectList(mapperQuery+".sgetFiles", sno);
 	}
 
 	@Override

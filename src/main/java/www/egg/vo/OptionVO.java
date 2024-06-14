@@ -2,7 +2,7 @@ package www.egg.vo;
 
 public class OptionVO {		
 	
-	private String side_scode = null;	// 사이드 음식 고유코드
+	private String side_code = null;	// 사이드 음식 고유코드
 	private int side_no = 0;				// 사이드 음식 등록 순서(PK)
 	private String side_name = null;		// 사이드 음식 이름
 	private int side_price = 0;			// 사이드 음식 가격
@@ -11,14 +11,14 @@ public class OptionVO {
 	
 	@Override
 	public String toString() {
-		return "OptionVO [side_scode=" + side_scode + ", side_no=" + side_no + ", side_name=" + side_name
+		return "OptionVO [side_code=" + side_code + ", side_no=" + side_no + ", side_name=" + side_name
 				+ ", side_price=" + side_price + ", side_ex=" + side_ex + "]";
 	}
-	public String getSide_scode() {
-		return side_scode;
+	public String getSide_code() {
+		return side_code;
 	}
-	public void setSide_scode(String side_scode) {
-		this.side_scode = side_scode;
+	public void setSide_code(String side_code) {
+		this.side_code = side_code;
 	}
 	public int getSide_no() {
 		return side_no;

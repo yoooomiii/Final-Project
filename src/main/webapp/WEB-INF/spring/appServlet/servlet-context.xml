@@ -38,10 +38,10 @@
 	<beans:bean id="authenticationTnterceptor"
 		class="www.egg.interceptor.AuthenticationInterceptor"></beans:bean>
 		
-		<interceptors>
+		<!-- <interceptors>
 			<interceptor>
-				<mapping path="/**"></mapping> <!-- 모든 요청을 가로챈다. -->
-				<exclude-mapping path="/"/> <!-- /과 login 요청은 제외하고 ^^ -->
+				<mapping path="/**"></mapping> 모든 요청을 가로챈다.
+				<exclude-mapping path="/"/> /과 login 요청은 제외하고 ^^
 				<exclude-mapping path="/signUp"/>
 				<exclude-mapping path="/signIn"/> 
 				<exclude-mapping path="/resources/**" />
@@ -49,9 +49,32 @@
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
 				<exclude-mapping path="/why"/>
+				<exclude-mapping path="/option_input"/>
+				<exclude-mapping path="/optionInput"/>
+				<exclude-mapping path="/option_inputSave"/>
+				<exclude-mapping path="/option_List"/>
+				<exclude-mapping path="/optionList"/>
+				<exclude-mapping path="/option_delete"/>
+				<exclude-mapping path="/option_update"/>
+				<exclude-mapping path="/optionUpdate"/>
+				<exclude-mapping path="/menu_input"/>
+				<exclude-mapping path="/menuInput"/>
+				<exclude-mapping path="/menu_inputSave"/>
+				<exclude-mapping path="/menu_List"/>
+				<exclude-mapping path="/main"/>
+				<exclude-mapping path="/viewDetail"/>
+				<exclude-mapping path="/menuPick"/>
+				<exclude-mapping path="/menuList"/>
+				<exclude-mapping path="/menu_delete"/>
+				<exclude-mapping path="/menu_update"/>
+				<exclude-mapping path="/menuUpdate"/>
+				<exclude-mapping path="/download?filename/*"/>
+				<exclude-mapping path="/menu_updateset"/>
+				<exclude-mapping path="/viewDetail?menu_no=*"/>
+				<exclude-mapping path="//viewDetail?*"/>
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
-		</interceptors>
+		</interceptors> -->
 		
 
 	<beans:bean class="java.lang.String" id="uploadPath">

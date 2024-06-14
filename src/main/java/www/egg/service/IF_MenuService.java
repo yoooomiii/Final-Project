@@ -20,7 +20,7 @@ public interface IF_MenuService {
 
 	public OptionVO option_modno(String no) throws Exception;	//사이드 정보 넣기
 
-	public List<String> option_getFilename(String no) throws Exception;	//사이드 사진 불러오기
+	public List<String> option_getFilename(String sno) throws Exception;	//사이드 사진 불러오기
 
 	//--------------------------------------------------메뉴
 
