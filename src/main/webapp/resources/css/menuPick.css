@@ -1,0 +1,119 @@
+@charset "UTF-8";
+body{
+    margin: 0px;
+}
+#Box{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1260px;       /*가로 넓이*/
+    height: 1700px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+}
+header{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1260px;       /*가로 넓이*/
+    height: 100px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(222, 252, 213) */
+}
+nav{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1260px;       /*가로 넓이*/
+    height: 50px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(208, 249, 252) */
+}
+aside{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1260px;       /*가로 넓이*/
+    height: 150px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(101, 206, 145) */
+}
+#bar{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1260px;       /*가로 넓이*/
+    height: 150px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(204, 159, 224) */
+}
+section{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1260px;       /*가로 넓이*/
+    height: 1200px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(192, 240, 188) */
+}
+footer{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1260px;       /*가로 넓이*/
+    height: 140px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    margin-top: 20px;
+    /* background-color: rgb(97, 128, 212) */
+}
+.manuList{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1100px;       /*가로 넓이*/
+    height: 1000px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    margin-top: 80px;
+    margin-left: 80px;
+    /* background-color: rgb(234, 247, 52) */
+}
+.sideList{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 1100px;       /*가로 넓이*/
+    height: 800px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(234, 247, 52) */
+}
+.but{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    width: 135px;       /*가로 넓이*/
+    height: 50px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    margin-left: 100px;
+    padding-top: 10px;
+    /* background-color: rgb(234, 247, 52) */
+}
+.logo{
+    float: left;
+    border: 2px solid black;
+    width: 300px;       /*가로 넓이*/
+    height: 100px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(163, 221, 54) */
+}
+.login{
+    float: left;
+    border: 2px solid black;
+    width: 300px;       /*가로 넓이*/
+    height: 100px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    margin-left: 340px;
+    /* background-color: rgb(240, 71, 41) */
+}
+.user{
+    float: left;
+    border: 2px solid black;
+    width: 300px;       /*가로 넓이*/
+    height: 100px;      /*세로 높이*/
+    text-align: center;     /*중앙 정렬*/
+    /* background-color: rgb(62, 173, 131) */
+}
+span{
+    font-size: 20px;
+}
+span:hover{
+    color: rgb(252, 3, 3);
+}

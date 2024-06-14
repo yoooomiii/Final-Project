@@ -21,6 +21,14 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
+#box{
+	float:left;
+	width:800px;
+	height:700px;
+	margin-left: 230px;
+	margin-top : 130px;
+	border: 3px solid gray;
+}
 
 </style>
 
@@ -104,6 +112,13 @@
 			</div>
 		</nav>
 		<aside>
+		
+		
+		<div id="box">
+			
+		
+		
+		</div>
 
 </body>
 </html>

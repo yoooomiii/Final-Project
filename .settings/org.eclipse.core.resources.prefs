@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/www/egg/dao/MenuDAOImpl.java=UTF-8
+encoding//src/main/java/www/egg/hom/MypageController.java=UTF-8
+encoding//src/main/java/www/egg/service/IF_MenuService.java=UTF-8
 encoding//src/main/java/www/egg/service/MenuServiceImpl.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/main.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/mypage.jsp=UTF-8

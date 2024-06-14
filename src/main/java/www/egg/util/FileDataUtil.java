@@ -45,7 +45,7 @@ public class FileDataUtil {
 	 * 게시물 상세보기에서 첨부파일 다운로드 메서드 구현(공통)
 	 */
 	//컨트롤러에서 매핑의 역활을 합니다... 
-	@RequestMapping(value = "/download.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/download", method = RequestMethod.GET)
 	@ResponseBody // 어떤 데이터를 포함하여 전송.. 어노테이션.. view지정하지 않고 바로 클라이언트 요청으로 응답.
 	public FileSystemResource fileDownload(@RequestParam("filename") String fileName, HttpServletResponse response) {
 		File file = new File(uploadPath + "/" + fileName);

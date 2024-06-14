@@ -1,6 +1,5 @@
 package www.egg.service;
 
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -9,16 +8,10 @@ import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.MemberVO;
 
 @Service
-public abstract class MypageServiceImpl implements IF_MypageService {
+public class MypageServiceImpl implements IF_MypageServiece{
 	
 	@Inject
 	IF_MypageDAO mpdao;
-
-	@Override
-	public void insert(MemberVO mvo) throws Exception {
-		// TODO Auto-generated method stub
-		mpdao.insert(mvo);
-	} 
 
 	@Override
 	public MemberVO modid(String id) throws Exception {
@@ -26,12 +19,10 @@ public abstract class MypageServiceImpl implements IF_MypageService {
 		return mpdao.modid(id);
 	}
 
-//	@Override
-//	public MemberVO modsave(MemberVO mvo) throws Exception {
-//		// TODO Auto-generated method stub
-//		mpdao.modsave(mvo);
-//		return null;
-//	}
+	@Override
+	public void modsave(MemberVO mvo) throws Exception {
+		// TODO Auto-generated method stub
+		mpdao.modsave(mvo);
+	}
 
 }
-

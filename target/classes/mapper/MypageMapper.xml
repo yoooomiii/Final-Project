@@ -5,10 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="www.egg.dao.IF_MypageDAO">
 	
 	<select id="selectone" resultType="www.egg.vo.MemberVO">
-		select id,name,phone,email,address from member where id='sdf'
+		select id,name,phone,email,address from member where id=#{id}
 	</select>
 	
 	<update id="update" parameterType="www.egg.vo.MemberVO">
-		update member set id=#{id}, name=#{name}, email=#{email}, address=#{address} where id=${userid}
+		update member set name=#{name}, phone=#{phone},email=#{email},address=#{address} 
+		where id=#{id}
 	</update>
+	
 </mapper>

@@ -7,53 +7,57 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import www.egg.service.IF_MypageService;
+import www.egg.service.IF_MypageServiece;
 import www.egg.vo.MemberVO;
 
 @Controller
 public class MypageController {
+	
+	@Inject 
+	IF_MypageServiece mpservice;
 
-	@Inject
-	IF_MypageService mservice;
+   
+    
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+    public String home(HttpSession session) {
+        session.getAttribute("userid");
+        session.getAttribute("username");
+        session.getAttribute("userphone");
+        session.getAttribute("useremail");
+        session.getAttribute("useraddress");
+        return "mypage";
+    }
+    
+	@RequestMapping(value = "write", method = RequestMethod.GET)
+    public String review() {
+        return "writereview";
+    }
+    
+	@RequestMapping(value = "mod", method = RequestMethod.GET)
+    public String modno(HttpSession session) throws Exception  {
+        session.getAttribute("userid");
+        session.getAttribute("username");
+        session.getAttribute("userphone");
+        session.getAttribute("useremail");
+        session.getAttribute("useraddress");
+        return "mymod";
+    }
+	
+	@RequestMapping(value = "msave", method = RequestMethod.POST)
+    public String save(@ModelAttribute MemberVO mvo, HttpSession session) throws Exception  {
+       mpservice.modsave(mvo);
+        System.out.println("저장됨");
+        session.getAttribute("userid");
+        session.getAttribute("username");
+        session.getAttribute("userphone");
+        session.getAttribute("useremail");
+        session.getAttribute("useraddress");
+        return "mypage";
+    }
+    
 
-	@GetMapping(value="/mypage")
-	public String home(HttpSession session) {
-		session.getAttribute("userid");
-		session.getAttribute("username");
-		session.getAttribute("useremail");
-		session.getAttribute("useraddress");
-		System.out.println(session.getAttribute("userid"));
-		return "mypage";
-	}
-
-
-
-	@GetMapping(value="/review")
-	public String review() {
-		return "writereview";
-	}
-
-
-	@GetMapping(value="/mod")
-	public String modno(HttpSession session) throws Exception  {
-		session.getAttribute("userid");
-		session.getAttribute("username");
-		session.getAttribute("useremail");
-		session.getAttribute("useraddress");
-		return "mymod";
-	}
-
-
-	@PostMapping(value="/modsave") //집가서 수정 public String
-	public String modnosave(@ModelAttribute MemberVO mvo,HttpSession session) throws Exception{
-		session.getAttribute("userid");
-		session.getAttribute("username");
-		session.getAttribute("useremail");
-		session.getAttribute("useraddress");
-		mservice.modsave(mvo);
-
-		return "redirect:mypage"; }
-
-
+ 
 }

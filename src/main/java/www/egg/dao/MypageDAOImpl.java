@@ -17,12 +17,6 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	private SqlSession sqlsession;
 
 	@Override
-	public void insert(MemberVO mvo) throws Exception {
-		// TODO Auto-generated method stub
-		sqlsession.insert(mapperQuery + ".insert", mvo);
-	}
-
-	@Override
 	public MemberVO modid(String id) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(mapperQuery + ".selectone", id);
@@ -33,8 +27,5 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		// TODO Auto-generated method stub
 		sqlsession.update(mapperQuery + ".update", mvo);
 	}
-
-
-
 
 }

@@ -2,13 +2,19 @@ package www.egg.vo;
 
 public class ItemVO {
 	
-	private Integer num = 0;     // ¾ÆÀÌÅÛ ¹øÈ£
-	private Integer no = 0;      // Àå¹Ù±¸´Ï ¹øÈ£
-	private String code =null;   // ¸ŞÀÎ¸Ş´º ÄÚµå
-	private String scode =null;  // »çÀÌµå¸Ş´ºÄÚµå
-	private int count =0;        // ¼ö·®
-	private int price =0;        // ÁÖ¹®±İ¾×
+	private Integer num = 0;     // ì•„ì´í…œ ë²ˆí˜¸
+	private Integer no = 0;      // ê²°ì œ ë²ˆí˜¸
+	private String id = null;	 // íšŒì› ID
+	private String code =null;   // ë©”ì¸ë©”ë‰´ ì½”ë“œ
+	private String scode =null;  // ì‚¬ì´ë“œë©”ë‰´ ì½”ë“œ
+	private int count =0;        // ë©”ë‰´ ìˆ˜ëŸ‰
+	private int price =0;        // ë©”ë‰´ ì£¼ë¬¸ ê¸ˆì•¡
 	
+	@Override
+	public String toString() {
+		return "ItemVO [num=" + num + ", no=" + no + ", id=" + id + ", code=" + code + ", scode=" + scode + ", count="
+				+ count + ", price=" + price + "]";
+	}
 	public Integer getNum() {
 		return num;
 	}
@@ -20,6 +26,12 @@ public class ItemVO {
 	}
 	public void setNo(Integer no) {
 		this.no = no;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getCode() {
 		return code;
@@ -45,13 +57,5 @@ public class ItemVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
-	@Override
-	public String toString() {
-		return "ItemVO [num=" + num + ", no=" + no + ", code=" + code + ", scode=" + scode + ", count=" + count
-				+ ", price=" + price + "]";
-	}
-	
-	
 
 }

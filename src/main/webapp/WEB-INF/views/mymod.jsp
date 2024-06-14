@@ -102,11 +102,11 @@ span{
 			</div>
 		</div>
 		<div id="ex">
-			<form action="modsave" method="post">
+			<form action="msave" method="post">
 			아이디    <input type="text" name="id" class="tx" value="${userid}" readonly> <br> <br>
 			
 			이름       <input type="text" name="name" class="tx" value="${username}" > <br> <br>
-			<!-- 전화번호   <input type="text" name="address" class="tx"><br> <br> -->
+			 전화번호   <input type="text" name="phone" class="tx" value="${userphone}">
 			이메일    <input type="text" name="email" class="tx" value="${useremail}"> <br> <br>
 			주소      <input type="text" name="address" class="tx" value="${useraddress}">
 			<button type="button" id="search" onclick="findaddr()">주소검색</button>

@@ -29,10 +29,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<beans:bean class="java.lang.String" id="uploadPath">
-		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
-	</beans:bean>
-
 	<beans:bean
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
 		id="multipartResolver">
@@ -42,21 +38,29 @@
 	<beans:bean id="authenticationTnterceptor"
 		class="www.egg.interceptor.AuthenticationInterceptor"></beans:bean>
 		
-		<interceptors>
+		<!-- <interceptors>
 			<interceptor>
-				<mapping path="/**"></mapping> <!-- 모든 요청을 가로챈다. -->
-				<exclude-mapping path="/"/> <!-- /과 login 요청은 제외하고 ^^ -->
+				<mapping path="/**"></mapping> 모든 요청을 가로챈다.
+				<exclude-mapping path="/"/> /과 login 요청은 제외하고 ^^
 				<exclude-mapping path="/signUp"/>
 				<exclude-mapping path="/signIn"/> 
-				<exclude-mapping path="/resources/**" />
-				<exclude-mapping path="/css/**" />
+				<exclude-mapping path="/resources/" />
+				<exclude-mapping path="/css/" />
 				<exclude-mapping path="/login"/>
 				<exclude-mapping path="/join"/>
 				<exclude-mapping path="/why"/>
+				<exclude-mapping path="/mypage"/>
 				<beans:ref bean="authenticationTnterceptor"></beans:ref>
 			</interceptor>
-		</interceptors>
+		</interceptors> -->
 		
+
+	<beans:bean class="java.lang.String" id="uploadPath">
+		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
+	</beans:bean>
+	
+<!-- 	<context:component-scan base-package="www.egg" /> -->
+	
 
 	<context:component-scan
 		base-package="www.egg.hom" />
@@ -65,7 +69,7 @@
 	<context:component-scan
 		base-package="www.egg.service" />
 	<context:component-scan
-		base-package="www.egg.util" />
+		base-package="www.egg.util" /> 
 	
 		
 </beans:beans>

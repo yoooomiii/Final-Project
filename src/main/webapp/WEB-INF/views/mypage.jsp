@@ -135,13 +135,17 @@ td {
 	padding: 15px 0px;
 	border-bottom: 2px solid grey;
 }
+.iconimg:hover{
+	box-shadow : 4px 4px 4px black;
+	transition-duration: 0.3s;
+}
 </style>
 
 <body>
 	<div id="Box">
 		<header>
 			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
+				<a href="login"><span> 로그인 </span></a>
 			</div>
 			<div class="join box">
 				<a href="#"><span> 회원가입 </span></a>
@@ -150,7 +154,7 @@ td {
 
 		<nav>
 			<div class="logo">
-				<a href="#"><span><img
+				<a href=""><span><img
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
@@ -186,7 +190,7 @@ td {
 
 		<div id="line">
 			<div id="mypage">
-				<h2>${username}님의마이페이지입니다</h2>
+				<h2>${username} 님의마이페이지입니다</h2>
 			</div>
 
 
@@ -210,7 +214,7 @@ td {
 
 				<div id="icon">
 					<div class="iconimg">
-						<img src="./resources/img/주문내역2.png" width="100" height="90"
+						<img src="./resources/img/주문내역2.png " width="100" height="90"
 							onclick="list">
 						<h3>주문내역</h3>
 					</div>
@@ -249,27 +253,29 @@ td {
 							</tr>
 						</thead>
 						<tbody>
-							<form action="/review" method="get">
+							
 								<tr class="cart__list__detail">
 									<td style="width: 5%;"></td>
 									<td><span>치킨사진</span></td>
 									<td><a href="#"></a> <span>메뉴이름</span></td>
 									<td><span>상품금액</span></td>
 									<td><span>포장</span><br></td>
-
+									<form action="write" method="get">
 									<td><input type="submit" value="리뷰쓰기"></td>
-							</form>
+									</form>
 
-							</tr>
+								</tr>
 						</tbody>
 					</form>
 				</table>
+			</div>
 		</section>
+	</div>
 </body>
 
 
-</div>
-</section>
+
+
 
 
 <footer>
@@ -311,7 +317,6 @@ td {
 	</div>
 </footer>
 
-</section>
 <script>
 	function list() {
 		alert("hohoho");
