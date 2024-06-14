@@ -42,12 +42,12 @@
         
 		<nav>
             <div class="logo">
-				<a href="main"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
                     <li>
-                        <a href="main"> HOME </a>
+                        <a href="./"> HOME </a>
                     </li>
                     <li>
                         <a href="#"> 브랜드 소개 </a>
@@ -78,10 +78,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 고객센터 </a>
+                        <a href="ask"> 고객센터 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="info/askpage"> 1:1 문의 </a>
+                                <a href="askpage"> 1:1 문의 </a>
                             </li>
                             <li>
                                 <a href="#"> FAQ </a>

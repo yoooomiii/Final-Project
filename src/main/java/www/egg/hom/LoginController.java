@@ -14,7 +14,7 @@ import www.egg.service.IF_LoginService;
 import www.egg.vo.MemberVO;
 
 
-//@Controller
+@Controller
 public class LoginController {
 	
 	@Inject
@@ -50,16 +50,20 @@ public class LoginController {
 				if(session.getAttribute("userid")!=null) { 
 					session.removeAttribute("userid");
 					session.removeAttribute("username");
+					session.removeAttribute("userphone");
 					session.removeAttribute("useremail");
 					session.removeAttribute("useraddress");
 					session.removeAttribute("usergrade");
 				}
 				session.setAttribute("userid", mvo.getId()); 
 				session.setAttribute("username", mvo.getName());
+				session.setAttribute("userphone", mvo.getPhone());
 				session.setAttribute("useremail", mvo.getEmail());
 				session.setAttribute("useraddress", mvo.getAddress());
 				session.setAttribute("usergrade", mvo.getMaster());
-				
+				/*
+				 * if() { return "adminMain"; }
+				 */
 				return "redirect:/";
 				
 			}else { 

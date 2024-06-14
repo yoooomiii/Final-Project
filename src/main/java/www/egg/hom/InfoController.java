@@ -32,13 +32,17 @@ public class InfoController {
 	
 	
 	// 1:1 문의 
-	@RequestMapping(value="/ask", method=RequestMethod.GET)
-	public String infoPage (HttpSession session) {
+	@RequestMapping(value="ask", method=RequestMethod.GET)
+	public String infoPage (HttpSession session, AskVO avo) throws Exception {
 		session.getAttribute("userid"); // 세션에서 유저 아이디 값 가져오는 거
 		session.getAttribute("username"); // 세션에서 유저 이름 값 가져오는 거
 		session.getAttribute("useremail");
 		session.getAttribute("useraddress");
 		session.getAttribute("usergrade");
+
+		avo.setId(session.getId());
+		
+		System.out.println(session.getAttribute("userid"));
 		
 		return "info/askpage";
 	}

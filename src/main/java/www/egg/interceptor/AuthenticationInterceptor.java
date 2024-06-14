@@ -9,14 +9,20 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 
-	/*
-	 * @Override public boolean preHandle(HttpServletRequest request,
-	 * HttpServletResponse response, Object handler) throws Exception { HttpSession
-	 * session = request.getSession(); Object getSession =
-	 * session.getAttribute("userid"); if(getSession==null) {
-	 * response.sendRedirect(request.getContextPath()+"/login");
-	 * System.out.println("preHandle!!!"); return false; } return
-	 * super.preHandle(request, response, handler); }
-	 */
-
+	@Override 
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		HttpSession session = request.getSession(); 
+		Object getSession = session.getAttribute("userid");
+		// Object getGrade = session.getAttribute("usergrade");
+		if(getSession==null) { 
+			response.sendRedirect(request.getContextPath()+"/"); 
+			
+			// System.out.println("preHandle"); 
+			return false;
+		}
+		
+		return super.preHandle(request, response, handler);
+	}
+	
 }
