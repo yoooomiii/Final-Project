@@ -70,7 +70,7 @@ public class MenuController {
 			Model model) throws Exception {	//�샃�뀡 �쟾泥대낫湲�
 		List<OptionVO> allList = mservice.option_List();
 		model.addAttribute("optionList", allList);
-		
+
 		return "optionList";
 	}
 

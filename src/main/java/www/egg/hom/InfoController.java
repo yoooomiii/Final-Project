@@ -20,7 +20,7 @@ import www.egg.vo.AskVO;
 
 @Controller
 public class InfoController {
-	
+
 	@Inject
 	IF_InfoService iservice;
 	
@@ -44,6 +44,7 @@ public class InfoController {
 		avo.setId(session.getId());
 		
 		System.out.println(session.getAttribute("userid"));
+
 		
 		return "info/askpage";
 	}

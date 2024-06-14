@@ -16,15 +16,13 @@ import www.egg.vo.MemberVO;
 
 @Controller
 public class LoginController {
-	// 0614 김어진 로그인컨트롤러 완료 
-	
 	
 	@Inject
 	IF_LoginService lservice;
 	
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login() {
-		System.out.println("test");
+
 		return "login/loginForm";
 	}
 	@RequestMapping(value = "join", method = RequestMethod.GET)
