@@ -23,12 +23,14 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 			System.out.println("인증 preHandle 발동!!! 현재 비회원 상태입니다."); 
 			return false;
 		}
+		
 		/*
 		 * if(usergrade.equals("1")) { // 관리자 로그인일 때
 		 * response.sendRedirect(request.getContextPath()+"/login"); /// 관리자 화면으로 돌아가라.
 		 * 
 		 * System.out.println("인증 preHandle 발동!!! 현재 관리자 접속입니다."); return false; }
 		 */
+		 
 		
 		return super.preHandle(request, response, handler);
 	}
