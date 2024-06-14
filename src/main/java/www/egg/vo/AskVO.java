@@ -1,15 +1,13 @@
 package www.egg.vo;
 
-public class ServiceVO {
+public class AskVO {
 
 	private Integer num = 0;
 	private String id = null;
 	private String title = null;
 	private String ex = null;
-	private String re = null;
 	private String check = null;
 	private int in_date = 0;
-	private String file = null;
 	
 	public Integer getNum() {
 		return num;
@@ -35,12 +33,6 @@ public class ServiceVO {
 	public void setEx(String ex) {
 		this.ex = ex;
 	}
-	public String getRe() {
-		return re;
-	}
-	public void setRe(String re) {
-		this.re = re;
-	}
 	public String getCheck() {
 		return check;
 	}
@@ -53,13 +45,11 @@ public class ServiceVO {
 	public void setIn_date(int in_date) {
 		this.in_date = in_date;
 	}
-	public String getFile() {
-		return file;
-	}
-	public void setFile(String file) {
-		this.file = file;
-	}
 	
-	
+	@Override
+	public String toString() {
+		return "InfoVO [num=" + num + ", id=" + id + ", title=" + title + ", ex=" + ex + ", check=" + check
+				+ ", in_date=" + in_date + "]";
+	}
 	
 }
