@@ -44,6 +44,7 @@ public class InfoController {
 		avo.setId(session.getId());
 		
 		System.out.println(session.getAttribute("userid"));
+		System.out.println(00);
 		
 		return "info/askpage";
 	}
