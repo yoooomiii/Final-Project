@@ -9,12 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-<link href="${path}/resources/css/main.css" rel="stylesheet"/>
-
-<title> main home </title>
-
-=======
 <link href="${path}/resources/css/main.css" rel="stylesheet" />
 <title>Home</title>
 >>>>>>> 69f145ea6c31deac0742a9712543cb1dfe325b88
@@ -66,9 +60,6 @@
 				<ul>
 
                     <li>
-<<<<<<< HEAD
-                        <a href="./"> HOME </a>
-=======
                         <a href="main"> HOME </a>
 >>>>>>> 69f145ea6c31deac0742a9712543cb1dfe325b88
                     </li>
