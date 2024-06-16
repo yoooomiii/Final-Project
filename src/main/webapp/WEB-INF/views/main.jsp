@@ -62,7 +62,7 @@
 
                     <li>
 
-                        <a href="./"> HOME </a>
+                        <a href="main"> HOME </a>
 
                     </li>
                     <li>
