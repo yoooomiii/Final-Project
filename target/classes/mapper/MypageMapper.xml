@@ -13,4 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where id=#{id}
 	</update>
 	
+	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO">
+		insert into review values()
+	</insert>
 </mapper>

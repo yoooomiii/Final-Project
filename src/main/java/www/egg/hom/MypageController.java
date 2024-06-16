@@ -4,14 +4,13 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import www.egg.service.IF_MypageServiece;
 import www.egg.vo.MemberVO;
+import www.egg.vo.ReviewVO;
 
 @Controller
 public class MypageController {
@@ -58,8 +57,10 @@ public class MypageController {
     }
     
 	@RequestMapping(value = "rwrite", method = RequestMethod.POST)
-	public String rsave() {
+	public String rsave(@ModelAttribute ReviewVO rvo, HttpSession session) {
 		System.out.println("리뷰저장");
+		session.getAttribute("userid");
+		
 	     return null;
 	}
  
