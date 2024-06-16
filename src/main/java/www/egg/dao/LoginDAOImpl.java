@@ -1,5 +1,7 @@
 package www.egg.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,6 +26,12 @@ public class LoginDAOImpl implements IF_LoginDAO{
 	public MemberVO selectMemberId(String id) {
 		return  sqlSession.selectOne(mapperQuery+".selectoneid", id); 
 		
+	}
+
+	@Override
+	public List<MemberVO> memberlist() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(mapperQuery+".selectmembers");
 	}
 
 }

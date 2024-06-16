@@ -32,7 +32,7 @@
 	border-radius: 30px;
 }
 
-#mypage {
+#surchpan {
 	float: left;
 	width: 1210px;
 	height: 70px;
@@ -190,8 +190,11 @@ td {
 		</nav>
 
 		<div id="span">
-			<div id="mypage">
+			<div id="surchpan">
 				<h2>${username} 회원 관리 페이지입니다.</h2>
+				<form action="" method="get">
+					<input type="text" name="sword"> <input type="submit" value="검색">
+				</form>
 			</div>
 		</div>
 
@@ -206,7 +209,6 @@ td {
 		<thead>
 			<tr>
 				<td>회원ID</td>
-				<td>회원PW</td>
 				<td>회원명</td>
 				<td>전화번호</td>
 				<td>이메일</td>
@@ -219,13 +221,12 @@ td {
 		<tbody>
 		    <c:forEach items="${members }" var="membervo">
 				<tr>
-					<td>회원ID</td>
-					<td>회원PW</td>
-					<td>회원명</td>
-					<td>전화번호</td>
-					<td>이메일</td>
-					<td>주소</td>
-					<td>권한</td>
+					<td>${membervo.id }</td>
+					<td>${membervo.name }</td>
+					<td>${membervo.phone }</td>
+					<td>${membervo.email }</td>
+					<td>${membervo.address }</td>
+					<td>${membervo.master }</td>
 					<td><a href="#">수정</a></td>
 					<td><a href="#">삭제</a></td>
 				</tr>
