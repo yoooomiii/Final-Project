@@ -26,14 +26,15 @@ public class MypageController {
         session.getAttribute("userphone");
         session.getAttribute("useremail");
         session.getAttribute("useraddress"); 
-        return "mypage";
+        return "mypage/mypage";
     }
     
 	@RequestMapping(value = "write", method = RequestMethod.GET)
-    public String review() {
-        return "writereview";
-    }
-    
+	public String review() {
+		System.out.println("reviews");
+	     return "mypage/review";
+	}
+	
 	@RequestMapping(value = "mod", method = RequestMethod.GET)
     public String modno(HttpSession session) throws Exception  {
         session.getAttribute("userid");
@@ -56,6 +57,10 @@ public class MypageController {
         return "mypage";
     }
     
-
+	@RequestMapping(value = "rwrite", method = RequestMethod.POST)
+	public String rsave() {
+		System.out.println("리뷰저장");
+	     return null;
+	}
  
 }

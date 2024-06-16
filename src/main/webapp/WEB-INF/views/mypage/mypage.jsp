@@ -242,7 +242,7 @@ td {
 
 			<div id="mlist">
 				<table class="cart__list">
-					<form>
+					
 						<thead>
 							<tr>
 								<td colspan="2">(사진)</td>
@@ -255,18 +255,19 @@ td {
 						<tbody>
 							
 								<tr class="cart__list__detail">
+									
 									<td style="width: 5%;"></td>
 									<td><span>치킨사진</span></td>
 									<td><a href="#"></a> <span>메뉴이름</span></td>
 									<td><span>상품금액</span></td>
-									<td><span>포장</span><br></td>
-									<form action="write" method="get">
-									<td><input type="submit" value="리뷰쓰기"></td>
+									<td><span>포장</span><br></td>	
+									<form action="write" method="get">								
+									<td><button>리뷰</button></td>
 									</form>
 
 								</tr>
 						</tbody>
-					</form>
+				
 				</table>
 			</div>
 		</section>
@@ -317,14 +318,6 @@ td {
 	</div>
 </footer>
 
-<script>
-	function list() {
-		alert("hohoho");
-	}
 
-	function review() {
-		location.href = "main";
-	}
-</script>
 </body>
 </html>
