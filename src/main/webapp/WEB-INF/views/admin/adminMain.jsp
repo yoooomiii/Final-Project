@@ -28,6 +28,9 @@
 	<div id="Box">
 		<header>
 				관리자 HOME입니다. (MASTER) 
+				<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
 				<c:if test="${userid == null }">
 					<a href="login"><span> 로그인 </span></a>

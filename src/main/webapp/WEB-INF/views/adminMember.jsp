@@ -24,6 +24,22 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
+.login {
+	float: right;
+	width: 100px; /*가로 넓이*/
+    height: 90%;
+    margin-left: 30px;
+    
+}
+
+.logout {
+    float: right;
+	width: 100px; /*가로 넓이*/
+    height: 90%;
+    margin-right: 30px;
+   
+}
+
 #span {
 	width: 1210px;
 	height: 150px;
@@ -150,11 +166,18 @@ td {
 <body>
 	<div id="Box">
 		<header>
+				<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
-				<a href="login"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
-			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+			<div class="logout box">
+				<c:if test="${userid != null }">
+					<a href="logout"><span> 로그아웃 </span></a>
+				</c:if>
 			</div>
 		</header>
 
