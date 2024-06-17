@@ -2,10 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="www.egg.dao.IF_MenuDAO">
-
-	<!-- 입력 -->
 	<insert id="insert" parameterType="www.egg.vo.MenuVO">
 		INSERT INTO MENU VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_star}) 
 	</insert>
@@ -15,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 전체보기 -->
 	<update id="update" parameterType="www.egg.vo.MenuVO">
-		UPDATE MENU SET menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_star = #{menu_star} WHERE menu_no = #{menu_no}
+		UPDATE MENU SET menu_code = #{menu_code}, menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_star = #{menu_star} WHERE menu_no = #{menu_no}
 	</update>
 	<!-- 수정 -->
 	<delete id="delete" parameterType="www.egg.vo.MenuVO">
@@ -65,4 +62,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT filename FROM photo WHERE no = #{no}
 	</select>
 	<!-- 사이드 사진 불러오기 -->
+	<!-- 장바구니 -->
+	<insert id="iinsert" parameterType="www.egg.vo.ItemVO">
+		INSERT INTO item VALUES (#{num}, NEXT VALUE FOR item_cnt, #{id}, #{code}, #{scode}, #{count}, #{price})
+	</insert>
+	<!-- 장바구니 입력 -->
 </mapper>

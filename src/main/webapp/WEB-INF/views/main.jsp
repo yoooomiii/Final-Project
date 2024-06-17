@@ -76,7 +76,7 @@
 
                     <li>
 
-                        <a href="main"> HOME </a>
+                        <a href="./"> HOME </a>
 
                     </li>
                     <li>
@@ -88,7 +88,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 메뉴 주문하기 </a>
+                        <a href="menuForm"> 메뉴 주문하기 </a>
                         <ul class="submenu">
                             <li>
                                 <a href="#"> 인기 메뉴 </a>

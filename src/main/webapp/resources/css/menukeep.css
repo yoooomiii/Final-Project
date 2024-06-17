@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
     font-family: 'Cafe24Ssurround';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
@@ -159,7 +160,7 @@ nav {
     .submenu {
         position: absolute;
         display: none;
-        top: 80px;
+        top: 75px;
         height: 100%;
         background-color: rgb(248, 248, 243, 0.5);
         font-size: 20px;
@@ -178,147 +179,178 @@ nav {
         text-align: center;
         line-height: 40px;
     }
+#foodList{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+	width: 1260px; /*가로 넓이*/
+	height: 1200px; /*세로 높이*/
+	text-align: center; /*중앙 정렬*/
+	background-color: rgb(228, 230, 228);
+    padding-left: 200px;
+}
 
-    section {
-        font-family: 'SUITE-Regular';
-        width: 1260px;
-        height: auto;
-        background-color: rgb(255, 250, 203, 0.3);
-        float: left;
-        font-weight: bold;
+aside {
+	float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+	width: 1260px; /*가로 넓이*/
+	height: 154px; /*세로 높이*/
+	text-align: center; /*중앙 정렬*/
+	/* background-color: rgb(101, 206, 145) */
+}
 
-    }
+.table{
+	margin-left: 0px;
+}
 
-    .info_form {
-        width: 100%;
-        height: 800px;
-        text-align: center;
-        padding: 20px;
-    }
+.title {
+    width: 100%;
+    height: 35px;
+    background-color: #eccd54;
+    font-family: 'Cafe24Ssurround';
+    font-size: 22px;
+    padding-top: 2px;
+}
 
-    .info_form h1 {
-       
-        font-weight: bold;
-        text-shadow: 1px 2px 1px black;
-    }
 
-    .info_form form {
-        width: 550px;
-        height: 600px;
-        border: 5px double rgb(55, 0, 0);
-        margin-top: 30px;
-        padding: 30px 10px;
-        border-radius: 10px;
+.list{
+    float: left;
+    border: 0px solid black;      /*틀 선 굵기와 종류 색상*/
+    border-radius: 30px;
+	width: 350px; /*가로 넓이*/
+	height: 600px; /*세로 높이*/
+	text-align: center; /*중앙 정렬*/
+    margin-top: 50px;
+    margin-left: 50px;
+	/* background-color: rgb(101, 206, 145) */
+}
+.list h4{
+    float: right;
+    margin-right: 20px;
+}
 
-    }
 
-    .info_form h6 {
-     text-align: right;
-     font-size: small;
-    }
+.img{
+    float: left;
+    border: 0px solid black;      /*틀 선 굵기와 종류 색상*/
+    border-radius: 20px;
+	width: 700px; /*가로 넓이*/
+	height: 1100px; /*세로 높이*/
+	text-align: center; /*중앙 정렬*/
+    margin-left: 80px;
+    margin-top: 50px;
+    padding-top: 30px;
+	background-color: rgb(255, 255, 255)
+}
 
-    .info_form form span {
-        font-size: 20px;
-        padding-right: 15px;
-    }
+.menulist {
+	float: left;
+	width: 25%; /*가로 넓이*/
+	height: 250px; /*세로 높이*/
+	text-align: center; /*중앙 정렬*/
+	margin-top: 50px;
+    margin-bottom: 50px;
+}
 
-    .info_form form input[type=text] {
-        background-color: rgb(255, 255, 240);
-        border: 1px solid rgb(0, 0, 0, 0.3);
-        width: 400px;
-    }
+.menulist img {
+    width: 240px;
+    height: 200px;
+    margin: 5px 0;
+}
 
-    .info_form form input[name="title"] {
-        height: 30px;
-        border-radius: 5px;
-    }
-    
-    .info_form form input[name="ex"] {
-        height: 200px;
-        border-radius: 10px;
-        white-space:nowrap;
-        word-break:normal;
-    }
-    
-    .info_form form input[type=file] {
-        background-color: rgb(255, 255, 240);
-        border: 1px solid rgb(0, 0, 0, 0.3);
-        width: 390px;
-        height: 40px;
-        border-radius: 5px;
-        padding: 5px;
-    }
+.menulist span {
+	font-size: 25px;
+    font-weight: bold;
 
-    .info-file h6 {
-        text-align: left;
-        padding-left: 20px;
-    }
+}
 
-    .save {
-        text-align: right;
-        padding: 30px 50px;
-    }
+.menulist a {
+    text-decoration: none;
+    font-family: 'SUITE-Regular';
+    color: black;
+    text-shadow: 0px 1px 1px black;
+}
 
-    .save input[type=submit] {
-        width: 130px;
-        height: 50px;
-        border: 3px solid rgb(53, 15, 0);
-        border-radius: 7px;
-        font-size: 22px;
-        font-weight: bold;
-        text-shadow: 0px 1px 0.5px rgb(10, 0, 0, 0.7);
-    }
+.menulist a:hover {
+    text-shadow: 0px 2px 3px black;
+    font-size: 27px;
+}
 
-    footer {
-        font-family: 'SUITE-Regular';
-        font-size: 20px;
-        float: left;
-        background-color: #180e02;
-        width: 1260px; /*가로 넓이*/
-        height: 250px; /*세로 높이*/
-        margin: 20px 0;
-    
-    }
-    
-    .footer-box {
-        float: left;
-        font-size: medium;
-        width: 90%;
-        height: 90%;
-    
-    }
-    
-    .footer-logo {
-        width: 100px;
-        height: 40px;
-    }
-    
-    .footer-con {
-        float: left;
-        width: 50%;
-        padding-top: 10px;
-        margin-left: 10px;
-        margin-top: 20px;
-    }
-    
-    .con-text {
-        color: white;
-        text-align: left;
-    }
-    
-    .sns {
-        float: right;
-        width: 40%;
-        height: 50px;
-        margin-top: 20px;
-        margin-right: 50px;
-    }
-    
-    .sns img {
-        width: 40px;
-        height: 40px;
-        margin-right: 20px;
-    }
+.main-banner {
+    float: left;
+    width: 1260px;
+    height: 200px;
+    padding-top: 20px;
+}
 
-    
-    
+.banner {
+    display: inline-block;
+    height: 85%;
+    background-color: #eccd54;
+}
+
+.notice {
+    width: 35%;
+    margin-right: 20px;
+}
+
+.event {
+    width: 60%;
+}
+
+footer {
+    font-family: 'SUITE-Regular';
+    font-size: 20px;
+	float: left;
+    background-color: #180e02;
+	width: 1260px; /*가로 넓이*/
+	height: 250px; /*세로 높이*/
+	margin: 20px 0;
+
+}
+
+.footer-box {
+    float: left;
+    font-size: medium;
+    width: 90%;
+    height: 90%;
+
+}
+
+.footer-logo {
+    width: 100px;
+    height: 40px;
+}
+
+.footer-con {
+    float: left;
+    width: 50%;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.con-text {
+    color: white;
+    text-align: left;
+}
+
+.sns {
+    float: right;
+    width: 40%;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+.sns img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+#kkk{
+    border-radius: 10px;
+    width: 200px; /*가로 넓이*/
+	height: 40px; /*세로 높이*/
+    color: white;
+    background-color: #f06d4c;
+}

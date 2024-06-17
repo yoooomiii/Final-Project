@@ -17,26 +17,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.service.IF_InfoService;
 import www.egg.vo.AskVO;
+import www.egg.vo.MemberVO;
 
-@Controller
+//@Controller
 public class InfoController {
 
 	@Inject
 	IF_InfoService iservice;
 	
-	// ¸ŞÀÎ home
+	// ë©”ì¸ home
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String main () {
 		
 		return "main";
 	}
+
 	
-	
-	// 1:1 ¹®ÀÇ 
+	// 1:1 å ì™ì˜™å ì™ì˜™ 
 	@RequestMapping(value="ask", method=RequestMethod.GET)
 	public String infoPage (HttpSession session, AskVO avo) throws Exception {
-		session.getAttribute("userid"); // ¼¼¼Ç¿¡¼­ À¯Àú ¾ÆÀÌµğ °ª °¡Á®¿À´Â °Å
-		session.getAttribute("username"); // ¼¼¼Ç¿¡¼­ À¯Àú ÀÌ¸§ °ª °¡Á®¿À´Â °Å
+		session.getAttribute("userid"); // å ì™ì˜™å ì‹¤ìš¸ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì‹±ë“¸ì˜™ å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™
+		session.getAttribute("username"); // å ì™ì˜™å ì‹¤ìš¸ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì‹±ëªŒì˜™ å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™
 		session.getAttribute("useremail");
 		session.getAttribute("useraddress");
 		session.getAttribute("usergrade");
@@ -45,22 +46,24 @@ public class InfoController {
 		
 		System.out.println(session.getAttribute("userid"));
 
-		System.out.println("test");
-		
 		return "info/askpage";
 	}
 	
-	// ¹®ÀÇ ³»¿ë µî·Ï
+	// å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ï¿½
 	@PostMapping("/infoSave")
-	public String infoSave(AskVO avo) throws Exception {
+	public String infoSave(AskVO avo, HttpSession session) throws Exception {
 	
-		iservice.insert(avo);
-		System.out.println("¹®ÀÇ°¡ µî·ÏµÇ¾ú½À´Ï´Ù.");
+		String userid = (String) session.getAttribute("userid");
+		avo.setId(userid);
+		//iservice.insert(avo);
+		System.out.println(avo.toString());
+
 		
-		return "redirect:info/infoList";
+		
+		return "info/infoList";
 	}
 	
-	// »èÁ¦ÇÏ±â
+	// å ì™ì˜™å ì™ì˜™å ì‹¹ê¹ì˜™
 	@GetMapping("/delask")
 	public String delask(@RequestParam("num") Integer num) throws Exception {
 		
@@ -69,7 +72,7 @@ public class InfoController {
 		return "redirect:info/infoList";
 	}
 	
-	// ¼öÁ¤ÇÏ±â
+	// å ì™ì˜™å ì™ì˜™å ì‹¹ê¹ì˜™
 	@GetMapping("/modask")
 	public String modask(@RequestParam("num") Integer num, Model model) throws Exception {
 		
@@ -80,17 +83,17 @@ public class InfoController {
 		return "modaskForm";
 	}
 	
-	// ¼öÁ¤ÇÏ±â Àû¿ë ¸®½ºÆ® Á¶È¸
+	// å ì™ì˜™å ì™ì˜™å ì‹¹ê¹ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™íŠ¸ å ì™ì˜™íšŒ
 	@PostMapping("/modSave")
 	public String modSave(@ModelAttribute AskVO avo) throws Exception {
 	
 		iservice.update(avo);
-		System.out.println("¹®ÀÇ°¡ µî·ÏµÇ¾ú½À´Ï´Ù.");
+		System.out.println("å ì™ì˜™å ì‹¤ê³¤ì˜™ å ì™ì˜™æºí“¸å ì™ì˜™å ì™ì˜™æ±‚å ï¿½.");
 		
 		return "redirect:info/infoList";
 	}
 	
-	// ÀüÃ¼Á¶È¸
+	// å ì™ì˜™ì²´å ì™ì˜™íšŒ
 	@GetMapping("/allList")
 	public String allList(Model model) throws Exception {
 		

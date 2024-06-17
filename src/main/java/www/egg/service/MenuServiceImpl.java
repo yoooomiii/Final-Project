@@ -8,13 +8,13 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_MenuDAO;
+import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
 
 @Service
 public class MenuServiceImpl implements IF_MenuService {
 	
-
 	@Inject
 	IF_MenuDAO mdao;
 
@@ -97,6 +97,14 @@ public class MenuServiceImpl implements IF_MenuService {
 	public List<String> option_getFilename(String no) throws Exception {	//사이드 사진 불러오기
 		// TODO Auto-generated method stub
 		return mdao.option_getFilename(no);
+	}
+	
+	//-----------------------------------------------------------장바구니
+
+	@Override
+	public void item_insert(ItemVO ivo) throws Exception {
+		// TODO Auto-generated method stub
+		mdao.item_insert(ivo);
 	}
 
 }
