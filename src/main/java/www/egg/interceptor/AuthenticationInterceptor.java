@@ -18,7 +18,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 		// Object getGrade = session.getAttribute("usergrade");
 
 		if(getSession==null) { 
-			response.sendRedirect(request.getContextPath()+"/"); 
+			response.sendRedirect(request.getContextPath()+"/");  
 
 			// System.out.println("preHandle"); 
 
