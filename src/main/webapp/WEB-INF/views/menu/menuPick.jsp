@@ -135,6 +135,7 @@
                 </div>
                 <div class="list">
                     <br>
+                   
                     <h2><b>${mvo.menu_name }</b></h2>
                     <br>
                     <h6><b>${mvo.menu_ex }</b></h6>
@@ -143,9 +144,8 @@
                     <br>
                     <hr>
                     <br>
-                    <form action="box" method="get">
-						<button type=submit value="${mvo.menu_no }" id="but">주문하기</button>
-					</form>
+						<a href="mviewDetail?menu_no=${mvo.menu_no}"><button type=submit id="kkk">주문하기</button></a>
+					
                     <br>
                     <br>
                     <br>

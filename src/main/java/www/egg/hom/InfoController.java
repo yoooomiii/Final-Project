@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import www.egg.service.IF_InfoService;
 import www.egg.vo.AskVO;
 
-@Controller
+//@Controller
 public class InfoController {
 
 	@Inject
 	IF_InfoService iservice;
 	
-	// ¸ÞÀÎ home
+	// ï¿½ï¿½ï¿½ï¿½ home
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String main () {
 		
@@ -32,11 +32,11 @@ public class InfoController {
 	}
 	
 	
-	// 1:1 ¹®ÀÇ 
+	// 1:1 ï¿½ï¿½ï¿½ï¿½ 
 	@RequestMapping(value="ask", method=RequestMethod.GET)
 	public String infoPage (HttpSession session, AskVO avo) throws Exception {
-		session.getAttribute("userid"); // ¼¼¼Ç¿¡¼­ À¯Àú ¾ÆÀÌµð °ª °¡Á®¿À´Â °Å
-		session.getAttribute("username"); // ¼¼¼Ç¿¡¼­ À¯Àú ÀÌ¸§ °ª °¡Á®¿À´Â °Å
+		session.getAttribute("userid"); // ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		session.getAttribute("username"); // ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		session.getAttribute("useremail");
 		session.getAttribute("useraddress");
 		session.getAttribute("usergrade");
@@ -45,21 +45,22 @@ public class InfoController {
 		
 		System.out.println(session.getAttribute("userid"));
 
+		System.out.println("test");
 		
 		return "info/askpage";
 	}
 	
-	// ¹®ÀÇ ³»¿ë µî·Ï
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@PostMapping("/infoSave")
 	public String infoSave(AskVO avo) throws Exception {
 	
 		iservice.insert(avo);
-		System.out.println("¹®ÀÇ°¡ µî·ÏµÇ¾ú½À´Ï´Ù.");
+		System.out.println("ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		
 		return "redirect:info/infoList";
 	}
 	
-	// »èÁ¦ÇÏ±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	@GetMapping("/delask")
 	public String delask(@RequestParam("num") Integer num) throws Exception {
 		
@@ -68,7 +69,7 @@ public class InfoController {
 		return "redirect:info/infoList";
 	}
 	
-	// ¼öÁ¤ÇÏ±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	@GetMapping("/modask")
 	public String modask(@RequestParam("num") Integer num, Model model) throws Exception {
 		
@@ -79,17 +80,17 @@ public class InfoController {
 		return "modaskForm";
 	}
 	
-	// ¼öÁ¤ÇÏ±â Àû¿ë ¸®½ºÆ® Á¶È¸
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸
 	@PostMapping("/modSave")
 	public String modSave(@ModelAttribute AskVO avo) throws Exception {
 	
 		iservice.update(avo);
-		System.out.println("¹®ÀÇ°¡ µî·ÏµÇ¾ú½À´Ï´Ù.");
+		System.out.println("ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		
 		return "redirect:info/infoList";
 	}
 	
-	// ÀüÃ¼Á¶È¸
+	// ï¿½ï¿½Ã¼ï¿½ï¿½È¸
 	@GetMapping("/allList")
 	public String allList(Model model) throws Exception {
 		

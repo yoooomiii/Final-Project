@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.MemberVO;
+import www.egg.vo.ReviewVO;
 
 @Service
 public class MypageServiceImpl implements IF_MypageServiece{
@@ -23,6 +24,12 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	public void modsave(MemberVO mvo) throws Exception {
 		// TODO Auto-generated method stub
 		mpdao.modsave(mvo);
+	}
+
+	@Override
+	public void rsave(ReviewVO rvo) throws Exception {
+		// TODO Auto-generated method stub
+		mpdao.rsave(rvo);
 	}
 
 }

@@ -1,9 +1,12 @@
 package www.egg.hom;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +17,7 @@ import www.egg.service.IF_LoginService;
 import www.egg.vo.MemberVO;
 
 
-@Controller
+//@Controller
 public class LoginController {
 	
 	@Inject
@@ -28,6 +31,7 @@ public class LoginController {
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String join() {
 		System.out.println("와아아아아아아ㅏ앙");
+		System.out.println("byeeeeee");
 		return "login/joinForm";
 	}
 	
@@ -92,9 +96,15 @@ public class LoginController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "myPage", method = RequestMethod.GET) 
-	public String myPage() {
-		return "ownPage";
+	/*
+	 * @RequestMapping(value = "myPage", method = RequestMethod.GET) public String // 로그인 잘 되는지 테스트
+	 * myPage() { return "ownPage"; }
+	 */
+	@GetMapping("adminMember") 
+	public String adminMember(HttpSession session, Model model) {
+		List<MemberVO> mlist = lservice.memberlist();
+		model.addAttribute("members", mlist);
+		return "adminMember";
 	}
 	
 }
