@@ -160,8 +160,8 @@ h2 {
 				<form class="mb-3" name="myform" action="rwrite" id="myform" method="post">
 					<fieldset>
 						<h2>리뷰 등록하기</h2>
-						<input type="hidden" name="id" value="${userid}">
-						<input type="hidden" name="no" value="3">
+						<input type="hidden" name="id" value="id">
+						<input type="hidden" name="no" value="no">
 						<span class="text-bold">별점을 선택해주세요</span> 
 						<input type="radio"	name="star" value="5" id="rate1"><label for="rate1">★</label>
 						<input type="radio" name="star" value="4" id="rate2"><label for="rate2">★</label> 
