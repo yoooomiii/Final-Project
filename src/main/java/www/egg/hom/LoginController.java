@@ -1,5 +1,7 @@
 package www.egg.hom;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -100,6 +102,8 @@ public class LoginController {
 	 */
 	@GetMapping("adminMember") 
 	public String adminMember(HttpSession session, Model model) {
+		List<MemberVO> mlist = lservice.memberlist();
+		model.addAttribute("members", mlist);
 		return "adminMember";
 	}
 	
