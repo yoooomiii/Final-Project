@@ -1,13 +1,21 @@
 package www.egg.vo;
 
+import java.sql.Date;
+
 public class AskVO {
 
 	private Integer num = 0;
 	private String id = null;
 	private String title = null;
 	private String ex = null;
-	private String check = null;
-	private int in_date = 0;
+	private String checkVal = "»Æ¿Œ¡ﬂ";
+	private Date in_date ;
+	
+	@Override
+	public String toString() {
+		return "AskVO [num=" + num + ", id=" + id + ", title=" + title + ", ex=" + ex + ", checkVal=" + checkVal
+				+ ", in_date=" + in_date + "]";
+	}
 	
 	public Integer getNum() {
 		return num;
@@ -33,23 +41,19 @@ public class AskVO {
 	public void setEx(String ex) {
 		this.ex = ex;
 	}
-	public String getCheck() {
-		return check;
+	public String getCheckVal() {
+		return checkVal;
 	}
-	public void setCheck(String check) {
-		this.check = check;
+	public void setCheckVal(String checkVal) {
+		this.checkVal = checkVal;
 	}
-	public int getIn_date() {
+	public Date getIn_date() {
 		return in_date;
 	}
-	public void setIn_date(int in_date) {
+	public void setIn_date(Date in_date) {
 		this.in_date = in_date;
 	}
 	
-	@Override
-	public String toString() {
-		return "InfoVO [num=" + num + ", id=" + id + ", title=" + title + ", ex=" + ex + ", check=" + check
-				+ ", in_date=" + in_date + "]";
-	}
+	
 	
 }

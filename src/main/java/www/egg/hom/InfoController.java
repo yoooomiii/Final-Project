@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.service.IF_InfoService;
 import www.egg.vo.AskVO;
+import www.egg.vo.MemberVO;
 
 @Controller
 public class InfoController {
@@ -25,39 +26,45 @@ public class InfoController {
 	IF_InfoService iservice;
 	
 	// 메인 home
-	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String main () {
-		
-		return "main";
-	}
+	  @RequestMapping(value="/", method=RequestMethod.GET) public String main () {
+	  
+	  return "main"; 
+	  
+	  }
+	 
 	
 	
 	// 1:1 문의 
 	@RequestMapping(value="ask", method=RequestMethod.GET)
-	public String infoPage (HttpSession session, AskVO avo) throws Exception {
-		session.getAttribute("userid"); // 세션에서 유저 아이디 값 가져오는 거
-		session.getAttribute("username"); // 세션에서 유저 이름 값 가져오는 거
-		session.getAttribute("useremail");
-		session.getAttribute("useraddress");
-		session.getAttribute("usergrade");
-
-		avo.setId(session.getId());
+	public String infoPage (HttpSession session, 
+			@ModelAttribute MemberVO mvo) throws Exception {
+		
+		if(session.getId()!=null) {
+			session.getAttribute("userid"); // 세션에서 유저 아이디 값 가져오는 거
+			session.getAttribute("username"); // 세션에서 유저 이름 값 가져오는 거
+			session.getAttribute("useremail");
+			session.getAttribute("useraddress");
+			session.getAttribute("usergrade");
+			
+			mvo.setId(session.getId());
+		}
 		
 		System.out.println(session.getAttribute("userid"));
 
-		System.out.println("test");
-		
 		return "info/askpage";
 	}
 	
 	// 문의 내용 등록
 	@PostMapping("/infoSave")
-	public String infoSave(AskVO avo) throws Exception {
+	public String infoSave(AskVO avo, HttpSession session) throws Exception {
 	
-		iservice.insert(avo);
-		System.out.println("문의가 등록되었습니다.");
+		String userid = (String) session.getAttribute("userid");
+		avo.setId(userid);
+		//iservice.insert(avo);
+		System.out.println(avo.toString());
 		
-		return "redirect:info/infoList";
+		
+		return "info/infoList";
 	}
 	
 	// 삭제하기
