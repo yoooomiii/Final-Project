@@ -159,33 +159,58 @@ td {
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
-				<ul>
-					<li><a href="#"> HOME </a></li>
-					<li><a href="#"> 브랜드 소개 </a>
-						<ul class="submenu">
-							<li><a href="#"> 브랜드 소개 </a></li>
-						</ul></li>
-					<li><a href="#"> 메뉴 주문하기 </a>
-						<ul class="submenu">
-							<li><a href="#"> 인기 메뉴 </a></li>
-							<li><a href="#"> 대표 메뉴 </a></li>
-							<li><a href="#"> 치킨 메뉴 </a></li>
-							<li><a href="#"> 사이드 / 음료 </a></li>
-							<li><a href="#"> 세트 메뉴 </a></li>
-						</ul></li>
-					<li><a href="#"> 고객센터 </a>
-						<ul class="submenu">
-							<li><a href="#"> 1:1 문의 </a></li>
-							<li><a href="#"> FAQ </a></li>
-						</ul></li>
-					<li><a href="mypage"> 마이 페이지 </a>
-						<ul class="submenu">
-							<li><a href="mypage"> 주문 내역 </a></li>
-							<li><a href="mypage"> 찜목록 </a></li>
-							<li><a href="mypage"> 나의 리뷰 </a></li>
-							<li><a href="mypage"> 내 정보관리 </a></li>
-						</ul></li>
-				</ul>
+			<ul>
+                    <li>
+                        <a href="main"> HOME </a>
+                    </li>
+                    <li>
+                        <a href="adminMember"> 회원 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 회원 정보 조회 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (내비 옵션) </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 주문 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 주문 상태 관리 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (정산 관리) </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 글 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 문의글 관리 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (답변 관리) </a>
+                            </li>
+                            <li>
+                                <a href="#"> 리뷰 관리 </a>
+                            </li>
+                        </ul>
+                    </li>
+                      <li>
+                        <a href="#"> 상품 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 상품 조회 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (상품 등록) </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 			</div>
 		</nav>
 
@@ -215,7 +240,6 @@ td {
 				<td>주소</td>
 				<td>권한</td>
 				<td>수정</td>
-				<td>삭제</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -228,7 +252,6 @@ td {
 					<td>${membervo.address }</td>
 					<td>${membervo.master }</td>
 					<td><a href="#">수정</a></td>
-					<td><a href="#">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
