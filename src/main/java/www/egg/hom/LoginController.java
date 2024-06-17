@@ -144,4 +144,14 @@ public class LoginController {
 		return "adminMember";
 	}
 	
+	@RequestMapping(value = "adminMDelete", method = RequestMethod.GET)
+	public String adminMDelete(@RequestParam List<String> chkid,  Model model) {
+		for (String c: chkid) {
+			// System.out.println("List<String> chkid: "+c);
+			lservice.quiteAccount(c);
+		}
+		return  "redirect:adminMView";
+	}
+	
+	
 }

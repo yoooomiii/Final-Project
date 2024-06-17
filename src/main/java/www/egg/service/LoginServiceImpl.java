@@ -45,4 +45,5 @@ public class LoginServiceImpl implements IF_LoginService {
 		return logindao.memberSearch(mvo);
 	}
 
+
 }

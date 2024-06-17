@@ -46,4 +46,6 @@ public class LoginDAOImpl implements IF_LoginDAO{
 		return sqlSession.selectList(mapperQuery+".selectmsearch", mvo);
 	}
 
+
+
 }

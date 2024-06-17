@@ -114,6 +114,11 @@ h3 {
 h2 {
 	font-size: large;
 }
+#dpan{
+	display: inline-block
+	margin-left:10px ;
+	margin-top: 10px;
+}
 
 table {
 	border-collapse: collapse;
@@ -164,7 +169,7 @@ td {
                         <a href="main"> HOME </a>
                     </li>
                     <li>
-                        <a href="adminMember"> 회원 관리 </a>
+                        <a href="adminMView"> 회원 관리 </a>
                         <ul class="submenu">
                             <li>
                                 <a href="#"> 회원 정보 조회 </a>
@@ -243,33 +248,39 @@ td {
 
 
 
-			
-	<table border=1>
-		<thead>
-			<tr>
-				<td>회원ID</td>
-				<td>회원명</td>
-				<td>전화번호</td>
-				<td>이메일</td>
-				<td>주소</td>
-				<td>권한</td>
-				<td>수정</td>
-			</tr>
-		</thead>
-		<tbody>
-		    <c:forEach items="${members }" var="membervo">
+	<form action="adminMDelete" method="get">
+		<div id="dpan">
+			<input type="submit" value="삭제하기">
+		</div>
+		<table border=1>
+			<thead>
 				<tr>
-					<td>${membervo.id }</td>
-					<td>${membervo.name }</td>
-					<td>${membervo.phone }</td>
-					<td>${membervo.email }</td>
-					<td>${membervo.address }</td>
-					<td>${membervo.master }</td>
-					<td><a href="#">수정</a></td>
+					<td>회원ID</td>
+					<td>회원명</td>
+					<td>전화번호</td>
+					<td>이메일</td>
+					<td>주소</td>
+					<td>권한</td>
+					<td>수정</td>
+					<td>선택</td>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+			    <c:forEach items="${members }" var="membervo">
+					<tr>
+						<td>${membervo.id }</td>
+						<td>${membervo.name }</td>
+						<td>${membervo.phone }</td>
+						<td>${membervo.email }</td>
+						<td>${membervo.address }</td>
+						<td>${membervo.master }</td>
+						<td><a href="#">수정</a></td>
+						<td><input type="checkbox" id="chk" name="chkid" value=${membervo.id }></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</form>
 		</section>
 </body>
 

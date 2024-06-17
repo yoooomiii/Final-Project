@@ -10,4 +10,5 @@ public interface IF_LoginDAO {
 	public List<MemberVO> memberlist();
 	public void deleteMemberId(String id);
 	public List<MemberVO> memberSearch(MemberVO mvo);
+	
 }
