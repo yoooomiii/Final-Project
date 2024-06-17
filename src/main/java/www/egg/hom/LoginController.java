@@ -100,11 +100,58 @@ public class LoginController {
 	 * @RequestMapping(value = "myPage", method = RequestMethod.GET) public String // 로그인 잘 되는지 테스트
 	 * myPage() { return "ownPage"; }
 	 */
-	@GetMapping("adminMember") 
+	@GetMapping("adminMView") 
 	public String adminMember(HttpSession session, Model model) {
 		List<MemberVO> mlist = lservice.memberlist();
 		model.addAttribute("members", mlist);
 		return "adminMember";
 	}
+	@RequestMapping(value = "quiteAccount", method = RequestMethod.POST)
+	public String quiteAccount(@RequestParam("id") String id, HttpSession session) {
+		System.out.println(session.getAttribute("userid")+" 제출됨");
+		lservice.quiteAccount(id);
+		if(session.getAttribute("userid")!=null) { // 회원 탈퇴 후 세션에 남은 정보까지 싹 날림 
+			session.removeAttribute("userid");
+			session.removeAttribute("username");
+			session.removeAttribute("userphone");
+			session.removeAttribute("useremail");
+			session.removeAttribute("useraddress");
+			session.removeAttribute("usergrade");
+		}
+		System.out.println(session.getAttribute("userid")+"는 세션에서 삭제되었는가?");
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "byebye", method = RequestMethod.GET)
+	public String byebye() {
+		return "login/goodBye";
+	}
+	
+	@RequestMapping(value = "quiteConfirm", method = RequestMethod.POST) // 로그인비번컨펌 메소드
+	public String quiteConfirm(@RequestParam("id") String id, @RequestParam("pw") String pw) {
+		// System.out.println("quiteConfirm: "+pw);
+		return "redirect:byebye";
+	}
+	@RequestMapping(value = "adminMSearch", method = RequestMethod.GET)
+	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw) {
+		/*
+		 * System.out.println("adminMSearch 콤보박스: "+addr);
+		 * System.out.println("adminMSearch 검색어: "+sw); // 검색어는 일단 받기만 하고 사용은 추후 
+		 * System.out.println("adminMSearch 라디어박스: "+master);
+		 */
+		List<MemberVO> mlist = lservice.memberSearch(mvo) ;
+		model.addAttribute("members", mlist);
+		return "adminMember";
+	}
+	
+	@RequestMapping(value = "adminMDelete", method = RequestMethod.GET)
+	public String adminMDelete(@RequestParam List<String> chkid,  Model model) {
+		for (String c: chkid) {
+			// System.out.println("List<String> chkid: "+c);
+			lservice.quiteAccount(c);
+		}
+		return  "redirect:adminMView";
+	}
+	
 	
 }

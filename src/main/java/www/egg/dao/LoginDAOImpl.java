@@ -34,4 +34,18 @@ public class LoginDAOImpl implements IF_LoginDAO{
 		return sqlSession.selectList(mapperQuery+".selectmembers");
 	}
 
+	@Override
+	public void deleteMemberId(String id) {
+		sqlSession.delete(mapperQuery+".deleteoneid", id);
+		
+	}
+
+	@Override
+	public List<MemberVO> memberSearch(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(mapperQuery+".selectmsearch", mvo);
+	}
+
+
+
 }

@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/main.css" rel="stylesheet"/>
+<link href="${path}/resources/css/main_fixed.css" rel="stylesheet"/>
 <title> 관리자 Home </title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -28,6 +28,9 @@
 	<div id="Box">
 		<header>
 				관리자 HOME입니다. (MASTER) 
+				<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
 				<c:if test="${userid == null }">
 					<a href="login"><span> 로그인 </span></a>
@@ -50,58 +53,49 @@
                         <a href="main"> HOME </a>
                     </li>
                     <li>
-                        <a href="#"> 브랜드 소개 </a>
+                        <a href="adminMView"> 회원 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 브랜드 소개 </a>
+                                <a href="#"> 회원 정보 조회 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (내비 옵션) </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 메뉴 주문하기 </a>
+                        <a href="#"> 주문 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 인기 메뉴 </a>
+                                <a href="#"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> 대표 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="#"> 치킨 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="#"> 사이드 / 음료 </a>
-                            </li>
-                            <li>
-                                <a href="#"> 세트 메뉴 </a>
+                                <a href="#"> (정산 관리) </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 고객센터 </a>
+                        <a href="#"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 1:1 문의 </a>
+                                <a href="#"> 문의글 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> FAQ </a>
+                                <a href="#"> (답변 관리) </a>
+                            </li>
+                            <li>
+                                <a href="#"> 리뷰 관리 </a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#"> 관리자 페이지 </a>
+                      <li>
+                        <a href="#"> 상품 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 주문 내역 </a>
+                                <a href="#"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="#"> 찜목록 </a>
-                            </li>
-                            <li>
-                                <a href="#"> 나의 리뷰 </a>
-                            </li>
-                            <li>
-                                <a href="#"> 내 정보관리 </a>
+                                <a href="#"> (상품 등록) </a>
                             </li>
                         </ul>
                     </li>

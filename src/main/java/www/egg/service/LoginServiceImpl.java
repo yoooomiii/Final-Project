@@ -33,4 +33,17 @@ public class LoginServiceImpl implements IF_LoginService {
 		return logindao.memberlist();
 	}
 
+	@Override
+	public void quiteAccount(String id) {
+		logindao.deleteMemberId(id);
+		
+	}
+
+	@Override
+	public List<MemberVO> memberSearch(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return logindao.memberSearch(mvo);
+	}
+
+
 }

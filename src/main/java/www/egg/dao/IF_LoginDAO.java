@@ -8,4 +8,7 @@ public interface IF_LoginDAO {
 	public void inserOneMember(MemberVO mvo);
 	public MemberVO selectMemberId(String id);
 	public List<MemberVO> memberlist();
+	public void deleteMemberId(String id);
+	public List<MemberVO> memberSearch(MemberVO mvo);
+	
 }
