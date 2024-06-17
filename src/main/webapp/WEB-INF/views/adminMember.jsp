@@ -221,10 +221,16 @@ td {
 				
 					  <label for="loc">지역(광역시)</label>
 					  <select name="address" id="loc">
+					  		<option value="">(선택안함)</option>
 						  <option value="수원시">수원시</option>
 						  <option value="화성시">화성시</option>
 					  <option value="용인시">용인시</option>
 					  </select>
+					  
+						  <label for="option1">일반</label>
+					    <input type="radio" id="option1" name="master" value="0">
+						  <label for="option2">관리자</label>
+						  <input type="radio" id="option2" name="master" value="1">
 
 					<input type="text" name="sword"> <input type="submit" value="검색">
 				</form>

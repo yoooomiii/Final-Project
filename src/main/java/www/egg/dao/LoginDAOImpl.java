@@ -40,4 +40,10 @@ public class LoginDAOImpl implements IF_LoginDAO{
 		
 	}
 
+	@Override
+	public List<MemberVO> memberSearch(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(mapperQuery+".selectmsearch", mvo);
+	}
+
 }

@@ -133,9 +133,14 @@ public class LoginController {
 		return "redirect:byebye";
 	}
 	@RequestMapping(value = "adminMSearch", method = RequestMethod.GET)
-	public String adminMSearch(@RequestParam("address") String addr, @RequestParam("sword") String sw) {
-		System.out.println("adminMSearch 콤보박스: "+addr);
-		System.out.println("adminMSearch 검색어: "+sw);
+	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw) {
+		/*
+		 * System.out.println("adminMSearch 콤보박스: "+addr);
+		 * System.out.println("adminMSearch 검색어: "+sw); // 검색어는 일단 받기만 하고 사용은 추후 
+		 * System.out.println("adminMSearch 라디어박스: "+master);
+		 */
+		List<MemberVO> mlist = lservice.memberSearch(mvo) ;
+		model.addAttribute("members", mlist);
 		return "adminMember";
 	}
 	
