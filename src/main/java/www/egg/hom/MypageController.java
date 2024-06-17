@@ -12,7 +12,7 @@ import www.egg.service.IF_MypageServiece;
 import www.egg.vo.MemberVO;
 import www.egg.vo.ReviewVO;
 
-@Controller
+//@Controller
 public class MypageController {
 
 	@Inject 

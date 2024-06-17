@@ -2,11 +2,15 @@ package www.egg.dao;
 
 import java.util.List;
 
+import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
 
 public interface IF_MenuDAO {
 
+	public void item_insert(ItemVO ivo) throws Exception;	//장바구니 등록
+	
+	//---------------------------------------------------장바구니
 
 	public void option_insert(OptionVO ovo) throws Exception;	//�샃�뀡 �엯�젰
 
@@ -22,7 +26,7 @@ public interface IF_MenuDAO {
 
 	public void option_savepot(String filename) throws Exception;	//�샃�뀡 �궗吏� �뀒�씠釉� ���옣
 
-	//-------------------------------------------------硫붾돱
+	//-------------------------------------------------메뉴
 
 	public void insert(MenuVO mvo) throws Exception;	//�엯�젰
 
@@ -37,7 +41,5 @@ public interface IF_MenuDAO {
 	public List<String> getFilename(String no) throws Exception;	//�궗吏� 遺덈윭�삤湲�
 
 	public void savepot(String filename) throws Exception;	//�궗吏� �뀒�씠釉� ���옣
-
-
 
 }
