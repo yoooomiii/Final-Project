@@ -34,10 +34,11 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	}
 
 	@Override
-	public MlistVO rnum(MlistVO mlvo) throws Exception {
+	public ReviewVO myreview(int num) throws Exception {
 		// TODO Auto-generated method stub
-		mpdao.rnum(mlvo);
-		return mlvo;
+		return mpdao.myreview(num);
 	}
+
+
 
 }

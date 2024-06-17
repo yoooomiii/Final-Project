@@ -42,4 +42,11 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.selectOne(mapperQuery + mlvo);
 	}
 
+	@Override
+	public ReviewVO myreview(int num) throws Exception {
+		// TODO Auto-generated method stub
+		//////여기에 리뷰 조회하는 것 작성해야됨
+		return null;
+	}
+
 }

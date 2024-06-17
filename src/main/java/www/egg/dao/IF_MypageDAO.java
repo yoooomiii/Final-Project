@@ -11,4 +11,6 @@ public interface IF_MypageDAO {
 	public void modsave(MemberVO mvo) throws Exception;
 	public void rsave(ReviewVO rvo) throws Exception;
 	public void rnum(MlistVO mlvo) throws Exception;
+	public ReviewVO myreview(int num) throws Exception;
+	
 }
