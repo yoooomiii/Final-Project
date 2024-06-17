@@ -106,5 +106,10 @@ public class LoginController {
 		model.addAttribute("members", mlist);
 		return "adminMember";
 	}
+	@RequestMapping(value = "quiteAccount", method = RequestMethod.POST)
+	public String quiteAccount(@RequestParam("id") String id) {
+		//System.out.println("post맞을까...? "+id);
+		return "redirect:/";
+	}
 	
 }

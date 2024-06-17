@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%@ page session="true"%>
@@ -37,7 +36,6 @@
 					<a href="login"><span> 로그인 </span></a>
 				</c:if>
 			</div>
-		
 			<div class="join box">
 				<c:if test="${userid == null }">
 					<a href="join"><span> 회원가입 </span></a>
@@ -47,7 +45,14 @@
 				<c:if test="${userid != null }">
 					<a href="logout"><span> 로그아웃 </span></a>
 				</c:if>
-
+			</div>
+			<div class="quite box">
+				<c:if test="${userid != null }">
+					<a href="javascript:void(0);" onclick="javascript:frm.submit();"><span> 회원탈퇴 </span></a>
+					<form action="quiteAccount" method="post" name="frm">
+						<input type="hidden" name="id" value=${userid }>
+					</form>
+				</c:if>
 			</div>
 		</header>
 
