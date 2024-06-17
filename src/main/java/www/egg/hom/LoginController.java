@@ -127,4 +127,10 @@ public class LoginController {
 		return "login/goodBye";
 	}
 	
+	@RequestMapping(value = "quiteConfirm", method = RequestMethod.POST) // 로그인비번컨펌 메소드
+	public String quiteConfirm(@RequestParam("id") String id, @RequestParam("pw") String pw) {
+		// System.out.println("quiteConfirm: "+pw);
+		return "redirect:byebye";
+	}
+	
 }

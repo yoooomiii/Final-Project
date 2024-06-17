@@ -35,6 +35,11 @@
             <h5>
             	그동안 골든에그를 사랑해 주셔서 감사했습니다.
             </h5>
+            <form action="quiteConfirm" method="post">
+            	ID 입력: <input type="text" name="id"> 
+            	PW 입력: <input type="text" name="pw"> 
+            	<button type="submit">제출</button>
+            </form>
             <form action="quiteAccount" method="post" onsubmit="return call_confirm()" id="quiteFrm">
               <div id="form-controls">
 			  	<input type="hidden" name="id" value=${userid }>
