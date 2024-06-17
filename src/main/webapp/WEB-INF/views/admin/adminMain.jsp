@@ -50,7 +50,7 @@
                         <a href="main"> HOME </a>
                     </li>
                     <li>
-                        <a href="adminMember"> 회원 관리 </a>
+                        <a href="adminMView"> 회원 관리 </a>
                         <ul class="submenu">
                             <li>
                                 <a href="#"> 회원 정보 조회 </a>

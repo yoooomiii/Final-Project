@@ -217,7 +217,7 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 관리 페이지입니다.</h2>
-				<form action="" method="get">
+				<form action="adminMSearch" method="get">
 				
 					  <label for="loc">지역(광역시)</label>
 					  <select name="address" id="loc">

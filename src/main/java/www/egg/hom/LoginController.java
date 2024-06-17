@@ -100,7 +100,7 @@ public class LoginController {
 	 * @RequestMapping(value = "myPage", method = RequestMethod.GET) public String // 로그인 잘 되는지 테스트
 	 * myPage() { return "ownPage"; }
 	 */
-	@GetMapping("adminMember") 
+	@GetMapping("adminMView") 
 	public String adminMember(HttpSession session, Model model) {
 		List<MemberVO> mlist = lservice.memberlist();
 		model.addAttribute("members", mlist);
@@ -131,6 +131,12 @@ public class LoginController {
 	public String quiteConfirm(@RequestParam("id") String id, @RequestParam("pw") String pw) {
 		// System.out.println("quiteConfirm: "+pw);
 		return "redirect:byebye";
+	}
+	@RequestMapping(value = "adminMSearch", method = RequestMethod.GET)
+	public String adminMSearch(@RequestParam("address") String addr, @RequestParam("sword") String sw) {
+		System.out.println("adminMSearch 콤보박스: "+addr);
+		System.out.println("adminMSearch 검색어: "+sw);
+		return "adminMember";
 	}
 	
 }
