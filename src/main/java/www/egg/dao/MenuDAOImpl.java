@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
 
@@ -62,7 +63,7 @@ public class MenuDAOImpl implements IF_MenuDAO {
 		sqlSession.insert((mapperQuery)+".saveFile",filename);
 	}
 	
-
+	//---------------------------------------------------------메뉴
 
 	@Override
 	public void option_insert(OptionVO ovo) throws Exception {	//사이드 메뉴 등록
@@ -104,7 +105,15 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	@Override
 	public void option_savepot(String filename) throws Exception {		//옵션 사진 테이블 저장
 		// TODO Auto-generated method stub
-		sqlSession.insert((mapperQuery)+".saveFile",filename);
+		sqlSession.insert((mapperQuery)+".ssaveFile",filename);
+	}
+	
+	//---------------------------------------------------------------장바구니
+
+	@Override
+	public void item_insert(ItemVO ivo) throws Exception {	//장바구니 등록
+		// TODO Auto-generated method stub
+		sqlSession.insert(mapperQuery+".iinsert", ivo);
 	}
 
 }
