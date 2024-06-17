@@ -34,4 +34,10 @@ public class LoginDAOImpl implements IF_LoginDAO{
 		return sqlSession.selectList(mapperQuery+".selectmembers");
 	}
 
+	@Override
+	public void deleteMemberId(String id) {
+		sqlSession.delete(mapperQuery+".deleteoneid", id);
+		
+	}
+
 }
