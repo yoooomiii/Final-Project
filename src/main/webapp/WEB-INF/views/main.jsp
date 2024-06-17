@@ -11,6 +11,18 @@
 
 <link href="${path}/resources/css/main_fixed.css" rel="stylesheet" />
 <title>Home</title>
+<script type="text/javascript">
+	function call_confirm(){
+		
+		if(confirm("제출하시겠습니까?")){
+			alert("정상적으로 제출되었습니다.");
+			// frm.submit();
+		}else{
+			alert("제출실패");
+		}
+		
+	}
+</script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -48,10 +60,7 @@
 			</div>
 			<div class="quite box">
 				<c:if test="${userid != null }">
-					<a href="javascript:void(0);" onclick="javascript:frm.submit();"><span> 회원탈퇴 </span></a>
-					<form action="quiteAccount" method="post" name="frm">
-						<input type="hidden" name="id" value=${userid }>
-					</form>
+					<a href="byebye"><span> 회원탈퇴 </span></a>
 				</c:if>
 			</div>
 		</header>

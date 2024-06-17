@@ -108,6 +108,7 @@ public class LoginController {
 	}
 	@RequestMapping(value = "quiteAccount", method = RequestMethod.POST)
 	public String quiteAccount(@RequestParam("id") String id, HttpSession session) {
+		System.out.println(session.getAttribute("userid")+" 제출됨");
 		lservice.quiteAccount(id);
 		if(session.getAttribute("userid")!=null) { // 회원 탈퇴 후 세션에 남은 정보까지 싹 날림 
 			session.removeAttribute("userid");
@@ -117,8 +118,13 @@ public class LoginController {
 			session.removeAttribute("useraddress");
 			session.removeAttribute("usergrade");
 		}
-		// System.out.println(session.getAttribute("userid")+"는 세션에서 삭제되었는가?");
+		System.out.println(session.getAttribute("userid")+"는 세션에서 삭제되었는가?");
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "byebye", method = RequestMethod.GET)
+	public String byebye() {
+		return "login/goodBye";
 	}
 	
 }
