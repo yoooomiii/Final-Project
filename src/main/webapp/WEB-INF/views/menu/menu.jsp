@@ -130,7 +130,9 @@
         <hr>
 		<section id="foodList">
             <br>
-            <h1>인기 메뉴</h1>
+            <div class="popoo">
+            	<h1>인기 메뉴</h1>
+            
             <div class="list">
                 <img src="./resources/img/egg.png" width="298" , height="250" class="e">
                 <br>
@@ -141,15 +143,6 @@
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=7"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="./resources/img/egg03.png" width="298" , height="250" class="e">
-                <br>
-                <br>
-                <h3><b>양념 치킨</b></h3>
-                <h5>모두가 좋아하는 양념치킨</h5>
-                <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=14"><input type="submit" value="상세보기" class="t"></a>
-            </div>
-            <div class="list">
                 <img src="./resources/img/egg02.png" width="298" , height="250" class="e">
                 <br>
                 <br>
@@ -157,15 +150,6 @@
                 <h5>불타는 금요일 화끈하게</h5>
                 <br>
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=8"><input type="submit" value="상세보기" class="t"></a>
-            </div>
-            <div class="list">
-                <img src="./resources/img/egg04.png" width="298" , height="250" class="e">
-                <br>
-                <br>
-                <h3><b>치즈마요 치킨</b></h3>
-                <h5>치킨과 치즈의 만남</h5>
-                <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=13"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg05.png" width="298" , height="250" class="e">
@@ -194,44 +178,9 @@
                 <br>
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=12"><input type="submit" value="상세보기" class="t"></a>
             </div>
-            <div class="list">
-                <img src="./resources/img/egg07.png" width="298" , height="250" class="e">
-                <br>
-                <br>
-                <h3><b>마늘 치킨</b></h3>
-                <h5>한국인의 맛 마늘 치킨</h5>
-                <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=10"><input type="submit" value="상세보기" class="t"></a>
             </div>
-            <br>
+            <div class="qoq">
             <h1>대표 메뉴</h1>
-            <div class="list">
-                <img src="./resources/img/egg.png" width="298" , height="250" class="e">
-                <br>
-                <br>
-                <h3><b>후라이드 치킨</b></h3>
-                <h5>바삭한 튀김옷으로 무장한 치킨</h5>
-                <br>
-                <input type="submit" value="상세보기" class="t">
-            </div>
-            <div class="list">
-                <img src="./resources/img/egg03.png" width="298" , height="250" class="e">
-                <br>
-                <br>
-                <h3><b>양념 치킨</b></h3>
-                <h5>모두가 좋아하는 양념치킨</h5>
-                <br>
-                <input type="submit" value="상세보기" class="t">
-            </div>
-            <div class="list">
-                <img src="./resources/img/egg02.png" width="298" , height="250" class="e">
-                <br>
-                <br>
-                <h3><b>고추 치킨</b></h3>
-                <h5>불타는 금요일 화끈하게</h5>
-                <br>
-                <input type="submit" value="상세보기" class="t">
-            </div>
             <div class="list">
                 <img src="./resources/img/egg04.png" width="298" , height="250" class="e">
                 <br>
@@ -260,15 +209,6 @@
                 <input type="submit" value="상세보기" class="t">
             </div>
             <div class="list">
-                <img src="./resources/img/egg08.png" width="298" , height="250" class="e">
-                <br>
-                <br>
-                <h3><b>통닭 치킨</b></h3>
-                <h5>추억의 치킨</h5>
-                <br>
-                <input type="submit" value="상세보기" class="t">
-            </div>
-            <div class="list">
                 <img src="./resources/img/egg07.png" width="298" , height="250" class="e">
                 <br>
                 <br>
@@ -277,7 +217,8 @@
                 <br>
                 <input type="submit" value="상세보기" class="t">
             </div>
-            <br>
+            </div>
+            <div class="opp">
             <h1>전체 메뉴</h1>
             <div class="list">
                 <img src="./resources/img/egg.png" width="298" , height="250" class="e">
@@ -351,7 +292,8 @@
                 <br>
                 <input type="submit" value="상세보기" class="t">
             </div>
-            <br>
+            </div>
+            <div class="pop">
             <h1>사이드 / 음료</h1>
             <div class="list">
                 <img src="/Gold.html/img/egg.png" width="298" , height="250" class="e">
@@ -424,6 +366,7 @@
                 <h5>한국인의 맛 마늘 치킨</h5>
                 <br>
                 <input type="submit" value="상세보기" class="t">
+            </div>
             </div>
         </section>
         <hr>

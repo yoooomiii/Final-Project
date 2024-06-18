@@ -90,11 +90,11 @@
 					<tbody>
 						<c:forEach items="${allListitems}" var="askvo">
 							<tr>
-								<td>${askvo.num}</td>
-								<td>${askvo.title}</td>
-								<td>${askvo.ex}</td>
-								<td>${askvo.checkVal}</td>
-								<td>${askvo.in_date}</td>
+								<td>${askvo.a_num}</td>
+								<td>${askvo.a_title}</td>
+								<td>${askvo.a_ex}</td>
+								<td>${askvo.a_checkVal}</td>
+								<td>${askvo.a_date}</td>
 							</tr>
 						</c:forEach>
 						

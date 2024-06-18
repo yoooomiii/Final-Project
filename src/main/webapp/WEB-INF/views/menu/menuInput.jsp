@@ -23,6 +23,5 @@
 	<br>
 	<input type=submit value="메뉴 저장">
 	</form>
-
 </body>
 </html>

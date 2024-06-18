@@ -25,10 +25,20 @@
               
               <label for="password">비밀번호</label>
               <input type="password" name="pw" id="pw" placeholder="">
+              
+                <h5 style="color:red;">
+	            	<c:if test="${flag != null }">
+						 아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.
+					</c:if>
+            	</h5>
   
               <div id="form-controls">
                 <button type="submit" id="toggleSignIn">로그인</button>
               </div>
+              
+              <h5 style="color:gray;">
+              	<a href="./">메인 HOME</a> | <a href="join">회원가입</a>
+              </h5>
   
             </form>
           </div>

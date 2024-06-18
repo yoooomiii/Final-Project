@@ -45,5 +45,11 @@ public class LoginServiceImpl implements IF_LoginService {
 		return logindao.memberSearch(mvo);
 	}
 
+	@Override
+	public void modMaster(MemberVO mvo) {
+		logindao.modMaster(mvo);
+		
+	}
+
 
 }

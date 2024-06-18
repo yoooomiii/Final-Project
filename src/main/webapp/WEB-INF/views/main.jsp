@@ -97,13 +97,13 @@
                                 <a href="#"> 대표 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 치킨 메뉴 </a>
+                                <a href="#"> 전체 메뉴 </a>
                             </li>
                             <li>
                                 <a href="#"> 사이드 / 음료 </a>
                             </li>
                             <li>
-                                <a href="#"> 세트 메뉴 </a>
+                            
                             </li>
                         </ul>
                     </li>
@@ -240,7 +240,7 @@
 
             <div class="footer-box">
                 <div class="footer-logo">
-                    <a href="main"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
+                    <a href="main"><img src="${path}/resources/img/footer_logo_s1.png" alt=""></a>
                 </div>
                 <div class="footer-con">
                     <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>
