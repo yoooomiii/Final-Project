@@ -146,11 +146,13 @@ public class MenuController {
 		return "redirect:menu_List";
 	}
 
-	@GetMapping(value ="/")
-	public String main() {		//메인 창으로 이동
-
-		return "main";
-	}
+	
+	 @GetMapping(value ="/")
+	 public String main() { //메인 창으로 이동
+	 
+		 return "main";
+	 }
+	 
 	
 	@GetMapping(value ="/menuForm")
 	public String menu() {		//메뉴 창으로 이동

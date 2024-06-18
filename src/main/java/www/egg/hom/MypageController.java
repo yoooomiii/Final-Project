@@ -18,7 +18,7 @@ import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
-@Controller
+//@Controller
 public class MypageController {
 
 	@Inject 

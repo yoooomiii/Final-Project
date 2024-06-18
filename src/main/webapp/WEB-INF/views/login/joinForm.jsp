@@ -82,6 +82,10 @@
                 <button type="button">이메일 인증하기</button>
                 <button type="submit" onclick="checkForm()">가입</button>
               </div>
+              
+              <h5 style="color:gray;">
+              	<a href="./">메인 HOME</a> | <a href="login">로그인</a>
+              </h5>
             </form>
           </div>
     </div>

@@ -11,12 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 
-	  @GetMapping("/") public String home() {
-	  
-	  return "main"; }
-	 
-	
-
 	@RequestMapping(value = "why", method = RequestMethod.GET)
 	public String why(Model model) {
 		

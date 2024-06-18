@@ -29,7 +29,6 @@
 		<header>
 				관리자 HOME입니다. (MASTER) 
 				<c:if test="${userid != null }">
-					'${userid }'님 접속을 환영합니다.
 			</c:if>
 			<div class="login box">
 				<c:if test="${userid == null }">
@@ -57,9 +56,6 @@
                         <ul class="submenu">
                             <li>
                                 <a href="#"> 회원 정보 조회 </a>
-                            </li>
-                            <li>
-                                <a href="#"> (내비 옵션) </a>
                             </li>
                         </ul>
                     </li>
