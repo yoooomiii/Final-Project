@@ -306,13 +306,10 @@ td {
 
 
 
-	<form action="adminMDelete" method="get" onsubmit="return call_confirm()">
+	<form action="adminMUp" method="post">
 			<div id="dpan">
 			회원 권한만 수정하실 수 있습니다.
 		</div>
-		<form>
-		
-		</form>
 		<table border=1 id="mtable">
 			<thead>
 				<tr>

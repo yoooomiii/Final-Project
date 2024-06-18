@@ -46,6 +46,12 @@ public class LoginDAOImpl implements IF_LoginDAO{
 		return sqlSession.selectList(mapperQuery+".selectmsearch", mvo);
 	}
 
+	@Override
+	public void modMaster(MemberVO mvo) {
+		sqlSession.update(mapperQuery+".updateonemaster", mvo);
+		
+	}
+
 
 
 }

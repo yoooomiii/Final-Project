@@ -159,5 +159,12 @@ public class LoginController {
 		return "admin/adminMUpform";
 	}
 	
+	@RequestMapping(value = "adminMUp", method = RequestMethod.POST)
+	public String adminMUdate(@ModelAttribute MemberVO mvo) {
+		lservice.modMaster(mvo);
+		
+		return "redirect:adminMView";
+	}
+	
 	
 }
