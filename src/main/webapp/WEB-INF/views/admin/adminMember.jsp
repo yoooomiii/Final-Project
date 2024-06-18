@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
@@ -22,6 +23,31 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
+	   <script type="text/javascript">
+		function call_confirm(){
+			
+			if(confirm("회원 정보를 삭제하시겠습니까?")){
+				alert("정상적으로 제출되었습니다.");
+				return true;
+			}else{
+				alert("삭제 취소");
+				return false;
+			}
+			
+		}
+		
+		function tdCng(){
+			var chktr = $(this);
+			var td = chktr.children();
+			var master = td.eq(5).text();
+			
+			alert(master);
+		}
+		
+		$("tbody > tr").click(function() {
+			alert($(this).children().eq(2).text());
+		});
+	</script>
 </head>
 <style>
 .login {
@@ -131,16 +157,19 @@ h2 {
 	font-size: large;
 }
 #dpan{
-	display: inline-block
-	margin-left:10px ;
-	margin-top: 10px;
+	float: right;
+	padding-rgit: 5px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100px;
+	
 }
 
 table {
 	border-collapse: collapse;
 	width: 1130px;
 	font-size: 16px;
-	margin-left: 28px;
+	margin-left: 38px;
 	border: 1px solid black
 }
 
@@ -156,6 +185,9 @@ tbody {
 td {
 	padding: 15px 0px;
 	border-bottom: 2px solid grey;
+}
+#mbtn{
+	width: 60px;
 }
 .iconimg:hover{
 	box-shadow : 4px 4px 4px black;
@@ -183,7 +215,7 @@ td {
 
 		<nav>
 			<div class="logo">
-				<a href=""><span><img
+				<a href="adminEnter"><span><img
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
@@ -271,11 +303,11 @@ td {
 
 
 
-	<form action="adminMDelete" method="get">
-		<div id="dpan">
+	<form action="adminMDelete" method="get" onsubmit="return call_confirm()">
+			<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
-		<table border=1>
+		<table border=1 id="mtable">
 			<thead>
 				<tr>
 					<td>회원ID</td>
@@ -290,14 +322,14 @@ td {
 			</thead>
 			<tbody>
 			    <c:forEach items="${members }" var="membervo">
-					<tr>
+					<tr class="minfo_row">
 						<td>${membervo.id }</td>
 						<td>${membervo.name }</td>
 						<td>${membervo.phone }</td>
 						<td>${membervo.email }</td>
 						<td>${membervo.address }</td>
 						<td>${membervo.master }</td>
-						<td><a href="#">수정</a></td>
+						<td><a href="adminMUpform?id=${membervo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
 						<td><input type="checkbox" id="chk" name="chkid" value=${membervo.id }></td>
 					</tr>
 				</c:forEach>

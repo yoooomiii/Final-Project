@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import www.egg.service.IF_LoginService;
 import www.egg.vo.MemberVO;
 
-
-//@Controller
+@Controller
 public class LoginController {
 	
 	@Inject
@@ -104,7 +103,7 @@ public class LoginController {
 	public String adminMember(HttpSession session, Model model) {
 		List<MemberVO> mlist = lservice.memberlist();
 		model.addAttribute("members", mlist);
-		return "adminMember";
+		return "admin/adminMember";
 	}
 	@RequestMapping(value = "quiteAccount", method = RequestMethod.POST)
 	public String quiteAccount(@RequestParam("id") String id, HttpSession session) {
@@ -141,7 +140,7 @@ public class LoginController {
 		 */
 		List<MemberVO> mlist = lservice.memberSearch(mvo) ;
 		model.addAttribute("members", mlist);
-		return "adminMember";
+		return "admin/adminMember";
 	}
 	
 	@RequestMapping(value = "adminMDelete", method = RequestMethod.GET)
@@ -151,6 +150,13 @@ public class LoginController {
 			lservice.quiteAccount(c);
 		}
 		return  "redirect:adminMView";
+	}
+	
+	@RequestMapping(value = "adminMUpform", method = RequestMethod.GET)
+	public String adminMUpform(@RequestParam("id") String id,  Model model) {
+		MemberVO mvo =  lservice.signIn(id); 
+		model.addAttribute("mvo", mvo);
+		return "admin/adminMUpform";
 	}
 	
 	
