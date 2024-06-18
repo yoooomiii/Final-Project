@@ -44,7 +44,9 @@ public class LoginController {
 
 	@RequestMapping(value = "signIn", method = RequestMethod.POST) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임)
 	public String signIn(@RequestParam("id") String id,
-			@RequestParam("pw") String pw, HttpSession session) {
+			@RequestParam("pw") String pw, HttpSession session ,Model model) {
+		
+		String flag = null;
 		
 		// return "login/welcome";
 		// System.out.println("id/pw: "+id+"/"+pw);
@@ -76,10 +78,14 @@ public class LoginController {
 				return "redirect:/";
 				
 			}else { 
-				return "redirect:login";
+				flag = "Y";
+				model.addAttribute("flag", flag);
+				return "login/loginForm";
 			}
 		}else {
-			return "redirect:login";
+			flag = "Y";
+			model.addAttribute("flag", flag);
+			return "login/loginForm";
 		}
 		/* 
 		 * System.out.println("session.getAttribute: "+session.getAttribute("userid"));
@@ -132,13 +138,29 @@ public class LoginController {
 		return "redirect:byebye";
 	}
 	@RequestMapping(value = "adminMSearch", method = RequestMethod.GET)
-	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw) {
+	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw,
+			 @RequestParam("city") String city,  @RequestParam("county") String county
+			) {
 		/*
 		 * System.out.println("adminMSearch 콤보박스: "+addr);
 		 * System.out.println("adminMSearch 검색어: "+sw); // 검색어는 일단 받기만 하고 사용은 추후 
 		 * System.out.println("adminMSearch 라디어박스: "+master);
 		 */
-		List<MemberVO> mlist = lservice.memberSearch(mvo) ;
+		System.out.println("로그인단 county: "+county);
+		if(county.equals("전체")) {
+			mvo.setAddress(city);
+		}else {
+			String readdress = city+" "+county;
+			mvo.setAddress(readdress);
+		}
+		
+		List<MemberVO> mlist = null;
+		if(sw==null || sw.equals("")) {
+			mlist = lservice.memberSearch(mvo) ;
+		}else {
+			mvo.setId(sw);
+			mlist = lservice.memberSearch(mvo) ;
+		}
 		model.addAttribute("members", mlist);
 		return "admin/adminMember";
 	}

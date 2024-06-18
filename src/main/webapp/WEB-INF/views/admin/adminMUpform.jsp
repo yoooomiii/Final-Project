@@ -201,9 +201,7 @@ td {
 <body>
 	<div id="Box">
 		<header>
-				<c:if test="${userid != null }">
-					'${userid }'님 접속을 환영합니다.
-			</c:if>
+				관리자 HOME입니다. (MASTER) 
 			<div class="login box">
 				<c:if test="${userid == null }">
 					<a href="login"><span> 로그인 </span></a>

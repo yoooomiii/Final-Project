@@ -43,7 +43,13 @@ public class LoginDAOImpl implements IF_LoginDAO{
 	@Override
 	public List<MemberVO> memberSearch(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".selectmsearch", mvo);
+	    String id = mvo.getId();
+		if(id==null||id.equals("")) {
+			System.out.println("memberSearch DAO 메소드: "+mvo.toString());
+			return sqlSession.selectList(mapperQuery+".selectmsearch", mvo);
+		}else {
+			return sqlSession.selectList(mapperQuery+".selectoneid", id);
+		}
 	}
 
 	@Override
