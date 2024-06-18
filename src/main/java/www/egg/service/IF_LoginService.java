@@ -13,5 +13,6 @@ public interface IF_LoginService {
 	public List<MemberVO> memberlist();
 	public void quiteAccount(String id);
 	public List<MemberVO> memberSearch(MemberVO mvo);
+	public void modMaster(MemberVO mvo);
 
 }
