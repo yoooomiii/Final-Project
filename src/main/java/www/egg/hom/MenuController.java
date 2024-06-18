@@ -176,4 +176,5 @@ public class MenuController {
 
 		return "redirect:menu_List";
 	}
+
 }
