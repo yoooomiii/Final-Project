@@ -145,13 +145,12 @@ public class MenuController {
 		mservice.insert(mvo);
 		return "redirect:menu_List";
 	}
-
 	
-	 @GetMapping(value ="/")
-	 public String main() { //메인 창으로 이동
-	 
-		 return "main";
-	 }
+	/*
+	 * @GetMapping(value ="/") public String main() { //메인 창으로 이동
+	 * 
+	 * return "main"; }
+	 */
 	 
 	
 	@GetMapping(value ="/menuForm")
