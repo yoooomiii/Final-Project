@@ -13,7 +13,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where id=#{id}
 	</update>
 	
-	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO">
-		insert into review values()
+	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO">  <!-- 리뷰 등록 -->
+    	insert into review (re_no, re_id, re_ex, re_star, re_file1, re_file2)
+        values (#{no}, #{id}, #{ex}, #{star}, #{file1}, #{file2})
 	</insert>
+
+
+
+	<!-- DROP SEQUENCE IF EXISTS review_seq;  원래 있던 시퀀스 삭제 (시퀀스는 값을 직접 넣어줘야함)
+	ALTER TABLE review MODIFY re_num INT AUTO_INCREMENT PRIMARY KEY; 자동으로 값이 증가하는걸 사용
+	이거 사용하면 매퍼에 굳이 작성할 필요 X -->
+
+	
+	
+	 <select id="myreview" resultType="www.egg.vo.ReviewVO">
+        SELECT re_no, re_id, re_ex, re_star, re_file1, re_file2
+        FROM review
+        WHERE re_num = #{num}
+    </select>
+		
+
 </mapper>

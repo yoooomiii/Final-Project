@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%@ page session="true"%>
@@ -10,8 +9,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="${path}/resources/css/main.css" rel="stylesheet" />
+<link href="${path}/resources/css/main_fixed.css" rel="stylesheet" />
 <title>Home</title>
+<script type="text/javascript">
+	function call_confirm(){
+		
+		if(confirm("제출하시겠습니까?")){
+			alert("정상적으로 제출되었습니다.");
+			// frm.submit();
+		}else{
+			alert("제출실패");
+		}
+		
+	}
+</script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -37,7 +48,6 @@
 					<a href="login"><span> 로그인 </span></a>
 				</c:if>
 			</div>
-		
 			<div class="join box">
 				<c:if test="${userid == null }">
 					<a href="join"><span> 회원가입 </span></a>
@@ -47,7 +57,11 @@
 				<c:if test="${userid != null }">
 					<a href="logout"><span> 로그아웃 </span></a>
 				</c:if>
-
+			</div>
+			<div class="quite box">
+				<c:if test="${userid != null }">
+					<a href="byebye"><span> 회원탈퇴 </span></a>
+				</c:if>
 			</div>
 		</header>
 
@@ -62,7 +76,7 @@
 
                     <li>
 
-                        <a href="main"> HOME </a>
+                        <a href="./"> HOME </a>
 
                     </li>
                     <li>
@@ -83,13 +97,13 @@
                                 <a href="#"> 대표 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 치킨 메뉴 </a>
+                                <a href="#"> 전체 메뉴 </a>
                             </li>
                             <li>
                                 <a href="#"> 사이드 / 음료 </a>
                             </li>
                             <li>
-                                <a href="#"> 세트 메뉴 </a>
+                            
                             </li>
                         </ul>
                     </li>

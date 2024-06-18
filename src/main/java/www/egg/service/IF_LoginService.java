@@ -11,4 +11,7 @@ public interface IF_LoginService {
 	public void signUp(MemberVO mvo);
 	public MemberVO signIn(String id);
 	public List<MemberVO> memberlist();
+	public void quiteAccount(String id);
+	public List<MemberVO> memberSearch(MemberVO mvo);
+
 }

@@ -130,7 +130,7 @@
             <section id="foodList">
                 <div class="img">
                     <c:forEach items="${attackList}" var="fname">
-						<img src="download?filename=${fname}" width="500" , height="450">
+						<img src="download?filename=${fname}" width="500" , height="450" class="lien">
 					</c:forEach>
                 </div>
                 <div class="list">
@@ -144,7 +144,7 @@
                     <br>
                     <hr>
                     <br>
-						<a href="mviewDetail?menu_no=${mvo.menu_no}"><button type=submit id="kkk">주문하기</button></a>
+						<a href="mviewDetail?menu_no=${mvo.menu_no}side_no=${ovo.side_no}"><button type=submit id="kkk">주문하기</button></a>
 					
                     <br>
                     <br>

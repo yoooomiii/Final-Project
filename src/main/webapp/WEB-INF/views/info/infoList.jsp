@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/info.css" rel="stylesheet" />
+<link href="${path}/resources/css/infoList.css" rel="stylesheet" />
 <title>Info Page</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -74,7 +74,7 @@
 		<section>
 			<div class="info_form">
 				<div class="title">
-					<h1>"ooo님의 문의 게시판"</h1>
+					<h1>"${userid} 님의 문의 게시판"</h1>
 					<hr style="height: 5px; background-color: rgb(24, 0, 0);">
 				</div>
 				<table class="ask_table">
@@ -84,8 +84,7 @@
 							<td>제목</td>
 							<td>내용</td>
 							<td>등록일</td>
-							<td>수정</td>
-							<td>삭제</td>
+							<td>처리여부</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -94,20 +93,11 @@
 								<td>${askvo.num}</td>
 								<td>${askvo.title}</td>
 								<td>${askvo.ex}</td>
+								<td>${askvo.checkVal}</td>
 								<td>${askvo.in_date}</td>
-								<td><a href="#"> 수정 </a></td>
-								<td><a href="#" onclic="delchk(${askvo.num})"> 삭제 </a></td>
 							</tr>
 						</c:forEach>
-						<script>
-						function delchk(dnum) {
-							if(confirm("삭제합니까?") == true) {
-								location.href="delask?num=" + dnum
-							} else {
-								alert("취소 되었습니다.")
-							}
-						}
-			</script>
+						
 					</tbody>
 				</table>
 			</div>

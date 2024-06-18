@@ -130,7 +130,7 @@
         <section id="foodList">
             <div class="img">
                 <c:forEach items="${attackList}" var="fname">
-					<img src="download?filename=${fname}" width="500" , height="450">
+					<img src="download?filename=${fname}" width="500" , height="450" class="lien">
 				</c:forEach>
                 <br>
                 <h2><b>${mvo.menu_name }</b></h2>
@@ -156,7 +156,7 @@
 							<td><input type=checkbox name="side_no"></td>
 							<td>${optionvo.side_name}</td>
 							<td>${optionvo.side_price}</td>
-							<td>${optionvo.side_ex}</td>
+							<td>사진</td>
 						</tr>
 						</c:forEach>
 					</tbody>
@@ -164,7 +164,9 @@
                 <br>
                 <br>
                 <br>
-                <input type="submit" value="${mvo.menu_price }원 주문하기" id="kkk">
+                <form action="item_input" method="get">
+                	<input type="submit" value="${mvo.menu_price }원 주문하기" id="kkk">
+                </form>
             </div>
         </section>
         <hr>

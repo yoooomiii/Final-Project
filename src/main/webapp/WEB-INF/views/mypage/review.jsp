@@ -28,73 +28,83 @@
 	margin-left: 230px;
 	margin-top: 130px;
 	border: 5px solid gray;
-	 border-radius: 15px;
-}
-#myform fieldset{
-    display: inline-block;
-    direction: rtl;
-    border:0;
-}
-#myform fieldset legend{
-    text-align: right;
-}
-#myform input[type=radio]{
-    display: none;
-}
-#myform label{
-    font-size: 3em;
-    color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
-}
-#myform label:hover{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-#myform label:hover ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-#myform input[type=radio]:checked ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-#reviewContents {
-    width: 100%;
-    height: 350px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: solid 5px #bceefa;
-    border-radius: 15px;
-    font-size: 16px;
-    resize: none;
-}
-h2{
-   font-family: 'Cafe24Ssurround';
-    font-weight:border;
-   
-}
-#files{
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* 간격 조정 */
-    margin-left:20px;
-}
-#btn {
-    margin-top: 45px;
-    width: 100px; /* 너비 설정 */
-    height: 40px; /* 높이 설정 */
-    border-radius: 20px;
-    background-color: skyblue;
-    border: 3px solid skyblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
-}
-#butt{
-  display: flex;
-    justify-content: center;
-    margin-top: 20px;
+	border-radius: 15px;
 }
 
+#myform fieldset {
+	display: inline-block;
+	direction: rtl;
+	border: 0;
+}
+
+#myform fieldset legend {
+	text-align: right;
+}
+
+#myform input[type=radio] {
+	display: none;
+}
+
+#myform label {
+	font-size: 3em;
+	color: transparent;
+	text-shadow: 0 0 0 #f0f0f0;
+}
+
+#myform label:hover {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#myform label:hover ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#myform input[type=radio]:checked ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#reviewContents {
+	width: 100%;
+	height: 350px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid 5px #bceefa;
+	border-radius: 15px;
+	font-size: 16px;
+	resize: none;
+}
+
+h2 {
+	font-family: 'Cafe24Ssurround';
+	font-weight: border;
+}
+
+#files {
+	display: flex;
+	justify-content: center;
+	gap: 30px; /* 간격 조정 */
+	margin-left: 20px;
+}
+
+#btn {
+	margin-top: 45px;
+	width: 100px; /* 너비 설정 */
+	height: 40px; /* 높이 설정 */
+	border-radius: 20px;
+	background-color: skyblue;
+	border: 3px solid skyblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+}
+
+#butt {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
 </style>
 
 <body>
@@ -147,30 +157,28 @@ h2{
 
 
 			<div id="box">
-				<form class="mb-3" name="myform" id="myform" method="post">
+				<form class="mb-3" name="myform" action="rwrite" id="myform" method="post">
 					<fieldset>
 						<h2>리뷰 등록하기</h2>
-						
-						<span class="text-bold">별점을 선택해주세요</span> <input type="radio"
-							name="star" value="5" id="rate1"><label for="rate1">★</label>
-						<input type="radio" name="star" value="4" id="rate2"><label
-							for="rate2">★</label> <input type="radio" name="star"
-							value="3" id="rate3"><label for="rate3">★</label> <input
-							type="radio" name="star" value="2" id="rate4"><label
-							for="rate4">★</label> <input type="radio" name="star"
-							value="1" id="rate5"><label for="rate5">★</label>
+						<input type="hidden" name="id" value="id">
+						<input type="hidden" name="no" value="no">
+						<span class="text-bold">별점을 선택해주세요</span> 
+						<input type="radio"	name="star" value="5" id="rate1"><label for="rate1">★</label>
+						<input type="radio" name="star" value="4" id="rate2"><label for="rate2">★</label> 
+						<input type="radio" name="star" value="3" id="rate3"><label for="rate3">★</label> 
+						<input type="radio" name="star" value="2" id="rate4"><label for="rate4">★</label> 
+						<input type="radio" name="star" value="1" id="rate5"><label for="rate5">★</label>
 					</fieldset>
 					<div>
 						<textarea class="col-auto form-control" type="text"
 							id="reviewContents" name="ex"
 							placeholder="리뷰를 입력해주세요"></textarea>
 					</div>
-				</form>
+				
 				<div id="files">
 				<input type="file" name="file1">
 				<input type="file" name="file2">
 				</div>
-				<form action="rwrite" method="post">
 				<div id="butt">
 				<button id="btn">등록</button>
 				</form>

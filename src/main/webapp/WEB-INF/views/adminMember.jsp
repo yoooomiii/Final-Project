@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/main.css" rel="stylesheet" />
+<link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
 <title>회원관리</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -24,6 +24,22 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
+.login {
+	float: right;
+	width: 100px; /*가로 넓이*/
+    height: 90%;
+    margin-left: 30px;
+    
+}
+
+.logout {
+    float: right;
+	width: 100px; /*가로 넓이*/
+    height: 90%;
+    margin-right: 30px;
+   
+}
+
 #span {
 	width: 1210px;
 	height: 150px;
@@ -114,6 +130,11 @@ h3 {
 h2 {
 	font-size: large;
 }
+#dpan{
+	display: inline-block
+	margin-left:10px ;
+	margin-top: 10px;
+}
 
 table {
 	border-collapse: collapse;
@@ -145,11 +166,18 @@ td {
 <body>
 	<div id="Box">
 		<header>
+				<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
-				<a href="login"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
-			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+			<div class="logout box">
+				<c:if test="${userid != null }">
+					<a href="logout"><span> 로그아웃 </span></a>
+				</c:if>
 			</div>
 		</header>
 
@@ -159,40 +187,79 @@ td {
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
-				<ul>
-					<li><a href="#"> HOME </a></li>
-					<li><a href="#"> 브랜드 소개 </a>
-						<ul class="submenu">
-							<li><a href="#"> 브랜드 소개 </a></li>
-						</ul></li>
-					<li><a href="#"> 메뉴 주문하기 </a>
-						<ul class="submenu">
-							<li><a href="#"> 인기 메뉴 </a></li>
-							<li><a href="#"> 대표 메뉴 </a></li>
-							<li><a href="#"> 치킨 메뉴 </a></li>
-							<li><a href="#"> 사이드 / 음료 </a></li>
-							<li><a href="#"> 세트 메뉴 </a></li>
-						</ul></li>
-					<li><a href="#"> 고객센터 </a>
-						<ul class="submenu">
-							<li><a href="#"> 1:1 문의 </a></li>
-							<li><a href="#"> FAQ </a></li>
-						</ul></li>
-					<li><a href="mypage"> 마이 페이지 </a>
-						<ul class="submenu">
-							<li><a href="mypage"> 주문 내역 </a></li>
-							<li><a href="mypage"> 찜목록 </a></li>
-							<li><a href="mypage"> 나의 리뷰 </a></li>
-							<li><a href="mypage"> 내 정보관리 </a></li>
-						</ul></li>
-				</ul>
+			<ul>
+                    <li>
+                        <a href="main"> HOME </a>
+                    </li>
+                    <li>
+                        <a href="adminMView"> 회원 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 회원 정보 조회 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (내비 옵션) </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 주문 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 주문 상태 관리 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (정산 관리) </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> 글 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 문의글 관리 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (답변 관리) </a>
+                            </li>
+                            <li>
+                                <a href="#"> 리뷰 관리 </a>
+                            </li>
+                        </ul>
+                    </li>
+                      <li>
+                        <a href="#"> 상품 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 상품 조회 </a>
+                            </li>
+                            <li>
+                                <a href="#"> (상품 등록) </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 			</div>
 		</nav>
 
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 관리 페이지입니다.</h2>
-				<form action="" method="get">
+				<form action="adminMSearch" method="get">
+				
+					  <label for="loc">지역(광역시)</label>
+					  <select name="address" id="loc">
+					  		<option value="">(선택안함)</option>
+						  <option value="수원시">수원시</option>
+						  <option value="화성시">화성시</option>
+					  <option value="용인시">용인시</option>
+					  </select>
+					  
+						  <label for="option1">일반</label>
+					    <input type="radio" id="option1" name="master" value="0">
+						  <label for="option2">관리자</label>
+						  <input type="radio" id="option2" name="master" value="1">
+
 					<input type="text" name="sword"> <input type="submit" value="검색">
 				</form>
 			</div>
@@ -204,35 +271,39 @@ td {
 
 
 
-			
-	<table border=1>
-		<thead>
-			<tr>
-				<td>회원ID</td>
-				<td>회원명</td>
-				<td>전화번호</td>
-				<td>이메일</td>
-				<td>주소</td>
-				<td>권한</td>
-				<td>수정</td>
-				<td>삭제</td>
-			</tr>
-		</thead>
-		<tbody>
-		    <c:forEach items="${members }" var="membervo">
+	<form action="adminMDelete" method="get">
+		<div id="dpan">
+			<input type="submit" value="삭제하기">
+		</div>
+		<table border=1>
+			<thead>
 				<tr>
-					<td>${membervo.id }</td>
-					<td>${membervo.name }</td>
-					<td>${membervo.phone }</td>
-					<td>${membervo.email }</td>
-					<td>${membervo.address }</td>
-					<td>${membervo.master }</td>
-					<td><a href="#">수정</a></td>
-					<td><a href="#">삭제</a></td>
+					<td>회원ID</td>
+					<td>회원명</td>
+					<td>전화번호</td>
+					<td>이메일</td>
+					<td>주소</td>
+					<td>권한</td>
+					<td>수정</td>
+					<td>선택</td>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+			    <c:forEach items="${members }" var="membervo">
+					<tr>
+						<td>${membervo.id }</td>
+						<td>${membervo.name }</td>
+						<td>${membervo.phone }</td>
+						<td>${membervo.email }</td>
+						<td>${membervo.address }</td>
+						<td>${membervo.master }</td>
+						<td><a href="#">수정</a></td>
+						<td><input type="checkbox" id="chk" name="chkid" value=${membervo.id }></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</form>
 		</section>
 </body>
 

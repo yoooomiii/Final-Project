@@ -64,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 사이드 사진 불러오기 -->
 	<!-- 장바구니 -->
 	<insert id="iinsert" parameterType="www.egg.vo.ItemVO">
-		INSERT INTO item VALUES (#{num}, NEXT VALUE FOR item_cnt, #{id}, #{code}, #{scode}, #{count}, #{price})
+		INSERT INTO item VALUES (#{i_num}, #{i_no}, #{i_code}, #{i_scode}, #{i_count}, #{i_price})
 	</insert>
 	<!-- 장바구니 입력 -->
 </mapper>
