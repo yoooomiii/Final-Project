@@ -144,7 +144,7 @@
                     <br>
                     <hr>
                     <br>
-						<a href="mviewDetail?menu_no=${mvo.menu_no}side_no=${ovo.side_no}"><button type=submit id="kkk">주문하기</button></a>
+						<a href="mviewDetail?menu_no=${mvo.menu_no}"><button type=submit id="kkk">주문하기</button></a>
 					
                     <br>
                     <br>

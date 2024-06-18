@@ -29,10 +29,27 @@ public class MenuController {
 	@Inject
 	FileDataUtil filedatautil;
 	
-	@GetMapping(value ="/item_input")
-	public String item_input(@RequestParam("menu_no") String no, 
-			@ModelAttribute MenuVO mvo, OptionVO ovo, Model model) {	//장바구니 입력 창으로 이동
+//	@GetMapping(value ="/mviewDetail")
+//	public String menuKeep(@RequestParam("menu_no") String no, String ono,
+//			OptionVO ovo, Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
+//		MenuVO mvo = mservice.modno(no);
+//		List<String> attackList = mservice.getFilename(no);
+//		model.addAttribute("mvo", mvo);
+//		model.addAttribute("attackList", attackList);
+//		
+//		List<String> oattackList = mservice.option_getFilename(ono);
+//		List<OptionVO> allList = mservice.option_List();
+//		model.addAttribute("optionList", allList);
+//		model.addAttribute("oattackList", oattackList);
+//		return "menu/menuKeep";
+//	}
+	
+	@GetMapping(value ="/Detail")
+	public String item_input(@RequestParam("menu_no") String no, @RequestParam("side_no") String ono, 
+			Model model) throws Exception {	//장바구니 입력 창으로 이동
+		MenuVO mvo = mservice.modno(no);
 		model.addAttribute("mvo", mvo);
+		OptionVO ovo = mservice.option_modno(ono);
 		model.addAttribute("ovo", ovo);
 		
 		
@@ -142,20 +159,18 @@ public class MenuController {
 	}
 
 	@GetMapping(value ="/viewDetail")
-	public String menu_viewDetail(@RequestParam("menu_no") String no, String ono,
+	public String menu_viewDetail(@RequestParam("menu_no") String no,
 			Model model) throws Exception {		//선택한 치킨 정보 보기
 		MenuVO mvo = mservice.modno(no);
 		List<String> attackList = mservice.getFilename(no);
 		model.addAttribute("mvo", mvo);
 		model.addAttribute("attackList", attackList);
 		
-		OptionVO ovo = mservice.option_modno(ono);
-		model.addAttribute("ovo", ovo);
 		return "menu/menuPick";
 	}
 	
 	@GetMapping(value ="/mviewDetail")
-	public String menuKeep(@RequestParam("menu_no") String no, @RequestParam("side_no") String ono,
+	public String menuKeep(@RequestParam("menu_no") String no, String ono,
 			OptionVO ovo, Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
 		MenuVO mvo = mservice.modno(no);
 		List<String> attackList = mservice.getFilename(no);
