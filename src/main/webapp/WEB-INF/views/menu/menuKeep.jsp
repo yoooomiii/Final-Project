@@ -130,7 +130,7 @@
         <section id="foodList">
             <div class="img">
                 <c:forEach items="${attackList}" var="fname">
-					<img src="download?filename=${fname}" width="500" , height="450">
+					<img src="download?filename=${fname}" width="500" , height="450" class="lien">
 				</c:forEach>
                 <br>
                 <h2><b>${mvo.menu_name }</b></h2>
@@ -156,7 +156,7 @@
 							<td><input type=checkbox name="side_no"></td>
 							<td>${optionvo.side_name}</td>
 							<td>${optionvo.side_price}</td>
-							<td>${optionvo.side_ex}</td>
+							<td>사진</td>
 						</tr>
 						</c:forEach>
 					</tbody>
@@ -164,7 +164,9 @@
                 <br>
                 <br>
                 <br>
-                <input type="submit" value="${mvo.menu_price }원 주문하기" id="kkk">
+                
+                	<a href="Detail?side_no=${ovo.side_no}"><button type="submit" value="${menu_no }" id="kkk">${mvo.menu_price }원 주문하기</button></a>
+              
             </div>
         </section>
         <hr>
@@ -199,4 +201,13 @@
         </footer>
     </div>
 </body>
+<script type="text/javascript">
+	var len = $("input[name='no']:checked").length;
+	if(len > 1){
+		$("input[name='no']:checked").each(function(e){
+			console.log($(this).val())
+		})
+	}
+
+</script>
 </html>

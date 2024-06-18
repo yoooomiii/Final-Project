@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import www.egg.service.IF_MenuService;
 import www.egg.util.FileDataUtil;
+import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
 
@@ -27,8 +28,44 @@ public class MenuController {
 
 	@Inject
 	FileDataUtil filedatautil;
+	
+//	@GetMapping(value ="/mviewDetail")
+//	public String menuKeep(@RequestParam("menu_no") String no, String ono,
+//			OptionVO ovo, Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
+//		MenuVO mvo = mservice.modno(no);
+//		List<String> attackList = mservice.getFilename(no);
+//		model.addAttribute("mvo", mvo);
+//		model.addAttribute("attackList", attackList);
+//		
+//		List<String> oattackList = mservice.option_getFilename(ono);
+//		List<OptionVO> allList = mservice.option_List();
+//		model.addAttribute("optionList", allList);
+//		model.addAttribute("oattackList", oattackList);
+//		return "menu/menuKeep";
+//	}
+	
+	@GetMapping(value ="/Detail")
+	public String item_input(@RequestParam("menu_no") String no, @RequestParam("side_no") String ono, 
+			Model model) throws Exception {	//장바구니 입력 창으로 이동
+		MenuVO mvo = mservice.modno(no);
+		model.addAttribute("mvo", mvo);
+		OptionVO ovo = mservice.option_modno(ono);
+		model.addAttribute("ovo", ovo);
+		
+		
+		return "menu/itemInput";
+	}
+	
+	@PostMapping(value ="/item_inputSave")
+	public String item_input(@ModelAttribute ItemVO ivo) throws Exception {	//장바구니 등록 과정
+		
+		mservice.item_insert(ivo);
+		return null;
+	}
+	
+	//---------------------------------------------사이드
 
-	@GetMapping(value ="option_input")
+	@GetMapping(value ="/option_input")
 	public String option_input() {	//옵션 입력 창으로 이동
 		
 		return "menu/optionInput";
@@ -108,12 +145,13 @@ public class MenuController {
 		mservice.insert(mvo);
 		return "redirect:menu_List";
 	}
-
+	
 	/*
 	 * @GetMapping(value ="/") public String main() { //메인 창으로 이동
 	 * 
 	 * return "main"; }
 	 */
+	 
 	
 	@GetMapping(value ="/menuForm")
 	public String menu() {		//메뉴 창으로 이동
@@ -128,25 +166,25 @@ public class MenuController {
 		List<String> attackList = mservice.getFilename(no);
 		model.addAttribute("mvo", mvo);
 		model.addAttribute("attackList", attackList);
+		
 		return "menu/menuPick";
 	}
 	
 	@GetMapping(value ="/mviewDetail")
-	public String menuKeep(@RequestParam("menu_no") String no, OptionVO ovo,
-			Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
+	public String menuKeep(@RequestParam("menu_no") String no, String ono,
+			OptionVO ovo, Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
 		MenuVO mvo = mservice.modno(no);
 		List<String> attackList = mservice.getFilename(no);
 		model.addAttribute("mvo", mvo);
 		model.addAttribute("attackList", attackList);
 		
-		List<String> oattackList = mservice.option_getFilename(no);
+		List<String> oattackList = mservice.option_getFilename(ono);
 		List<OptionVO> allList = mservice.option_List();
 		model.addAttribute("optionList", allList);
 		model.addAttribute("oattackList", oattackList);
 		return "menu/menuKeep";
 	}
 	
-
 	@RequestMapping("/menu_List")
 	public String menu_allList(@ModelAttribute MenuVO mvo,
 			Model model) throws Exception {	//전체보기
@@ -176,4 +214,5 @@ public class MenuController {
 
 		return "redirect:menu_List";
 	}
+
 }

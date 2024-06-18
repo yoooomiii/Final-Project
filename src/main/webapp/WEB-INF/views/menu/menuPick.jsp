@@ -130,7 +130,7 @@
             <section id="foodList">
                 <div class="img">
                     <c:forEach items="${attackList}" var="fname">
-						<img src="download?filename=${fname}" width="500" , height="450">
+						<img src="download?filename=${fname}" width="500" , height="450" class="lien">
 					</c:forEach>
                 </div>
                 <div class="list">
