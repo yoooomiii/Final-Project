@@ -2,60 +2,53 @@ package www.egg.vo;
 
 public class ItemVO {
 	
-	private Integer num = 0;     // 아이템 번호
-	private Integer no = 0;      // 결제 번호
-	private String id = null;	 // 회원 ID
-	private String code =null;   // 메인메뉴 코드
-	private String scode =null;  // 사이드메뉴 코드
-	private int count =0;        // 메뉴 수량
-	private int price =0;        // 메뉴 주문 금액
+	private Integer i_num = 0;     // 아이템 번호
+	private Integer i_no = 0;      // 결제 번호
+	private String i_code =null;   // 메인메뉴 코드
+	private String i_scode =null;  // 사이드메뉴 코드
+	private int i_count =0;        // 메뉴 수량
+	private int i_price =0;        // 메뉴 주문 금액
 	
 	@Override
 	public String toString() {
-		return "ItemVO [num=" + num + ", no=" + no + ", id=" + id + ", code=" + code + ", scode=" + scode + ", count="
-				+ count + ", price=" + price + "]";
+		return "ItemVO [i_num=" + i_num + ", i_no=" + i_no + ", i_id=" + ", i_code=" + i_code + ", i_scode="
+				+ i_scode + ", i_count=" + i_count + ", i_price=" + i_price + "]";
 	}
-	public Integer getNum() {
-		return num;
+	public Integer getI_num() {
+		return i_num;
 	}
-	public void setNum(Integer num) {
-		this.num = num;
+	public void setI_num(Integer i_num) {
+		this.i_num = i_num;
 	}
-	public Integer getNo() {
-		return no;
+	public Integer getI_no() {
+		return i_no;
 	}
-	public void setNo(Integer no) {
-		this.no = no;
+	public void setI_no(Integer i_no) {
+		this.i_no = i_no;
 	}
-	public String getId() {
-		return id;
+	public String getI_code() {
+		return i_code;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setI_code(String i_code) {
+		this.i_code = i_code;
 	}
-	public String getCode() {
-		return code;
+	public String getI_scode() {
+		return i_scode;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setI_scode(String i_scode) {
+		this.i_scode = i_scode;
 	}
-	public String getScode() {
-		return scode;
+	public int getI_count() {
+		return i_count;
 	}
-	public void setScode(String scode) {
-		this.scode = scode;
+	public void setI_count(int i_count) {
+		this.i_count = i_count;
 	}
-	public int getCount() {
-		return count;
+	public int getI_price() {
+		return i_price;
 	}
-	public void setCount(int count) {
-		this.count = count;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setI_price(int i_price) {
+		this.i_price = i_price;
 	}
 
 }
