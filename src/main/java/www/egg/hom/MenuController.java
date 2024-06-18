@@ -20,7 +20,7 @@ import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 import www.egg.vo.OptionVO;
 
-@Controller
+//@Controller
 public class MenuController {
 
 	@Inject
