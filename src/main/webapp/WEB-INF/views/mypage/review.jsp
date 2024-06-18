@@ -157,32 +157,32 @@ h2 {
 
 
 			<div id="box">
-				<form class="mb-3" name="myform" action="rwrite" id="myform" method="post">
+				<form class="mb-3" name="myform" action="rwrite" id="myform" method="post"  enctype="multipart/form-data">
 					<fieldset>
 						<h2>리뷰 등록하기</h2>
-						<input type="hidden" name="id" value="id">
-						<input type="hidden" name="no" value="no">
+						<input type="hidden" name="re_id" value="id">
+						<input type="hidden" name="num" value="1">
 						<span class="text-bold">별점을 선택해주세요</span> 
-						<input type="radio"	name="star" value="5" id="rate1"><label for="rate1">★</label>
-						<input type="radio" name="star" value="4" id="rate2"><label for="rate2">★</label> 
-						<input type="radio" name="star" value="3" id="rate3"><label for="rate3">★</label> 
-						<input type="radio" name="star" value="2" id="rate4"><label for="rate4">★</label> 
-						<input type="radio" name="star" value="1" id="rate5"><label for="rate5">★</label>
+						<input type="radio"	name="re_star" value="5" id="rate1"><label for="rate1">★</label>
+						<input type="radio" name="re_star" value="4" id="rate2"><label for="rate2">★</label> 
+						<input type="radio" name="re_star" value="3" id="rate3"><label for="rate3">★</label> 
+						<input type="radio" name="re_star" value="2" id="rate4"><label for="rate4">★</label> 
+						<input type="radio" name="re_star" value="1" id="rate5"><label for="rate5">★</label>
 					</fieldset>
 					<div>
 						<textarea class="col-auto form-control" type="text"
-							id="reviewContents" name="ex"
+							id="reviewContents" name="re_ex"
 							placeholder="리뷰를 입력해주세요"></textarea>
 					</div>
 				
 				<div id="files">
-				<input type="file" name="file1">
-				<input type="file" name="file2">
+				 <input type="file" name="re_file" multiple>
+				 <input type="file" name="re_file" multiple>
 				</div>
 				<div id="butt">
 				<button id="btn">등록</button>
-				</form>
 				</div>
+				</form>
 			</div>
 </body>
 </html>
