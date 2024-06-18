@@ -232,9 +232,6 @@ td {
                             <li>
                                 <a href="#"> 회원 정보 조회 </a>
                             </li>
-                            <li>
-                                <a href="#"> (내비 옵션) </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -323,15 +320,39 @@ td {
 				</tr>
 			</thead>
 			<tbody>
-					<tr class="minfo_row">
-						<td><input type="text" name="id" value=${mvo.id } readonly></td>
-						<td><input type="text" name="name" value=${mvo.name } readonly></td>
-						<td><input type="text" name="phone" value=${mvo.phone } readonly></td>
-						<td><input type="text" name="email" value=${mvo.email } readonly></td>
-						<td><input type="text" name="address" value=${mvo.address } readonly></td>
-						<td><input type="text" name="master" value=${mvo.master }></td>
-						<td><input type="submit" value="제출하기" id="sbtn"></td>
-					</tr>
+					<c:if test="${mvo.master==0}">
+						<tr class="minfo_row">
+							<td><input type="text" name="id" value=${mvo.id } readonly></td>
+							<td><input type="text" name="name" value=${mvo.name } readonly></td>
+							<td><input type="text" name="phone" value=${mvo.phone } readonly></td>
+							<td><input type="text" name="email" value=${mvo.email } readonly></td>
+							<td><input type="text" name="address" value=${mvo.address } readonly></td>
+							<!-- <td><input type="text" name="master" value=${mvo.master }></td> -->
+							<td>
+								 <select name="master" id="ms">
+						  			<option value="0">일반</option>
+						  			<option value="1">관리자</option>
+					  			</select>
+							</td>
+							<td><input type="submit" value="제출하기" id="sbtn"></td>
+						</tr>
+					</c:if>
+						<c:if test="${mvo.master==1}">
+						<tr class="minfo_row">
+							<td><input type="text" name="id" value=${mvo.id } readonly></td>
+							<td><input type="text" name="name" value="" readonly></td>
+							<td><input type="text" name="phone" value="" readonly></td>
+							<td><input type="text" name="email" value="" readonly></td>
+							<td><input type="text" name="address" value="" readonly></td>
+							<td>
+								 <select name="master" id="ms">
+						  			<option value="1">관리자</option>
+						  			<option value="0">일반</option>
+					  			</select>
+							</td>
+							<td><input type="submit" value="제출하기" id="sbtn"></td>
+						</tr>
+					</c:if>
 			</tbody>
 		</table>
 	</form>
