@@ -22,25 +22,8 @@ public class InfoServiceImpl implements IF_InfoService {
 	}
 
 	@Override
-	public List<AskVO> allList() throws Exception{
-		return idao.allList();
+	public List<AskVO> allList(String a_id) throws Exception{
+		return idao.allList(a_id);
 	}
-
-	@Override
-	public void delete(Integer num) throws Exception{
-		idao.delete(num);
-		
-	}
-
-	@Override
-	public AskVO mod(Integer num) throws Exception {
-		return idao.mod(num);
-	}
-
-	@Override
-	public void update(AskVO avo) throws Exception {
-		idao.update(avo);
-	}
-	
 	
 }

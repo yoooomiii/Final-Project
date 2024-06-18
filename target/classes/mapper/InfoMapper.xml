@@ -4,19 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="www.egg.dao.IF_InfoDAO">
 	<insert id="insert" parameterType="www.egg.vo.AskVO">
-		INSERT INTO ask (num, id, title, ex, checkVal, in_date) values (next values for ask_cnt, #{id}, #{title}, #{ex}, #{checkVal}, DEFAULT)
+		INSERT INTO ask (a_num, a_id, a_title, a_ex, a_checkVal, a_date) values (NEXT VALUE FOR ask_cnt, #{a_id}, #{a_title}, #{a_ex}, #{a_checkVal}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'))
 	</insert>
-	<select id="selectall" resultType="www.egg.vo.AskVO">
-		select * from ask
+	<select id="selectall" parameterType="String" resultType="www.egg.vo.AskVO">
+		select * from ask where a_id = #{id}
 	</select>
-	<select id="selectone" parameterType="www.egg.vo.AskVO">
-		select * from ask where num=#{num}
-	</select>	
-	<delete id="delete">
-		delete from ask where num=#{num}
-	</delete>
-	<update id="update" parameterType="www.egg.vo.AskVO">
-		update ask set id="id", title=#{title}, ex=#{ex}, check=null, in_date=#{in_date} where num=#{num}
-	</update>
 	
 </mapper>
