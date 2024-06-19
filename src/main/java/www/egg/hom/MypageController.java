@@ -105,10 +105,9 @@ public class MypageController {
     }
     
     @RequestMapping(value = "myreview", method = RequestMethod.GET)
-    public String myreview(HttpSession session,Model model) throws Exception{
-    		
-    		List<ReviewVO> myreview=mpservice.myreview();
-    		model.addAttribute("review", myreview);
-    		 return "redirect:mypage";
+    public String myreview(HttpSession session, Model model) throws Exception {
+        List<ReviewVO> myreview = mpservice.myreview();
+        model.addAttribute("reviews", myreview);
+        return "mypage";  // 'mypage'는 실제 JSP 파일 이름이어야 합니다.
     }
 }

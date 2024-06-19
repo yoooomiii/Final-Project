@@ -1,7 +1,5 @@
 package www.egg.hom;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import www.egg.service.IF_LoginService;
 import www.egg.vo.MemberVO;
 
-//@Controller
+@Controller
 public class LoginController {
 	
 	@Inject
