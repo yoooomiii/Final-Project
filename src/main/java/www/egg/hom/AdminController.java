@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.vo.MemberVO;
+import www.egg.vo.MlistVO;
+import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
 
 @Controller
 public class AdminController {
 	@Inject
 	IF_LoginService lservice;
+	@Inject
+	IF_AdminService aservice;
 	
 	
 	@GetMapping("adminEnter") // 관리자 페이지 
@@ -27,15 +31,18 @@ public class AdminController {
 		return "admin/adminMain";
 	}
 	
+	@GetMapping("adminMView") 
+	public String adminMember(HttpSession session, Model model) {
+		List<MemberVO> mlist = lservice.memberlist();
+		model.addAttribute("members", mlist);
+		return "admin/adminMember";
+	}
+	
 	@RequestMapping(value = "adminMSearch", method = RequestMethod.GET)
 	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw,
 			 @RequestParam("city") String city,  @RequestParam("county") String county
 			) {
-		/*
-		 * System.out.println("adminMSearch 콤보박스: "+addr);
-		 * System.out.println("adminMSearch 검색어: "+sw); // 검색어는 일단 받기만 하고 사용은 추후 
-		 * System.out.println("adminMSearch 라디어박스: "+master);
-		 */
+		
 		System.out.println("로그인단 county: "+county);
 		if(county.equals("전체")) {
 			mvo.setAddress(city);
@@ -78,14 +85,15 @@ public class AdminController {
 		return "redirect:adminMView";
 	}
 	
-	@RequestMapping(value = "adminOView", method = RequestMethod.GET)
-	public String adminOView() {
+	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
+	public String adminOView(Model model) {
 		
-		
+		List<MlistVO> olist = aservice.orderlist();
+		model.addAttribute("orders", olist);
 		return "admin/adminMlist";
 	}
 	@RequestMapping(value = "adminDView", method = RequestMethod.GET)
-	public String adminDView() {
+	public String adminDView(Model model) {
 		
 		
 		return "admin/adminDelivery";

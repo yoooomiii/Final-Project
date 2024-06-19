@@ -356,13 +356,14 @@ td {
 		</div>
 		<table border=1 id="dtable">
 			<thead>
-				<tr>
+				<tr style="background-color: gray">
 					<td>배달번호</td>
 					<td>회원ID</td>
 					<td>회원명</td>
 					<td>배달주소</td>
 					<td>예상시간</td>
 					<td>배달상태</td>
+					<td>배달유무</td>
 					<td>수정</td>
 					<td>선택</td>
 				</tr>
@@ -375,6 +376,7 @@ td {
 						<td>회원명</td>
 						<td>배달주소</td>
 						<td>예상시간</td>
+						<td>배달유무</td>
 						<td>배달상태</td>
 						<td><a href="adminMUpform?id=${deliveryvo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
 						<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.id }></td>

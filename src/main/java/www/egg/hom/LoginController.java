@@ -103,12 +103,7 @@ public class LoginController {
 	 * @RequestMapping(value = "myPage", method = RequestMethod.GET) public String // 로그인 잘 되는지 테스트
 	 * myPage() { return "ownPage"; }
 	 */
-	@GetMapping("adminMView") 
-	public String adminMember(HttpSession session, Model model) {
-		List<MemberVO> mlist = lservice.memberlist();
-		model.addAttribute("members", mlist);
-		return "admin/adminMember";
-	}
+	
 	@RequestMapping(value = "quiteAccount", method = RequestMethod.POST)
 	public String quiteAccount(@RequestParam("id") String id, HttpSession session) {
 		System.out.println(session.getAttribute("userid")+" 제출됨");

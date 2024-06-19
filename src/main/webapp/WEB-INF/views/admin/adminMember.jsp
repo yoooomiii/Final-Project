@@ -356,7 +356,7 @@ td {
 		</div>
 		<table border=1 id="mtable">
 			<thead>
-				<tr>
+				<tr style="background-color: gray">
 					<td>회원ID</td>
 					<td>회원명</td>
 					<td>전화번호</td>
