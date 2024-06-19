@@ -243,7 +243,7 @@
                     <a href="main"><img src="${path}/resources/img/footer_logo_s1.png" alt=""></a>
                 </div>
                 <div class="footer-con">
-                    <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>
+                    <div class="con-text"><span> 상호명 : Golden Egg Chicken (골든에그) </span></div>
                     <div class="con-text"><span> 대표자 : 송유미 </span></div>
                     <div class="con-text"><span> 사업자등록번호 : 112-00-001234 </span></div>
                     <div class="con-text"><span> 대표번호 : 031-500-1234 </span></div>
