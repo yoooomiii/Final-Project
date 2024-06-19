@@ -85,9 +85,9 @@
 		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
 	</beans:bean>
 	
-	<!-- <beans:bean class="java.lang.String" id="uploadPaths">
+	<beans:bean class="java.lang.String" id="uploadPaths">
    		 <beans:constructor-arg value="/reviewimg"></beans:constructor-arg>
-	</beans:bean> -->
+	</beans:bean> 
 	
 
 	<!-- <context:component-scan base-package="www.egg" /> -->

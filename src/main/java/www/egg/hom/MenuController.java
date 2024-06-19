@@ -18,7 +18,7 @@ import www.egg.service.IF_MenuService;
 import www.egg.util.FileDataUtil;
 import www.egg.vo.MenuVO;
 
-@Controller
+//@Controller
 public class MenuController {
 
 	@Inject
