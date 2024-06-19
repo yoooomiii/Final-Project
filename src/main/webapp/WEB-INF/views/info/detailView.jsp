@@ -110,26 +110,20 @@
                     <h1> 1 : 1 문 의 하 기 </h1>
                     <hr style="height: 5px; background-color: rgb(24, 0, 0); border-radius: 2px;">
                 </div>
-                <form action="infoSave" method="post">
-                    <h6> * 는 필수 작성 항목입니다. </h6>
-                    <p></p>
                     <div class="userid">
                         <span> 아이디 : ${userid} </span>
                     </div> 
                     <p></p>
                     <div class="info-title">
                         <span> * 제 목 </span>
-                        <input type="text" size="20" name="a_title">
+                        <span> ${avo.a_title} </span>
                     </div>
                     <p></p>
                     <div class="info-ex">
                         <span> * 내 용 </span>
-                        <input type="text" size="100" name="a_ex">
+                        <span> ${avo.a_ex} </span>
                     </div>
-                    <p></p>
-                    <div class="save"><input type="submit" value="문의하기"></div>
                     <!-- <div class="cancle"><input type="button" value="취소하기"></div> -->
-                </form>
             </div>
         </section>
 

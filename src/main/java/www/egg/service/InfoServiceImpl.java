@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_InfoDAO;
 import www.egg.vo.AskVO;
+import www.egg.vo.PageVO;
 
 @Service
 public class InfoServiceImpl implements IF_InfoService {
@@ -20,10 +21,16 @@ public class InfoServiceImpl implements IF_InfoService {
 	public void insert(AskVO avo) throws Exception {
 		idao.insert(avo);
 	}
-
+	
 	@Override
-	public List<AskVO> allList(String a_id) throws Exception{
+	public List<AskVO> allList(String a_id) throws Exception {
 		return idao.allList(a_id);
 	}
-	
+
+	@Override
+	public AskVO selectOne(Integer a_num) throws Exception {
+		return idao.selectOne(a_num);
+		
+	}
+
 }
