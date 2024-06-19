@@ -40,35 +40,32 @@ public class ReviewFileDataUtil {
 
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     @ResponseBody
-    public FileSystemResource fileDownload(@RequestParam("re_file") String r_file, HttpServletResponse response) {
-        File file = new File(uploadPaths + "/" + r_file);
+    public FileSystemResource fileDownload(@RequestParam("re_file") String re_file, HttpServletResponse response) {
+        File rfile = new File(uploadPaths + "/" + re_file);
         response.setContentType("application/download; utf-8");
-        response.setHeader("Content-Disposition", "attachment; filename=" + r_file);
-        return new FileSystemResource(file);
+        response.setHeader("Content-Disposition", "attachment; filename=" + re_file);
+        return new FileSystemResource(rfile);
     }
 
-    public String[] fileUpload(MultipartFile[] file) throws IOException {
-        if (uploadPaths == null) {
-            throw new IllegalStateException("Upload path is not set.");
-        }
-
-        String[] files = new String[file.length];
-        for (int i = 0; i < file.length; i++) {
-            if (file[i] != null && !file[i].getOriginalFilename().isEmpty()) {
-                String originalName = file[i].getOriginalFilename();
+    public String fileUpload(String re_file) throws IOException {
+//        String re_file = new String re_file;
+//        for (int i = 0; i <re_file.length; i++) {
+            if (re_file !="") {
+                String originalName = re_file.toString();
                 UUID uid = UUID.randomUUID();
                 String saveName = uid.toString() + "." + originalName.split("\\.")[1];
-                byte[] fileData = file[i].getBytes();
+                byte[] fileData = re_file.getBytes();
 
                 File target = new File(uploadPaths, saveName);
                 FileCopyUtils.copy(fileData, target);
-                files[i] = saveName;
+                re_file = saveName;
             } else {
-                files[i] = null;
+            	re_file=null;
             }
+			return re_file; 
         }
-        return files;
-    }
+      
+    
 
     public ArrayList<String> getExtNameArray() {
         return extNameArray;

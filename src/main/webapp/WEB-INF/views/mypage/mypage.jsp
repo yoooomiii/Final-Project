@@ -225,7 +225,8 @@ td {
 						<h3>찜목록</h3>
 					</div>
 					<div class="iconimg">
-						<img src="./resources/img/리뷰.png" width="100" height="90">
+						<img src="./resources/img/리뷰.png" width="100" height="90"
+							onclick="change('review')">
 						<h3>리뷰</h3>
 					</div>
 					<div class="iconimg">
@@ -239,38 +240,10 @@ td {
 		<section id="page">
 			<div id="menupick" class="content_box">
 				<p>메뉴 선택하셈~</p>
-				<table class="cart__list">
-
-					<thead>
-						<tr>
-							<td colspan="2">(사진)</td>
-							<td>메뉴이름</td>
-							<td>상품금액</td>
-							<td>배송방법</td>
-							<td>리뷰</td>
-						</tr>
-					</thead>
-					<tbody>
-						
-						<tr class="cart__list__detail">
-
-							<td style="width: 5%;"></td>
-							<td><span>사진</span></td>
-							<td><span>${mmvo.menu_name}</span></td>
-							<td><span>${mmvo.menu_price}</span></td>
-							<td><span>포장</span><br></td>
-							<form action="write" method="get">
-								<td><button>리뷰</button></td>
-							</form>
-						
-						</tr>
-					</tbody>
-
-				</table>
 			</div>
 		</section>
 	</div>
-</body>
+
 
 
 
@@ -315,99 +288,31 @@ td {
 		</div>
 	</div>
 </footer>
-
 <script>
-function change(type) {
-    const changebox = document.getElementById('menupick');
-    let content = '';
+        function change(type) {
+            const changebox = document.getElementById('menupick');
+            let content = '';
 
-    switch(type) {
-        case 'mlist':
-            content = `
-            		<h2>주문내역 페이지 변경!</h2>
-            		
-            			<table class="cart__list">		
-							<thead>
-								<tr>
-									<td colspan="2">(사진)</td>
-									<td>메뉴이름</td>
-									<td>상품금액</td>
-									<td>배송방법</td>
-									<td>리뷰</td>
-								</tr>
-							</thead>
-							<tbody>			
-								<tr class="cart__list__detail">						
-									<td style="width: 5%;"></td>
-									<td><span>사진</span></td>
-									<td><span>${mmvo.menu_name}</span></td>
-									<td><span>${mmvo.menu_price}</span></td>
-									<td><span>포장</span><br></td>									
-									<td>
-										<form action="write" method="get">
-											<button>리뷰</button>
-										</form>
-									</td>
-								</tr>
-							</tbody>
-	
-						</table>`;
-						
-	 				 break;
-     		   default:
-            content = '<p>내용을 선택하세요.</p>';
- 	   }
-
-   	 changebox.innerHTML = content;
-	}
-
-
-/*  function change(type) {
-    const changebox = document.getElementById('menupick');
-    let content = '';
-
-    switch(type) {
-        case 'cart':
-            content = `
-            		<h2>찜 목록 페이지 변경!</h2>
-            			 <table class="cart__list2">		
-							<thead>
-								<tr>
-									<td colspan="2">(사진)</td>
-									<td>메뉴이름</td>
-									<td>상품금액</td>
-									<td>배송방법</td>
-									<td>이건 찜</td>
-								</tr>
-							</thead>
-							<tbody>			
-								<tr class="cart__list__detail2">						
-									<td style="width: 5%;"></td>
-									<td><span>치킨사진</span></td>
-									<td><a href="#"></a> <span>메뉴이름</span></td>
-									<td><span>상품금액</span></td>
-									<td><span>포장</span><br></td>									
-									<td>
-										<form action="write" method="get">
-											<button>리뷰</button>
-										</form>
-									</td>
-								</tr>
-							</tbody>
-	
-						</table> `; 
-	 				 break;
-     		   default:
-            content = '<p>내용을 선택하세요.</p>';
- 	   }
-
-   	 changebox.innerHTML = content;
-	}	 */
- 
-</script>
-
-
+            switch(type) {
+                case 'review':
+                    fetch('/myreview')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(html => {
+                            changebox.innerHTML = html;
+                        })
+                        .catch(error => console.error('Error:', error));
+                    break;
+                default:
+                    content = '<p>내용을 선택하세요</p>';
+                    changebox.innerHTML = content;
+                    break;
+            }
+        }
+    </script>
 </body>
-
-
 </html>
