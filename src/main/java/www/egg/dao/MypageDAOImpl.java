@@ -1,6 +1,8 @@
 package www.egg.dao;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -43,10 +45,12 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	}
 
 	@Override
-	public ReviewVO myreview(int num) throws Exception {
+	public List<ReviewVO> myreview() throws Exception {
 		// TODO Auto-generated method stub
-		//////여기에 리뷰 조회하는 것 작성해야됨
-		return null;
+		return sqlsession.selectList(mapperQuery+".myreview");
 	}
+
+
+	
 
 }

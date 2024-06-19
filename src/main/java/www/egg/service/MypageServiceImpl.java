@@ -1,12 +1,13 @@
 package www.egg.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
 @Service
@@ -34,10 +35,16 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	}
 
 	@Override
-	public ReviewVO myreview(int num) throws Exception {
+	public List<ReviewVO> myreview() throws Exception {
 		// TODO Auto-generated method stub
-		return mpdao.myreview(num);
+		return mpdao.myreview();
 	}
+
+	
+
+
+
+
 
 
 
