@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
-<title>배달관리</title>
+<title>주문관리</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -26,7 +26,7 @@
 	   <script type="text/javascript">
 		function call_confirm(){
 			
-			if(confirm("배달 정보를 삭제하시겠습니까?")){
+			if(confirm("회원 정보를 삭제하시겠습니까?")){
 				alert("정상적으로 제출되었습니다.");
 				return true;
 			}else{
@@ -306,7 +306,7 @@ td {
 
 		<div id="span">
 			<div id="surchpan">
-				<h2>${username} 배달관리 페이지입니다.</h2>
+				<h2>${username} 회원 주문상태 관리 페이지입니다.</h2>
 				<form action="요청" method="get" name=form>
 				
 					  <label for="city">시도</label>
@@ -350,34 +350,34 @@ td {
 
 
 
-	<form action="배달삭제요청" method="get" onsubmit="return call_confirm()">
+	<form action="주문삭제요청" method="get" onsubmit="return call_confirm()">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
-		<table border=1 id="dtable">
+		<table border=1 id="otable">
 			<thead>
 				<tr>
-					<td>배달번호</td>
+					<td>주문번호</td>
 					<td>회원ID</td>
 					<td>회원명</td>
+					<td>주문일시</td>
 					<td>배달주소</td>
-					<td>예상시간</td>
-					<td>배달상태</td>
+					<td>수령방법</td>
 					<td>수정</td>
 					<td>선택</td>
 				</tr>
 			</thead>
 			<tbody>
-			    <c:forEach items="${delivery }" var="deliveryvo">
+			    <c:forEach items="${mlist }" var="mlistvo">
 					<tr class="minfo_row">
-						<td>배달번호</td>
+						<td>주문번호</td>
 						<td>회원ID</td>
 						<td>회원명</td>
+						<td>주문일시</td>
 						<td>배달주소</td>
-						<td>예상시간</td>
-						<td>배달상태</td>
-						<td><a href="adminMUpform?id=${deliveryvo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
-						<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.id }></td>
+						<td>수령방법</td>
+						<td><a href="adminMUpform?id=${mlistvo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
+						<td><input type="checkbox" id="chk" name="chkid" value=${mlistvo.id }></td>
 					</tr>
 				</c:forEach>
 			</tbody>

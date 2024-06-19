@@ -78,8 +78,14 @@ public class AdminController {
 		return "redirect:adminMView";
 	}
 	
-	@RequestMapping(value = "adminDelivery", method = RequestMethod.GET)
-	public String adminDelivery() {
+	@RequestMapping(value = "adminOView", method = RequestMethod.GET)
+	public String adminOView() {
+		
+		
+		return "admin/adminMlist";
+	}
+	@RequestMapping(value = "adminDView", method = RequestMethod.GET)
+	public String adminDView() {
 		
 		
 		return "admin/adminDelivery";
