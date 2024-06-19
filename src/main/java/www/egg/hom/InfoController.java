@@ -22,7 +22,7 @@ import www.egg.vo.AskVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.PageVO;
 
-@Controller
+//@Controller
 public class InfoController {
 
 	@Inject
