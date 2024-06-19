@@ -66,7 +66,7 @@
                                 <a href="#"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> (정산 관리) </a>
+                                <a href="adminDelivery"> (배달 관리) </a>
                             </li>
                         </ul>
                     </li>

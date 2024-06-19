@@ -29,8 +29,6 @@ public class LoginController {
 	}
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String join() {
-		System.out.println("와아아아아아아ㅏ앙");
-		System.out.println("byeeeeee");
 		return "login/joinForm";
 	}
 	
@@ -137,56 +135,7 @@ public class LoginController {
 		// System.out.println("quiteConfirm: "+pw);
 		return "redirect:byebye";
 	}
-	@RequestMapping(value = "adminMSearch", method = RequestMethod.GET)
-	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw,
-			 @RequestParam("city") String city,  @RequestParam("county") String county
-			) {
-		/*
-		 * System.out.println("adminMSearch 콤보박스: "+addr);
-		 * System.out.println("adminMSearch 검색어: "+sw); // 검색어는 일단 받기만 하고 사용은 추후 
-		 * System.out.println("adminMSearch 라디어박스: "+master);
-		 */
-		System.out.println("로그인단 county: "+county);
-		if(county.equals("전체")) {
-			mvo.setAddress(city);
-		}else {
-			String readdress = city+" "+county;
-			mvo.setAddress(readdress);
-		}
-		
-		List<MemberVO> mlist = null;
-		if(sw==null || sw.equals("")) {
-			mlist = lservice.memberSearch(mvo) ;
-		}else {
-			mvo.setId(sw);
-			mlist = lservice.memberSearch(mvo) ;
-		}
-		model.addAttribute("members", mlist);
-		return "admin/adminMember";
-	}
 	
-	@RequestMapping(value = "adminMDelete", method = RequestMethod.GET)
-	public String adminMDelete(@RequestParam List<String> chkid,  Model model) {
-		for (String c: chkid) {
-			// System.out.println("List<String> chkid: "+c);
-			lservice.quiteAccount(c);
-		}
-		return  "redirect:adminMView";
-	}
-	
-	@RequestMapping(value = "adminMUpform", method = RequestMethod.GET)
-	public String adminMUpform(@RequestParam("id") String id,  Model model) {
-		MemberVO mvo =  lservice.signIn(id); 
-		model.addAttribute("mvo", mvo);
-		return "admin/adminMUpform";
-	}
-	
-	@RequestMapping(value = "adminMUp", method = RequestMethod.POST)
-	public String adminMUdate(@ModelAttribute MemberVO mvo) {
-		lservice.modMaster(mvo);
-		
-		return "redirect:adminMView";
-	}
 	
 	
 }

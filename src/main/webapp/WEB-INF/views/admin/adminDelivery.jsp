@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
-<title>회원관리</title>
+<title>배달관리</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -271,7 +271,7 @@ td {
                                 <a href="#"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                  <a href="adminDelivery"> (배달 관리) </a>
+                                 <a href="adminDelivery"> (배달 관리) </a>
                             </li>
                         </ul>
                     </li>
@@ -306,8 +306,8 @@ td {
 
 		<div id="span">
 			<div id="surchpan">
-				<h2>${username} 회원 관리 페이지입니다.</h2>
-				<form action="adminMSearch" method="get" name=form>
+				<h2>${username} 배달관리 페이지입니다.</h2>
+				<form action="요청" method="get" name=form>
 				
 					  <label for="city">시도</label>
 					  <select name="city" id="loc" onchange="change(this.selectedIndex);" class=input >
@@ -334,10 +334,10 @@ td {
 					  		<option value="">전체</option>
 					  </select>
 					  
-						  <label for="option1">일반</label>
-					    <input type="radio" id="option1" name="master" value="0">
-						  <label for="option2">관리자</label>
-						  <input type="radio" id="option2" name="master" value="1">
+						  <label for="option1">옵션1</label>
+					    <input type="radio" id="option1" name="키값" value="값">
+						  <label for="option2">옵션2</label>
+						  <input type="radio" id="option2" name="키값" value="값">
 
 					ID: <input type="text" name="sword"> <input type="submit" value="검색">
 				</form>
@@ -350,49 +350,35 @@ td {
 
 
 
-	<form action="adminMDelete" method="get" onsubmit="return call_confirm()">
-			<div id="dpan">
+	<form action="배달삭제요청" method="get" onsubmit="return call_confirm()">
+		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
-		<table border=1 id="mtable">
+		<table border=1 id="dtable">
 			<thead>
 				<tr>
+					<td>배달번호</td>
 					<td>회원ID</td>
 					<td>회원명</td>
-					<td>전화번호</td>
-					<td>이메일</td>
-					<td>주소</td>
-					<td>권한</td>
+					<td>배달주소</td>
+					<td>예상시간</td>
+					<td>배달상태</td>
 					<td>수정</td>
 					<td>선택</td>
 				</tr>
 			</thead>
 			<tbody>
-			    <c:forEach items="${members }" var="membervo">
-			    <c:if test="${membervo.master==0}">
+			    <c:forEach items="${delivery }" var="deliveryvo">
 					<tr class="minfo_row">
-						<td>${membervo.id }</td>
-						<td>${membervo.name }</td>
-						<td>${membervo.phone }</td>
-						<td>${membervo.email }</td>
-						<td>${membervo.address }</td>
-						<td style="color:blue;">일반</td>
+						<td>배달번호</td>
+						<td>회원ID</td>
+						<td>회원명</td>
+						<td>배달주소</td>
+						<td>예상시간</td>
+						<td>배달상태</td>
 						<td><a href="adminMUpform?id=${membervo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
 						<td><input type="checkbox" id="chk" name="chkid" value=${membervo.id }></td>
 					</tr>
-			    </c:if>
-			    <c:if test="${membervo.master==1}">
-			    	<tr class="minfo_row">
-						<td>${membervo.id }</td>
-						<td>${membervo.name }</td>
-						<td>${membervo.phone }</td>
-						<td>${membervo.email }</td>
-						<td>${membervo.address }</td>
-						<td style="color:red;">관리자</td>
-						<td><a href="adminMUpform?id=${membervo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
-						<td><input type="checkbox" id="chk" name="chkid" value=${membervo.id }></td>
-					</tr>
-			    </c:if>
 				</c:forEach>
 			</tbody>
 		</table>
