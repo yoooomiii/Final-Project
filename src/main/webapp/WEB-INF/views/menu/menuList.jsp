@@ -18,7 +18,7 @@
 				<td>메뉴 이름</td>
 				<td>메뉴 가격</td>
 				<td>메뉴 설명</td>
-				<td>메뉴 평점</td>
+				<td>카테고리</td>
 				<td>메뉴 수정</td>
 				<td>메뉴 삭제</td>
 			</tr>
@@ -32,7 +32,7 @@
 					<td><a href="viewDetail?menu_no=${menuvo.menu_no}">${menuvo.menu_name}</a></td>
 					<td>${menuvo.menu_price}</td>
 					<td>${menuvo.menu_ex}</td>
-					<td>${menuvo.menu_star}</td>
+					<td>${menuvo.menu_side}</td>
 					<td><button type=submit value="${menuvo.menu_no}" name="menu_no">수정</button></td>
 					</form>
 					<form action="menu_delete" method="post">

@@ -17,7 +17,7 @@
 	<br>
 	메뉴 설명<input type=text name="menu_ex">
 	<br>
-	메뉴 평점<input type=text name="menu_star">
+	카테고리<input type=text name="menu_side">
 	<br>
 	참부파일 1<input type=file name="file">
 	<br>

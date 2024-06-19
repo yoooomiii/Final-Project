@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>장바구니</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<h1>장바구니다</h1>
 	<form action="item_inputSave" method="post">
-	장바구니 결제번호
 	<br>
-	<input type=text name="i_num">
+	<input type=text name="i_no">
 	<br>
 	<input type=text name="i_no">
 	<br>
@@ -33,5 +32,6 @@
 	<br>
 	<button type=submit value="">결제하기</button>
 	</form>
+
 </body>
 </html>

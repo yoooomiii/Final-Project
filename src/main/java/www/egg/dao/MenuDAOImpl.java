@@ -8,9 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
-import www.egg.vo.OptionVO;
 
 
 @Repository
@@ -61,59 +59,6 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	public void savepot(String filename) throws Exception {	//사진 테이블 저장
 		// TODO Auto-generated method stub
 		sqlSession.insert((mapperQuery)+".saveFile",filename);
-	}
-	
-	//---------------------------------------------------------메뉴
-
-	@Override
-	public void option_insert(OptionVO ovo) throws Exception {	//사이드 메뉴 등록
-		// TODO Auto-generated method stub
-		sqlSession.insert(mapperQuery+".sinsert", ovo);
-	}
-
-	@Override
-	public List<OptionVO> option_List() throws Exception {	//사이드 전체보기
-		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".sselectall");
-	}
-
-	@Override
-	public void option_delete(OptionVO ovo) throws Exception {	//사이드 삭제
-		// TODO Auto-generated method stub
-		sqlSession.delete(mapperQuery+".sdelete", ovo);
-	}
-
-	@Override
-	public OptionVO option_update(OptionVO ovo) throws Exception {	//사이드 수정
-		// TODO Auto-generated method stub
-		sqlSession.update(mapperQuery+".supdate",ovo);
-		return ovo;
-	}
-
-	@Override
-	public OptionVO option_modno(String no) throws Exception {	//사이드 정보 넣기
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne(mapperQuery+".sselectone", no);
-	}
-
-	@Override
-	public List<String> option_getFilename(String sno) throws Exception {	//옵션 사진 불러오기
-		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".sgetFiles", sno);
-	}
-
-	@Override
-	public void option_savepot(String filename) throws Exception {		//옵션 사진 테이블 저장
-		// TODO Auto-generated method stub
-		sqlSession.insert((mapperQuery)+".ssaveFile",filename);
-	}
-	
-	//---------------------------------------------------------------장바구니
-
-	@Override
-	public void item_insert(ItemVO ivo) throws Exception {	//장바구니 등록
-		// TODO Auto-generated method stub
-		sqlSession.insert(mapperQuery+".iinsert", ivo);
 	}
 
 }

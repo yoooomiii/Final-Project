@@ -197,7 +197,7 @@ nav {
     }
 
     .info_form h1 {
-       
+    font-family: 'Cafe24Ssurround';
         font-weight: bold;
         text-shadow: 1px 2px 1px black;
     }
@@ -228,12 +228,12 @@ nav {
         width: 400px;
     }
 
-    .info_form form input[name="title"] {
+    .info_form form input[name="a_title"] {
         height: 30px;
         border-radius: 5px;
     }
     
-    .info_form form input[name="ex"] {
+    .info_form form input[name="a_ex"] {
         height: 200px;
         border-radius: 10px;
         white-space:nowrap;
