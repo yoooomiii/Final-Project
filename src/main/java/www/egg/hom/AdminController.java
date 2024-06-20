@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.vo.MemberVO;
-import www.egg.vo.MlistVO;
+import www.egg.vo.Mlist2VO;
 import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
 
-//@Controller
+@Controller
 public class AdminController {
 	@Inject
 	IF_LoginService lservice;
@@ -88,7 +88,7 @@ public class AdminController {
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model) {
 		
-		List<MlistVO> olist = aservice.orderlist();
+		List<Mlist2VO> olist = aservice.orderlist();
 		model.addAttribute("orders", olist);
 		return "admin/adminMlist";
 	}
@@ -97,6 +97,15 @@ public class AdminController {
 		
 		
 		return "admin/adminDelivery";
+	}
+	
+	@RequestMapping(value = "adminODelete", method = RequestMethod.GET)
+	public String adminODelete(@RequestParam List<String> chkid,  Model model) {
+		for (String c: chkid) {
+			System.out.println("List<String> chkid: "+c);
+			//lservice.quiteAccount(c);
+		}
+		return  "redirect:adminOView";
 	}
 	
 }

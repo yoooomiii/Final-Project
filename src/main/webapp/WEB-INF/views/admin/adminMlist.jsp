@@ -26,7 +26,7 @@
 	   <script type="text/javascript">
 		function call_confirm(){
 			
-			if(confirm("회원 정보를 삭제하시겠습니까?")){
+			if(confirm("주문 내역을 삭제하시겠습니까?")){
 				alert("정상적으로 제출되었습니다.");
 				return true;
 			}else{
@@ -350,7 +350,7 @@ td {
 
 
 
-	<form action="주문삭제요청" method="get" onsubmit="return call_confirm()">
+	<form action="adminODelete" method="get" onsubmit="return call_confirm()">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
@@ -360,22 +360,20 @@ td {
 					<td>주문번호</td>
 					<td>주문상태</td>
 					<td>회원ID</td>
-					<td>주문일시</td>
 					<td>수령방법</td>
 					<td>수정</td>
 					<td>선택</td>
 				</tr>
 			</thead>
 			<tbody>
-			    <c:forEach items="${orders }" var="mlistvo">
+			    <c:forEach items="${orders }" var="mlist2vo">
 					<tr class="minfo_row">
-						<td>주문번호</td>
-						<td>주문상태</td>
-						<td>회원ID</td>
-						<td>주문일시</td>
+						<td>${mlist2vo.m_num}</td>
+						<td><a href="#">${mlist2vo.m_state}</a></td>
+						<td>${mlist2vo.m_id}</td>
 						<td>수령방법</td>
-						<td><a href="adminMUpform?id=${mlistvo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
-						<td><input type="checkbox" id="chk" name="chkid" value=${mlistvo.id }></td>
+						<td><a href="adminMUpform?id=${mlist2vo.m_num }"><input type="button" value="수정하기" id="mbtn"></a></td>
+						<td><input type="checkbox" id="chk" name="chkid" value=${mlist2vo.m_num }></td>
 					</tr>
 				</c:forEach>
 			</tbody>

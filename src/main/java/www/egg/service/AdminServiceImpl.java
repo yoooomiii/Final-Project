@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import www.egg.dao.IF_AdminDAO;
 import www.egg.dao.IF_LoginDAO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.MlistVO;
+import www.egg.vo.Mlist2VO;
 
 @Service
 public class AdminServiceImpl implements IF_AdminService {
@@ -18,7 +18,7 @@ public class AdminServiceImpl implements IF_AdminService {
 	IF_AdminDAO adao;
 
 	@Override
-	public List<MlistVO> orderlist() {
+	public List<Mlist2VO> orderlist() {
 		// TODO Auto-generated method stub
 		return adao.orderlist();
 	}

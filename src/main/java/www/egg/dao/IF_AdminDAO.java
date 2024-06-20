@@ -2,9 +2,9 @@ package www.egg.dao;
 
 import java.util.List;
 
-import www.egg.vo.MlistVO;
+import www.egg.vo.Mlist2VO;
 
 public interface IF_AdminDAO {
-	public List<MlistVO> orderlist();
+	public List<Mlist2VO> orderlist();
 
 }

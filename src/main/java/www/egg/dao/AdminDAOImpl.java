@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MemberVO;
-import www.egg.vo.MlistVO;
+import www.egg.vo.Mlist2VO;
 
 @Repository
 public class AdminDAOImpl implements IF_AdminDAO{
@@ -17,7 +17,7 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	SqlSession sqlSession;
 	
 	@Override
-	public List<MlistVO> orderlist() {
+	public List<Mlist2VO> orderlist() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(mapperQuery+".selectorders");
 	}
