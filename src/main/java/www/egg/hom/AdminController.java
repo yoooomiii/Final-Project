@@ -125,7 +125,6 @@ public class AdminController {
 	@RequestMapping(value = "adminODetail", method = RequestMethod.GET)
 	public String adminODetail(@RequestParam("m_num") String m_num ,  Model model) {
 		PaymentVO pvo = aservice.pickPaymentnum(m_num);
-		//System.out.println("어드민콘트롤러단 pvo: "+pvo.toString());
 		model.addAttribute("pvo", pvo);
 		return "admin/adminOPayment";
 	}
@@ -137,5 +136,19 @@ public class AdminController {
 		return "admin/adminODelivery";
 	}
 	
+	@RequestMapping(value = "adminDUpform", method = RequestMethod.GET)
+	public String adminDUpform(@RequestParam("m_num") String m_num,  Model model) {
+		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
+		model.addAttribute("dvo", dvo);
+		return "admin/adminDUpform";
+	}
+	@RequestMapping(value = "adminDUp", method = RequestMethod.POST)
+	public String adminDUdate(@ModelAttribute DeliveryVO dvo,  Model model) {
+		aservice.modDelivery(dvo);
+		
+		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+"");
+		model.addAttribute("dvo", modied_dvo);
+		return "admin/adminODelivery";
+	}
 	
 }

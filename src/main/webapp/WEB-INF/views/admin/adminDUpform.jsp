@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
-<title>배달정보</title>
+<title>수정페이지</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -279,12 +279,33 @@ td {
 
 
 
-	<form action="요청URL" method="post">
-			<div id="dpan">
-			해당 주문의 배달 현황입니다.
+	<form action="adminDUp" method="post">
+		<div id="dpan">
+			배달 상태 수정 페이지입니다. 
 			<hr>
-			<a href="adminDUpform?m_num=${dvo.d_no}"><input type="button" value="수정하기"></a>
+		<input type="submit" value="제출하기">
 		</div>
+		<table border=1 id="mtable">
+			<thead>
+				<tr style="background-color: gray">
+					<td>배달번호</td>
+					<td>등록번호</td>
+					<td>주문번호</td>
+					<td>예상시간</td>
+					<td>배달상태</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="minfo_row">
+					<td>(추후수정)</td>
+					<td><input type="text" name="d_num" value=${dvo.d_num } ></td>
+					<td><input type="text" name="d_no" value=${dvo.d_no } readonly></td>
+					<td><input type="text" name="d_time" value=${dvo.d_time } ></td>
+					<td><input type="text" name="d_check" value=${dvo.d_check } ></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
 		<table border=1 id="mtable">
 			<tr><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
 			<tr><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
@@ -293,7 +314,6 @@ td {
 			<tr><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
 			
 		</table>
-		
 	</form>
 		</section>
 </body>

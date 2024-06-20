@@ -17,5 +17,6 @@ public interface IF_AdminService {
 	public void modOrderstate(Mlist2VO ovo);
 	public PaymentVO pickPaymentnum(String m_num);
 	public DeliveryVO pickDeliverynum(String m_num);
+	public void modDelivery(DeliveryVO dvo);
 
 }

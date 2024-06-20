@@ -22,4 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectdeliverynum" resultType="www.egg.vo.DeliveryVO">
 		select * from delivery where d_no = #{m_num}
 	</select>
+	<update id="updatedelivery" parameterType="www.egg.vo.DeliveryVO">
+		update delivery set d_num = #{d_num}, d_time = #{d_time}, d_check =#{d_check} where d_no = #{d_no}
+	</update>
 </mapper>

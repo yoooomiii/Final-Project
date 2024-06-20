@@ -55,6 +55,12 @@ public class AdminServiceImpl implements IF_AdminService {
 		return adao.pickDeliverynum(m_num);
 	}
 
+	@Override
+	public void modDelivery(DeliveryVO dvo) {
+		adao.modDelivery(dvo);
+		
+	}
+
 	
 
 

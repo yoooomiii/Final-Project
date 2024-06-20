@@ -54,6 +54,12 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(mapperQuery+".selectdeliverynum", m_num);
 	}
+
+	@Override
+	public void modDelivery(DeliveryVO dvo) {
+		sqlSession.update(mapperQuery+".updatedelivery", dvo);
+		
+	}
 	
 
 }
