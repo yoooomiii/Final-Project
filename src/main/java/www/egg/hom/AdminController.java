@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
 import www.egg.vo.PaymentVO;
@@ -127,6 +128,13 @@ public class AdminController {
 		//System.out.println("어드민콘트롤러단 pvo: "+pvo.toString());
 		model.addAttribute("pvo", pvo);
 		return "admin/adminOPayment";
+	}
+	
+	@RequestMapping(value = "adminODelivery", method = RequestMethod.GET)
+	public String adminODelivery(@RequestParam("m_num") String m_num ,  Model model) {
+		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
+		model.addAttribute("dvo", dvo);
+		return "admin/adminODelivery";
 	}
 	
 	

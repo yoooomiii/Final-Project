@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
 import www.egg.vo.PaymentVO;
@@ -46,6 +47,12 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		// TODO Auto-generated method stub
 	
 		return sqlSession.selectOne(mapperQuery+".selectpaymentnum", m_num);
+	}
+
+	@Override
+	public DeliveryVO pickDeliverynum(String m_num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(mapperQuery+".selectdeliverynum", m_num);
 	}
 	
 

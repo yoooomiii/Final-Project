@@ -19,4 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectpaymentnum" resultType="www.egg.vo.PaymentVO">
 		select * from payment where pm_no = #{m_num}
 	</select>
+	<select id="selectdeliverynum" resultType="www.egg.vo.DeliveryVO">
+		select * from delivery where d_no = #{m_num}
+	</select>
 </mapper>

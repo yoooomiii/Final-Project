@@ -374,7 +374,7 @@ td {
 						<td>${mlist2vo.m_id}</td>
 						<td>수령방법</td>
 						<td><a href="adminOUpform?m_num=${mlist2vo.m_num }"><input type="button" value="수정하기" id="mbtn"></a></td>
-						<td><a href="배달상세링크"><input type="button" value="배달정보" id="mbtn"></a></td>
+						<td><a href="adminODelivery?m_num=${mlist2vo.m_num }"><input type="button" value="배달정보" id="mbtn"></a></td>
 						<td><input type="checkbox" id="chk" name="chkid" value=${mlist2vo.m_num }></td>
 					</tr>
 				</c:forEach>
