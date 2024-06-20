@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
+import www.egg.vo.PaymentVO;
 import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
 
@@ -111,16 +112,21 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOUpform", method = RequestMethod.GET)
 	public String adminOUpform(@RequestParam("m_num") String m_num,  Model model) {
-		//MemberVO mvo =  lservice.signIn(id); 
 		Mlist2VO ovo = aservice.pickOrdernum(m_num);
 		model.addAttribute("ovo", ovo);
 		return "admin/adminOUpform";
 	}
 	@RequestMapping(value = "adminOUp", method = RequestMethod.POST)
 	public String adminOUdate(@ModelAttribute Mlist2VO ovo) {
-		// lservice.modMaster(mvo);
 		aservice.modOrderstate(ovo);
 		return "redirect:adminOView";
+	}
+	@RequestMapping(value = "adminODetail", method = RequestMethod.GET)
+	public String adminODetail(@RequestParam("m_num") String m_num ,  Model model) {
+		PaymentVO pvo = aservice.pickPaymentnum(m_num);
+		//System.out.println("어드민콘트롤러단 pvo: "+pvo.toString());
+		model.addAttribute("pvo", pvo);
+		return "admin/adminOPayment";
 	}
 	
 	

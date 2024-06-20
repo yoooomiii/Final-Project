@@ -16,4 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateorderstate" parameterType="www.egg.vo.Mlist2VO">
 		update mlist set m_state = #{m_state} where m_num = #{m_num}
 	</update>
+	<select id="selectpaymentnum" resultType="www.egg.vo.PaymentVO">
+		select * from payment where pm_no = #{m_num}
+	</select>
 </mapper>

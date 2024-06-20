@@ -10,6 +10,7 @@ import www.egg.dao.IF_AdminDAO;
 import www.egg.dao.IF_LoginDAO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
+import www.egg.vo.PaymentVO;
 
 @Service
 public class AdminServiceImpl implements IF_AdminService {
@@ -39,6 +40,12 @@ public class AdminServiceImpl implements IF_AdminService {
 	public void modOrderstate(Mlist2VO ovo) {
 		adao.modOrderstate(ovo);
 		
+	}
+
+	@Override
+	public PaymentVO pickPaymentnum(String m_num) {
+		// TODO Auto-generated method stub
+		return adao.pickPaymentnum(m_num);
 	}
 
 	

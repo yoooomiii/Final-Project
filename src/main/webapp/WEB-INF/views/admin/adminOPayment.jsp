@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
-<title>수정페이지</title>
+<title>주문상세</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -133,7 +133,7 @@
 #page {
 	float: left;
 	width: 1210px;
-	height: 500px;
+	height: 1000px;
 	margin-top: 10px;
 	border: 4px solid gray;
 	margin-left: 20px;
@@ -161,7 +161,7 @@ h2 {
 	padding-left: 40px;
 	margin-top: 20px;
 	margin-bottom: 10px;
-	width: 800px;
+	width: 1170px;
 	
 }
 #sbtn{
@@ -239,7 +239,7 @@ td {
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                 <a href="adminDView"> (배달 관리) </a>
+                                <a href="adminDView"> (배달 관리) </a>
                             </li>
                         </ul>
                     </li>
@@ -272,28 +272,6 @@ td {
 			</div>
 		</nav>
 
-		<div id="span">
-			<div id="surchpan">
-				<h2>${username} 주문 관리 페이지입니다.</h2>
-				<form action="adminMSearch" method="get">
-				
-					  <label for="loc">지역(광역시)</label>
-					  <select name="address" id="loc">
-					  		<option value="">(선택안함)</option>
-						  <option value="수원시">수원시</option>
-						  <option value="화성시">화성시</option>
-					  <option value="용인시">용인시</option>
-					  </select>
-					  
-						  <label for="option1">일반</label>
-					    <input type="radio" id="option1" name="master" value="0">
-						  <label for="option2">관리자</label>
-						  <input type="radio" id="option2" name="master" value="1">
-
-					<input type="text" name="sword"> <input type="submit" value="검색">
-				</form>
-			</div>
-		</div>
 
 		</div>
 
@@ -301,36 +279,25 @@ td {
 
 
 
-	<form action="adminOUp" method="post">
+	<form action="요청URL" method="post">
 			<div id="dpan">
-			주문 상태만 수정하실 수 있습니다.
+			주문 상세(결제내역)입니다.
+			<hr>
 		</div>
 		<table border=1 id="mtable">
-			<thead>
-				<tr style="background-color: gray">
-					<td>주문번호</td>
-					<td>주문상태</td>
-					<td>회원ID</td>
-					<td>수령방법</td>
-					<td>제출</td>
-				</tr>
-			</thead>
-			<tbody>
-						<tr class="minfo_row">
-							<td><input type="text" name="m_num" value=${ovo.m_num } readonly></td>
-							<td>
-							 <select name="m_state" id="ms">
-						  			<option value="주문접수">주문접수</option>
-						  			<option value="주문취소">주문취소</option>
-						  			<option value="주문완료">주문완료</option>
-						  			<option value="환불요청">환불요청</option>
-					  		 </select>
-							</td>
-							<td><input type="text" name="m_id" value=${ovo.m_id } readonly></td>
-							<td>수령방법</td>
-							<td><input type="submit" value="제출하기" id="sbtn"></td>
-						</tr>
-			</tbody>
+			<tr><td style="background-color: gray">주문번호:</td><td>${pvo.pm_num }</td></tr>
+			<tr><td style="background-color: gray">결제번호:</td><td>${pvo.pm_no }</td></tr>
+			<tr><td style="background-color: gray">회원ID:</td><td>${pvo.pm_id }</td></tr>
+			<tr><td style="background-color: gray">주문금액:</td><td>${pvo.pm_price }</td></tr>
+			<tr><td style="background-color: gray">배달비:</td><td>${pvo.pm_tip }</td></tr>
+			<tr><td style="background-color: gray">총결제:</td><td>${pvo.pm_total }</td></tr>
+			<tr><td style="background-color: gray">포인트:</td><td>${pvo.pm_point }</td></tr>
+			<tr><td style="background-color: gray">결제수단:</td><td>${pvo.pm_pay }</td></tr>
+			<tr><td style="background-color: gray">결제정보:</td><td>${pvo.pm_card }</td></tr>
+			<tr><td style="background-color: gray">주문일시:</td><td>${pvo.pm_date }</td></tr>
+			<tr><td style="background-color: gray">배달주소:</td><td>${pvo.pm_address }</td></tr>
+			<tr><td style="background-color: gray">수령방법:</td><td>${pvo.pm_pick }</td></tr>
+			<tr><td style="background-color: gray">요청사항:</td><td>${pvo.pm_comment }</td></tr>
 		</table>
 	</form>
 		</section>

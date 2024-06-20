@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
+import www.egg.vo.PaymentVO;
 
 @Service
 public interface IF_AdminService {
@@ -13,5 +14,6 @@ public interface IF_AdminService {
 	public void deleteOdernum(String m_num);
 	public Mlist2VO pickOrdernum(String m_num);
 	public void modOrderstate(Mlist2VO ovo);
+	public PaymentVO pickPaymentnum(String m_num);
 
 }

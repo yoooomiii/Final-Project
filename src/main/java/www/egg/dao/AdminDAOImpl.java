@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
+import www.egg.vo.PaymentVO;
 
 @Repository
 public class AdminDAOImpl implements IF_AdminDAO{
@@ -38,6 +39,13 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	public void modOrderstate(Mlist2VO ovo) {
 		sqlSession.update(mapperQuery+".updateorderstate", ovo);
 		
+	}
+
+	@Override
+	public PaymentVO pickPaymentnum(String m_num) {
+		// TODO Auto-generated method stub
+	
+		return sqlSession.selectOne(mapperQuery+".selectpaymentnum", m_num);
 	}
 	
 
