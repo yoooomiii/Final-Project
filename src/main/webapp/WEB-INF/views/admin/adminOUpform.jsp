@@ -308,20 +308,25 @@ td {
 		<table border=1 id="mtable">
 			<thead>
 				<tr>
+					<td>주문번호</td>
+					<td>주문상태</td>
 					<td>회원ID</td>
-					<td>회원명</td>
-					<td>전화번호</td>
-					<td>이메일</td>
-					<td>주소</td>
-					<td>권한</td>
+					<td>수령방법</td>
 					<td>제출</td>
 				</tr>
 			</thead>
 			<tbody>
 						<tr class="minfo_row">
-							<td><input type="text" name="id" value=${ovo.m_num } readonly></td>
-							<td><input type="text" name="name" value=${ovo.m_state } ></td>
-							<td><input type="text" name="phone" value=${ovo.m_id } readonly></td>
+							<td><input type="text" name="m_num" value=${ovo.m_num } readonly></td>
+							<td>
+							 <select name="m_state" id="ms">
+						  			<option value="주문접수">주문접수</option>
+						  			<option value="주문취소">주문취소</option>
+						  			<option value="주문완료">주문완료</option>
+						  			<option value="환불요청">환불요청</option>
+					  		 </select>
+							</td>
+							<td><input type="text" name="m_id" value=${ovo.m_id } readonly></td>
 							<td>수령방법</td>
 							<td><input type="submit" value="제출하기" id="sbtn"></td>
 						</tr>

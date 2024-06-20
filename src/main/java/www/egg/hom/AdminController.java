@@ -119,8 +119,8 @@ public class AdminController {
 	@RequestMapping(value = "adminOUp", method = RequestMethod.POST)
 	public String adminOUdate(@ModelAttribute Mlist2VO ovo) {
 		// lservice.modMaster(mvo);
-		
-		return "redirect:adminMView";
+		aservice.modOrderstate(ovo);
+		return "redirect:adminOView";
 	}
 	
 	
