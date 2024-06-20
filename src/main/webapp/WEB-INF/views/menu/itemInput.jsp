@@ -10,25 +10,23 @@
 	<h1>장바구니다</h1>
 	<form action="item_inputSave" method="post">
 	<br>
-	<input type=text name="i_no">
+	결제 번호<input type=text value="" name="i_no">
 	<br>
-	<input type=text name="i_no">
+	회원 아이디<input type=text value="" name="i_id">
 	<br>
-	메인 메뉴 코드
+	메뉴 코드<input type=text value="${mvo.menu_no }" name="menu_no">
 	<br>
-	<input type=text value="${mvo.menu_no }" name="i_code">
+	사이드메뉴 코드1<input type=text value="${mvo.menu_no }" name="menu_no2">
 	<br>
-	사이드메뉴 코드
+	사이드 메뉴 코드2<input type=text value="${mvo2.menu_no }" name="menu_no3">
 	<br>
-	<input type=text value="${ovo.side_no }" name="i_scode">
+	사이드 메뉴 코드3<input type=text value="${mvo.menu_no }" name="menu_no4">
 	<br>
-	메뉴 수량
+	<input type=text value= 1 name="i_conut">
 	<br>
-	<input type=text value= 1 name="i_count">
+	메뉴 주문 금액<input type=text value="${mvo.menu_price + mvo.menu_price }" name="i_price">
 	<br>
-	메뉴 주문 금액
-	<br>
-	<input type=text value="${mvo.menu_price }${ovo.side_price }" name="i_price">
+	
 	<br>
 	<button type=submit value="">결제하기</button>
 	</form>

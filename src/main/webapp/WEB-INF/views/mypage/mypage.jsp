@@ -264,7 +264,7 @@ button {
 				<div id="icon">
 					<div class="iconimg">
 						<a href="${pageContext.request.contextPath}/mylist"> 
-						<img src="./resources/img/주문내역2.png" width="100" height="90">
+						<img src="${pageContext.request.contextPath}/resources/img/주문내역2.png" width="100" height="90">
 						</a>	
 						<h3>주문내역</h3>
 					</div>

@@ -38,11 +38,7 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.insert(mapperQuery + ".rinsert", rvo);
 	}
 
-	@Override
-	public void rnum(MlistVO mlvo) throws Exception {
-		// TODO Auto-generated method stub
-		sqlsession.selectOne(mapperQuery + mlvo);
-	}
+
 
 
 	@Override
@@ -50,6 +46,8 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery + ".myreview", userid);
 	}
+	
+
 
 	@Override
 	public List<MlistVO> orderlist(String userid) throws Exception {

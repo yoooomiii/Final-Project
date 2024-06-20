@@ -2,40 +2,41 @@ package www.egg.vo;
 
 public class DeliveryVO {
 
-	private Integer no =0;       // µî·Ï¹øÈ£
-	private Integer num =0;      // ÁÖ¹®¹øÈ£
-	private String time=null;    // ¿¹»ó½Ã°£
-	private String check =null;  // ¹è´ÞÀ¯¹«
+	private Integer d_no =0;       // ï¿½ï¿½Ï¹ï¿½È£
+	private Integer d_num =0;      // ï¿½Ö¹ï¿½ï¿½ï¿½È£
+	private String d_time=null;    // ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	private String d_check =null;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	public Integer getNo() {
-		return no;
-	}
-	public void setNo(Integer no) {
-		this.no = no;
-	}
-	public Integer getNum() {
-		return num;
-	}
-	public void setNum(Integer num) {
-		this.num = num;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
-	public String getCheck() {
-		return check;
-	}
-	public void setCheck(String check) {
-		this.check = check;
-	}
 	
+	public Integer getD_no() {
+		return d_no;
+	}
+	public void setD_no(Integer d_no) {
+		this.d_no = d_no;
+	}
+	public Integer getD_num() {
+		return d_num;
+	}
+	public void setD_num(Integer d_num) {
+		this.d_num = d_num;
+	}
+	public String getD_time() {
+		return d_time;
+	}
+	public void setD_time(String d_time) {
+		this.d_time = d_time;
+	}
+	public String getD_check() {
+		return d_check;
+	}
+	public void setD_check(String d_check) {
+		this.d_check = d_check;
+	}
 	@Override
 	public String toString() {
-		return "DeliveryVO [no=" + no + ", num=" + num + ", time=" + time + ", check=" + check + "]";
+		return "DeliveryVO [d_no=" + d_no + ", d_num=" + d_num + ", d_time=" + d_time + ", d_check=" + d_check + "]";
 	}
+
 	
 	
 }
