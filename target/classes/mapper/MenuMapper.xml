@@ -31,22 +31,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT filename FROM picture WHERE no = #{no}
 	</select>
 	<!-- 사진 불러오기 -->
-	<!-- 메뉴 -->
-	<!-- 사이드 -->
-	<insert id="sinsert" parameterType="www.egg.vo.OptionVO">
-		INSERT INTO OPTION VALUES (NEXT VALUE FOR option_cnt, #{menu_no}) 
+	<!-- 장바구니 -->
+	<insert id="iinsert" parameterType="www.egg.vo.ItemVO">
+		INSERT INTO item VALUES (NEXT VALUE FOR item_cnt, #{i_id}, #{i_no}, #{menu_no}, #{menu_no2}, #{menu_no3}, #{menu_no4}, #{i_price})
 	</insert>
-	<!-- 사이드 입력 -->
-	<select id="sselectall" resultType="www.egg.vo.OptionVO">
-		SELECT * FROM OPTION
-	</select>
-	<!-- 사이드 전체보기 -->
-	<delete id="sdelete" parameterType="www.egg.vo.OptionVO">
-		DELETE FROM OPTION WHERE side_no = #{side_no}
-	</delete>
-	<!-- 사이드 삭제 -->
-	<select id="sselectone" resultType="www.egg.vo.OptionVO">
-		SELECT * FROM OPTION WHERE side_no = #{side_no}
-	</select>
-	<!-- 사이드 리스트 불러오기 -->
+	<!-- 장바구니 입력 -->
 </mapper>
