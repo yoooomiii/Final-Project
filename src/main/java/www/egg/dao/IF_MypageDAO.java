@@ -12,7 +12,9 @@ public interface IF_MypageDAO {
 	public MemberVO modid(String id) throws Exception;
 	public void modsave(MemberVO mvo) throws Exception;
 	public void rsave(ReviewVO rvo) throws Exception;
-	public void rnum(MlistVO mlvo) throws Exception;
-	public List<ReviewVO> myreview() throws Exception;
+	public List<ReviewVO> myreview(String userid) throws Exception;
+	public List<MlistVO> orderlist(String userid) throws Exception;
+	
+	
 	
 }

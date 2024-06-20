@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
+import www.egg.vo.Mlist2VO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PaymentVO;
 import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
 
@@ -52,7 +55,7 @@ public class AdminController {
 		}
 		
 		List<MemberVO> mlist = null;
-		if(sw==null || sw.equals("")) {
+		if(sw==null || sw.equals("")) { // 검색어가 있거나 없는 경우 
 			mlist = lservice.memberSearch(mvo) ;
 		}else {
 			mvo.setId(sw);
@@ -88,15 +91,92 @@ public class AdminController {
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model) {
 		
-		List<MlistVO> olist = aservice.orderlist();
+		List<Mlist2VO> olist = aservice.orderlist();
 		model.addAttribute("orders", olist);
 		return "admin/adminMlist";
 	}
 	@RequestMapping(value = "adminDView", method = RequestMethod.GET)
 	public String adminDView(Model model) {
 		
-		
+		List<DeliveryVO> dlist = aservice.deliverylist();
+		System.out.println("adminController 배달관리뷰: "+dlist);
+		model.addAttribute("deliverys", dlist);
 		return "admin/adminDelivery";
+	}
+	
+	@RequestMapping(value = "adminODelete", method = RequestMethod.GET)
+	public String adminODelete(@RequestParam List<String> chkid,  Model model) {
+		for (String c: chkid) {
+			//System.out.println("List<String> chkid: "+c);
+			//lservice.quiteAccount(c);
+			aservice.deleteOdernum(c);
+		}
+		return  "redirect:adminOView";
+	}
+	
+	@RequestMapping(value = "adminOUpform", method = RequestMethod.GET)
+	public String adminOUpform(@RequestParam("m_num") String m_num,  Model model) {
+		Mlist2VO ovo = aservice.pickOrdernum(m_num);
+		model.addAttribute("ovo", ovo);
+		return "admin/adminOUpform";
+	}
+	@RequestMapping(value = "adminOUp", method = RequestMethod.POST)
+	public String adminOUdate(@ModelAttribute Mlist2VO ovo) {
+		aservice.modOrderstate(ovo);
+		return "redirect:adminOView";
+	}
+	@RequestMapping(value = "adminODetail", method = RequestMethod.GET)
+	public String adminODetail(@RequestParam("m_num") String m_num ,  Model model) {
+		PaymentVO pvo = aservice.pickPaymentnum(m_num);
+		model.addAttribute("pvo", pvo);
+		return "admin/adminOPayment";
+	}
+	
+	@RequestMapping(value = "adminODelivery", method = RequestMethod.GET)
+	public String adminODelivery(@RequestParam("m_num") String m_num ,  Model model) {
+		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
+		model.addAttribute("dvo", dvo);
+		return "admin/adminODelivery";
+	}
+	
+	@RequestMapping(value = "adminDUpform", method = RequestMethod.GET)
+	public String adminDUpform(@RequestParam("m_num") String m_num,  Model model) {
+		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
+		model.addAttribute("dvo", dvo);
+		return "admin/adminDUpform";
+	}
+	@RequestMapping(value = "adminDUp", method = RequestMethod.POST)
+	public String adminDUdate(@ModelAttribute DeliveryVO dvo,  Model model) {
+		aservice.modDelivery(dvo);
+		
+		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+"");
+		model.addAttribute("dvo", modied_dvo);
+		return "admin/adminODelivery";
+	}
+	
+	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
+	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
+			@RequestParam("m_state") String m_state, @ModelAttribute Mlist2VO ovo
+			) {
+		
+		// vo 셋팅하셈. 
+		
+		if(m_state==null||m_state.equals("")) { // 조건(주문상태) 필터링 선택 여부 
+			
+		}else {
+			ovo.setM_state(m_state);
+		}
+		
+		List<MlistVO> olist = null;
+		if(sw==null || sw.equals("")) { // 검색어 유무!
+			olist = null;
+		}else {
+			ovo.setM_num(Integer.parseInt(sw));
+			olist = null;
+		}
+		
+		model.addAttribute("orders", olist);
+		return "admin/adminMlist";
 	}
 	
 }
