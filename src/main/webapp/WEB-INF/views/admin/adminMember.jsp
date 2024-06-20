@@ -265,13 +265,13 @@ td {
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 주문 관리 </a>
+                        <a href="adminOView"> 주문 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 주문 상태 관리 </a>
+                                <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> (정산 관리) </a>
+                                  <a href="adminDView"> (배달 관리) </a>
                             </li>
                         </ul>
                     </li>
@@ -356,7 +356,7 @@ td {
 		</div>
 		<table border=1 id="mtable">
 			<thead>
-				<tr>
+				<tr style="background-color: gray">
 					<td>회원ID</td>
 					<td>회원명</td>
 					<td>전화번호</td>

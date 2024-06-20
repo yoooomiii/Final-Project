@@ -119,12 +119,12 @@
                     <p></p>
                     <div class="info-title">
                         <span> * 제 목 </span>
-                        <input type="text" size="20" name="title">
+                        <input type="text" size="20" name="a_title">
                     </div>
                     <p></p>
                     <div class="info-ex">
                         <span> * 내 용 </span>
-                        <input type="text" size="100" name="ex">
+                        <input type="text" size="100" name="a_ex">
                     </div>
                     <p></p>
                     <div class="save"><input type="submit" value="문의하기"></div>

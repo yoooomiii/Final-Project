@@ -7,13 +7,13 @@ public class MenuVO {
 	private String menu_name = null;	 // 음식 이름
 	private int menu_price = 0;		 // 음식 가격
 	private String menu_ex = null;	 // 음식 설명
-	private int menu_star = 0;		 // 음식 평점
+	private int menu_side = 0;		 // 음식 평점
 	private String[] filename = null;	//음식 사진
 	
 	@Override
 	public String toString() {
 		return "MenuVO [menu_code=" + menu_code + ", menu_no=" + menu_no + ", menu_name=" + menu_name + ", menu_price="
-				+ menu_price + ", menu_ex=" + menu_ex + ", menu_star=" + menu_star + "]";
+				+ menu_price + ", menu_ex=" + menu_ex + ", menu_side=" + menu_side + "]";
 	}
 	public String getMenu_code() {
 		return menu_code;
@@ -45,11 +45,11 @@ public class MenuVO {
 	public void setMenu_ex(String menu_ex) {
 		this.menu_ex = menu_ex;
 	}
-	public int getMenu_star() {
-		return menu_star;
+	public int getMenu_side() {
+		return menu_side;
 	}
-	public void setMenu_star(int menu_star) {
-		this.menu_star = menu_star;
+	public void setMenu_side(int menu_side) {
+		this.menu_side = menu_side;
 	}
 	public String[] getFilename() {
 		return filename;

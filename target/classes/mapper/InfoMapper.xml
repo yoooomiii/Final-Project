@@ -4,10 +4,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="www.egg.dao.IF_InfoDAO">
 	<insert id="insert" parameterType="www.egg.vo.AskVO">
-		INSERT INTO ask (a_num, a_id, a_title, a_ex, a_checkVal, a_date) values (NEXT VALUE FOR ask_cnt, #{a_id}, #{a_title}, #{a_ex}, #{a_checkVal}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'))
+		INSERT INTO ask VALUES (NEXT VALUE FOR ask_cnt, #{a_id}, #{a_title}, #{a_ex}, #{a_checkVal}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'))
 	</insert>
 	<select id="selectall" parameterType="String" resultType="www.egg.vo.AskVO">
-		select * from ask where a_id = #{id}
+		select * from ask where a_id = #{id} LIMIT 5
 	</select>
-	
+	<select id="selectone" resultType="www.egg.vo.AskVO">
+		select * from ask where a_num = #{a_num}
+	</select>
+	<select id="getTotalCount" resultType="int">
+		select count(*) from ask where a_id = #{id}
+	</select>
 </mapper>

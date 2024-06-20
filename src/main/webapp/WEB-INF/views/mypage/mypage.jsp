@@ -30,13 +30,14 @@
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	/*  border: 1px solid black; */
 }
 
 #mypage {
 	float: left;
 	width: 1210px;
 	height: 70px;
-	/* border: 1px solid black; */
+	/* border: 1px solid black;  */
 	margin-top: 20px;
 }
 
@@ -91,11 +92,12 @@
 #page {
 	float: left;
 	width: 1210px;
-	height: 500px;
+	height: 800px;
 	margin-top: 10px;
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	/*  border: 1px solid black;  */
 }
 
 footer {
@@ -140,6 +142,50 @@ td {
 	box-shadow: 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
+ button {
+        
+        padding: 0;
+        box-sizing: border-box;
+    }
+        .container {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 20px;
+    }
+
+
+    .delete-button {
+        background-color: skyblue;
+        color: gray;
+        margin-right:100px;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .delete-button:hover {
+        background-color: skyblue;
+    }
+
+    .delete-button:active {
+        transform: scale(0.95);
+    }
+    .delete-button2 {
+        background-color: skyblue;
+        color: gray;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 13px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 </style>
 
 <body>
@@ -213,23 +259,26 @@ td {
 				</div>
 
 
+
 				<div id="icon">
 					<div class="iconimg">
-						<img src="./resources/img/주문내역2.png " width="100" height="90"
-							onclick="change('mlist')">
+						<img src="./resources/img/주문내역2.png" width="100" height="90"
+							onclick="changeContent('mlist')">
 						<h3>주문내역</h3>
 					</div>
 					<div class="iconimg">
 						<img src="./resources/img/찜목록2.png" width="100" height="90"
-							onclick="change('cart')">
+							onclick="changeContent('cart')">
 						<h3>찜목록</h3>
 					</div>
 					<div class="iconimg">
-						<img src="./resources/img/리뷰.png" width="100" height="90">
+						<img src="./resources/img/리뷰.png" width="100" height="90"
+							onclick="changeContent('review')">
 						<h3>리뷰</h3>
 					</div>
 					<div class="iconimg">
-						<img src="./resources/img/포인트.png" width="100" height="90">
+						<img src="./resources/img/포인트.png" width="100" height="90"
+							onclick="changeContent('point')">
 						<h3>포인트</h3>
 					</div>
 				</div>
@@ -237,40 +286,127 @@ td {
 		</div>
 
 		<section id="page">
-			<div id="menupick" class="content_box">
-				<p>메뉴 선택하셈~</p>
-				<table class="cart__list">
-
-					<thead>
-						<tr>
-							<td colspan="2">(사진)</td>
-							<td>메뉴이름</td>
-							<td>상품금액</td>
-							<td>배송방법</td>
-							<td>리뷰</td>
-						</tr>
-					</thead>
-					<tbody>
-						
-						<tr class="cart__list__detail">
-
-							<td style="width: 5%;"></td>
-							<td><span>사진</span></td>
-							<td><span>${mmvo.menu_name}</span></td>
-							<td><span>${mmvo.menu_price}</span></td>
-							<td><span>포장</span><br></td>
-							<form action="write" method="get">
-								<td><button>리뷰</button></td>
-							</form>
-						
-						</tr>
-					</tbody>
-
-				</table>
+			<div id="menupick">
+				<div id="mlist" class="content">
+					<table class='order__list'>
+						<thead>
+							<tr>
+								<td>주문번호</td>
+								<td>메뉴이름</td>
+								<td>수령방법</td>
+								<td>주문날짜</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class='order__list__detail'>
+								<td>12345</td>
+								<td>간장치킨</td>
+								<td>배달</td>
+								<td>023-06-19</td>
+							</tr>
+							<!-- 여기에 더 많은 주문 항목을 추가할 수 있습니다 -->
+						</tbody>
+					</table>
+				</div>
+				<div id="cart" class="content">
+					<table class='cart__list'>
+						<thead>
+							<tr>
+								<td>체크박스</td>
+								<td>메뉴사진</td>
+								<td>메뉴</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class='cart__list__detail'>
+								<td><input type="checkbox"></td>
+								<td>사진</td>
+								<td>후라이드 치킨</td>
+							</tr>
+							<!-- 여기에 더 많은 찜 목록 항목을 추가할 수 있습니다 -->
+						</tbody>
+					</table>
+					<div class="container">
+					<button class="delete-button">삭제</button>
+					</div>
+				</div>
+				<div id="review" class="content">
+					<table class='review__list'>
+						<thead>
+							<tr>
+								<td>주문번호</td>
+								<td>메뉴사진</td>
+								<td>메뉴이름</td>
+								<td>리뷰</td>
+							</tr>
+						</thead>
+						<tbody>
+							<%-- <c:forEach var="review" items="${reviews}"> --%>
+							<!-- 내일 학원가서 데이터 넣어보기 -->
+							<tr class='review__list__detail'>
+								<td>${review.re_no}</td>
+								<td><img src='${review.re_file}' alt='메뉴사진'></td>
+								<td>${review.menu_name}</td>
+								<td>
+									<form action='reviewcontent' method='get'>
+										<button class="delete-button2">리뷰보기</button>
+									</form>
+								</td>
+							</tr>
+							<%--  </c:forEach> --%>
+						</tbody>
+					</table>
+				</div>
+				<div id="point" class="content">
+					<div>
+						<h1>현재 포인트: 10,000P</h1>
+						<br>
+						<table class='point__list'>
+						<thead>
+							<tr>
+								<td>날짜</td>
+								<td>가게명</td>
+								<td>포인트</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class='point__list__detail'>
+								<td>2024.06.20</td>
+								<td>도미노피자</td>
+								<td>+120p적립</td>
+							</tr>
+							<!-- 여기에 더 많은 찜 목록 항목을 추가할 수 있습니다 -->
+						</tbody>
+					</table>
+					</div>
+				</div>
 			</div>
+
 		</section>
-	</div>
+
+		<script>
+	function changeContent(type) {
+        // 모든 content 클래스를 숨기기
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(content => content.style.display = 'none');
+      	/*   각 요소의 style.display 속성을 'none'으로 설정하여 해당 요소를 숨깁니다. */
+
+        // 선택한 type에 맞는 content만 보이기
+        const selectedContent = document.getElementById(type);
+        if (selectedContent) {
+            selectedContent.style.display = 'block';
+        }
+    }
+
+    // 초기 로딩 시 기본 콘텐츠 보이기 (예: 'mlist')
+   /*  changeContent('mlist'); */
+    document.querySelectorAll('.content').forEach(content => content.style.display = 'none');
+    document.getElementById('message').style.display = 'block';
+</script>
 </body>
+
+
+
 
 
 
@@ -316,98 +452,6 @@ td {
 	</div>
 </footer>
 
-<script>
-function change(type) {
-    const changebox = document.getElementById('menupick');
-    let content = '';
-
-    switch(type) {
-        case 'mlist':
-            content = `
-            		<h2>주문내역 페이지 변경!</h2>
-            		
-            			<table class="cart__list">		
-							<thead>
-								<tr>
-									<td colspan="2">(사진)</td>
-									<td>메뉴이름</td>
-									<td>상품금액</td>
-									<td>배송방법</td>
-									<td>리뷰</td>
-								</tr>
-							</thead>
-							<tbody>			
-								<tr class="cart__list__detail">						
-									<td style="width: 5%;"></td>
-									<td><span>사진</span></td>
-									<td><span>${mmvo.menu_name}</span></td>
-									<td><span>${mmvo.menu_price}</span></td>
-									<td><span>포장</span><br></td>									
-									<td>
-										<form action="write" method="get">
-											<button>리뷰</button>
-										</form>
-									</td>
-								</tr>
-							</tbody>
-	
-						</table>`;
-						
-	 				 break;
-     		   default:
-            content = '<p>내용을 선택하세요.</p>';
- 	   }
-
-   	 changebox.innerHTML = content;
-	}
-
-
-/*  function change(type) {
-    const changebox = document.getElementById('menupick');
-    let content = '';
-
-    switch(type) {
-        case 'cart':
-            content = `
-            		<h2>찜 목록 페이지 변경!</h2>
-            			 <table class="cart__list2">		
-							<thead>
-								<tr>
-									<td colspan="2">(사진)</td>
-									<td>메뉴이름</td>
-									<td>상품금액</td>
-									<td>배송방법</td>
-									<td>이건 찜</td>
-								</tr>
-							</thead>
-							<tbody>			
-								<tr class="cart__list__detail2">						
-									<td style="width: 5%;"></td>
-									<td><span>치킨사진</span></td>
-									<td><a href="#"></a> <span>메뉴이름</span></td>
-									<td><span>상품금액</span></td>
-									<td><span>포장</span><br></td>									
-									<td>
-										<form action="write" method="get">
-											<button>리뷰</button>
-										</form>
-									</td>
-								</tr>
-							</tbody>
-	
-						</table> `; 
-	 				 break;
-     		   default:
-            content = '<p>내용을 선택하세요.</p>';
- 	   }
-
-   	 changebox.innerHTML = content;
-	}	 */
- 
-</script>
-
 
 </body>
-
-
 </html>

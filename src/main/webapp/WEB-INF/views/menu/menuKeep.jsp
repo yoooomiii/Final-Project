@@ -141,32 +141,30 @@
                 <br>
                 <hr>
                 <br>
+                <br>
                 <table border=1 class="table">
-                	<thead>
+					<thead>
 						<tr>
 							<td>선택</td>
 							<td>이름</td>
-							<td>금액</td>
+							<td>갸격</td>
 							<td>설명</td>
 						</tr>
 					</thead>
-					<tbody>
-						<c:forEach items="${optionList}" var="optionvo">
-						<tr>
-							<td><input type=checkbox name="side_no"></td>
-							<td>${optionvo.side_name}</td>
-							<td>${optionvo.side_price}</td>
-							<td>사진</td>
-						</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+                	<tbody>
+                		<c:forEach items="${List}" var="mvoo">
+                			<tr>
+                				<td><input type="checkbox" value="${mvoo.menu_no}"></td>
+								<td>${mvoo.menu_name}</td>
+								<td>${mvoo.menu_price}</td>
+								<td>${mvoo.menu_ex}</td>
+                			</tr>
+                		</c:forEach>
+                	</tbody>
+                </table>
                 <br>
                 <br>
-                <br>
-                
-                	<a href="Detail?side_no=${ovo.side_no}"><button type="submit" value="${menu_no }" id="kkk">${mvo.menu_price }원 주문하기</button></a>
-              
+                <a href="Detail?menu_no=${mvo.menu_no }"><button type="submit" id="kkk">${mvo.menu_price }원 주문하기</button></a>
             </div>
         </section>
         <hr>

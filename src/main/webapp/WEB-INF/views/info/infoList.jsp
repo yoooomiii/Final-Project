@@ -77,27 +77,59 @@
 					<h1>"${userid} 님의 문의 게시판"</h1>
 					<hr style="height: 5px; background-color: rgb(24, 0, 0);">
 				</div>
-				<table class="ask_table">
+				<table border=1 id="infotable">
 					<thead>
 						<tr>
 							<td>번호</td>
 							<td>제목</td>
-							<td>내용</td>
-							<td>등록일</td>
 							<td>처리여부</td>
+							<td>등록일</td>
+							<td>답변일</td>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${allListitems}" var="askvo">
-							<tr>
-								<td>${askvo.a_num}</td>
-								<td>${askvo.a_title}</td>
-								<td>${askvo.a_ex}</td>
-								<td>${askvo.a_checkVal}</td>
-								<td>${askvo.a_date}</td>
-							</tr>
+							<c:if test="${askvo.a_id == null}">
+								<tr>문의 하신 내역이 없습니다.</tr>
+							</c:if>
+							<c:if test="${askvo.a_id != null}">
+								<tr>
+									<td><a href="detailView?a_num=${askvo.a_num}">${askvo.a_num}</a></td>
+									<td>${askvo.a_title}</td>
+									<td>${askvo.a_checkVal}</td>
+									<td>${askvo.a_date}</td>
+									<td></td>
+								</tr>
+							</c:if>
 						</c:forEach>
-						
+						<%-- <c:if test="${membervo.master==1}">
+									<tr class="minfo_row">
+										<td>${membervo.id }</td>
+										<td>${membervo.name }</td>
+										<td>${membervo.phone }</td>
+										<td>${membervo.email }</td>
+										<td>${membervo.address }</td>
+										<td style="color: red;">관리자</td>
+										<td><a href="adminMUpform?id=${membervo.id }"><input
+												type="button" value="수정하기" id="mbtn"></a></td>
+										<td><input type="checkbox" id="chk" name="chkid"
+											value=${membervo.id }></td>
+									</tr>
+								</c:if>
+							</c:forEach> --%>
+						<%-- <tr>
+							<td colspan=4 align=center><c:if test="${pagevo.prev }">
+									<a href="allList?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+								</c:if> <c:forEach begin="${pagevo.startPage }"
+									end="${pagevo.endPage }" var="idx">
+									<a href="allList?page=${idx}"> <c:if
+											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+											test="${idx == pagevo.page }">]</c:if>
+									</a>
+								</c:forEach> <c:if test="${pagevo.next }">
+									<a href="allList?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+								</c:if></td>
+						</tr> --%>
 					</tbody>
 				</table>
 			</div>
@@ -111,7 +143,7 @@
 				</div>
 				<div class="footer-con">
 					<div class="con-text">
-						<span> 상호명 : Golden Egg chicken (골든에그) </span>
+						<span> 상호명 : Golden Egg Chicken (골든에그) </span>
 					</div>
 					<div class="con-text">
 						<span> 대표자 : 송유미 </span>
