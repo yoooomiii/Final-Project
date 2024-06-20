@@ -25,4 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updatedelivery" parameterType="www.egg.vo.DeliveryVO">
 		update delivery set d_num = #{d_num}, d_time = #{d_time}, d_check =#{d_check} where d_no = #{d_no}
 	</update>
+	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
+		select * from delivery limit 6
+	</select>
 </mapper>

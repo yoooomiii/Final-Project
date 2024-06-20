@@ -61,6 +61,12 @@ public class AdminServiceImpl implements IF_AdminService {
 		
 	}
 
+	@Override
+	public List<DeliveryVO> deliverylist() {
+		// TODO Auto-generated method stub
+		return adao.deliverylist();
+	}
+
 	
 
 

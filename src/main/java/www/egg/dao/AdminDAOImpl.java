@@ -60,6 +60,12 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		sqlSession.update(mapperQuery+".updatedelivery", dvo);
 		
 	}
+
+	@Override
+	public List<DeliveryVO> deliverylist() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(mapperQuery+".selectdeliverys");
+	}
 	
 
 }

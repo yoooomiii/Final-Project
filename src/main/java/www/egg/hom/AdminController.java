@@ -97,7 +97,8 @@ public class AdminController {
 	@RequestMapping(value = "adminDView", method = RequestMethod.GET)
 	public String adminDView(Model model) {
 		
-		
+		List<DeliveryVO> dlist = aservice.deliverylist();
+		model.addAttribute("deliverys ", dlist);
 		return "admin/adminDelivery";
 	}
 	

@@ -358,28 +358,26 @@ td {
 			<thead>
 				<tr style="background-color: gray">
 					<td>배달번호</td>
-					<td>회원ID</td>
-					<td>회원명</td>
+					<td>등록번호</td>
+					<td>주문번호</td>
 					<td>배달주소</td>
 					<td>예상시간</td>
 					<td>배달상태</td>
-					<td>배달유무</td>
 					<td>수정</td>
 					<td>선택</td>
 				</tr>
 			</thead>
 			<tbody>
-			    <c:forEach items="${delivery }" var="deliveryvo">
+			    <c:forEach items="${deliverys }" var="deliveryvo">
 					<tr class="minfo_row">
-						<td>배달번호</td>
-						<td>회원ID</td>
-						<td>회원명</td>
-						<td>배달주소</td>
-						<td>예상시간</td>
-						<td>배달유무</td>
-						<td>배달상태</td>
-						<td><a href="adminMUpform?id=${deliveryvo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
-						<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.id }></td>
+					<td>배달번호</td>
+					<td>등록번호</td>
+					<td>주문번호</td>
+					<td>배달주소</td>
+					<td>예상시간</td>
+					<td>배달상태</td>
+					<td><a href="adminDUpform?id=${deliveryvo.d_no }"><input type="button" value="수정하기" id="mbtn"></a></td>
+					<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.d_no }></td>
 					</tr>
 				</c:forEach>
 			</tbody>
