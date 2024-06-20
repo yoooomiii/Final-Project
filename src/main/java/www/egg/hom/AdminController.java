@@ -21,7 +21,7 @@ import www.egg.vo.PaymentVO;
 import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
 
-@Controller
+//@Controller
 public class AdminController {
 	@Inject
 	IF_LoginService lservice;
