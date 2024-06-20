@@ -24,29 +24,7 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 	   <script type="text/javascript">
-		function call_confirm(){
-			
-			if(confirm("회원 정보를 삭제하시겠습니까?")){
-				alert("정상적으로 제출되었습니다.");
-				return true;
-			}else{
-				alert("삭제 취소");
-				return false;
-			}
-			
-		}
 		
-		function tdCng(){
-			var chktr = $(this);
-			var td = chktr.children();
-			var master = td.eq(5).text();
-			
-			alert(master);
-		}
-		
-		$("tbody > tr").click(function() {
-			alert($(this).children().eq(2).text());
-		});
 	</script>
 </head>
 <style>
@@ -281,7 +259,7 @@ td {
 
 	<form action="adminDUp" method="post">
 		<div id="dpan">
-			배달 상태 수정 페이지입니다. 
+			배달 상태 수정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
 			<hr>
 		<input type="submit" value="제출하기">
 		</div>

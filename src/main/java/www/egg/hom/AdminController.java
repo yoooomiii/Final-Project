@@ -98,7 +98,8 @@ public class AdminController {
 	public String adminDView(Model model) {
 		
 		List<DeliveryVO> dlist = aservice.deliverylist();
-		model.addAttribute("deliverys ", dlist);
+		System.out.println("adminController 배달관리뷰: "+dlist);
+		model.addAttribute("deliverys", dlist);
 		return "admin/adminDelivery";
 	}
 	

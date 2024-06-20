@@ -281,7 +281,7 @@ td {
 
 	<form action="요청URL" method="post">
 			<div id="dpan">
-			${dvo.d_no }번 주문의 배달 현황입니다.
+			${dvo.d_no }번 주문의 배달 현황입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
 			<hr>
 			<a href="adminDUpform?m_num=${dvo.d_no}"><input type="button" value="수정하기"></a>
 		</div>

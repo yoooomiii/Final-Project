@@ -370,14 +370,14 @@ td {
 			<tbody>
 			    <c:forEach items="${deliverys }" var="deliveryvo">
 					<tr class="minfo_row">
-					<td>배달번호</td>
-					<td>등록번호</td>
-					<td>주문번호</td>
-					<td>배달주소</td>
-					<td>예상시간</td>
-					<td>배달상태</td>
-					<td><a href="adminDUpform?id=${deliveryvo.d_no }"><input type="button" value="수정하기" id="mbtn"></a></td>
-					<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.d_no }></td>
+						<td>(추후수정)</td>
+						<td>${deliveryvo.d_num }</td>
+						<td>${deliveryvo.d_no }</td>
+						<td>배달주소</td>
+						<td>${deliveryvo.d_time }</td>
+						<td>${deliveryvo.d_check }</td>
+						<td><a href="adminDUpform?m_num=${deliveryvo.d_no }"><input type="button" value="수정하기" id="mbtn"></a></td>
+						<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.d_no }></td>
 					</tr>
 				</c:forEach>
 			</tbody>
