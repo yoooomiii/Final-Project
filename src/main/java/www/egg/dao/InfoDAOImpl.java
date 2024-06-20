@@ -18,6 +18,8 @@ public class InfoDAOImpl implements IF_InfoDAO {
 	@Inject
 	private SqlSession sql;
 	
+	// --------------------------------------------- 유저용
+	
 	@Override
 	public void insert(AskVO avo) throws Exception {
 		sql.insert(mapperQurey + ".insert", avo);
@@ -33,5 +35,19 @@ public class InfoDAOImpl implements IF_InfoDAO {
 	public AskVO selectOne(Integer a_num) throws Exception {
 				
 		return sql.selectOne(mapperQurey + ".selectone", a_num);
+	}
+
+	// --------------------------------------------- 관리자용
+	
+	@Override
+	public List<AskVO> allListMa() throws Exception {
+		
+		return sql.selectList(mapperQurey + ".selectallMa");
+	}
+
+	@Override
+	public int delete(Integer a_num) throws Exception {
+		
+		return sql.delete(mapperQurey + ".delete", a_num);
 	}
 }
