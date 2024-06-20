@@ -16,9 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import www.egg.service.IF_MenuService;
 import www.egg.util.FileDataUtil;
+import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 
-//@Controller
+@Controller
 public class MenuController {
 
 	@Inject
@@ -27,6 +28,30 @@ public class MenuController {
 	@Inject
 	FileDataUtil filedatautil;
 	
+	
+	@GetMapping(value ="/mviewDetail")
+	public String test(@RequestParam("menu_no") String no, @RequestParam("menu_no") String no2,
+			Model model) throws Exception {	//장바구니 등록 과정
+		MenuVO mvo = mservice.modno(no);
+		List<String> attackList = mservice.getFilename(no);
+		MenuVO mvo2 = mservice.modno(no2);
+		List<String> attackList2 = mservice.getFilename(no2);
+		List<MenuVO> List = mservice.menuList();
+		model.addAttribute("mvo2", mvo2);
+		model.addAttribute("attackList2", attackList2);
+		model.addAttribute("List", List);
+		model.addAttribute("mvo", mvo);
+		model.addAttribute("attackList", attackList);
+		
+		return "menu/test";
+	}
+	
+	@PostMapping(value ="/item_inputSave")
+	public String item_input(@ModelAttribute ItemVO ivo) throws Exception {	//장바구니 등록 과정
+		
+		mservice.item_insert(ivo);
+		return null;
+	}
 	
 	@GetMapping(value ="/Detail")
 	public String item_Detail(@RequestParam("menu_no") String no,
@@ -75,18 +100,18 @@ public class MenuController {
 		return "menu/menuPick";
 	}
 	
-	@GetMapping(value ="/mviewDetail")
-	public String menuKeep(@RequestParam("menu_no") String no,
-			Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
-		MenuVO mvo = mservice.modno(no);
-		List<String> attackList = mservice.getFilename(no);
-		List<MenuVO> List = mservice.menuList();
-		model.addAttribute("List", List);
-		model.addAttribute("mvo", mvo);
-		model.addAttribute("attackList", attackList);
-		
-		return "menu/menuKeep";
-	}
+//	@GetMapping(value ="/mviewDetail")
+//	public String menuKeep(@RequestParam("menu_no") String no,
+//			Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
+//		MenuVO mvo = mservice.modno(no);
+//		List<String> attackList = mservice.getFilename(no);
+//		List<MenuVO> List = mservice.menuList();
+//		model.addAttribute("List", List);
+//		model.addAttribute("mvo", mvo);
+//		model.addAttribute("attackList", attackList);
+//		
+//		return "menu/menuKeep";
+//	}
 	
 	@RequestMapping("/menu_List")
 	public String menu_allList(@ModelAttribute MenuVO mvo,

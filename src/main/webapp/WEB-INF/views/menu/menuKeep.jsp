@@ -164,7 +164,7 @@
                 </table>
                 <br>
                 <br>
-                <a href="Detail?menu_no=${mvo.menu_no }"><button type="submit" id="kkk">${mvo.menu_price }원 주문하기</button></a>
+                <a href="Detail?menu_no=${mvo.menu_no }"><button type="submit" onclick="return checkbox()" id="kkk">${mvo.menu_price }원 주문하기</button></a>
             </div>
         </section>
         <hr>
@@ -200,11 +200,19 @@
     </div>
 </body>
 <script type="text/javascript">
-	var len = $("input[name='no']:checked").length;
-	if(len > 1){
-		$("input[name='no']:checked").each(function(e){
-			console.log($(this).val())
-		})
+	function checkbox(){
+		var flag = false;
+		var a = []
+		var values = document.querySelectorAll(".a")
+	
+		for(var i=0; i<values.length; i++){
+			if(values[i].checked){
+				a[i]= values[i]
+				alert(values[i].value)
+			}
+		}
+		
+		return  location.href="Detail?side_no="+a
 	}
 
 </script>
