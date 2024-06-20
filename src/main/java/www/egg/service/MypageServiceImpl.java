@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.MemberVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
 @Service
@@ -34,11 +35,23 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		mpdao.rsave(rvo);
 	}
 
+
+
 	@Override
-	public List<ReviewVO> myreview() throws Exception {
+	public List<ReviewVO> myreview(String userid) throws Exception {
 		// TODO Auto-generated method stub
-		return mpdao.myreview();
+		return mpdao.myreview(userid);
 	}
+
+	@Override
+	public List<MlistVO> orderlist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.orderlist(userid);
+	}
+
+
+
+
 
 	
 

@@ -142,50 +142,51 @@ td {
 	box-shadow: 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
- button {
-        
-        padding: 0;
-        box-sizing: border-box;
-    }
-        .container {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        padding: 20px;
-    }
 
+button {
+	padding: 0;
+	box-sizing: border-box;
+}
 
-    .delete-button {
-        background-color: skyblue;
-        color: gray;
-        margin-right:100px;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+.container {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 20px;
+}
 
-    .delete-button:hover {
-        background-color: skyblue;
-    }
+.delete-button {
+	background-color: skyblue;
+	color: gray;
+	margin-right: 100px;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-    .delete-button:active {
-        transform: scale(0.95);
-    }
-    .delete-button2 {
-        background-color: skyblue;
-        color: gray;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 13px;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+.delete-button:hover {
+	background-color: skyblue;
+}
+
+.delete-button:active {
+	transform: scale(0.95);
+}
+
+.delete-button2 {
+	background-color: skyblue;
+	color: gray;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 13px;
+	cursor: pointer;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
 </style>
 
 <body>
@@ -262,8 +263,9 @@ td {
 
 				<div id="icon">
 					<div class="iconimg">
-						<img src="./resources/img/주문내역2.png" width="100" height="90"
-							onclick="changeContent('mlist')">
+						<a href="${pageContext.request.contextPath}/mylist"> 
+						<img src="./resources/img/주문내역2.png" width="100" height="90">
+						</a>	
 						<h3>주문내역</h3>
 					</div>
 					<div class="iconimg">
@@ -272,8 +274,14 @@ td {
 						<h3>찜목록</h3>
 					</div>
 					<div class="iconimg">
-						<img src="./resources/img/리뷰.png" width="100" height="90"
-							onclick="changeContent('review')">
+						<a href="${pageContext.request.contextPath}/allreview"> 
+						<img src="${pageContext.request.contextPath}/resources/img/리뷰.png"	width="100" height="90">
+						</a>
+						<%-- <form action="myreview" method="get" id="myreviewForm">
+							<input type="hidden" name="userid" value="${sessionScope.userid}">
+							<img src="./resources/img/리뷰.png" width="100" height="90"
+								onclick="document.getElementById('myreviewForm').submit();">
+						</form> --%>
 						<h3>리뷰</h3>
 					</div>
 					<div class="iconimg">
@@ -295,6 +303,7 @@ td {
 								<td>메뉴이름</td>
 								<td>수령방법</td>
 								<td>주문날짜</td>
+								<td>리뷰쓰기</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -303,6 +312,9 @@ td {
 								<td>간장치킨</td>
 								<td>배달</td>
 								<td>023-06-19</td>
+								<form action="write" method="get">
+									<td><button>리뷰쓰기</button></td>
+								</form>
 							</tr>
 							<!-- 여기에 더 많은 주문 항목을 추가할 수 있습니다 -->
 						</tbody>
@@ -327,41 +339,47 @@ td {
 						</tbody>
 					</table>
 					<div class="container">
-					<button class="delete-button">삭제</button>
+						<button class="delete-button">삭제</button>
 					</div>
 				</div>
+
 				<div id="review" class="content">
 					<table class='review__list'>
 						<thead>
 							<tr>
 								<td>주문번호</td>
-								<td>메뉴사진</td>
 								<td>메뉴이름</td>
+								<td>별점</td>
 								<td>리뷰</td>
 							</tr>
 						</thead>
 						<tbody>
-							<%-- <c:forEach var="review" items="${reviews}"> --%>
 							<!-- 내일 학원가서 데이터 넣어보기 -->
-							<tr class='review__list__detail'>
-								<td>${review.re_no}</td>
-								<td><img src='${review.re_file}' alt='메뉴사진'></td>
-								<td>${review.menu_name}</td>
-								<td>
-									<form action='reviewcontent' method='get'>
-										<button class="delete-button2">리뷰보기</button>
-									</form>
-								</td>
-							</tr>
-							<%--  </c:forEach> --%>
+							<c:forEach items="${rvo}" var="rvo">
+								<tr class='review__list__detail'>
+									<!-- <td><input type="hidden" name="re_id" value="userid"> -->
+									<td>${rvo.re_num}</td>
+									<td>${rvo.re_id}</td>
+									<td>${rvo.re_star}</td>
+									<td>
+										<form action='reviewcontent' method='get'>
+											<button type="submit">리뷰보기</button>
+										</form>
+									</td>
+								</tr>
+							</c:forEach>
+
+
 						</tbody>
 					</table>
 				</div>
-				<div id="point" class="content">
-					<div>
-						<h1>현재 포인트: 10,000P</h1>
-						<br>
-						<table class='point__list'>
+
+			</div>
+			<div id="point" class="content">
+				<div>
+					<h1>현재 포인트: 10,000P</h1>
+					<br>
+					<table class='point__list'>
 						<thead>
 							<tr>
 								<td>날짜</td>
@@ -378,13 +396,13 @@ td {
 							<!-- 여기에 더 많은 찜 목록 항목을 추가할 수 있습니다 -->
 						</tbody>
 					</table>
-					</div>
 				</div>
 			</div>
+	</div>
 
-		</section>
+	</section>
 
-		<script>
+	<script>
 	function changeContent(type) {
         // 모든 content 클래스를 숨기기
         const contents = document.querySelectorAll('.content');
@@ -393,7 +411,7 @@ td {
 
         // 선택한 type에 맞는 content만 보이기
         const selectedContent = document.getElementById(type);
-        if (selectedContent) {
+        if (selectedContent){
             selectedContent.style.display = 'block';
         }
     }
@@ -403,7 +421,6 @@ td {
     document.querySelectorAll('.content').forEach(content => content.style.display = 'none');
     document.getElementById('message').style.display = 'block';
 </script>
-</body>
 
 
 
@@ -413,44 +430,45 @@ td {
 
 
 
-<footer>
-	<div class="footer-box">
-		<div class="footer-logo">
-			<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
-				alt=""></a>
+
+	<footer>
+		<div class="footer-box">
+			<div class="footer-logo">
+				<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+					alt=""></a>
+			</div>
+			<div class="footer-con">
+				<div class="con-text">
+					<span> 상호명 : Golden Egg chicken (골든에그) </span>
+				</div>
+				<div class="con-text">
+					<span> 대표자 : 송유미 </span>
+				</div>
+				<div class="con-text">
+					<span> 사업자등록번호 : 112-00-001234 </span>
+				</div>
+				<div class="con-text">
+					<span> 대표번호 : 031-500-1234 </span>
+				</div>
+				<div class="con-text">
+					<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
+				</div>
+				<div class="con-text">
+					<span> 이메일 : goldenEgg @ gmail.com </span>
+				</div>
+				<div class="con-text">
+					<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
+				</div>
+			</div>
+			<div class="sns">
+				<span><a href="#"><img
+						src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
+					href="#"><img src="${path}/resources/img/facebook_icon.jpg"
+						alt=""></a></span> <span><a href="#"><img
+						src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+			</div>
 		</div>
-		<div class="footer-con">
-			<div class="con-text">
-				<span> 상호명 : Golden Egg chicken (골든에그) </span>
-			</div>
-			<div class="con-text">
-				<span> 대표자 : 송유미 </span>
-			</div>
-			<div class="con-text">
-				<span> 사업자등록번호 : 112-00-001234 </span>
-			</div>
-			<div class="con-text">
-				<span> 대표번호 : 031-500-1234 </span>
-			</div>
-			<div class="con-text">
-				<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
-			</div>
-			<div class="con-text">
-				<span> 이메일 : goldenEgg @ gmail.com </span>
-			</div>
-			<div class="con-text">
-				<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
-			</div>
-		</div>
-		<div class="sns">
-			<span><a href="#"><img
-					src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
-				href="#"><img src="${path}/resources/img/facebook_icon.jpg"
-					alt=""></a></span> <span><a href="#"><img
-					src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
-		</div>
-	</div>
-</footer>
+	</footer>
 
 
 </body>

@@ -20,13 +20,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO review VALUES (#{re_num},#{re_no}, #{re_id}, #{re_ex}, #{re_star}, #{re_file})
 	</insert>
 
-	<select id="myreview" resultType="www.egg.vo.ReviewVO">
-		SELECT re_no, re_id, re_ex,
-		re_star, re_file1, re_file2
-		FROM review
-		WHERE re_id=#{id}
+	<select id="myreview"  resultType="www.egg.vo.ReviewVO">
+		SELECT re_num, re_id, re_star, re_ex FROM review WHERE re_id = #{userid}
 	</select>
-
+	
+	<select id="orderlist"  resultType="www.egg.vo.MlistVO">
+		SELECT * FROM mlist WHERE m_id = #{userid}
+	</select>
 
 
 

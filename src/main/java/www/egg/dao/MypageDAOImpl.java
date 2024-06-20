@@ -44,11 +44,19 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.selectOne(mapperQuery + mlvo);
 	}
 
+
 	@Override
-	public List<ReviewVO> myreview() throws Exception {
+	public List<ReviewVO> myreview(String userid) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery+".myreview");
+		return sqlsession.selectList(mapperQuery + ".myreview", userid);
 	}
+
+	@Override
+	public List<MlistVO> orderlist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery + ".orderlist", userid);
+	}
+
 
 
 	
