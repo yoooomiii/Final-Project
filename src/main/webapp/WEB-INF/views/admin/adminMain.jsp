@@ -68,13 +68,16 @@
                             <li>
                                 <a href="adminDView"> (배달 관리) </a>
                             </li>
+                            <li>
+                                <a href="#"> 배달 관리 </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 문의글 관리 </a>
+                                <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
                                 <a href="#"> (답변 관리) </a>
