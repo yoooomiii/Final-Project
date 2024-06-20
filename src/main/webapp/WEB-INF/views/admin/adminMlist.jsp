@@ -307,39 +307,24 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 주문상태 관리 페이지입니다.</h2>
-				<form action="요청" method="get" name=form>
+				<form action="adminOsearch" method="get" name=form>
 				
-					  <label for="city">시도</label>
-					  <select name="city" id="loc" onchange="change(this.selectedIndex);" class=input >
-					  <option value="">(선택안함)</option>
-						<option value='서울특별시'>서울특별시</option>
-                       <option value='부산광역시'>부산광역시</option>
-                       <option value='대구광역시'>대구광역시</option>
-                       <option value='인천광역시'>인천광역시</option>
-                       <option value='광주광역시'>광주광역시</option>
-                       <option value='대전광역시'>대전광역시</option>
-                       <option value='울산광역시'>울산광역시</option>
-                       <option value='경기도'>경기도</option>
-                       <option value='강원도'>강원도</option>
-                       <option value='충청북도'>충청북도</option>
-                       <option value='충청남도'>충청남도</option>
-                       <option value='전라북도'>전라북도</option>
-                       <option value='전라남도'>전라남도</option>
-                       <option value='경상북도'>경상북도</option>
-                       <option value='경상남도'>경상남도</option>
-                       <option value='제주도'>제주도</option>
+					  
+					   <label for="m_state">주문상태</label>
+					  <select name="m_state" id="loc" >
+					  		<option value="주문접수">주문접수</option>
+					  		<option value="주문취소">주문취소</option>
+					  		<option value="결제완료">결제완료</option>
+					  		<option value="환불처리">환불처리</option>
 					  </select>
-					   <label for="county">시군구</label>
-					  <select name="county" id="loc" class=select>
-					  		<option value="">전체</option>
-					  </select>
+					  
 					  
 						  <label for="option1">옵션1</label>
 					    <input type="radio" id="option1" name="키값" value="값">
 						  <label for="option2">옵션2</label>
 						  <input type="radio" id="option2" name="키값" value="값">
 
-					ID: <input type="text" name="sword"> <input type="submit" value="검색">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="검색">
 				</form>
 			</div>
 		</div>

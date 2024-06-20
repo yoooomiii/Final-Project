@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
@@ -54,7 +55,7 @@ public class AdminController {
 		}
 		
 		List<MemberVO> mlist = null;
-		if(sw==null || sw.equals("")) {
+		if(sw==null || sw.equals("")) { // 검색어가 있거나 없는 경우 
 			mlist = lservice.memberSearch(mvo) ;
 		}else {
 			mvo.setId(sw);
@@ -151,6 +152,31 @@ public class AdminController {
 		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+"");
 		model.addAttribute("dvo", modied_dvo);
 		return "admin/adminODelivery";
+	}
+	
+	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
+	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
+			@RequestParam("m_state") String m_state, @ModelAttribute Mlist2VO ovo
+			) {
+		
+		// vo 셋팅하셈. 
+		
+		if(m_state==null||m_state.equals("")) { // 조건(주문상태) 필터링 선택 여부 
+			
+		}else {
+			ovo.setM_state(m_state);
+		}
+		
+		List<MlistVO> olist = null;
+		if(sw==null || sw.equals("")) { // 검색어 유무 
+			olist = null;
+		}else {
+			ovo.setM_num(Integer.parseInt(sw));
+			olist = null;
+		}
+		
+		model.addAttribute("orders", olist);
+		return "admin/adminMlist";
 	}
 	
 }
