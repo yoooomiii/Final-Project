@@ -4,7 +4,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="www.egg.dao.IF_AdminDAO">
 
-	<select id="selectorders" resultType="www.egg.vo.MlistVO">
-	
+	<select id="selectorders" resultType="www.egg.vo.Mlist2VO">
+		select * from mlist limit 6
+	</select>
+	<delete id="deleteordernum" parameterType="String">
+		delete from mlist where m_num=#{m_num}
+	</delete>
+	<select id = "selectordernum" resultType="www.egg.vo.Mlist2VO">
+		select * from mlist where m_num=#{m_num}
+	</select>
+	<update id="updateorderstate" parameterType="www.egg.vo.Mlist2VO">
+		update mlist set m_state = #{m_state} where m_num = #{m_num}
+	</update>
+	<select id="selectpaymentnum" resultType="www.egg.vo.PaymentVO">
+		select * from payment where pm_no = #{m_num}
+	</select>
+	<select id="selectdeliverynum" resultType="www.egg.vo.DeliveryVO">
+		select * from delivery where d_no = #{m_num}
+	</select>
+	<update id="updatedelivery" parameterType="www.egg.vo.DeliveryVO">
+		update delivery set d_num = #{d_num}, d_time = #{d_time}, d_check =#{d_check} where d_no = #{d_no}
+	</update>
+	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
+		select * from delivery limit 6
 	</select>
 </mapper>

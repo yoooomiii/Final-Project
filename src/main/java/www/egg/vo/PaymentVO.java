@@ -2,105 +2,109 @@ package www.egg.vo;
 
 public class PaymentVO {
 
-	private Integer no =0;          // °áÁ¦¹øÈ£
-	private Integer num =0;         // ÁÖ¹®¹øÈ£
-	private String id = null;       // È¸¿ø id
-	private int price = 0;          // ÁÖ¹®±Ý¾×
-	private int tip = 0;            // ¹è´Þºñ
-	private int total = 0;          // ÃÑ°áÁ¦±Ý¾×
-	private int point = 0;          // Æ÷ÀÎÆ®
-	private String pay = null;      // °áÁ¦¼ö´Ü
-	private String card = null;     // °áÁ¦Á¤º¸
-	private int in_date = 0;        // ÁÖ¹®ÀÏ½Ã
-	private String address = null;  // ¹è´ÞÁÖ¼Ò
-	private String pick = null;     // ¼ö·É¹æ¹ý
-	private String comment = null;  // ¿äÃ»»çÇ×
-	
-	public Integer getNo() {
-		return no;
-	}
-	public void setNo(Integer no) {
-		this.no = no;
-	}
-	public Integer getNum() {
-		return num;
-	}
-	public void setNum(Integer num) {
-		this.num = num;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
-	public int getTip() {
-		return tip;
-	}
-	public void setTip(int tip) {
-		this.tip = tip;
-	}
-	public int getTotal() {
-		return total;
-	}
-	public void setTotal(int total) {
-		this.total = total;
-	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
-	}
-	public String getPay() {
-		return pay;
-	}
-	public void setPay(String pay) {
-		this.pay = pay;
-	}
-	public String getCard() {
-		return card;
-	}
-	public void setCard(String card) {
-		this.card = card;
-	}
-	public int getIn_date() {
-		return in_date;
-	}
-	public void setIn_date(int in_date) {
-		this.in_date = in_date;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getPick() {
-		return pick;
-	}
-	public void setPick(String pick) {
-		this.pick = pick;
-	}
-	public String getComment() {
-		return comment;
-	}
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-	
+	private Integer pm_no =0;          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	private Integer pm_num =0;         // ï¿½Ö¹ï¿½ï¿½ï¿½È£
+	private String pm_id = null;       // È¸ï¿½ï¿½ id
+	private int pm_price = 0;          // ï¿½Ö¹ï¿½ï¿½Ý¾ï¿½
+	private int pm_tip = 0;            // ï¿½ï¿½Þºï¿½
+	private int pm_total = 0;          // ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½
+	private int pm_point = 0;          // ï¿½ï¿½ï¿½ï¿½Æ®
+	private String pm_pay = null;      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String pm_card = null;     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String pm_date = null;        // ï¿½Ö¹ï¿½ï¿½Ï½ï¿½
+	private String pm_address = null;  // ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½
+	private String pm_pick = null;     // ï¿½ï¿½ï¿½É¹ï¿½ï¿½
+	private String pm_comment = null;  // ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
 	@Override
+	
+	
+	
+	
 	public String toString() {
-		return "PaymentVO [no=" + no + ", num=" + num + ", id=" + id + ", price=" + price + ", tip=" + tip + ", total="
-				+ total + ", point=" + point + ", pay=" + pay + ", card=" + card + ", in_date=" + in_date + ", address="
-				+ address + ", pick=" + pick + ", comment=" + comment + "]";
+		return "PaymentVO [pm_no=" + pm_no + ", pm_num=" + pm_num + ", pm_id=" + pm_id + ", pm_price=" + pm_price
+				+ ", pm_tip=" + pm_tip + ", pm_total=" + pm_total + ", pm_point=" + pm_point + ", pm_pay=" + pm_pay
+				+ ", pm_card=" + pm_card + ", pm_date=" + pm_date + ", pm_address=" + pm_address + ", pm_pick="
+				+ pm_pick + ", pm_comment=" + pm_comment + "]";
 	}
+	public Integer getPm_no() {
+		return pm_no;
+	}
+	public void setPm_no(Integer pm_no) {
+		this.pm_no = pm_no;
+	}
+	public Integer getPm_num() {
+		return pm_num;
+	}
+	public void setPm_num(Integer pm_num) {
+		this.pm_num = pm_num;
+	}
+	public String getPm_id() {
+		return pm_id;
+	}
+	public void setPm_id(String pm_id) {
+		this.pm_id = pm_id;
+	}
+	public int getPm_price() {
+		return pm_price;
+	}
+	public void setPm_price(int pm_price) {
+		this.pm_price = pm_price;
+	}
+	public int getPm_tip() {
+		return pm_tip;
+	}
+	public void setPm_tip(int pm_tip) {
+		this.pm_tip = pm_tip;
+	}
+	public int getPm_total() {
+		return pm_total;
+	}
+	public void setPm_total(int pm_total) {
+		this.pm_total = pm_total;
+	}
+	public int getPm_point() {
+		return pm_point;
+	}
+	public void setPm_point(int pm_point) {
+		this.pm_point = pm_point;
+	}
+	public String getPm_pay() {
+		return pm_pay;
+	}
+	public void setPm_pay(String pm_pay) {
+		this.pm_pay = pm_pay;
+	}
+	public String getPm_card() {
+		return pm_card;
+	}
+	public void setPm_card(String pm_card) {
+		this.pm_card = pm_card;
+	}
+	public String getPm_date() {
+		return pm_date;
+	}
+	public void setPm_date(String pm_date) {
+		this.pm_date = pm_date;
+	}
+	public String getPm_address() {
+		return pm_address;
+	}
+	public void setPm_address(String pm_address) {
+		this.pm_address = pm_address;
+	}
+	public String getPm_pick() {
+		return pm_pick;
+	}
+	public void setPm_pick(String pm_pick) {
+		this.pm_pick = pm_pick;
+	}
+	public String getPm_comment() {
+		return pm_comment;
+	}
+	public void setPm_comment(String pm_comment) {
+		this.pm_comment = pm_comment;
+	}
+	
 	
 	
 	
