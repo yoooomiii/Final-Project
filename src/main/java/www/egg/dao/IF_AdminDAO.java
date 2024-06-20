@@ -6,5 +6,8 @@ import www.egg.vo.Mlist2VO;
 
 public interface IF_AdminDAO {
 	public List<Mlist2VO> orderlist();
+	public void deleteOrdernum(String m_num);
+	public Mlist2VO pickOrdernum(String m_num);
+	public void modOrderstate(Mlist2VO ovo);
 
 }

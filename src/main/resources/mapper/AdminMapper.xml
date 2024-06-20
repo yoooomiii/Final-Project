@@ -7,4 +7,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectorders" resultType="www.egg.vo.Mlist2VO">
 		select * from mlist limit 6
 	</select>
+	<delete id="deleteordernum" parameterType="String">
+		delete from mlist where m_num=#{m_num}
+	</delete>
+	<select id = "selectordernum" resultType="www.egg.vo.Mlist2VO">
+		select * from mlist where m_num=#{m_num}
+	</select>
+	<update id="updateorderstate" parameterType="www.egg.vo.Mlist2VO">
+		update mlist set m_state = #{m_state} where m_num = #{m_num}
+	</update>
 </mapper>

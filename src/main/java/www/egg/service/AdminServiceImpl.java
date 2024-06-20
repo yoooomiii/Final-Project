@@ -23,6 +23,24 @@ public class AdminServiceImpl implements IF_AdminService {
 		return adao.orderlist();
 	}
 
+	@Override
+	public void deleteOdernum(String m_num) {
+		adao.deleteOrdernum(m_num);
+		
+	}
+
+	@Override
+	public Mlist2VO pickOrdernum(String m_num) {
+		// TODO Auto-generated method stub
+		return adao.pickOrdernum(m_num);
+	}
+
+	@Override
+	public void modOrderstate(Mlist2VO ovo) {
+		adao.modOrderstate(ovo);
+		
+	}
+
 	
 
 

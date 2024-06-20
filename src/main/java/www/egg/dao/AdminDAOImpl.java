@@ -21,6 +21,24 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(mapperQuery+".selectorders");
 	}
+
+	@Override
+	public void deleteOrdernum(String m_num) {
+		sqlSession.delete(mapperQuery+".deleteordernum", m_num);
+		
+	}
+
+	@Override
+	public Mlist2VO pickOrdernum(String m_num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(mapperQuery+".selectordernum",m_num);
+	}
+
+	@Override
+	public void modOrderstate(Mlist2VO ovo) {
+		sqlSession.update(mapperQuery+".updateorderstate", ovo);
+		
+	}
 	
 
 }

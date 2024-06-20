@@ -102,10 +102,26 @@ public class AdminController {
 	@RequestMapping(value = "adminODelete", method = RequestMethod.GET)
 	public String adminODelete(@RequestParam List<String> chkid,  Model model) {
 		for (String c: chkid) {
-			System.out.println("List<String> chkid: "+c);
+			//System.out.println("List<String> chkid: "+c);
 			//lservice.quiteAccount(c);
+			aservice.deleteOdernum(c);
 		}
 		return  "redirect:adminOView";
 	}
+	
+	@RequestMapping(value = "adminOUpform", method = RequestMethod.GET)
+	public String adminOUpform(@RequestParam("m_num") String m_num,  Model model) {
+		//MemberVO mvo =  lservice.signIn(id); 
+		Mlist2VO ovo = aservice.pickOrdernum(m_num);
+		model.addAttribute("ovo", ovo);
+		return "admin/adminOUpform";
+	}
+	@RequestMapping(value = "adminOUp", method = RequestMethod.POST)
+	public String adminOUdate(@ModelAttribute Mlist2VO ovo) {
+		// lservice.modMaster(mvo);
+		
+		return "redirect:adminMView";
+	}
+	
 	
 }
