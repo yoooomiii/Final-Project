@@ -168,7 +168,7 @@ public class AdminController {
 		}
 		
 		List<MlistVO> olist = null;
-		if(sw==null || sw.equals("")) { // 검색어 유무 
+		if(sw==null || sw.equals("")) { // 검색어 유무!
 			olist = null;
 		}else {
 			ovo.setM_num(Integer.parseInt(sw));
