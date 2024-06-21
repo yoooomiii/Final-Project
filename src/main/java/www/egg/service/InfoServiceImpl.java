@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_InfoDAO;
+import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
 
@@ -47,6 +48,12 @@ public class InfoServiceImpl implements IF_InfoService {
 	public int delete(Integer a_num) throws Exception {
 		
 		return idao.delete(a_num);
+	}
+
+	@Override
+	public void insert_re(AnswerVO anvo) throws Exception {
+		
+		idao.insert_re(anvo);
 	}
 	
 	

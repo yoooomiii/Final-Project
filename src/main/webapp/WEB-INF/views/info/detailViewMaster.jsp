@@ -69,6 +69,10 @@
 			style="border: 0px; height: 30px; background: linear-gradient(to left, rgb(230, 217, 15), white, rgb(255, 255, 20))">
 		<section>
 			<div class="info_detail">
+				<div class="a_num">
+					<span class="title"> 번호 </span> 
+					<span class="content"> ${avo.a_num} </span>
+				</div>
 				<div class="userid">
 					<span class="title"> 아 이 디 </span> 
 					<span class="content"> ${avo.a_id} </span>
@@ -83,8 +87,18 @@
 					<span class="title"> 내 &nbsp;&nbsp;&nbsp; 용 </span> 
 					<span class="content"> ${avo.a_ex} </span>
 				</div>
+				<p></p>
+				<div class="info-file">
+					<span class="title"> 첨부파일 </span> 
+					<span class="content"> </span>
+				</div>
+				<p></p>
+				<div class="info-reply">
+					<span class="title"> 답 &nbsp;&nbsp;&nbsp; 변 </span> 
+					<span class="content"> ${anvo.an_re} </span>
+				</div>
 				<div class="info_btn">
-					<input type="button" onclick="location.href='replyPage'" value="답 변 하 기"> 
+					<input type="button" onclick="location.href='replyPage?a_num=${avo.a_num }'" value="답 변 하 기"> 
 					<input type="button" onclick="location.href='masterview'" value="목 록 보 기">
 				</div>
 
@@ -121,11 +135,10 @@
 					</div>
 				</div>
 				<div class="sns">
-					<span><a href="#"><img
-							src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
-						href="#"><img src="${path}/resources/img/facebook_icon.jpg"
-							alt=""></a></span> <span><a href="#"><img
-							src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+					<span>
+					<a href="#"><img src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> 
+					<span><a href="#"><img src="${path}/resources/img/facebook_icon.jpg" alt=""></a></span> 
+					<span><a href="#"><img src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
 				</div>
 			</div>
 		</footer>

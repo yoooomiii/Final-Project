@@ -1,32 +1,40 @@
 package www.egg.vo;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 public class AnswerVO {
-	private Integer num = 0;
-	private String re = null;
-	private int in_date = 0;
 	
-	public Integer getNum() {
-		return num;
+	private Integer an_num = 0;
+	private String an_re = null;
+	private Date an_date = new Date(an_num);
+	
+	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	String dateString = format.format(an_date);
+	
+	public Integer getAn_num() {
+		return an_num;
 	}
-	public void setNum(Integer num) {
-		this.num = num;
+	public void setAn_num(Integer an_num) {
+		this.an_num = an_num;
 	}
-	public String getRe() {
-		return re;
+	public String getAn_re() {
+		return an_re;
 	}
-	public void setRe(String re) {
-		this.re = re;
+	public void setAn_re(String an_re) {
+		this.an_re = an_re;
 	}
-	public int getIn_date() {
-		return in_date;
+	public Date getAn_date() {
+		return an_date;
 	}
-	public void setIn_date(int in_date) {
-		this.in_date = in_date;
+	public void setAn_date(Date an_date) {
+		this.an_date = an_date;
 	}
 	
 	@Override
 	public String toString() {
-		return "AnswerVO [num=" + num + ", re=" + re + ", in_date=" + in_date + "]";
+		return "AnswerVO [an_num=" + an_num + ", an_re=" + an_re + ", an_date=" + an_date + ", format=" + format
+				+ ", dateString=" + dateString + "]";
 	}
 	
 }

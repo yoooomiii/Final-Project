@@ -23,4 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete">
 		delete from ask where a_num = #{a_num}
 	</delete>
+	<insert id="reinsert" parameterType="www.egg.vo.AnswerVO">
+		INSERT INTO answer VALUES (#{an_num}, #{an_re}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'))
+	</insert>
 </mapper>

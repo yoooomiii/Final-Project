@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
 
@@ -49,5 +50,12 @@ public class InfoDAOImpl implements IF_InfoDAO {
 	public int delete(Integer a_num) throws Exception {
 		
 		return sql.delete(mapperQurey + ".delete", a_num);
+	}
+
+	@Override
+	public void insert_re(AnswerVO anvo) throws Exception {
+		
+		sql.insert(mapperQurey + ".reinsert", anvo);
+		
 	}
 }

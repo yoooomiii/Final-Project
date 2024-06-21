@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
 
@@ -23,5 +24,7 @@ public interface IF_InfoService {
 	
 	public List<AskVO> allListMa() throws Exception;
 	
-	public int delete(Integer a_num) throws Exception; 
+	public int delete(Integer a_num) throws Exception;
+	
+	public void insert_re(AnswerVO anvo) throws Exception;
 }
