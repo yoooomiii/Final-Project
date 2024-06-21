@@ -168,7 +168,7 @@
 #page {
 	float: left;
 	width: 1210px;
-	height: 500px;
+	height: 800px;
 	margin-top: 10px;
 	border: 4px solid gray;
 	margin-left: 20px;
@@ -254,7 +254,7 @@ td {
 			<div class="menu">
 			<ul>
                     <li>
-                        <a href="main"> HOME </a>
+                        <a href="adminEnter"> HOME </a>
                     </li>
                     <li>
                         <a href="adminMView"> 회원 관리 </a>
@@ -307,11 +307,12 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 주문상태 관리 페이지입니다.</h2>
-				<form action="adminOsearch" method="get" name=form>
+				<form action="adminOSearch" method="get" name=form>
 				
 					  
 					   <label for="m_state">주문상태</label>
 					  <select name="m_state" id="loc" >
+					  		<option value="">(선택안함)</option>
 					  		<option value="주문접수">주문접수</option>
 					  		<option value="주문취소">주문취소</option>
 					  		<option value="결제완료">결제완료</option>
@@ -363,6 +364,24 @@ td {
 						<td><input type="checkbox" id="chk" name="chkid" value=${mlist2vo.m_num }></td>
 					</tr>
 				</c:forEach>
+					<tr>
+						<td colspan=4 align=center>
+							<c:if test="${pagevo.prev }">
+								<a href="adminOView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+							</c:if> 
+							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+								var="idx">
+								<a href="adminOView?page=${idx}"> 
+									<c:if
+										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+										test="${idx == pagevo.page }">]</c:if>
+								</a>
+							</c:forEach> 
+							<c:if test="${pagevo.next }">
+								<a href="adminOView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+							</c:if>
+						</td>
+					</tr>
 			</tbody>
 		</table>
 	</form>

@@ -15,4 +15,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalCount" resultType="int">
 		select count(*) from ask where a_id = #{id}
 	</select>
+	
+	
+	<select id="selectallMa" resultType="www.egg.vo.AskVO">
+		select * from ask
+	</select>
+	<delete id="delete">
+		delete from ask where a_num = #{a_num}
+	</delete>
+	<insert id="reinsert" parameterType="www.egg.vo.AnswerVO">
+		INSERT INTO answer VALUES (#{an_num}, #{an_re}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'))
+	</insert>
 </mapper>

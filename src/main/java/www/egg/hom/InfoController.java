@@ -16,23 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.service.IF_InfoService;
+import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
+
 
 @Controller
 public class InfoController {
 
 	@Inject
 	IF_InfoService iservice;
-
-	/*
-	 * // 메인 home
-	 * 
-	 * @RequestMapping(value="/", method=RequestMethod.GET) public String main () {
-	 * 
-	 * return "main"; }
-	 */
-
 
 	// 1:1 문의하기
 	@RequestMapping(value="ask", method=RequestMethod.GET)
@@ -59,15 +52,15 @@ public class InfoController {
 
 		return "redirect:allList";
 	}
-	
+
 	@GetMapping("detailView")
 	public String detailView(@RequestParam("a_num") Integer a_num, Model model) throws Exception {
-		
+
 		AskVO avo = iservice.selectOne(a_num);
-		
+
 		model.addAttribute("avo", avo);
-		
-		return "info/detailView";
+
+		return "info/detailViewUser";
 	}
 
 	// 문의 게시판 조회하기
@@ -88,16 +81,76 @@ public class InfoController {
 
 		model.addAttribute("allListitems", askList);
 		//model.addAttribute("pvo", pvo);
-		
+
 		//System.out.println(id);
 		//System.out.println(askList);
-
 
 		return "info/infoList";
 	}
 
+	//---------------------------------------------- 관리자
 
+	// 문의 게시판 전체 목록 조회하기
+	@GetMapping("masterview")
+	public String allListMarter(AskVO avo, 
+			Model model, @ModelAttribute PageVO pvo) throws Exception {
 
+		if(pvo.getPage()==null) {
+			pvo.setPage(1);
+		}
+		//iservice.getTotalCount();
+		//pvo.setTotalCount(iservice.getTotalCount());
+
+		List<AskVO> askList = iservice.allListMa();
+
+		model.addAttribute("allListitems", askList);
+		//model.addAttribute("pvo", pvo);
+		//System.out.println(id);
+		//System.out.println(askList);
+
+		return "info/infoListMaster";
+	}
+
+	@GetMapping("detailViewMa")
+	public String detailViewMa(@RequestParam("a_num") Integer a_num, Model model) throws Exception {
+
+		AskVO avo = iservice.selectOne(a_num);
+
+		model.addAttribute("avo", avo);
+
+		return "info/detailViewMaster";
+	}
+
+	// 문의 목록 삭제하기
+	@GetMapping("delList")
+	public String delList(@RequestParam("a_num") Integer a_num) throws Exception {
+
+		iservice.delete(a_num);
+
+		return "redirect:masterview";
+	}
+
+	// 문의 답변 등록 page 호출
+	@GetMapping("replyPage")
+	public String replyPage(@RequestParam("a_num") Integer a_num, Model model) throws Exception {
+
+		AskVO avo = iservice.selectOne(a_num);
+
+		model.addAttribute("avo", avo);
+
+		return "info/replyPage";
+	}
+
+	// 문의 답변 등록하기
+	@PostMapping("replySave")
+	public String replySave(AnswerVO anvo, Model model) throws Exception {
+
+		iservice.insert_re(anvo);
+
+		System.out.println(anvo.toString());
+
+		return "redirect:masterview";
+	}
 }
 
 

@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.Mlist2VO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
+import www.egg.vo.PageVO;
 import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
 
@@ -35,7 +35,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("adminMView") 
-	public String adminMember(HttpSession session, Model model) {
+	public String adminMember(Model model) {
 		List<MemberVO> mlist = lservice.memberlist();
 		model.addAttribute("members", mlist);
 		return "admin/adminMember";
@@ -89,10 +89,22 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
-	public String adminOView(Model model) {
+	public String adminOView(Model model , @ModelAttribute PageVO pagevo) {
 		
-		List<Mlist2VO> olist = aservice.orderlist();
+		if(pagevo.getPage()==null) {
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 번호: "+pagevo.getPage());
+		pagevo.setTotalCount(60);
+		
+		pagevo.prt();
+		
+		
+		
+		
+		List<MlistVO> olist = aservice.orderlist(pagevo);
 		model.addAttribute("orders", olist);
+		model.addAttribute("pagevo", pagevo);
 		return "admin/adminMlist";
 	}
 	@RequestMapping(value = "adminDView", method = RequestMethod.GET)
@@ -105,7 +117,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminODelete", method = RequestMethod.GET)
-	public String adminODelete(@RequestParam List<String> chkid,  Model model) {
+	public String adminODelete(@RequestParam List<String> chkid) {
 		for (String c: chkid) {
 			//System.out.println("List<String> chkid: "+c);
 			//lservice.quiteAccount(c);
@@ -116,12 +128,12 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOUpform", method = RequestMethod.GET)
 	public String adminOUpform(@RequestParam("m_num") String m_num,  Model model) {
-		Mlist2VO ovo = aservice.pickOrdernum(m_num);
+		MlistVO ovo = aservice.pickOrdernum(m_num);
 		model.addAttribute("ovo", ovo);
 		return "admin/adminOUpform";
 	}
 	@RequestMapping(value = "adminOUp", method = RequestMethod.POST)
-	public String adminOUdate(@ModelAttribute Mlist2VO ovo) {
+	public String adminOUdate(@ModelAttribute MlistVO ovo) {
 		aservice.modOrderstate(ovo);
 		return "redirect:adminOView";
 	}
@@ -156,27 +168,58 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
 	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
-			@RequestParam("m_state") String m_state, @ModelAttribute Mlist2VO ovo
+			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
 			) {
 		
 		// vo 셋팅하셈. 
-		
-		if(m_state==null||m_state.equals("")) { // 조건(주문상태) 필터링 선택 여부 
-			
-		}else {
-			ovo.setM_state(m_state);
-		}
-		
 		List<MlistVO> olist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
-			olist = null;
+			ovo.setM_state(m_state);
+			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
+			olist = aservice.searchOrder(ovo);
 		}else {
-			ovo.setM_num(Integer.parseInt(sw));
-			olist = null;
+			Integer m_num = Integer.parseInt(sw);
+			ovo.setM_num(m_num);
+			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
+			olist = aservice.searchOrder(ovo);
 		}
+		
 		
 		model.addAttribute("orders", olist);
 		return "admin/adminMlist";
+	}
+	
+	@RequestMapping(value = "adminDSearch", method = RequestMethod.GET)
+	public String adminDsearch( Model model, @RequestParam("sword") String sw,  
+			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo) {
+		
+		
+		
+		// vo 셋팅하셈. 
+		System.out.println("어드민콘트롤러 sw: "+sw);
+		System.out.println("어드민콘트롤러 d_check: "+d_check);
+		List<DeliveryVO> dlist = null;
+		if(sw==null || sw.equals("")) { // 검색어 유무!
+			dvo.setD_check(d_check);
+			System.out.println("어드민콘트롤러 dvo(sw null): "+dvo.toString());
+			dlist = aservice.searchDelivery(dvo);
+		}else {
+			Integer d_no = Integer.parseInt(sw);
+			dvo.setD_no(d_no);
+			System.out.println("어드민콘트롤러 dvo(sw ok): "+dvo.toString());
+			dlist = aservice.searchDelivery(dvo);
+		}
+		
+		model.addAttribute("deliverys", dlist);
+		return "admin/adminDelivery";
+	}
+	
+	@GetMapping("adminDDelete") 
+	public String adminDDelete(@RequestParam List<String> chkid) {
+		for(String c: chkid) {
+			aservice.deleteDeliverynum(c);
+		}
+		return "redirect:adminDView";
 	}
 	
 }
