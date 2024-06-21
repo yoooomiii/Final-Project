@@ -55,7 +55,7 @@ td {
 			<table class='review__list'>
 				<thead>
 					<tr>
-						<td>주문번호</td>
+						<td>메뉴사진</td>
 						<td>메뉴이름</td>
 						<td>별점</td>
 						<td>리뷰</td>
@@ -64,15 +64,15 @@ td {
 				
 				<tbody>
 					<!-- 내일 학원가서 데이터 넣어보기 -->
-					<c:forEach items="${rvo}" var="rvo">
+					<c:forEach items="${photolist}" var="photo">
 						<tr>
-							<td>${rvo.re_num}</td>
-							<td>${rvo.re_id}</td>
-							<td>${rvo.re_star}</td>
+							<td><img src="download?filename=${photo}"></td>
+							<td>${rvo.re_ex}</td>
+							<td>${rvo.re_ex}</td>
 							<td>${rvo.re_ex}</td>
 							
 						</tr>
-					</c:forEach>
+			 		</c:forEach> 
 
 
 				</tbody>

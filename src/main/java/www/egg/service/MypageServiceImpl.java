@@ -33,6 +33,10 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	public void rsave(ReviewVO rvo) throws Exception {
 		// TODO Auto-generated method stub
 		mpdao.rsave(rvo);
+		String[] filename =rvo.getFilename();
+		for(String rname : filename) {
+			mpdao.savefile(rname);
+		}
 	}
 
 
@@ -48,6 +52,14 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		// TODO Auto-generated method stub
 		return mpdao.orderlist(userid);
 	}
+
+	@Override
+	public List<String> getfilename(String re_num) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.getfilename(re_num);
+	}
+
+
 
 
 

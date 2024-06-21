@@ -1,6 +1,8 @@
 package www.egg.hom;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -11,10 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import www.egg.service.IF_MypageServiece;
 import www.egg.util.ReviewFileDataUtil;
 import www.egg.vo.MemberVO;
+import www.egg.vo.MenuVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
@@ -74,7 +79,7 @@ public class MypageController {
 	@RequestMapping(value = "rwrite", method = RequestMethod.POST)
 	public String rsave(@ModelAttribute ReviewVO rvo,
 			@ModelAttribute MlistVO mlvo, 
-			HttpSession session,String re_file, Model model) throws Exception {
+			HttpSession session,MultipartFile[] file, Model model) throws Exception {
 		//    	rfilename = reviewfiledatautil.fileUpload(re_file);
 
 		// 파일이 있을 경우에만 처리
@@ -89,17 +94,25 @@ public class MypageController {
 		//        }
 		//
 		//        // 세션에서 사용자 ID 가져오기
-		System.out.println("please");
-		rvo.setRe_file(re_file);
+//		System.out.println(file.length);
+//		for(int i=0; i<file.length; i++) {
+//			System.out.println(file[i].getOriginalFilename());
+//		}
 		String userid = (String) session.getAttribute("userid");
 		rvo.setRe_id(userid);
-//		rvo.setRe_no(nnum);
-		// 리뷰 정보를 저장합니다.
+//		// 리뷰 정보를 저장합니다.
+		
+//		System.out.println(rvo.toString());
+//		System.out.println("리뷰 저장됨");
+		String[] filename= reviewfiledatautil.fileUpload(file);
+		
+//		for(int i=0; i<filename.length; i++) {
+//			System.out.println(filename[i]);
+//		}
+		rvo.setFilename(filename);
+		System.out.println("여기까지?");
 		mpservice.rsave(rvo);
-//		model.addAttribute("mlvo", mlvo);
-		System.out.println(rvo.toString());
-		System.out.println("리뷰 저장됨");
-
+		System.out.println("저장되었다");
 		return "redirect:/"; // 실제로 이동할 URL로 변경
 	}
 
@@ -136,22 +149,20 @@ public class MypageController {
 //	}
 
 	@GetMapping(value="allreview")
-	public String allreviews(@ModelAttribute MlistVO mlvo, HttpSession session,ReviewVO rvo,Model model) throws Exception {
+	public String allreviews(@ModelAttribute ReviewVO rvo,
+							@RequestParam("re_num") String re_num,
+							HttpSession session,
+							Model model)  throws Exception {
+		
 		String userid = (String) session.getAttribute("userid");
 		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-
-		if (userid != null) {
-			rvo.setRe_id(userid);
-			rvo.setRe_no(mlvo.getM_num());
-			List<ReviewVO> list = mpservice.myreview(userid);
-			for (ReviewVO review : list) {
-				System.out.println(review);  // 디버그용 로그 출력
-			}
-			model.addAttribute("rvo", list);
-		} else {
-			System.out.println("아이디 없음");  // 디버그용 로그 출력
-		}
-		
+		List<ReviewVO> myreview= mpservice.myreview(userid);
+		rvo.setRe_id(userid);
+		List<String> photolist= mpservice.getfilename(re_num);
+		System.out.println("요오오오오오기?");
+		model.addAttribute("rvo", rvo);		
+		model.addAttribute("photolist", photolist);  //내가 쓴 리뷰 사진
+			
 		return "mypage/myreview";
 	}
 	

@@ -14,7 +14,7 @@ public interface IF_MypageDAO {
 	public void rsave(ReviewVO rvo) throws Exception;
 	public List<ReviewVO> myreview(String userid) throws Exception;
 	public List<MlistVO> orderlist(String userid) throws Exception;
-	
-	
+	public void savefile(String filename) throws Exception;
+	public List<String> getfilename(String re_num) throws Exception;
 	
 }
