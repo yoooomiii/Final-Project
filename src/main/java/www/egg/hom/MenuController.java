@@ -19,7 +19,7 @@ import www.egg.util.FileDataUtil;
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 
-//@Controller
+@Controller
 public class MenuController {
 
 	@Inject

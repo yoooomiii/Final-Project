@@ -17,17 +17,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO"  useGeneratedKeys="true"> <!-- 리뷰 등록 -->
-		INSERT INTO review VALUES (#{re_num},#{re_no}, #{re_id}, #{re_ex}, #{re_star}, #{re_file})
+		INSERT INTO review VALUES (#{re_num},#{re_no}, #{re_id}, #{re_ex}, #{re_star})
+	</insert>
+	
+	<insert id="savefile" parameterType="String">
+		insert into photo values ((select max(re_num) from review),#{filename})
 	</insert>
 
 	<select id="myreview"  resultType="www.egg.vo.ReviewVO">
-		SELECT re_num, re_id, re_star, re_ex FROM review WHERE re_id = #{userid}
+		SELECT * FROM review WHERE re_id= #{userid}
 	</select>
 	
 	<select id="orderlist"  resultType="www.egg.vo.MlistVO">
 		SELECT * FROM mlist WHERE m_id = #{userid}
 	</select>
 
+	<select id="getfile" resultType="String">
+		select filename from photo where no=#{re_num}
+	</select>
 
 
 

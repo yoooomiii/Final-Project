@@ -32,20 +32,9 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.update(mapperQuery + ".update", mvo);
 	}
 
-	@Override
-	public void rsave(ReviewVO rvo) throws Exception {
-		// TODO Auto-generated method stub
-		sqlsession.insert(mapperQuery + ".rinsert", rvo);
-	}
 
 
 
-
-	@Override
-	public List<ReviewVO> myreview(String userid) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery + ".myreview", userid);
-	}
 	
 
 
@@ -53,6 +42,30 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	public List<MlistVO> orderlist(String userid) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery + ".orderlist", userid);
+	}
+
+	@Override
+	public void rsave(ReviewVO rvo) throws Exception {
+		// TODO Auto-generated method stub
+		sqlsession.insert(mapperQuery +".rinsert", rvo);
+	}
+
+	@Override
+	public void savefile(String filename) throws Exception {
+		// TODO Auto-generated method stub
+		sqlsession.insert(mapperQuery + ".savefile", filename);
+	}
+
+	@Override
+	public List<String> getfilename(String re_num) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery + ".getfile", re_num);
+	}
+
+	@Override
+	public List<ReviewVO> myreview(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery + ".myreview", userid);
 	}
 
 

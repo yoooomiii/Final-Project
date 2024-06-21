@@ -11,7 +11,8 @@ public interface IF_MypageServiece {
 	public MemberVO modid(String id) throws Exception;
 	public void modsave(MemberVO mvo) throws Exception;
 	public void rsave(ReviewVO rvo) throws Exception;
-	public List<ReviewVO> myreview(String userid) throws Exception;
+	public List<ReviewVO>myreview(String userid) throws Exception;
 	public List<MlistVO> orderlist(String userid) throws Exception;
+	public List<String> getfilename(String re_num) throws Exception;
 	
 }

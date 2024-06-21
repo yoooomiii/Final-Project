@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
 
@@ -81,19 +82,17 @@
 		</interceptors>
 		
 
-<!-- 	<beans:bean class="java.lang.String" id="uploadPath">
+  	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
-	</beans:bean> -->
-	
-	 <beans:bean class="java.lang.String" id="uploadPaths">
-   		 <beans:constructor-arg value="/reviewimg"></beans:constructor-arg>
 	</beans:bean>  
 	
 
-	<!-- <context:component-scan base-package="www.egg" /> -->
+ 	<!-- <context:component-scan base-package="www.egg" /> -->
+	 <beans:bean class="java.lang.String" id="uploadPathss">
+		<beans:constructor-arg value="/reviewimg"></beans:constructor-arg>
+	</beans:bean> 
 
-
-
+	
 	<context:component-scan
 		base-package="www.egg.hom" />
 	<context:component-scan
