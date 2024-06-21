@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.service.IF_InfoService;
+import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
 
-//@Controller
+
+@Controller
 public class InfoController {
 
 	@Inject
@@ -108,7 +110,7 @@ public class InfoController {
 
 		return "info/infoListMaster";
 	}
-	
+
 	@GetMapping("detailViewMa")
 	public String detailViewMa(@RequestParam("a_num") Integer a_num, Model model) throws Exception {
 
@@ -119,15 +121,36 @@ public class InfoController {
 		return "info/detailViewMaster";
 	}
 
-	// 목록 삭제하기
+	// 문의 목록 삭제하기
 	@GetMapping("delList")
 	public String delList(@RequestParam("a_num") Integer a_num) throws Exception {
-		
+
 		iservice.delete(a_num);
-		
+
 		return "redirect:masterview";
 	}
 
+	// 문의 답변 등록 page 호출
+	@GetMapping("replyPage")
+	public String replyPage(@RequestParam("a_num") Integer a_num, Model model) throws Exception {
+
+		AskVO avo = iservice.selectOne(a_num);
+
+		model.addAttribute("avo", avo);
+
+		return "info/replyPage";
+	}
+
+	// 문의 답변 등록하기
+	@PostMapping("replySave")
+	public String replySave(AnswerVO anvo, Model model) throws Exception {
+
+		iservice.insert_re(anvo);
+
+		System.out.println(anvo.toString());
+
+		return "redirect:masterview";
+	}
 }
 
 

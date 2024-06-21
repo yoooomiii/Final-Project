@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/infoview.css" rel="stylesheet" />
+<link href="${path}/resources/css/replyPage.css" rel="stylesheet" />
 <title>Info Page</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -36,8 +36,8 @@
 
 		<nav>
 			<div class="logo">
-				<a href="./"><span><img
-						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="./"><span>
+				<img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
@@ -68,7 +68,15 @@
 		<hr
 			style="border: 0px; height: 30px; background: linear-gradient(to left, rgb(230, 217, 15), white, rgb(255, 255, 20))">
 		<section>
+		<form action="replySave" method="post">
+		
 			<div class="info_detail">
+				<div class="a_num">
+					<span class="title"> 번호 </span> 
+					<span class="content"> ${avo.a_num} </span>
+					 <input type="hidden" value="${avo.a_num}" name="an_num">
+				</div>
+				<p></p>
 				<div class="userid">
 					<span class="title"> 아 이 디 </span> 
 					<span class="content"> ${avo.a_id} </span>
@@ -83,12 +91,22 @@
 					<span class="title"> 내 &nbsp;&nbsp;&nbsp; 용 </span> 
 					<span class="content"> ${avo.a_ex} </span>
 				</div>
+				<p></p>
+                    <div class="info-file">
+                        <span class="title"> 첨부파일 </span> 
+                        <span class="content">  </span>
+                    </div>
+                    <p></p>
+                    <div class="info-reply">
+                        <span class="title"> 답 &nbsp;&nbsp;&nbsp; 변 </span> 
+                        <input type="text" size="100" name="an_re">
+                    </div>
 				<div class="info_btn">
-					<input type="button" value="답 변 하 기"> 
+					<input type="submit" value="답 변 하 기"> 
 					<input type="button" onclick="location.href='masterview'" value="목 록 보 기">
 				</div>
-
 			</div>
+		</form>
 		</section>
 
 		<footer>

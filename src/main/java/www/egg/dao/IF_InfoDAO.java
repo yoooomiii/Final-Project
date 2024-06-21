@@ -2,6 +2,7 @@ package www.egg.dao;
 
 import java.util.List;
 
+import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
 
@@ -22,4 +23,5 @@ public interface IF_InfoDAO {
 	
 	public int delete(Integer a_num) throws Exception;
 	
+	public void insert_re(AnswerVO anvo) throws Exception;
 }

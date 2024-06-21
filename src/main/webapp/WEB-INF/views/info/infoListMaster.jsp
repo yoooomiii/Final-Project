@@ -89,6 +89,7 @@
 								<td>등록일</td>
 								<td>답변일</td>
 								<td>삭제</td>
+								<td>답변하기</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -102,8 +103,13 @@
 									<td>${askvo.a_date}</td>
 									<td>${askvo.a_date}</td>
 									<td>
-										<div class="delbtn-td">
-											<input type="button" value="삭제" onclick="delchk(${askvo.a_num })">
+										<div class="btn-td">
+											<input type="button" value="삭제" name="delbtn" onclick="delchk(${askvo.a_num })">
+										</div>
+									</td>
+									<td>
+										<div class="btn-td">
+											<input type="button" name="rebtn" value="답변하기" onclick="location.href='replyPage?a_num=${askvo.a_num }'">
 										</div>
 									</td>
 								</tr>
