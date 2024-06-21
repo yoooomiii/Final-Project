@@ -11,6 +11,7 @@ import www.egg.dao.IF_LoginDAO;
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.PaymentVO;
 
 @Service
@@ -20,9 +21,9 @@ public class AdminServiceImpl implements IF_AdminService {
 	IF_AdminDAO adao;
 
 	@Override
-	public List<MlistVO> orderlist() {
+	public List<MlistVO> orderlist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return adao.orderlist();
+		return adao.orderlist(pagevo);
 	}
 
 	@Override

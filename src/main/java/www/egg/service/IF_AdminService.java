@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.PaymentVO;
 
 @Service
 public interface IF_AdminService {
-	public List<MlistVO> orderlist();
+	public List<MlistVO> orderlist(PageVO pagevo);
 	public void deleteOdernum(String m_num);
 	public MlistVO pickOrdernum(String m_num);
 	public void modOrderstate(MlistVO ovo);

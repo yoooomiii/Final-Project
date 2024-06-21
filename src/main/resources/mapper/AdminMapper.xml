@@ -5,7 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="www.egg.dao.IF_AdminDAO">
 
 	<select id="selectorders" resultType="www.egg.vo.MlistVO">
-		select * from mlist limit 6
+		<!-- select * from mlist -->
+		select * from mlist order by m_num asc LIMIT 10 OFFSET #{startNo}
 	</select>
 	<delete id="deleteordernum" parameterType="String">
 		delete from mlist where m_num=#{m_num}

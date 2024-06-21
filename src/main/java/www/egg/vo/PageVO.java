@@ -3,11 +3,15 @@ package www.egg.vo;
 public class PageVO {
 	private int startNo;  // 페이지에서 글 시작 번호.. 튜플의 시작번호
 	private int endNo;    // 페이지에서 글 끝 번호.. 튜플의 끝..
-	private int perPageNum=5;
+	private int perPageNum=10; // 2개의 역할을 하는 변수=> 페이지당 출력될 튜플의 수, 표시될 페이지 수 
+	// page 변수는 현재 페이지의 번호
 	private Integer page; // Integer 웹에서 받은 페이지 정보(String)가 없으면 null인데 int는 null을 저장할 수 없다. 오류방지
-	private int totalCount;
-	private int endPage;
-	private int startPage;
+	private int totalCount; // 전체 튜플의 수
+	// page, totalCount, perPageNum 3개의 변수로 startNo endNo 값을 자동으로 계산한다. 
+	
+	
+	private int endPage;	// 페이지가 속한 그룹의 끝 페이지 번호 
+	private int startPage; // 페이지가 속한 그룹의 시작 페이지 번호 
 	private boolean prev;
 	private boolean next;
 	// 검색용 변수 2개 추가

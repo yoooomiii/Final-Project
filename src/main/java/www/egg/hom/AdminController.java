@@ -17,6 +17,7 @@ import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
+import www.egg.vo.PageVO;
 import www.egg.service.IF_AdminService;
 import www.egg.service.IF_LoginService;
 
@@ -88,10 +89,22 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
-	public String adminOView(Model model) {
+	public String adminOView(Model model , @ModelAttribute PageVO pagevo) {
 		
-		List<MlistVO> olist = aservice.orderlist();
+		if(pagevo.getPage()==null) {
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 번호: "+pagevo.getPage());
+		pagevo.setTotalCount(60);
+		
+		pagevo.prt();
+		
+		
+		
+		
+		List<MlistVO> olist = aservice.orderlist(pagevo);
 		model.addAttribute("orders", olist);
+		model.addAttribute("pagevo", pagevo);
 		return "admin/adminMlist";
 	}
 	@RequestMapping(value = "adminDView", method = RequestMethod.GET)

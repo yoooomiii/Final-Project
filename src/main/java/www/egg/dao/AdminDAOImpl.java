@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.PaymentVO;
 
 @Repository
@@ -19,9 +20,9 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	SqlSession sqlSession;
 	
 	@Override
-	public List<MlistVO> orderlist() {
+	public List<MlistVO> orderlist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".selectorders");
+		return sqlSession.selectList(mapperQuery+".selectorders", pagevo);
 	}
 
 	@Override
