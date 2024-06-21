@@ -10,7 +10,8 @@ import www.egg.dao.IF_AdminDAO;
 import www.egg.dao.IF_LoginDAO;
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.Mlist2VO;
+import www.egg.vo.MlistVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.PaymentVO;
 
 @Service
@@ -20,9 +21,9 @@ public class AdminServiceImpl implements IF_AdminService {
 	IF_AdminDAO adao;
 
 	@Override
-	public List<Mlist2VO> orderlist() {
+	public List<MlistVO> orderlist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return adao.orderlist();
+		return adao.orderlist(pagevo);
 	}
 
 	@Override
@@ -32,13 +33,13 @@ public class AdminServiceImpl implements IF_AdminService {
 	}
 
 	@Override
-	public Mlist2VO pickOrdernum(String m_num) {
+	public MlistVO pickOrdernum(String m_num) {
 		// TODO Auto-generated method stub
 		return adao.pickOrdernum(m_num);
 	}
 
 	@Override
-	public void modOrderstate(Mlist2VO ovo) {
+	public void modOrderstate(MlistVO ovo) {
 		adao.modOrderstate(ovo);
 		
 	}
@@ -65,6 +66,24 @@ public class AdminServiceImpl implements IF_AdminService {
 	public List<DeliveryVO> deliverylist() {
 		// TODO Auto-generated method stub
 		return adao.deliverylist();
+	}
+
+	@Override
+	public List<MlistVO> searchOrder(MlistVO ovo) {
+		// TODO Auto-generated method stub
+		return adao.searchOrder(ovo);
+	}
+
+	@Override
+	public List<DeliveryVO> searchDelivery(DeliveryVO dvo) {
+		// TODO Auto-generated method stub
+		return adao.searchDelivery(dvo);
+	}
+
+	@Override
+	public void deleteDeliverynum(String m_num) {
+		adao.deleteDeliverynum(m_num);
+		
 	}
 
 	

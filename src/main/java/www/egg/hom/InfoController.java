@@ -20,8 +20,9 @@ import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
 
+
 @Controller
-public class InfoController<BoardBean> {
+public class InfoController {
 
 	@Inject
 	IF_InfoService iservice;

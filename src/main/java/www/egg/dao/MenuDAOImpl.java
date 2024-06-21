@@ -68,5 +68,11 @@ public class MenuDAOImpl implements IF_MenuDAO {
 		sqlSession.insert(mapperQuery+".iinsert", ivo);
 	}
 
+	@Override
+	public List<MenuVO> sideList() throws Exception {	//사이드 리스트 출력
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(mapperQuery+".sselectall");
+	}
+
 }
 

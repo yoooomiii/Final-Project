@@ -140,7 +140,7 @@
                 <h3><b>후라이드 치킨</b></h3>
                 <h5>바삭한 튀김옷으로 무장한 치킨</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=7"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=18"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg02.png" width="298" , height="250" class="e">
@@ -149,7 +149,7 @@
                 <h3><b>고추 치킨</b></h3>
                 <h5>불타는 금요일 화끈하게</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=8"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=25"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg05.png" width="298" , height="250" class="e">
@@ -158,7 +158,7 @@
                 <h3><b>간장 치킨</b></h3>
                 <h5>간장으로 목욕한 치킨</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=11"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=20"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg06.png" width="298" , height="250" class="e">
@@ -167,7 +167,7 @@
                 <h3><b>크리미언 치킨</b></h3>
                 <h5>꾸덕꾸덕한 순살 치킨</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=9"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=21"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg08.png" width="298" , height="250" class="e">
@@ -176,7 +176,7 @@
                 <h3><b>통닭 치킨</b></h3>
                 <h5>추억의 치킨</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=12"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=22"><input type="submit" value="상세보기" class="t"></a>
             </div>
             </div>
             <div class="qoq">
@@ -188,7 +188,7 @@
                 <h3><b>치즈마요 치킨</b></h3>
                 <h5>치킨과 치즈의 만남</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=24"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg05.png" width="298" , height="250" class="e">
@@ -197,7 +197,7 @@
                 <h3><b>간장 치킨</b></h3>
                 <h5>간장으로 목욕한 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=20"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg06.png" width="298" , height="250" class="e">
@@ -206,7 +206,7 @@
                 <h3><b>크리미언 치킨</b></h3>
                 <h5>꾸덕꾸덕한 순살 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=21"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg07.png" width="298" , height="250" class="e">
@@ -215,7 +215,7 @@
                 <h3><b>마늘 치킨</b></h3>
                 <h5>한국인의 맛 마늘 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=23"><input type="submit" value="상세보기" class="t"></a>
             </div>
             </div>
             <div class="opp">
@@ -227,7 +227,7 @@
                 <h3><b>후라이드 치킨</b></h3>
                 <h5>바삭한 튀김옷으로 무장한 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=18"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg03.png" width="298" , height="250" class="e">
@@ -236,7 +236,7 @@
                 <h3><b>양념 치킨</b></h3>
                 <h5>모두가 좋아하는 양념치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=19"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg02.png" width="298" , height="250" class="e">
@@ -245,7 +245,7 @@
                 <h3><b>고추 치킨</b></h3>
                 <h5>불타는 금요일 화끈하게</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=25"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg04.png" width="298" , height="250" class="e">
@@ -254,7 +254,7 @@
                 <h3><b>치즈마요 치킨</b></h3>
                 <h5>치킨과 치즈의 만남</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=24"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg05.png" width="298" , height="250" class="e">
@@ -263,7 +263,7 @@
                 <h3><b>간장 치킨</b></h3>
                 <h5>간장으로 목욕한 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=20"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg06.png" width="298" , height="250" class="e">
@@ -272,7 +272,7 @@
                 <h3><b>크리미언 치킨</b></h3>
                 <h5>꾸덕꾸덕한 순살 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=21"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg08.png" width="298" , height="250" class="e">
@@ -281,7 +281,7 @@
                 <h3><b>통닭 치킨</b></h3>
                 <h5>추억의 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=22"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg07.png" width="298" , height="250" class="e">
@@ -290,7 +290,7 @@
                 <h3><b>마늘 치킨</b></h3>
                 <h5>한국인의 맛 마늘 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=23"><input type="submit" value="상세보기" class="t"></a>
             </div>
             </div>
             <div class="pop">
@@ -302,7 +302,7 @@
                 <h3><b>후라이드 치킨</b></h3>
                 <h5>바삭한 튀김옷으로 무장한 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=18"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg03.png" width="298" , height="250" class="e">
@@ -311,7 +311,7 @@
                 <h3><b>양념 치킨</b></h3>
                 <h5>모두가 좋아하는 양념치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=19"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg02.png" width="298" , height="250" class="e">
@@ -320,7 +320,7 @@
                 <h3><b>고추 치킨</b></h3>
                 <h5>불타는 금요일 화끈하게</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=25"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg04.png" width="298" , height="250" class="e">
@@ -329,7 +329,7 @@
                 <h3><b>치즈마요 치킨</b></h3>
                 <h5>치킨과 치즈의 만남</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=24"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg05.png" width="298" , height="250" class="e">
@@ -338,7 +338,7 @@
                 <h3><b>간장 치킨</b></h3>
                 <h5>간장으로 목욕한 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=20"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg06.png" width="298" , height="250" class="e">
@@ -347,7 +347,7 @@
                 <h3><b>크리미언 치킨</b></h3>
                 <h5>꾸덕꾸덕한 순살 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=21"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg08.png" width="298" , height="250" class="e">
@@ -356,7 +356,7 @@
                 <h3><b>통닭 치킨</b></h3>
                 <h5>추억의 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=22"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg07.png" width="298" , height="250" class="e">
@@ -365,7 +365,7 @@
                 <h3><b>마늘 치킨</b></h3>
                 <h5>한국인의 맛 마늘 치킨</h5>
                 <br>
-                <input type="submit" value="상세보기" class="t">
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=23"><input type="submit" value="상세보기" class="t"></a>
             </div>
             </div>
         </section>

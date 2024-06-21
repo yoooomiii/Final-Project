@@ -254,7 +254,7 @@ td {
 			<div class="menu">
 			<ul>
                     <li>
-                        <a href="main"> HOME </a>
+                        <a href="adminEnter"> HOME </a>
                     </li>
                     <li>
                         <a href="adminMView"> 회원 관리 </a>
@@ -307,7 +307,7 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 배달관리 페이지입니다.</h2>
-				<form action="요청" method="get" name=form>
+				<form action="adminDSearch" method="get" name=form>
 				
 					  <label for="city">시도</label>
 					  <select name="city" id="loc" onchange="change(this.selectedIndex);" class=input >
@@ -334,12 +334,21 @@ td {
 					  		<option value="">전체</option>
 					  </select>
 					  
+					  	   <label for="d_check">배달상태</label>
+					  <select name="d_check" id="loc" class=select>
+					  		<option value="">(선택안함)</option>
+					  		<option value="배정대기">배정대기</option>
+					  		<option value="배달준비">배달준비</option>
+					  		<option value="배달중">배달중</option>
+					  		<option value="배달완료">배달완료</option>
+					  </select>
+					  
 						  <label for="option1">옵션1</label>
 					    <input type="radio" id="option1" name="키값" value="값">
 						  <label for="option2">옵션2</label>
 						  <input type="radio" id="option2" name="키값" value="값">
 
-					ID: <input type="text" name="sword"> <input type="submit" value="검색">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="검색">
 				</form>
 			</div>
 		</div>
@@ -350,7 +359,7 @@ td {
 
 
 
-	<form action="배달삭제요청" method="get" onsubmit="return call_confirm()">
+	<form action="adminDDelete" method="get" onsubmit="return call_confirm()">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>

@@ -49,7 +49,7 @@
 			<div class="menu">
 				<ul>
                     <li>
-                        <a href="main"> HOME </a>
+                        <a href="adminEnter"> HOME </a>
                     </li>
                     <li>
                         <a href="adminMView"> 회원 관리 </a>
@@ -67,9 +67,6 @@
                             </li>
                             <li>
                                 <a href="adminDView"> (배달 관리) </a>
-                            </li>
-                            <li>
-                                <a href="#"> 배달 관리 </a>
                             </li>
                         </ul>
                     </li>
