@@ -177,4 +177,27 @@ public class AdminController {
 		return "admin/adminMlist";
 	}
 	
+	@RequestMapping(value = "adminDsearch", method = RequestMethod.GET)
+	public String adminDsearch( Model model, @RequestParam("sword") String sw,  
+			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo) {
+		
+		
+		
+		// vo 셋팅하셈. 
+		List<DeliveryVO> dlist = null;
+		if(sw==null || sw.equals("")) { // 검색어 유무!
+			dvo.setD_check(d_check);
+			System.out.println("어드민콘트롤러 dvo(sw null): "+dvo.toString());
+			dlist = null;
+		}else {
+			Integer d_no = Integer.parseInt(sw);
+			dvo.setD_no(d_no);
+			System.out.println("어드민콘트롤러 dvo(sw ok): "+dvo.toString());
+			dlist = null;
+		}
+		
+		model.addAttribute("deliverys", dlist);
+		return "admin/adminDelivery";
+	}
+	
 }

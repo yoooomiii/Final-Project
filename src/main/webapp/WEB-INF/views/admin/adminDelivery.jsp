@@ -334,12 +334,20 @@ td {
 					  		<option value="">전체</option>
 					  </select>
 					  
+					  	   <label for="d_check">배달상태</label>
+					  <select name="d_check" id="loc" class=select>
+					  		<option value="">배정대기</option>
+					  		<option value="">배달준비</option>
+					  		<option value="">배달중</option>
+					  		<option value="">배달완료</option>
+					  </select>
+					  
 						  <label for="option1">옵션1</label>
 					    <input type="radio" id="option1" name="키값" value="값">
 						  <label for="option2">옵션2</label>
 						  <input type="radio" id="option2" name="키값" value="값">
 
-					ID: <input type="text" name="sword"> <input type="submit" value="검색">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="검색">
 				</form>
 			</div>
 		</div>

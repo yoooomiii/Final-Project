@@ -21,5 +21,6 @@ public interface IF_AdminService {
 	public void modDelivery(DeliveryVO dvo);
 	public List<DeliveryVO> deliverylist();
 	public List<Mlist2VO> searchOrder(Mlist2VO ovo);
+	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
 
 }
