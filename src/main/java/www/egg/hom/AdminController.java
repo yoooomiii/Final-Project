@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.Mlist2VO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 import www.egg.service.IF_AdminService;
@@ -35,7 +34,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("adminMView") 
-	public String adminMember(HttpSession session, Model model) {
+	public String adminMember(Model model) {
 		List<MemberVO> mlist = lservice.memberlist();
 		model.addAttribute("members", mlist);
 		return "admin/adminMember";
@@ -105,7 +104,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminODelete", method = RequestMethod.GET)
-	public String adminODelete(@RequestParam List<String> chkid,  Model model) {
+	public String adminODelete(@RequestParam List<String> chkid) {
 		for (String c: chkid) {
 			//System.out.println("List<String> chkid: "+c);
 			//lservice.quiteAccount(c);
@@ -200,6 +199,14 @@ public class AdminController {
 		
 		model.addAttribute("deliverys", dlist);
 		return "admin/adminDelivery";
+	}
+	
+	@GetMapping("adminDDelete") 
+	public String adminDDelete(@RequestParam List<String> chkid) {
+		for(String c: chkid) {
+			aservice.deleteDeliverynum(c);
+		}
+		return "redirect:adminDView";
 	}
 	
 }

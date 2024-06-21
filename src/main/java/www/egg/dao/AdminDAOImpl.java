@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.Mlist2VO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
@@ -90,6 +89,12 @@ public class AdminDAOImpl implements IF_AdminDAO{
 			return sqlSession.selectList(mapperQuery+".selectdeliverynum", d_no);
 		}
 		return sqlSession.selectList(mapperQuery+".selectdeliverysearch", dvo);
+	}
+
+	@Override
+	public void deleteDeliverynum(String m_num) {
+		// TODO Auto-generated method stub
+		sqlSession.delete(mapperQuery+".deletedeliverynum", m_num);
 	}
 	
 

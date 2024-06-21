@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.Mlist2VO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
@@ -22,5 +21,6 @@ public interface IF_AdminService {
 	public List<DeliveryVO> deliverylist();
 	public List<MlistVO> searchOrder(MlistVO ovo);
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
+	public void deleteDeliverynum(String m_num);
 
 }

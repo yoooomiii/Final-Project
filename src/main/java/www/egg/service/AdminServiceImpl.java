@@ -10,7 +10,6 @@ import www.egg.dao.IF_AdminDAO;
 import www.egg.dao.IF_LoginDAO;
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.Mlist2VO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
@@ -78,6 +77,12 @@ public class AdminServiceImpl implements IF_AdminService {
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo) {
 		// TODO Auto-generated method stub
 		return adao.searchDelivery(dvo);
+	}
+
+	@Override
+	public void deleteDeliverynum(String m_num) {
+		adao.deleteDeliverynum(m_num);
+		
 	}
 
 	

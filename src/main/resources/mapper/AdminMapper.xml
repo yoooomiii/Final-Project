@@ -31,7 +31,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectordersearch" resultType="www.egg.vo.MlistVO" parameterType="www.egg.vo.MlistVO">
 		select * from mlist where m_state = #{m_state} 
 	</select>
-		<select id="selectdeliverysearch" resultType="www.egg.vo.DeliveryVO" parameterType="www.egg.vo.DeliveryVO">
+	<select id="selectdeliverysearch" resultType="www.egg.vo.DeliveryVO" parameterType="www.egg.vo.DeliveryVO">
 		select * from delivery where d_check = #{d_check} 
 	</select>
+	<delete id="deletedeliverynum" parameterType="String">
+		delete from delivery where d_no=#{m_num}
+	</delete>
 </mapper>

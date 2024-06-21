@@ -359,7 +359,7 @@ td {
 
 
 
-	<form action="배달삭제요청" method="get" onsubmit="return call_confirm()">
+	<form action="adminDDelete" method="get" onsubmit="return call_confirm()">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
