@@ -62,10 +62,7 @@ public class ReviewVO {
 		this.re_file = re_file;
 	}
 	
-
-
-
-
-
-   
+    
+  
+	
 }

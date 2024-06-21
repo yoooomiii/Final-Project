@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MemberVO;
-import www.egg.vo.Mlist2VO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
 @Repository
@@ -38,17 +38,23 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.insert(mapperQuery + ".rinsert", rvo);
 	}
 
-	@Override
-	public void rnum(Mlist2VO mlvo) throws Exception {
-		// TODO Auto-generated method stub
-		sqlsession.selectOne(mapperQuery + mlvo);
-	}
+
+
 
 	@Override
-	public List<ReviewVO> myreview() throws Exception {
+	public List<ReviewVO> myreview(String userid) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery+".myreview");
+		return sqlsession.selectList(mapperQuery + ".myreview", userid);
 	}
+	
+
+
+	@Override
+	public List<MlistVO> orderlist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery + ".orderlist", userid);
+	}
+
 
 
 	
