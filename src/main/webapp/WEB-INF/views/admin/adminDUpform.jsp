@@ -200,7 +200,7 @@ td {
 			<div class="menu">
 			<ul>
                     <li>
-                        <a href="main"> HOME </a>
+                        <a href="adminEnter"> HOME </a>
                     </li>
                     <li>
                         <a href="adminMView"> 회원 관리 </a>
