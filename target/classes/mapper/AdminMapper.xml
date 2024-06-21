@@ -4,16 +4,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="www.egg.dao.IF_AdminDAO">
 
-	<select id="selectorders" resultType="www.egg.vo.Mlist2VO">
+	<select id="selectorders" resultType="www.egg.vo.MlistVO">
 		select * from mlist limit 6
 	</select>
 	<delete id="deleteordernum" parameterType="String">
 		delete from mlist where m_num=#{m_num}
 	</delete>
-	<select id = "selectordernum" resultType="www.egg.vo.Mlist2VO">
+	<select id = "selectordernum" resultType="www.egg.vo.MlistVO">
 		select * from mlist where m_num=#{m_num}
 	</select>
-	<update id="updateorderstate" parameterType="www.egg.vo.Mlist2VO">
+	<update id="updateorderstate" parameterType="www.egg.vo.MlistVO">
 		update mlist set m_state = #{m_state} where m_num = #{m_num}
 	</update>
 	<select id="selectpaymentnum" resultType="www.egg.vo.PaymentVO">
@@ -28,10 +28,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
 		select * from delivery limit 6
 	</select>
-	<select id="selectordersearch" resultType="www.egg.vo.Mlist2VO" parameterType="www.egg.vo.Mlist2VO">
+	<select id="selectordersearch" resultType="www.egg.vo.MlistVO" parameterType="www.egg.vo.MlistVO">
 		select * from mlist where m_state = #{m_state} 
 	</select>
 		<select id="selectdeliverysearch" resultType="www.egg.vo.DeliveryVO" parameterType="www.egg.vo.DeliveryVO">
-		select * from mlist where m_state = #{m_state} 
+		select * from delivery where d_check = #{d_check} 
 	</select>
 </mapper>

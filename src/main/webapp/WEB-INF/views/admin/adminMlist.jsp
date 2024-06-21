@@ -312,6 +312,7 @@ td {
 					  
 					   <label for="m_state">주문상태</label>
 					  <select name="m_state" id="loc" >
+					  		<option value="">(선택안함)</option>
 					  		<option value="주문접수">주문접수</option>
 					  		<option value="주문취소">주문취소</option>
 					  		<option value="결제완료">결제완료</option>

@@ -12,15 +12,15 @@ import www.egg.vo.PaymentVO;
 
 @Service
 public interface IF_AdminService {
-	public List<Mlist2VO> orderlist();
+	public List<MlistVO> orderlist();
 	public void deleteOdernum(String m_num);
-	public Mlist2VO pickOrdernum(String m_num);
-	public void modOrderstate(Mlist2VO ovo);
+	public MlistVO pickOrdernum(String m_num);
+	public void modOrderstate(MlistVO ovo);
 	public PaymentVO pickPaymentnum(String m_num);
 	public DeliveryVO pickDeliverynum(String m_num);
 	public void modDelivery(DeliveryVO dvo);
 	public List<DeliveryVO> deliverylist();
-	public List<Mlist2VO> searchOrder(Mlist2VO ovo);
+	public List<MlistVO> searchOrder(MlistVO ovo);
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
 
 }

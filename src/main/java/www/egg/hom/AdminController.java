@@ -91,7 +91,7 @@ public class AdminController {
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model) {
 		
-		List<Mlist2VO> olist = aservice.orderlist();
+		List<MlistVO> olist = aservice.orderlist();
 		model.addAttribute("orders", olist);
 		return "admin/adminMlist";
 	}
@@ -116,12 +116,12 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOUpform", method = RequestMethod.GET)
 	public String adminOUpform(@RequestParam("m_num") String m_num,  Model model) {
-		Mlist2VO ovo = aservice.pickOrdernum(m_num);
+		MlistVO ovo = aservice.pickOrdernum(m_num);
 		model.addAttribute("ovo", ovo);
 		return "admin/adminOUpform";
 	}
 	@RequestMapping(value = "adminOUp", method = RequestMethod.POST)
-	public String adminOUdate(@ModelAttribute Mlist2VO ovo) {
+	public String adminOUdate(@ModelAttribute MlistVO ovo) {
 		aservice.modOrderstate(ovo);
 		return "redirect:adminOView";
 	}
@@ -156,11 +156,11 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
 	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
-			@RequestParam("m_state") String m_state, @ModelAttribute Mlist2VO ovo
+			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
 			) {
 		
 		// vo 셋팅하셈. 
-		List<Mlist2VO> olist = null;
+		List<MlistVO> olist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
 			ovo.setM_state(m_state);
 			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
@@ -177,23 +177,25 @@ public class AdminController {
 		return "admin/adminMlist";
 	}
 	
-	@RequestMapping(value = "adminDsearch", method = RequestMethod.GET)
+	@RequestMapping(value = "adminDSearch", method = RequestMethod.GET)
 	public String adminDsearch( Model model, @RequestParam("sword") String sw,  
 			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo) {
 		
 		
 		
 		// vo 셋팅하셈. 
+		System.out.println("어드민콘트롤러 sw: "+sw);
+		System.out.println("어드민콘트롤러 d_check: "+d_check);
 		List<DeliveryVO> dlist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
 			dvo.setD_check(d_check);
 			System.out.println("어드민콘트롤러 dvo(sw null): "+dvo.toString());
-			dlist = null;
+			dlist = aservice.searchDelivery(dvo);
 		}else {
 			Integer d_no = Integer.parseInt(sw);
 			dvo.setD_no(d_no);
 			System.out.println("어드민콘트롤러 dvo(sw ok): "+dvo.toString());
-			dlist = null;
+			dlist = aservice.searchDelivery(dvo);
 		}
 		
 		model.addAttribute("deliverys", dlist);

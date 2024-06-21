@@ -307,7 +307,7 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 배달관리 페이지입니다.</h2>
-				<form action="요청" method="get" name=form>
+				<form action="adminDSearch" method="get" name=form>
 				
 					  <label for="city">시도</label>
 					  <select name="city" id="loc" onchange="change(this.selectedIndex);" class=input >
@@ -336,10 +336,11 @@ td {
 					  
 					  	   <label for="d_check">배달상태</label>
 					  <select name="d_check" id="loc" class=select>
-					  		<option value="">배정대기</option>
-					  		<option value="">배달준비</option>
-					  		<option value="">배달중</option>
-					  		<option value="">배달완료</option>
+					  		<option value="">(선택안함)</option>
+					  		<option value="배정대기">배정대기</option>
+					  		<option value="배달준비">배달준비</option>
+					  		<option value="배달중">배달중</option>
+					  		<option value="배달완료">배달완료</option>
 					  </select>
 					  
 						  <label for="option1">옵션1</label>

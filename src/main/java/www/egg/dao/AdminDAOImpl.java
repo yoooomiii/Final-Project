@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.Mlist2VO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
 @Repository
@@ -19,7 +20,7 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	SqlSession sqlSession;
 	
 	@Override
-	public List<Mlist2VO> orderlist() {
+	public List<MlistVO> orderlist() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(mapperQuery+".selectorders");
 	}
@@ -31,13 +32,13 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	}
 
 	@Override
-	public Mlist2VO pickOrdernum(String m_num) {
+	public MlistVO pickOrdernum(String m_num) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(mapperQuery+".selectordernum",m_num);
 	}
 
 	@Override
-	public void modOrderstate(Mlist2VO ovo) {
+	public void modOrderstate(MlistVO ovo) {
 		sqlSession.update(mapperQuery+".updateorderstate", ovo);
 		
 	}
@@ -68,7 +69,7 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	}
 
 	@Override
-	public List<Mlist2VO> searchOrder(Mlist2VO ovo) {
+	public List<MlistVO> searchOrder(MlistVO ovo) {
 		// Integer m_num = ovo.getM_num();
 		 	String m_num = ovo.getM_num()+"";
 			String m_state = ovo.getM_state();
@@ -84,6 +85,7 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		// TODO Auto-generated method stub
 		String d_no = dvo.getD_no()+"";
 		String d_check = dvo.getD_check();
+		System.out.println("어드민dao dvo: "+dvo.toString());
 		if(d_check==null||d_check.equals("")) {
 			return sqlSession.selectList(mapperQuery+".selectdeliverynum", d_no);
 		}
