@@ -160,20 +160,18 @@ public class AdminController {
 			) {
 		
 		// vo 셋팅하셈. 
-		
-		if(m_state==null||m_state.equals("")) { // 조건(주문상태) 필터링 선택 여부 
-			
-		}else {
-			ovo.setM_state(m_state);
-		}
-		
-		List<MlistVO> olist = null;
+		List<Mlist2VO> olist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
-			olist = null;
+			ovo.setM_state(m_state);
+			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
+			olist = aservice.searchOrder(ovo);
 		}else {
-			ovo.setM_num(Integer.parseInt(sw));
-			olist = null;
+			Integer m_num = Integer.parseInt(sw);
+			ovo.setM_num(m_num);
+			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
+			olist = aservice.searchOrder(ovo);
 		}
+		
 		
 		model.addAttribute("orders", olist);
 		return "admin/adminMlist";

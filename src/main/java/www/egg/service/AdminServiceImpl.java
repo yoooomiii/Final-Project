@@ -67,6 +67,12 @@ public class AdminServiceImpl implements IF_AdminService {
 		return adao.deliverylist();
 	}
 
+	@Override
+	public List<Mlist2VO> searchOrder(Mlist2VO ovo) {
+		// TODO Auto-generated method stub
+		return adao.searchOrder(ovo);
+	}
+
 	
 
 

@@ -28,4 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
 		select * from delivery limit 6
 	</select>
+	<select id="selectordersearch" resultType="www.egg.vo.Mlist2VO" parameterType="www.egg.vo.Mlist2VO">
+		select * from mlist where m_state = #{m_state} 
+	</select>
 </mapper>

@@ -66,6 +66,18 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(mapperQuery+".selectdeliverys");
 	}
+
+	@Override
+	public List<Mlist2VO> searchOrder(Mlist2VO ovo) {
+		// Integer m_num = ovo.getM_num();
+		 	String m_num = ovo.getM_num()+"";
+			String m_state = ovo.getM_state();
+			if(m_state==null||m_state.equals("")) {
+				return sqlSession.selectList(mapperQuery+".selectordernum", m_num);
+			}
+			return sqlSession.selectList(mapperQuery+".selectordersearch", ovo);
+		
+	}
 	
 
 }

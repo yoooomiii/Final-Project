@@ -307,7 +307,7 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 주문상태 관리 페이지입니다.</h2>
-				<form action="adminOsearch" method="get" name=form>
+				<form action="adminOSearch" method="get" name=form>
 				
 					  
 					   <label for="m_state">주문상태</label>

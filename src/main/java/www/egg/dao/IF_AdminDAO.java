@@ -15,5 +15,6 @@ public interface IF_AdminDAO {
 	public DeliveryVO pickDeliverynum(String m_num);
 	public void modDelivery(DeliveryVO dvo);
 	public List<DeliveryVO> deliverylist();
+	public List<Mlist2VO> searchOrder(Mlist2VO ovo);
 
 }
