@@ -62,5 +62,11 @@ public class MenuServiceImpl implements IF_MenuService {
 		mdao.item_insert(ivo);
 	}
 
+	@Override
+	public List<MenuVO> sideList() throws Exception {	//사이드 리스트 추력
+		// TODO Auto-generated method stub
+		return mdao.sideList();
+	}
+
 }
 

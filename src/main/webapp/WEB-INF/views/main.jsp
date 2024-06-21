@@ -203,28 +203,28 @@
 				<div class="menu-img">
 					<img src="${path}/resources/img/image.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=7" order> 후라이드 치킨 </a></span>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=18" order> 후라이드 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/egg02.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=8" order> 고추 치킨 </a></span>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=25" order> 고추 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/egg03.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=14" order> 양념 치킨 </a></span>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=19" order> 양념 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/egg04.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=13" order> 치즈마요 치킨 </a></span>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=24" order> 치즈마요 치킨 </a></span>
 			</div>
 			
 		</section>
