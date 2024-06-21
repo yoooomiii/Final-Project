@@ -19,7 +19,7 @@ import www.egg.util.FileDataUtil;
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 
-//@Controller
+@Controller
 public class MenuController {
 
 	@Inject
@@ -29,24 +29,43 @@ public class MenuController {
 	FileDataUtil filedatautil;
 	
 	
+	@PostMapping("/item_inputSave")
+    public String itemInputSave(@RequestParam("i_no") String iNo,
+                                @RequestParam("i_id") String iId,
+                                @RequestParam("menu_no") String no,
+                                @RequestParam(value = "menu_no2", required = false) String menuNo2,
+                                @RequestParam(value = "menu_no3", required = false) String menuNo3,
+                                @RequestParam(value = "menu_no4", required = false) String menuNo4,
+                                @RequestParam("i_conut") String iCount,
+                                @RequestParam("i_price") String iPrice,
+                                Model model) throws Exception {
+        // 주문 처리 로직
+        model.addAttribute("i_no", iNo);
+        model.addAttribute("i_id", iId);
+        model.addAttribute("menu_no", no);
+        model.addAttribute("menu_no2", menuNo2);
+        model.addAttribute("menu_no3", menuNo3);
+        model.addAttribute("menu_no4", menuNo4);
+        model.addAttribute("i_conut", iCount);
+        model.addAttribute("i_price", iPrice);
+        return "menu/itemInput"; // 처리 결과 페이지로 이동
+    }
+
+	
 	@GetMapping(value ="/mviewDetail")
-	public String test(@RequestParam("menu_no") String no, @RequestParam("menu_no") String no2,
+	public String test(@RequestParam("menu_no") String no,
 			Model model) throws Exception {	//장바구니 등록 과정
 		MenuVO mvo = mservice.modno(no);
 		List<String> attackList = mservice.getFilename(no);
-		MenuVO mvo2 = mservice.modno(no2);
-		List<String> attackList2 = mservice.getFilename(no2);
-		List<MenuVO> List = mservice.menuList();
-		model.addAttribute("mvo2", mvo2);
-		model.addAttribute("attackList2", attackList2);
+		List<MenuVO> List = mservice.sideList();
 		model.addAttribute("List", List);
 		model.addAttribute("mvo", mvo);
 		model.addAttribute("attackList", attackList);
 		
-		return "menu/test";
+		return "menu/menuKeep";
 	}
 	
-	@PostMapping(value ="/item_inputSave")
+	@PostMapping(value ="/item_inputSaveup")
 	public String item_input(@ModelAttribute ItemVO ivo) throws Exception {	//장바구니 등록 과정
 		
 		mservice.item_insert(ivo);

@@ -18,7 +18,7 @@ import www.egg.service.IF_InfoService;
 import www.egg.vo.AskVO;
 import www.egg.vo.PageVO;
 
-@Controller
+//@Controller
 public class InfoController {
 
 	@Inject

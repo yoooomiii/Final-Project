@@ -7,6 +7,8 @@ import www.egg.vo.MenuVO;
 
 public interface IF_MenuDAO {
 	
+	public List<MenuVO> sideList() throws Exception;	//사이드메뉴만 출력
+	
 	public void item_insert(ItemVO ivo) throws Exception;	//장바구니 등록
 	
 	//-------------------------------------------------장바구니
