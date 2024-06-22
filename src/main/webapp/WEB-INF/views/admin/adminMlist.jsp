@@ -26,7 +26,7 @@
 	   <script type="text/javascript">
 		function call_confirm(){
 			
-			if(confirm("회원 정보를 삭제하시겠습니까?")){
+			if(confirm("주문 내역을 삭제하시겠습니까?")){
 				alert("정상적으로 제출되었습니다.");
 				return true;
 			}else{
@@ -168,7 +168,7 @@
 #page {
 	float: left;
 	width: 1210px;
-	height: 500px;
+	height: 800px;
 	margin-top: 10px;
 	border: 4px solid gray;
 	margin-left: 20px;
@@ -254,7 +254,7 @@ td {
 			<div class="menu">
 			<ul>
                     <li>
-                        <a href="main"> HOME </a>
+                        <a href="adminEnter"> HOME </a>
                     </li>
                     <li>
                         <a href="adminMView"> 회원 관리 </a>
@@ -307,39 +307,25 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 주문상태 관리 페이지입니다.</h2>
-				<form action="요청" method="get" name=form>
+				<form action="adminOSearch" method="get" name=form>
 				
-					  <label for="city">시도</label>
-					  <select name="city" id="loc" onchange="change(this.selectedIndex);" class=input >
-					  <option value="">(선택안함)</option>
-						<option value='서울특별시'>서울특별시</option>
-                       <option value='부산광역시'>부산광역시</option>
-                       <option value='대구광역시'>대구광역시</option>
-                       <option value='인천광역시'>인천광역시</option>
-                       <option value='광주광역시'>광주광역시</option>
-                       <option value='대전광역시'>대전광역시</option>
-                       <option value='울산광역시'>울산광역시</option>
-                       <option value='경기도'>경기도</option>
-                       <option value='강원도'>강원도</option>
-                       <option value='충청북도'>충청북도</option>
-                       <option value='충청남도'>충청남도</option>
-                       <option value='전라북도'>전라북도</option>
-                       <option value='전라남도'>전라남도</option>
-                       <option value='경상북도'>경상북도</option>
-                       <option value='경상남도'>경상남도</option>
-                       <option value='제주도'>제주도</option>
+					  
+					   <label for="m_state">주문상태</label>
+					  <select name="m_state" id="loc" >
+					  		<option value="">(선택안함)</option>
+					  		<option value="주문접수">주문접수</option>
+					  		<option value="주문취소">주문취소</option>
+					  		<option value="결제완료">결제완료</option>
+					  		<option value="환불처리">환불처리</option>
 					  </select>
-					   <label for="county">시군구</label>
-					  <select name="county" id="loc" class=select>
-					  		<option value="">전체</option>
-					  </select>
+					  
 					  
 						  <label for="option1">옵션1</label>
 					    <input type="radio" id="option1" name="키값" value="값">
 						  <label for="option2">옵션2</label>
 						  <input type="radio" id="option2" name="키값" value="값">
 
-					ID: <input type="text" name="sword"> <input type="submit" value="검색">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="검색">
 				</form>
 			</div>
 		</div>
@@ -350,7 +336,7 @@ td {
 
 
 
-	<form action="주문삭제요청" method="get" onsubmit="return call_confirm()">
+	<form action="adminODelete" method="get" onsubmit="return call_confirm()">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
@@ -360,24 +346,42 @@ td {
 					<td>주문번호</td>
 					<td>주문상태</td>
 					<td>회원ID</td>
-					<td>주문일시</td>
 					<td>수령방법</td>
 					<td>수정</td>
+					<td>배달정보</td>
 					<td>선택</td>
 				</tr>
 			</thead>
 			<tbody>
-			    <c:forEach items="${orders }" var="mlistvo">
+			    <c:forEach items="${orders }" var="mlist2vo">
 					<tr class="minfo_row">
-						<td>주문번호</td>
-						<td>주문상태</td>
-						<td>회원ID</td>
-						<td>주문일시</td>
+						<td>${mlist2vo.m_num}</td>
+						<td><a href="adminODetail?m_num=${mlist2vo.m_num }">${mlist2vo.m_state}</a></td>
+						<td>${mlist2vo.m_id}</td>
 						<td>수령방법</td>
-						<td><a href="adminMUpform?id=${mlistvo.id }"><input type="button" value="수정하기" id="mbtn"></a></td>
-						<td><input type="checkbox" id="chk" name="chkid" value=${mlistvo.id }></td>
+						<td><a href="adminOUpform?m_num=${mlist2vo.m_num }"><input type="button" value="수정하기" id="mbtn"></a></td>
+						<td><a href="adminODelivery?m_num=${mlist2vo.m_num }"><input type="button" value="배달정보" id="mbtn"></a></td>
+						<td><input type="checkbox" id="chk" name="chkid" value=${mlist2vo.m_num }></td>
 					</tr>
 				</c:forEach>
+					<tr>
+						<td colspan=4 align=center>
+							<c:if test="${pagevo.prev }">
+								<a href="adminOView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+							</c:if> 
+							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+								var="idx">
+								<a href="adminOView?page=${idx}"> 
+									<c:if
+										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+										test="${idx == pagevo.page }">]</c:if>
+								</a>
+							</c:forEach> 
+							<c:if test="${pagevo.next }">
+								<a href="adminOView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+							</c:if>
+						</td>
+					</tr>
 			</tbody>
 		</table>
 	</form>

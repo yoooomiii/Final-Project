@@ -1,6 +1,7 @@
 package www.egg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.MemberVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
 @Service
@@ -31,14 +33,54 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	@Override
 	public void rsave(ReviewVO rvo) throws Exception {
 		// TODO Auto-generated method stub
-		mpdao.rsave(rvo);
+		 // 리뷰 저장
+        mpdao.rsave(rvo);
+        
+        // 리뷰 저장 후 re_num 값을 가져옴
+        Integer re_no=rvo.getRe_no();
+        
+        // 사진 저장
+        String[] filename = rvo.getFilename();
+        for (String rname : filename) {
+            mpdao.savefile(re_no, rname);
+        }
+	}
+
+
+
+	@Override
+	public List<ReviewVO> myreview(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.myreview(userid);
 	}
 
 	@Override
-	public List<ReviewVO> myreview() throws Exception {
+	public List<MlistVO> orderlist(String userid) throws Exception {
 		// TODO Auto-generated method stub
-		return mpdao.myreview();
+		return mpdao.orderlist(userid);
 	}
+
+	@Override
+	public List<Map<String, Object>> getfilename(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.getfilename(userid);
+	}
+
+	@Override
+	public List<String> getfile(String re_num) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.getfile(re_num);
+	}
+
+
+
+
+
+
+
+
+
+
 
 	
 

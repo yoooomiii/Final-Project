@@ -5,10 +5,17 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
 
 @Service
 public interface IF_MenuService {
+	
+	public List<MenuVO> sideList() throws Exception;	//사이드메뉴만 출력
+	
+	public void item_insert(ItemVO ivo) throws Exception;	//장바구니 등록
+	
+	//------------------------------------------------장바구니
 
 	public void insert(MenuVO mvo) throws Exception;	//메뉴 입력
 

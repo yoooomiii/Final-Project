@@ -157,30 +157,34 @@ h2 {
 
 
 			<div id="box">
-				<form class="mb-3" name="myform" action="rwrite" id="myform" method="post" >
+				<form class="mb-3" name="myform" action="rwrite" id="myform"
+					method="post" encType="multipart/form-data">
 					<fieldset>
 						<h2>리뷰 등록하기</h2>
 						<input type="hidden" name="re_id" value="id">
-						<input type="hidden" name="number" value="1">
-						<span class="text-bold">별점을 선택해주세요</span> 
-						<input type="radio"	name="re_star" value="5" id="rate1 "><label for="rate1">★</label>
-						<input type="radio" name="re_star" value="4" id="rate2"><label for="rate2">★</label> 
-						<input type="radio" name="re_star" value="3" id="rate3"><label for="rate3">★</label> 
-						<input type="radio" name="re_star" value="2" id="rate4"><label for="rate4">★</label> 
-						<input type="radio" name="re_star" value="1" id="rate5"><label for="rate5">★</label>
+						<input type="hidden" name="re_no" value="${mlvo.m_num}">
+						 <c:out value="${mlvo.m_num}" />
+						<span class="text-bold">별점을 선택해주세요</span> <input type="radio"
+							name="re_star" value="5" id="rate1 "><label for="rate1">★</label>
+						<input type="radio" name="re_star" value="4" id="rate2"><label
+							for="rate2">★</label> <input type="radio" name="re_star"
+							value="3" id="rate3"><label for="rate3">★</label> <input
+							type="radio" name="re_star" value="2" id="rate4"><label
+							for="rate4">★</label> <input type="radio" name="re_star"
+							value="1" id="rate5"><label for="rate5">★</label>
 					</fieldset>
 					<div>
 						<textarea class="col-auto form-control" type="text"
-							id="reviewContents" name="re_ex"
-							placeholder="리뷰를 입력해주세요"></textarea>
+							id="reviewContents" name="re_ex" placeholder="리뷰를 입력해주세요"></textarea>
 					</div>
-				
-				<div id="files">
-				 <input type="file" name="re_file">
-				</div>
-				<div id="butt">
-				<button id="btn">등록</button>
-				</div>
+
+					<div id="files">
+						<input type="file" name="file"> <input type="file"
+							name="file">
+					</div>
+					<div id="butt">
+						<button id="btn">등록</button>
+					</div>
 				</form>
 			</div>
 </body>

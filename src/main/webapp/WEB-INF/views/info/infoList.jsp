@@ -102,34 +102,6 @@
 								</tr>
 							</c:if>
 						</c:forEach>
-						<%-- <c:if test="${membervo.master==1}">
-									<tr class="minfo_row">
-										<td>${membervo.id }</td>
-										<td>${membervo.name }</td>
-										<td>${membervo.phone }</td>
-										<td>${membervo.email }</td>
-										<td>${membervo.address }</td>
-										<td style="color: red;">관리자</td>
-										<td><a href="adminMUpform?id=${membervo.id }"><input
-												type="button" value="수정하기" id="mbtn"></a></td>
-										<td><input type="checkbox" id="chk" name="chkid"
-											value=${membervo.id }></td>
-									</tr>
-								</c:if>
-							</c:forEach> --%>
-						<%-- <tr>
-							<td colspan=4 align=center><c:if test="${pagevo.prev }">
-									<a href="allList?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-								</c:if> <c:forEach begin="${pagevo.startPage }"
-									end="${pagevo.endPage }" var="idx">
-									<a href="allList?page=${idx}"> <c:if
-											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-											test="${idx == pagevo.page }">]</c:if>
-									</a>
-								</c:forEach> <c:if test="${pagevo.next }">
-									<a href="allList?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-								</c:if></td>
-						</tr> --%>
 					</tbody>
 				</table>
 			</div>

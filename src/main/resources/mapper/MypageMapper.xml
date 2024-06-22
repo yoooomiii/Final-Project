@@ -16,20 +16,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		id=#{id}
 	</update>
 
-	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO"  useGeneratedKeys="true"> <!-- 리뷰 등록 -->
-		INSERT INTO review VALUES (#{re_num},#{re_no}, #{re_id}, #{re_ex}, #{re_star}, #{re_file})
+	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO"
+		useGeneratedKeys="true" keyProperty="re_no"> <!-- 리뷰 등록 -->
+		INSERT INTO review (re_no, re_id, re_ex, re_star)
+		VALUES (#{re_no}, #{re_id}, #{re_ex}, #{re_star})
 	</insert>
 
-	<select id="myreview" resultType="www.egg.vo.ReviewVO">
-		SELECT re_no, re_id, re_ex,
-		re_star, re_file1, re_file2
-		FROM review
-		WHERE re_id=#{id}
+	<insert id="savefile" parameterType="map">
+		INSERT INTO photo (no, filename) VALUES (#{re_no}, #{filename})
+	</insert>
+
+	<select id="myreview" parameterType="string" resultType="www.egg.vo.ReviewVO">
+		SELECT re_num, re_no, re_id, re_ex, re_star
+        FROM review
+        WHERE re_id = #{userid}
 	</select>
 
+	<select id="orderlist" resultType="www.egg.vo.MlistVO">
+		SELECT * FROM mlist WHERE m_id
+		= #{userid}
+	</select>
 
+	<select id="getfile" parameterType="string" resultType="map">
+		 SELECT p.filename, p.no
+        FROM photo p
+        JOIN review r ON p.no = r.re_no
+        WHERE r.re_id = #{userId}
+	</select>
 
-
+	<select id="getphoto" resultType="String">
+		select filename from photo p left outer join review r on p.no=r.re_num
+	</select>
 
 
 

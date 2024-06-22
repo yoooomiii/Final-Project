@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>메뉴</title>
-<link href="./resources/css/menukeep.css" rel="stylesheet"/><link
+<link href="./resources/css/menukeep.css" rel="stylesheet"/>
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -153,19 +154,20 @@
 					</thead>
                 	<tbody>
                 		<c:forEach items="${List}" var="mvoo">
-                			<tr>
-                				<td><input type="checkbox" value="${mvoo.menu_no}"></td>
-								<td>${mvoo.menu_name}</td>
-								<td>${mvoo.menu_price}</td>
-								<td>${mvoo.menu_ex}</td>
-                			</tr>
-                		</c:forEach>
+                        <tr>
+                            <td><input type="checkbox" value="${mvoo.menu_no}" class="menuCheckbox"></td>
+                            <td>${mvoo.menu_name}</td>
+                            <td>${mvoo.menu_price}</td>
+                            <td>${mvoo.menu_ex}</td>
+                        </tr>
+                    </c:forEach>
                 	</tbody>
                 </table>
                 <br>
                 <br>
-                <a href="Detail?menu_no=${mvo.menu_no }"><button type="submit" id="kkk">${mvo.menu_price }원 주문하기</button></a>
+                <button type="button" onclick="submitOrder()" id="kkk">주문하기</button>
             </div>
+            
         </section>
         <hr>
         <section class="main-banner">
@@ -200,12 +202,51 @@
     </div>
 </body>
 <script type="text/javascript">
-	var len = $("input[name='no']:checked").length;
-	if(len > 1){
-		$("input[name='no']:checked").each(function(e){
-			console.log($(this).val())
-		})
-	}
+        function submitOrder() {
+            var checkboxes = document.querySelectorAll('.menuCheckbox:checked');
+            var selectedValues = Array.from(checkboxes).map(cb => cb.value);
 
-</script>
+            if (selectedValues.length === 0) {
+                alert("하나 이상의 항목을 선택하세요.");
+                return false;
+            }
+
+            // 폼 생성
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = 'item_inputSave';
+
+            // 기본 정보 추가
+            var menuNoInput = document.createElement('input');
+            menuNoInput.type = 'hidden';
+            menuNoInput.name = 'menu_no';
+            menuNoInput.value = selectedValues[0];
+            form.appendChild(menuNoInput);
+
+            for (var i = 1; i < selectedValues.length; i++) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'menu_no' + (i + 1);
+                input.value = selectedValues[i];
+                form.appendChild(input);
+            }
+
+            // 기타 정보 추가
+            form.appendChild(createInputElement('i_no', ''));
+            form.appendChild(createInputElement('i_id', ''));
+            form.appendChild(createInputElement('i_conut', '1'));
+            form.appendChild(createInputElement('i_price', '${mvo.menu_price + mvo.menu_price}'));
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function createInputElement(name, value) {
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = name;
+            input.value = value;
+            return input;
+        }
+    </script>
 </html>

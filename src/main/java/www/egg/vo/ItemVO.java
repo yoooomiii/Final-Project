@@ -3,16 +3,18 @@ package www.egg.vo;
 public class ItemVO {
 	
 	private Integer i_num = 0;     // 아이템 번호
+	private String i_id = null;		//회원 아이디
 	private Integer i_no = 0;      // 결제 번호
-	private String i_code =null;   // 메인메뉴 코드
-	private String i_scode =null;  // 사이드메뉴 코드
-	private int i_count =0;        // 메뉴 수량
+	private int menu_no =0;  	// 메뉴 코드
+	private int menu_no2 =0;   	// 사이드 코드1
+	private int menu_no3 =0;        // 사이드 코드2
+	private int menu_no4 =0;        // 사이드 코드3
 	private int i_price =0;        // 메뉴 주문 금액
 	
 	@Override
 	public String toString() {
-		return "ItemVO [i_num=" + i_num + ", i_no=" + i_no + ", i_id=" + ", i_code=" + i_code + ", i_scode="
-				+ i_scode + ", i_count=" + i_count + ", i_price=" + i_price + "]";
+		return "ItemVO [i_num=" + i_num + ", i_id=" + i_id + ", i_no=" + i_no + ", menu_no=" + menu_no + ", menu_no2="
+				+ menu_no2 + ", menu_no3=" + menu_no3 + ", menu_no4=" + menu_no4 + ", i_price=" + i_price + "]";
 	}
 	public Integer getI_num() {
 		return i_num;
@@ -20,29 +22,41 @@ public class ItemVO {
 	public void setI_num(Integer i_num) {
 		this.i_num = i_num;
 	}
+	public String getI_id() {
+		return i_id;
+	}
+	public void setI_id(String i_id) {
+		this.i_id = i_id;
+	}
 	public Integer getI_no() {
 		return i_no;
 	}
 	public void setI_no(Integer i_no) {
 		this.i_no = i_no;
 	}
-	public String getI_code() {
-		return i_code;
+	public int getMenu_no() {
+		return menu_no;
 	}
-	public void setI_code(String i_code) {
-		this.i_code = i_code;
+	public void setMenu_no(int menu_no) {
+		this.menu_no = menu_no;
 	}
-	public String getI_scode() {
-		return i_scode;
+	public int getMenu_no2() {
+		return menu_no2;
 	}
-	public void setI_scode(String i_scode) {
-		this.i_scode = i_scode;
+	public void setMenu_no2(int menu_no2) {
+		this.menu_no2 = menu_no2;
 	}
-	public int getI_count() {
-		return i_count;
+	public int getMenu_no3() {
+		return menu_no3;
 	}
-	public void setI_count(int i_count) {
-		this.i_count = i_count;
+	public void setMenu_no3(int menu_no3) {
+		this.menu_no3 = menu_no3;
+	}
+	public int getMenu_no4() {
+		return menu_no4;
+	}
+	public void setMenu_no4(int menu_no4) {
+		this.menu_no4 = menu_no4;
 	}
 	public int getI_price() {
 		return i_price;
@@ -50,5 +64,5 @@ public class ItemVO {
 	public void setI_price(int i_price) {
 		this.i_price = i_price;
 	}
-
+	
 }

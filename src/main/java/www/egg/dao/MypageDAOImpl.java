@@ -1,7 +1,9 @@
 package www.egg.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -33,22 +35,46 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	}
 
 	@Override
+	public List<MlistVO> orderlist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery + ".orderlist", userid);
+	}
+
+	@Override
 	public void rsave(ReviewVO rvo) throws Exception {
 		// TODO Auto-generated method stub
-		sqlsession.insert(mapperQuery + ".rinsert", rvo);
+		sqlsession.insert(mapperQuery +".rinsert", rvo);
+	}
+
+
+	@Override
+	public List<ReviewVO> myreview(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery + ".myreview", userid);
+	}
+
+
+	@Override
+	public void savefile(Integer re_no, String filename) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("re_no", re_no);
+        paramMap.put("filename", filename);  // 직렬화된 객체가 아닌 문자열
+        sqlsession.insert(mapperQuery + ".savefile", paramMap);
 	}
 
 	@Override
-	public void rnum(MlistVO mlvo) throws Exception {
+	public List<Map<String, Object>> getfilename(String userid) throws Exception {
 		// TODO Auto-generated method stub
-		sqlsession.selectOne(mapperQuery + mlvo);
+		return sqlsession.selectList(mapperQuery + ".getfile",userid);
 	}
 
 	@Override
-	public List<ReviewVO> myreview() throws Exception {
+	public List<String> getfile(String re_num) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery+".myreview");
+		return sqlsession.selectList(mapperQuery + ".getphoto", re_num);
 	}
+
 
 
 	
