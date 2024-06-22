@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import www.egg.vo.MemberVO;
+import www.egg.vo.PageVO;
 
 @Repository
 public class LoginDAOImpl implements IF_LoginDAO{
@@ -29,9 +30,9 @@ public class LoginDAOImpl implements IF_LoginDAO{
 	}
 
 	@Override
-	public List<MemberVO> memberlist() {
+	public List<MemberVO> memberlist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".selectmembers");
+		return sqlSession.selectList(mapperQuery+".selectmembers", pagevo);
 	}
 
 	@Override
@@ -41,11 +42,11 @@ public class LoginDAOImpl implements IF_LoginDAO{
 	}
 
 	@Override
-	public List<MemberVO> memberSearch(MemberVO mvo) {
+	public List<MemberVO> memberSearch(MemberVO mvo, PageVO pagevo) {
 		// TODO Auto-generated method stub
 	    String id = mvo.getId();
 		if(id==null||id.equals("")) {
-			System.out.println("memberSearch DAO 메소드: "+mvo.toString());
+			System.out.println("memberSearch DAO 硫붿냼�뱶: "+mvo.toString());
 			return sqlSession.selectList(mapperQuery+".selectmsearch", mvo);
 		}else {
 			return sqlSession.selectList(mapperQuery+".selectoneid", id);
