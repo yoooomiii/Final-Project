@@ -32,8 +32,6 @@ public class MypageServiceImpl implements IF_MypageServiece{
 
 	@Override
 	public void rsave(ReviewVO rvo) throws Exception {
-		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		 // 리뷰 저장
         mpdao.rsave(rvo);
         
@@ -45,13 +43,10 @@ public class MypageServiceImpl implements IF_MypageServiece{
         for (String rname : filename) {
             mpdao.savefile(re_no, rname);
         }
-=======
 		mpdao.rsave(rvo);
-		String[] filename =rvo.getFilename();
 		for(String rname : filename) {
-			mpdao.savefile(rname);
+			mpdao.savefile(re_no, rname);
 		}
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
 	}
 
 
@@ -68,38 +63,26 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		return mpdao.orderlist(userid);
 	}
 
-	@Override
-<<<<<<< HEAD
-	public List<Map<String, Object>> getfilename(String userid) throws Exception {
-		// TODO Auto-generated method stub
-		return mpdao.getfilename(userid);
-	}
+
+	//@Override
+
+//	public List<Map<String, Object>> getfilename(String userid) throws Exception {
+//		// TODO Auto-generated method stub
+//		return mpdao.getfilename(userid);
+//	}
 
 	@Override
 	public List<String> getfile(String re_num) throws Exception {
 		// TODO Auto-generated method stub
 		return mpdao.getfile(re_num);
-=======
-	public List<String> getfilename(String re_num) throws Exception {
-		// TODO Auto-generated method stub
-		return mpdao.getfilename(re_num);
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
 	}
 
+	public List<Map<String, Object>> getfilename(String re_num) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.getfilename(re_num);
 
+	}
 
-
-
-
-
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
-	
 
 
 

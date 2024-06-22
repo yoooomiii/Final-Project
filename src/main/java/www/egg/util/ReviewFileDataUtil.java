@@ -48,10 +48,9 @@ public class ReviewFileDataUtil {
 	@ResponseBody // 어떤 데이터를 포함하여 전송.. 어노테이션.. view지정하지 않고 바로 클라이언트 요청으로 응답.
 	public FileSystemResource fileDownload(@RequestParam("filename") String fileName, HttpServletResponse response) {
 		File file = new File(uploadPathss + "/" + fileName);
-<<<<<<< HEAD
+
 		 System.out.println("Downloading file: " + file.getAbsolutePath());
-=======
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
+
 		response.setContentType("application/download; utf-8");
 		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 		return new FileSystemResource(file);
@@ -96,10 +95,9 @@ public class ReviewFileDataUtil {
 				byte[] fileData = file[i].getBytes();
 
 				File target = new File(uploadPathss, saveName);
-<<<<<<< HEAD
+
 				 System.out.println("Uploading file: " + target.getAbsolutePath());
-=======
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
+
 				FileCopyUtils.copy(fileData, target);
 				files[i] = saveName;
 			}

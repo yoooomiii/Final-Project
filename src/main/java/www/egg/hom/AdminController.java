@@ -35,19 +35,39 @@ public class AdminController {
 	}
 	
 	@GetMapping("adminMView") 
-	public String adminMember(Model model) {
-		List<MemberVO> mlist = lservice.memberlist();
+	public String adminMember(Model model, @ModelAttribute PageVO pagevo) {
+
+		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 정보: "+pagevo.getPage());
+		pagevo.setTotalCount(30);
+		
+		pagevo.prt();
+		
+		
+		List<MemberVO> mlist = lservice.memberlist(pagevo);
+		model.addAttribute("pagevo", pagevo);
 		model.addAttribute("members", mlist);
 		return "admin/adminMember";
 	}
 	
 	@RequestMapping(value = "adminMSearch", method = RequestMethod.GET)
 	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw,
-			 @RequestParam("city") String city,  @RequestParam("county") String county
+			 @RequestParam("city") String city,  @RequestParam("county") String county,
+			 @ModelAttribute PageVO pagevo
 			) {
 		
-		System.out.println("로그인단 county: "+county);
-		if(county.equals("전체")) {
+		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 정보: "+pagevo.getPage());
+		pagevo.setTotalCount(30);
+		
+		pagevo.prt();
+		
+		System.out.println("濡쒓렇�씤�떒 county: "+county);
+		if(county.equals("�쟾泥�")) {
 			mvo.setAddress(city);
 		}else {
 			String readdress = city+" "+county;
@@ -55,15 +75,17 @@ public class AdminController {
 		}
 		
 		List<MemberVO> mlist = null;
-		if(sw==null || sw.equals("")) { // 검색어가 있거나 없는 경우 
-			mlist = lservice.memberSearch(mvo) ;
+		if(sw==null || sw.equals("")) { // 寃��깋�뼱媛� �엳嫄곕굹 �뾾�뒗 寃쎌슦 
+			mlist = lservice.memberSearch(mvo, pagevo) ;
 		}else {
 			mvo.setId(sw);
-			mlist = lservice.memberSearch(mvo) ;
+			mlist = lservice.memberSearch(mvo, pagevo) ;
 		}
+		model.addAttribute("pagevo", pagevo);
 		model.addAttribute("members", mlist);
 		return "admin/adminMember";
 	}
+	
 	
 	@RequestMapping(value = "adminMDelete", method = RequestMethod.GET)
 	public String adminMDelete(@RequestParam List<String> chkid,  Model model) {

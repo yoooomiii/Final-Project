@@ -23,7 +23,7 @@ import www.egg.vo.MenuVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
-//@Controller
+@Controller
 public class MypageController {
 
 	@Inject
@@ -48,7 +48,6 @@ public class MypageController {
 	}
 
 	@RequestMapping(value = "write", method = RequestMethod.GET)
-<<<<<<< HEAD
 	public String review(@RequestParam("m_num") Integer m_num, Model model) {
 		if (m_num == null) {
 			System.out.println("m_num값 없음");
@@ -86,7 +85,7 @@ public class MypageController {
 
 
 	@RequestMapping(value = "rwrite", method = RequestMethod.POST)
-	public String rsave(@ModelAttribute ReviewVO rvo,
+	public void rsave(@ModelAttribute ReviewVO rvo,
 			@RequestParam("re_no") Integer re_no,
 			HttpSession session,
 			MultipartFile[] file,
@@ -107,35 +106,13 @@ public class MypageController {
 		
 		mpservice.rsave(rvo);
 		System.out.println("저장되었다");
+	}
 
-=======
+
 	public String review() {
 		System.out.println("reviews");
 		return "mypage/review";
 	}
-
-	@RequestMapping(value = "mod", method = RequestMethod.GET)
-	public String modno(HttpSession session) throws Exception {
-		session.getAttribute("userid");
-		session.getAttribute("username");
-		session.getAttribute("userphone");
-		session.getAttribute("useremail");
-		session.getAttribute("useraddress");
-		return "mypage/mymod";
-	}
-
-	@RequestMapping(value = "msave", method = RequestMethod.POST)
-	public String save(@ModelAttribute MemberVO mvo, HttpSession session) throws Exception {
-		mpservice.modsave(mvo);
-		System.out.println("저장됨");
-		session.getAttribute("userid");
-		session.getAttribute("username");
-		session.getAttribute("userphone");
-		session.getAttribute("useremail");
-		session.getAttribute("useraddress");
-		return "mypage/mypage";
-	}
-
 
 	@RequestMapping(value = "rwrite", method = RequestMethod.POST)
 	public String rsave(@ModelAttribute ReviewVO rvo,
@@ -174,7 +151,6 @@ public class MypageController {
 		System.out.println("여기까지?");
 		mpservice.rsave(rvo);
 		System.out.println("저장되었다");
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
 		return "redirect:/"; // 실제로 이동할 URL로 변경
 	}
 
@@ -204,7 +180,7 @@ public class MypageController {
 	//        return "mypage/mypage";
 	//    }
 
-<<<<<<< HEAD
+
 
 	@GetMapping(value="allreview")
 	public String allreviews(
@@ -225,36 +201,36 @@ public class MypageController {
 		System.out.println("요오오오오오기?");
 		model.addAttribute("review", myreview);	
 		model.addAttribute("photo", photolist);
+		return "mypage/myreview";
+	}
 		//		model.addAttribute("photolist", photolist);  //내가 쓴 리뷰 사진
 
-=======
+
 //	@GetMapping(value="myreview")
 //	public String allreview() {
 //		return "mypage/myreview";
 //
 //	}
 
-	@GetMapping(value="allreview")
-	public String allreviews(@ModelAttribute ReviewVO rvo,
-							@RequestParam("re_num") String re_num,
-							HttpSession session,
-							Model model)  throws Exception {
-		
-		String userid = (String) session.getAttribute("userid");
-		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-		List<ReviewVO> myreview= mpservice.myreview(userid);
-		rvo.setRe_id(userid);
-		List<String> photolist= mpservice.getfilename(re_num);
-		System.out.println("요오오오오오기?");
-		model.addAttribute("rvo", rvo);		
-		model.addAttribute("photolist", photolist);  //내가 쓴 리뷰 사진
-			
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
-		return "mypage/myreview";
-	}
+//	@GetMapping(value="allreview")
+//	public String allreviews(@ModelAttribute ReviewVO rvo,
+//							@RequestParam("re_num") String re_num,
+//							HttpSession session,
+//							Model model)  throws Exception {
+//		
+//		String userid = (String) session.getAttribute("userid");
+//		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
+//		List<ReviewVO> myreview= mpservice.myreview(userid);
+//		rvo.setRe_id(userid);
+//		List<String> photolist= mpservice.getfilename(re_num);
+//		System.out.println("요오오오오오기?");
+//		model.addAttribute("rvo", rvo);		
+//		model.addAttribute("photolist", photolist);  //내가 쓴 리뷰 사진
+//		return "mypage/myreview";
+//	}
 	
 	
-<<<<<<< HEAD
+
 	@GetMapping(value ="view")
 	public String view( HttpSession session,
 			@ModelAttribute ReviewVO rvo,
@@ -270,8 +246,7 @@ public class MypageController {
 	}
 
 
-=======
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
+
 	@GetMapping(value="mylist")
 	public String oderlist(HttpSession session, Model model,MlistVO mlvo) throws Exception {
 		String userid = (String) session.getAttribute("userid");
@@ -287,17 +262,16 @@ public class MypageController {
 		} else {
 			System.out.println("아이디 없음");  // 디버그용 로그 출력
 		}
-<<<<<<< HEAD
+
 
 		return "mypage/orderlist";
 	}
 
-=======
+
 		
-		return "mypage/orderlist";
-	}
+
 	
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
+
 
 }
 
