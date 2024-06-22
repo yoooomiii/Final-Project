@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_LoginDAO;
 import www.egg.vo.MemberVO;
+import www.egg.vo.PageVO;
 
 @Service
 public class LoginServiceImpl implements IF_LoginService {
@@ -28,9 +29,9 @@ public class LoginServiceImpl implements IF_LoginService {
 	}
 
 	@Override
-	public List<MemberVO> memberlist() {
+	public List<MemberVO> memberlist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return logindao.memberlist();
+		return logindao.memberlist(pagevo);
 	}
 
 	@Override
@@ -40,9 +41,9 @@ public class LoginServiceImpl implements IF_LoginService {
 	}
 
 	@Override
-	public List<MemberVO> memberSearch(MemberVO mvo) {
+	public List<MemberVO> memberSearch(MemberVO mvo, PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return logindao.memberSearch(mvo);
+		return logindao.memberSearch(mvo, pagevo);
 	}
 
 	@Override
