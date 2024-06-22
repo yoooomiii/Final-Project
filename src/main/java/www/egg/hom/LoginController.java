@@ -38,7 +38,7 @@ public class LoginController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "signIn", method = RequestMethod.POST) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임)
+	@RequestMapping(value = "signIn", method = RequestMethod.POST) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임!)
 	public String signIn(@RequestParam("id") String id,
 			@RequestParam("pw") String pw, HttpSession session ,Model model) {
 		

@@ -36,9 +36,16 @@
                 <button type="submit" id="toggleSignIn">로그인</button>
               </div>
               
-              <h5 style="color:gray;">
-              	<a href="./">메인 HOME</a> | <a href="join">회원가입</a>
-              </h5>
+              	<c:if test="${userid == null }">
+	              <h5 style="color:gray;">
+	              	<a href="./">메인 HOME</a> | <a href="join">회원가입</a>
+	              </h5>
+              	</c:if>
+              	   	<c:if test="${userid != null }">
+	              <h5 style="color:gray;">
+	              	<a href="adminEnter">관리자 HOME</a> | <a href="logout">로그아웃</a>
+	              </h5>
+              	</c:if>
   
             </form>
           </div>
