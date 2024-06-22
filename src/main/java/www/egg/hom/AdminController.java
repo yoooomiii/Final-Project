@@ -29,7 +29,7 @@ public class AdminController {
 	IF_AdminService aservice;
 	
 	
-	@GetMapping("adminEnter") // 愿�由ъ옄 �럹�씠吏� 
+	@GetMapping("adminEnter") // 관리자 페이지 
 	public String adminEnter(HttpSession session) {
 		return "admin/adminMain";
 	}
@@ -86,6 +86,7 @@ public class AdminController {
 		return "admin/adminMember";
 	}
 	
+	
 	@RequestMapping(value = "adminMDelete", method = RequestMethod.GET)
 	public String adminMDelete(@RequestParam List<String> chkid,  Model model) {
 		for (String c: chkid) {
@@ -109,13 +110,13 @@ public class AdminController {
 		return "redirect:adminMView";
 	}
 	
-	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 二쇰Ц�궡�뿭愿�由�
+	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model , @ModelAttribute PageVO pagevo) {
 		
 		if(pagevo.getPage()==null) {
 			pagevo.setPage(1);
 		}
-		System.out.println("�쁽�옱 �럹�씠吏� 踰덊샇: "+pagevo.getPage());
+		System.out.println("현재 페이지 번호: "+pagevo.getPage());
 		pagevo.setTotalCount(60);
 		
 		pagevo.prt();
@@ -132,7 +133,7 @@ public class AdminController {
 	public String adminDView(Model model) {
 		
 		List<DeliveryVO> dlist = aservice.deliverylist();
-		System.out.println("adminController 諛곕떖愿�由щ럭: "+dlist);
+		System.out.println("adminController 배달관리뷰: "+dlist);
 		model.addAttribute("deliverys", dlist);
 		return "admin/adminDelivery";
 	}
@@ -192,16 +193,16 @@ public class AdminController {
 			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
 			) {
 		
-		// vo �뀑�똿�븯�뀍. 
+		// vo 셋팅하셈. 
 		List<MlistVO> olist = null;
-		if(sw==null || sw.equals("")) { // 寃��깋�뼱 �쑀臾�!
+		if(sw==null || sw.equals("")) { // 검색어 유무!
 			ovo.setM_state(m_state);
-			System.out.println("�뼱�뱶誘쇱퐯�듃濡ㅻ윭 OVO(sw null): "+ovo.toString());
+			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
 			olist = aservice.searchOrder(ovo);
 		}else {
 			Integer m_num = Integer.parseInt(sw);
 			ovo.setM_num(m_num);
-			System.out.println("�뼱�뱶誘쇱퐯�듃濡ㅻ윭 OVO(sw ok): "+ovo.toString());
+			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
 			olist = aservice.searchOrder(ovo);
 		}
 		
@@ -216,18 +217,18 @@ public class AdminController {
 		
 		
 		
-		// vo �뀑�똿�븯�뀍. 
-		System.out.println("�뼱�뱶誘쇱퐯�듃濡ㅻ윭 sw: "+sw);
-		System.out.println("�뼱�뱶誘쇱퐯�듃濡ㅻ윭 d_check: "+d_check);
+		// vo 셋팅하셈. 
+		System.out.println("어드민콘트롤러 sw: "+sw);
+		System.out.println("어드민콘트롤러 d_check: "+d_check);
 		List<DeliveryVO> dlist = null;
-		if(sw==null || sw.equals("")) { // 寃��깋�뼱 �쑀臾�!
+		if(sw==null || sw.equals("")) { // 검색어 유무!
 			dvo.setD_check(d_check);
-			System.out.println("�뼱�뱶誘쇱퐯�듃濡ㅻ윭 dvo(sw null): "+dvo.toString());
+			System.out.println("어드민콘트롤러 dvo(sw null): "+dvo.toString());
 			dlist = aservice.searchDelivery(dvo);
 		}else {
 			Integer d_no = Integer.parseInt(sw);
 			dvo.setD_no(d_no);
-			System.out.println("�뼱�뱶誘쇱퐯�듃濡ㅻ윭 dvo(sw ok): "+dvo.toString());
+			System.out.println("어드민콘트롤러 dvo(sw ok): "+dvo.toString());
 			dlist = aservice.searchDelivery(dvo);
 		}
 		

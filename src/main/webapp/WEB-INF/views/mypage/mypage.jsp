@@ -277,11 +277,6 @@ button {
 						<a href="${pageContext.request.contextPath}/allreview"> 
 						<img src="${pageContext.request.contextPath}/resources/img/리뷰.png"	width="100" height="90">
 						</a>
-						<%-- <form action="myreview" method="get" id="myreviewForm">
-							<input type="hidden" name="userid" value="${sessionScope.userid}">
-							<img src="./resources/img/리뷰.png" width="100" height="90"
-								onclick="document.getElementById('myreviewForm').submit();">
-						</form> --%>
 						<h3>리뷰</h3>
 					</div>
 					<div class="iconimg">

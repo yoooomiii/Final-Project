@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
 	float: left;
 	width: 900px;
 	height: 1000px;
-	margin-left :110px;
+	margin-left: 110px;
 	border: 2px solid red;
 }
 
@@ -44,10 +44,10 @@ td {
 	padding: 15px 0px;
 	border-bottom: 2px solid grey;
 }
-#btn{
-	margin-left:-50px;
-}
 
+#btn {
+	margin-left: -50px;
+}
 </style>
 <body>
 	<div id="box">
@@ -61,7 +61,7 @@ td {
 						<td>리뷰</td>
 					</tr>
 				</thead>
-				
+
 				<tbody>
 					<!-- 내일 학원가서 데이터 넣어보기 -->
 					<c:forEach items="${mlvo}" var="mlvo">
@@ -69,9 +69,12 @@ td {
 							<td>${mlvo.m_num}</td>
 							<td>${mlvo.m_id}</td>
 							<td>${mlvo.m_state}</td>
-							<form action="write" method="get">
-							<td><button>리뷰쓰기</button></td>
-							</form>
+							<td>
+								<form action="write" method="get">
+									<input type="hidden" name="m_num" value="${mlvo.m_num}">
+									<button type="submit">리뷰쓰기</button>
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 

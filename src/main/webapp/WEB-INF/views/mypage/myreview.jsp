@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,78 +8,82 @@
 <title>Insert title here</title>
 </head>
 <style>
-#box {
-	float: left;
-	width: 900px;
-	height: 1000px;
-	margin-left :110px;
-	border: 2px solid red;
-}
-
-h3 {
-	text-align: center;
-}
-
-h2 {
-	font-size: large;
-}
-
 table {
+	width: 100%;
 	border-collapse: collapse;
-	width: 800px;
-	font-size: 16px;
-	margin-left: 28px;
+	margin: 20px 0;
+	font-size: 18px;
+	text-align: left;
 }
 
-thead {
-	text-align: center;
+table thead tr {
+	background-color: #f2f2f2;
+	color: #333;
+	text-align: left;
 	font-weight: bold;
 }
 
-tbody {
-	font-size: 12px;
+table th, table td {
+	padding: 12px 15px;
+	border: 1px solid #ddd;
 }
 
-td {
-	padding: 15px 0px;
-	border-bottom: 2px solid grey;
-}
-#btn{
-	margin-left:-50px;
+table tbody tr {
+	border-bottom: 1px solid #ddd;
 }
 
+table tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+table tbody tr:last-of-type {
+	border-bottom: 2px solid #009879;
+}
+
+table tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+img {
+	max-width: 100px;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
 </style>
 <body>
-	<div id="box">
-		<div id="review" class="content">
-			<table class='review__list'>
-				<thead>
-					<tr>
-						<td>메뉴사진</td>
-						<td>메뉴이름</td>
-						<td>별점</td>
-						<td>리뷰</td>
-					</tr>
-				</thead>
-				
-				<tbody>
-					<!-- 내일 학원가서 데이터 넣어보기 -->
-					<c:forEach items="${photolist}" var="photo">
-						<tr>
-							<td><img src="download?filename=${photo}"></td>
-							<td>${rvo.re_ex}</td>
-							<td>${rvo.re_ex}</td>
-							<td>${rvo.re_ex}</td>
-							
-						</tr>
-			 		</c:forEach> 
-
-
-				</tbody>
-			</table>
-		</div>
-
-	</div>
-
+	<h2>나의 리뷰 목록</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>사진</th>
+				<th>메뉴 이름</th>
+				<th>별점</th>
+				<th>리뷰</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${review}" var="reviewItem">
+				<tr>
+					<td><c:forEach items="${photolist}" var="photo">
+							<c:if test="${reviewItem.re_no == photo.no}">
+								<img
+									src="${pageContext.request.contextPath}/download?filename=${photo.filename}"
+									alt="Review Photo" width="100">
+								<p>Review No: ${reviewItem.re_no}, Photo Filename:
+									${photo.filename}</p>
+								<!-- 디버깅 메시지 -->
+							</c:if>
+						</c:forEach></td>
+					<td>${reviewItem.re_no}</td>
+					<td>${reviewItem.re_star}</td>
+					<td>${reviewItem.re_ex}</td>
+					<form action="view" method="get">
+					<td><button>사진보기</button></td>
+					</form>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>
