@@ -86,7 +86,7 @@
   	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
 	</beans:bean>  
-<<<<<<< HEAD
+
 	
  	<!-- <context:component-scan base-package="www.egg" /> -->
 	 <beans:bean class="java.lang.String" id="uploadPathss">
@@ -94,7 +94,7 @@
 	</beans:bean> 
 
 	
-=======
+
 
 	
 	
@@ -102,15 +102,8 @@
    		 <beans:constructor-arg value="/reviewimg"></beans:constructor-arg>
 	</beans:bean> -->  
 
-	
 
- 	<!-- <context:component-scan base-package="www.egg" /> -->
-	 <beans:bean class="java.lang.String" id="uploadPathss">
-		<beans:constructor-arg value="/reviewimg"></beans:constructor-arg>
-	</beans:bean> 
 
-	
->>>>>>> e8039df8a910d44de6a1c32f234a3bf5a72161cb
 	<context:component-scan
 		base-package="www.egg.hom" />
 	<context:component-scan

@@ -23,7 +23,7 @@ import www.egg.vo.MenuVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
-@Controller
+// @Controller
 public class MypageController {
 
 	@Inject
@@ -32,10 +32,6 @@ public class MypageController {
 	@Inject
 	ReviewFileDataUtil reviewfiledatautil;
 
-	@GetMapping(value = "/")
-	public String main() {
-		return "main";
-	}
 
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
 	public String home(HttpSession session) {

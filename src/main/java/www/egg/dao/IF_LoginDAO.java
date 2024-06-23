@@ -13,4 +13,6 @@ public interface IF_LoginDAO {
 	public List<MemberVO> memberSearch(MemberVO mvo, PageVO pagevo);
 	public void modMaster(MemberVO mvo);
 	
+	public int getTotalCount()  throws Exception;
+	
 }

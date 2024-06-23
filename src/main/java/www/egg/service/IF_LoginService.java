@@ -15,5 +15,7 @@ public interface IF_LoginService {
 	public void quiteAccount(String id);
 	public List<MemberVO> memberSearch(MemberVO mvo, PageVO pagevo);
 	public void modMaster(MemberVO mvo);
+	
+	public int getTotalCount()  throws Exception;
 
 }
