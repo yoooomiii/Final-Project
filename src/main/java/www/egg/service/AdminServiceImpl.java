@@ -86,6 +86,12 @@ public class AdminServiceImpl implements IF_AdminService {
 		
 	}
 
+	@Override
+	public int getTotalCount() throws Exception {
+		// TODO Auto-generated method stub
+		return adao.getTotalCount();
+	}
+
 	
 
 

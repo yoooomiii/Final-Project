@@ -52,5 +52,11 @@ public class LoginServiceImpl implements IF_LoginService {
 		
 	}
 
+	@Override
+	public int getTotalCount() throws Exception {
+		// TODO Auto-generated method stub
+		return logindao.getTotalCount();
+	}
+
 
 }

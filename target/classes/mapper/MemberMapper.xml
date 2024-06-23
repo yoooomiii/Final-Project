@@ -29,4 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateonemaster" parameterType="www.egg.vo.MemberVO">
 		update member set master = #{master} where id = #{id}
 	</update>
+	<select id="getToatalCount" resultType="int">
+		select count (*) from member
+	</select>
 </mapper>
