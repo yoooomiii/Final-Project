@@ -30,18 +30,18 @@ public class AdminController {
 	
 	
 	@GetMapping("adminEnter") // 관리자 페이지 
-	public String adminEnter(HttpSession session) {
+	public String adminEnter(HttpSession session) throws Exception {
 		return "admin/adminMain";
 	}
 	
 	@GetMapping("adminMView") 
-	public String adminMember(Model model, @ModelAttribute PageVO pagevo) {
+	public String adminMember(Model model, @ModelAttribute PageVO pagevo) throws Exception {
 
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(30);
+		pagevo.setTotalCount(lservice.getTotalCount());
 		
 		pagevo.prt();
 		
@@ -56,7 +56,7 @@ public class AdminController {
 	public String adminMSearch( Model model, @ModelAttribute MemberVO mvo, @RequestParam("sword") String sw,
 			 @RequestParam("city") String city,  @RequestParam("county") String county,
 			 @ModelAttribute PageVO pagevo
-			) {
+			) throws Exception {
 		
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
@@ -88,7 +88,7 @@ public class AdminController {
 	
 	
 	@RequestMapping(value = "adminMDelete", method = RequestMethod.GET)
-	public String adminMDelete(@RequestParam List<String> chkid,  Model model) {
+	public String adminMDelete(@RequestParam List<String> chkid,  Model model) throws Exception {
 		for (String c: chkid) {
 			// System.out.println("List<String> chkid: "+c);
 			lservice.quiteAccount(c);
@@ -97,27 +97,27 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminMUpform", method = RequestMethod.GET)
-	public String adminMUpform(@RequestParam("id") String id,  Model model) {
+	public String adminMUpform(@RequestParam("id") String id,  Model model) throws Exception {
 		MemberVO mvo =  lservice.signIn(id); 
 		model.addAttribute("mvo", mvo);
 		return "admin/adminMUpform";
 	}
 	
 	@RequestMapping(value = "adminMUp", method = RequestMethod.POST)
-	public String adminMUdate(@ModelAttribute MemberVO mvo) {
+	public String adminMUdate(@ModelAttribute MemberVO mvo) throws Exception {
 		lservice.modMaster(mvo);
 		
 		return "redirect:adminMView";
 	}
 	
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
-	public String adminOView(Model model , @ModelAttribute PageVO pagevo) {
+	public String adminOView(Model model , @ModelAttribute PageVO pagevo) throws Exception {
 		
 		if(pagevo.getPage()==null) {
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 번호: "+pagevo.getPage());
-		pagevo.setTotalCount(60);
+		pagevo.setTotalCount(aservice.getTotalCount());
 		
 		pagevo.prt();
 		
@@ -130,7 +130,7 @@ public class AdminController {
 		return "admin/adminMlist";
 	}
 	@RequestMapping(value = "adminDView", method = RequestMethod.GET)
-	public String adminDView(Model model) {
+	public String adminDView(Model model) throws Exception {
 		
 		List<DeliveryVO> dlist = aservice.deliverylist();
 		System.out.println("adminController 배달관리뷰: "+dlist);
@@ -139,7 +139,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminODelete", method = RequestMethod.GET)
-	public String adminODelete(@RequestParam List<String> chkid) {
+	public String adminODelete(@RequestParam List<String> chkid) throws Exception {
 		for (String c: chkid) {
 			//System.out.println("List<String> chkid: "+c);
 			//lservice.quiteAccount(c);
@@ -149,38 +149,38 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminOUpform", method = RequestMethod.GET)
-	public String adminOUpform(@RequestParam("m_num") String m_num,  Model model) {
+	public String adminOUpform(@RequestParam("m_num") String m_num,  Model model) throws Exception {
 		MlistVO ovo = aservice.pickOrdernum(m_num);
 		model.addAttribute("ovo", ovo);
 		return "admin/adminOUpform";
 	}
 	@RequestMapping(value = "adminOUp", method = RequestMethod.POST)
-	public String adminOUdate(@ModelAttribute MlistVO ovo) {
+	public String adminOUdate(@ModelAttribute MlistVO ovo) throws Exception {
 		aservice.modOrderstate(ovo);
 		return "redirect:adminOView";
 	}
 	@RequestMapping(value = "adminODetail", method = RequestMethod.GET)
-	public String adminODetail(@RequestParam("m_num") String m_num ,  Model model) {
+	public String adminODetail(@RequestParam("m_num") String m_num ,  Model model) throws Exception {
 		PaymentVO pvo = aservice.pickPaymentnum(m_num);
 		model.addAttribute("pvo", pvo);
 		return "admin/adminOPayment";
 	}
 	
 	@RequestMapping(value = "adminODelivery", method = RequestMethod.GET)
-	public String adminODelivery(@RequestParam("m_num") String m_num ,  Model model) {
+	public String adminODelivery(@RequestParam("m_num") String m_num ,  Model model) throws Exception {
 		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
 		model.addAttribute("dvo", dvo);
 		return "admin/adminODelivery";
 	}
 	
 	@RequestMapping(value = "adminDUpform", method = RequestMethod.GET)
-	public String adminDUpform(@RequestParam("m_num") String m_num,  Model model) {
+	public String adminDUpform(@RequestParam("m_num") String m_num,  Model model) throws Exception {
 		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
 		model.addAttribute("dvo", dvo);
 		return "admin/adminDUpform";
 	}
 	@RequestMapping(value = "adminDUp", method = RequestMethod.POST)
-	public String adminDUdate(@ModelAttribute DeliveryVO dvo,  Model model) {
+	public String adminDUdate(@ModelAttribute DeliveryVO dvo,  Model model) throws Exception {
 		aservice.modDelivery(dvo);
 		
 		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+"");
@@ -191,7 +191,7 @@ public class AdminController {
 	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
 	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
 			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
-			) {
+			) throws Exception {
 		
 		// vo 셋팅하셈. 
 		List<MlistVO> olist = null;
@@ -213,7 +213,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminDSearch", method = RequestMethod.GET)
 	public String adminDsearch( Model model, @RequestParam("sword") String sw,  
-			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo) {
+			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo) throws Exception {
 		
 		
 		
@@ -237,7 +237,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("adminDDelete") 
-	public String adminDDelete(@RequestParam List<String> chkid) {
+	public String adminDDelete(@RequestParam List<String> chkid) throws Exception {
 		for(String c: chkid) {
 			aservice.deleteDeliverynum(c);
 		}

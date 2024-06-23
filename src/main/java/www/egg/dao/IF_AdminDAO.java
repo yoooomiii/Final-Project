@@ -19,5 +19,6 @@ public interface IF_AdminDAO {
 	public List<MlistVO> searchOrder(MlistVO ovo);
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
 	public void deleteDeliverynum(String m_num);
+	public int getTotalCount() throws Exception;
 
 }

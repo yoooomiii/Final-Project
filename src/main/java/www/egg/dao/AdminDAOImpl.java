@@ -85,7 +85,7 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		// TODO Auto-generated method stub
 		String d_no = dvo.getD_no()+"";
 		String d_check = dvo.getD_check();
-		System.out.println("어드민dao dvo: "+dvo.toString());
+		System.out.println("�뼱�뱶誘펋ao dvo: "+dvo.toString());
 		if(d_check==null||d_check.equals("")) {
 			return sqlSession.selectList(mapperQuery+".selectdeliverynum", d_no);
 		}
@@ -96,6 +96,12 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	public void deleteDeliverynum(String m_num) {
 		// TODO Auto-generated method stub
 		sqlSession.delete(mapperQuery+".deletedeliverynum", m_num);
+	}
+
+	@Override
+	public int getTotalCount() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(mapperQuery+".getToatalCount");
 	}
 	
 

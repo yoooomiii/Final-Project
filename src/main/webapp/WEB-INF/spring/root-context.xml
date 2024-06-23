@@ -14,9 +14,9 @@
 
 		<property name="username" value="root" />
 		<property name="password" value="1111" />
+
 	</bean> 
-	
-	
+
 
 	<!-- factory bean 쿼리문 공장 -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean"

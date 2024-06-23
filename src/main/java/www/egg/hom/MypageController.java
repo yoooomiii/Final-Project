@@ -24,7 +24,7 @@ import www.egg.vo.MenuVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
-@Controller
+// @Controller
 public class MypageController {
 
 	@Inject
@@ -33,10 +33,6 @@ public class MypageController {
 	@Inject
 	ReviewFileDataUtil reviewfiledatautil;
 
-	//	@GetMapping(value = "/")
-	//	public String main() {
-	//		return "main";
-	//	}
 
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)   //로그인시 마이페이지에 정보 띄위기
 	public String home(HttpSession session) {

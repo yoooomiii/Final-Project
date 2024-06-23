@@ -59,6 +59,12 @@ public class LoginDAOImpl implements IF_LoginDAO{
 		
 	}
 
+	@Override
+	public int getTotalCount() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(mapperQuery+".getToatalCount");
+	}
+
 
 
 }
