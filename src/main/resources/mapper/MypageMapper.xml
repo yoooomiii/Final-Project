@@ -4,49 +4,46 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="www.egg.dao.IF_MypageDAO">
 
-	<select id="selectone" resultType="www.egg.vo.MemberVO">
+	<select id="selectone" resultType="www.egg.vo.MemberVO">		<!-- 회원정보 불러오기(수정용) -->
 		select
 		id,name,phone,email,address from member where id=#{id}
 	</select>
 
-	<update id="update" parameterType="www.egg.vo.MemberVO">
+	<update id="update" parameterType="www.egg.vo.MemberVO">		<!-- 수정된 회원정보 업데이트 -->
 		update member set
 		name=#{name}, phone=#{phone},email=#{email},address=#{address}
 		where
 		id=#{id}
 	</update>
 
-	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO"
-		useGeneratedKeys="true" keyProperty="re_no"> <!-- 리뷰 등록 -->
-		INSERT INTO review (re_no, re_id, re_ex, re_star)
-		VALUES (#{re_no}, #{re_id}, #{re_ex}, #{re_star})
+	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO" useGeneratedKeys="true" keyProperty="re_num"> <!-- 리뷰내용 저장 -->
+		INSERT INTO review (re_id, re_no, re_ex, re_star)
+		VALUES (#{re_id},
+		#{re_no}, #{re_ex}, #{re_star})
 	</insert>
 
-	<insert id="savefile" parameterType="map">
-		INSERT INTO photo (no, filename) VALUES (#{re_no}, #{filename})
+	<insert id="savefile" parameterType="map">		<!-- 리뷰 첨부파일 저장 -->
+		INSERT INTO photo (no, filename) VALUES (#{re_num}, #{filename})
 	</insert>
 
-	<select id="myreview" parameterType="string" resultType="www.egg.vo.ReviewVO">
+	<select id="myreview" parameterType="string" resultType="www.egg.vo.ReviewVO"> <!-- 나의 리뷰내역 보기 -->
 		SELECT re_num, re_no, re_id, re_ex, re_star
-        FROM review
-        WHERE re_id = #{userid}
+		FROM review
+		WHERE re_id = #{userid}
 	</select>
 
-	<select id="orderlist" resultType="www.egg.vo.MlistVO">
+	<select id="getphoto" parameterType="Integer" resultType="map">		<!-- 리뷰에 맞는 사진 불러오기 -->
+		SELECT
+		no AS re_num, filename
+		FROM photo
+		WHERE no = #{re_num}
+	</select>
+
+	<select id="orderlist" resultType="www.egg.vo.MlistVO">		<!-- 주문내역 불러오기 -->
 		SELECT * FROM mlist WHERE m_id
 		= #{userid}
 	</select>
 
-	<select id="getfile" parameterType="string" resultType="map">
-		 SELECT p.filename, p.no
-        FROM photo p
-        JOIN review r ON p.no = r.re_no
-        WHERE r.re_id = #{userId}
-	</select>
-
-	<select id="getphoto" resultType="String">
-		select filename from photo p left outer join review r on p.no=r.re_num
-	</select>
 
 
 

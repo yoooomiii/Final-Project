@@ -25,8 +25,8 @@
 </head>
 <style>
 #line {
-	width: 1210px;
-	height: 350px;
+	width: 1200px;
+	height: 600px;
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
@@ -35,8 +35,8 @@
 
 #mypage {
 	float: left;
-	width: 1210px;
-	height: 70px;
+	width: 1200px;
+	height: 30px;
 	/* border: 1px solid black;  */
 	margin-top: 20px;
 }
@@ -53,51 +53,44 @@
 
 #profile {
 	float: left;
-	width: 1210px;
-	height: 200px;
-	margin-left: 20px;
-	/* border: 1px solid black; */
+	width: 1100px;
+	height: 240px;
+	margin-left: 40px;
+	margin-top: 15px;
+	/* border: 1px solid red; */
 }
 
 #photo {
 	float: left;
-	width: 200px;
-	height: 200px;
-	margin-left: 20px;
+	width: 240px;
+	height: 240px;
+	margin-left: 110px;
 	border-radius: 100px;
-	border: 5px solid yellow;;
+	border: 5px solid grey;
 }
 
 #info {
 	float: left;
-	width: 300px;
+	width: 400px;
 	height: 200px;
-	margin-left: 15px;
+	margin-left: 250px;
+	margin-top: 20px;
 	/* border: 1px solid black; */
 }
 
 #icon {
 	float: left;
-	width: 650px;
-	height: 200px;
-	/* border: 1px solid black; */
+	width: 1100px;
+	height: 150px;
+	margin-top: 60px;
+	margin-left: 55px;
+	/* border: 1px solid blue; */
 }
 
 .iconimg {
 	float: left;
-	margin-left: 50px;
+	margin-left: 120px;
 	margin-top: 20px;
-}
-
-#page {
-	float: left;
-	width: 1210px;
-	height: 800px;
-	margin-top: 10px;
-	border: 4px solid gray;
-	margin-left: 20px;
-	border-radius: 30px;
-	/*  border: 1px solid black;  */
 }
 
 footer {
@@ -106,7 +99,7 @@ footer {
 	height: 300px;
 	margin-top: 40px;
 	text-align: center;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 h3 {
@@ -138,14 +131,10 @@ td {
 	border-bottom: 2px solid grey;
 }
 
+
 .iconimg:hover {
 	box-shadow: 4px 4px 4px black;
 	transition-duration: 0.3s;
-}
-
-button {
-	padding: 0;
-	box-sizing: border-box;
 }
 
 .container {
@@ -155,12 +144,11 @@ button {
 	padding: 20px;
 }
 
-.delete-button {
+#mod-button {
 	background-color: skyblue;
-	color: gray;
-	margin-right: 100px;
+	color: black;
 	border: none;
-	border-radius: 5px;
+	border-radius: 15px;
 	padding: 10px 20px;
 	font-size: 16px;
 	cursor: pointer;
@@ -168,24 +156,12 @@ button {
 	transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.delete-button:hover {
+#mod-button:hover {
 	background-color: skyblue;
 }
 
-.delete-button:active {
+#mod-button:active {
 	transform: scale(0.95);
-}
-
-.delete-button2 {
-	background-color: skyblue;
-	color: gray;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 13px;
-	cursor: pointer;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition: background-color 0.3s ease, transform 0.3s ease;
 }
 </style>
 
@@ -242,229 +218,100 @@ button {
 			</div>
 
 
-
-
 			<div id="profile">
 				<div id="photo"></div>
-
 				<div id="info">
-
-					<h2>아이디:${userid}</h2>
-					<h2>이메일:${useremail}</h2>
-					<h2>최근 주소:${useraddress}</h2>
-					<form action="mod" method="get">
-						<button type="submit">나의 정보 수정</button>
-					</form>
-
-
-				</div>
-
-
-
-				<div id="icon">
-					<div class="iconimg">
-						<a href="${pageContext.request.contextPath}/mylist"> 
-						<img src="${pageContext.request.contextPath}/resources/img/주문내역2.png" width="100" height="90">
-						</a>	
-						<h3>주문내역</h3>
-					</div>
-					<div class="iconimg">
-						<img src="./resources/img/찜목록2.png" width="100" height="90"
-							onclick="changeContent('cart')">
-						<h3>찜목록</h3>
-					</div>
-					<div class="iconimg">
-						<a href="${pageContext.request.contextPath}/allreview"> 
-						<img src="${pageContext.request.contextPath}/resources/img/리뷰.png"	width="100" height="90">
-						</a>
-						<h3>리뷰</h3>
-					</div>
-					<div class="iconimg">
-						<img src="./resources/img/포인트.png" width="100" height="90"
-							onclick="changeContent('point')">
-						<h3>포인트</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<section id="page">
-			<div id="menupick">
-				<div id="mlist" class="content">
-					<table class='order__list'>
-						<thead>
-							<tr>
-								<td>주문번호</td>
-								<td>메뉴이름</td>
-								<td>수령방법</td>
-								<td>주문날짜</td>
-								<td>리뷰쓰기</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class='order__list__detail'>
-								<td>12345</td>
-								<td>간장치킨</td>
-								<td>배달</td>
-								<td>023-06-19</td>
-								<form action="write" method="get">
-									<td><button>리뷰쓰기</button></td>
-								</form>
-							</tr>
-							<!-- 여기에 더 많은 주문 항목을 추가할 수 있습니다 -->
-						</tbody>
-					</table>
-				</div>
-				<div id="cart" class="content">
-					<table class='cart__list'>
-						<thead>
-							<tr>
-								<td>체크박스</td>
-								<td>메뉴사진</td>
-								<td>메뉴</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class='cart__list__detail'>
-								<td><input type="checkbox"></td>
-								<td>사진</td>
-								<td>후라이드 치킨</td>
-							</tr>
-							<!-- 여기에 더 많은 찜 목록 항목을 추가할 수 있습니다 -->
-						</tbody>
-					</table>
-					<div class="container">
-						<button class="delete-button">삭제</button>
-					</div>
-				</div>
-
-				<div id="review" class="content">
-					<table class='review__list'>
-						<thead>
-							<tr>
-								<td>주문번호</td>
-								<td>메뉴이름</td>
-								<td>별점</td>
-								<td>리뷰</td>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- 내일 학원가서 데이터 넣어보기 -->
-							<c:forEach items="${rvo}" var="rvo">
-								<tr class='review__list__detail'>
-									<!-- <td><input type="hidden" name="re_id" value="userid"> -->
-									<td>${rvo.re_num}</td>
-									<td>${rvo.re_id}</td>
-									<td>${rvo.re_star}</td>
-									<td>
-										<form action='reviewcontent' method='get'>
-											<button type="submit">리뷰보기</button>
-										</form>
-									</td>
-								</tr>
-							</c:forEach>
-
-
-						</tbody>
-					</table>
-				</div>
-
-			</div>
-			<div id="point" class="content">
-				<div>
-					<h1>현재 포인트: 10,000P</h1>
+					<h2>아이디 : ${userid}</h2>
 					<br>
-					<table class='point__list'>
-						<thead>
-							<tr>
-								<td>날짜</td>
-								<td>가게명</td>
-								<td>포인트</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class='point__list__detail'>
-								<td>2024.06.20</td>
-								<td>도미노피자</td>
-								<td>+120p적립</td>
-							</tr>
-							<!-- 여기에 더 많은 찜 목록 항목을 추가할 수 있습니다 -->
-						</tbody>
-					</table>
+					<h2>이메일 : ${useremail}</h2>
+					<br>
+					<h2>최근 주소 : ${useraddress}</h2>
+					<br>
+					<form action="mod" method="get">
+						<button type="submit" id="mod-button">나의 정보 수정</button>
+					</form>
 				</div>
 			</div>
-	</div>
 
-	</section>
-
-	<script>
-	function changeContent(type) {
-        // 모든 content 클래스를 숨기기
-        const contents = document.querySelectorAll('.content');
-        contents.forEach(content => content.style.display = 'none');
-      	/*   각 요소의 style.display 속성을 'none'으로 설정하여 해당 요소를 숨깁니다. */
-
-        // 선택한 type에 맞는 content만 보이기
-        const selectedContent = document.getElementById(type);
-        if (selectedContent){
-            selectedContent.style.display = 'block';
-        }
-    }
-
-    // 초기 로딩 시 기본 콘텐츠 보이기 (예: 'mlist')
-   /*  changeContent('mlist'); */
-    document.querySelectorAll('.content').forEach(content => content.style.display = 'none');
-    document.getElementById('message').style.display = 'block';
-</script>
-
-
-
-
-
-
-
-
-
-
-	<footer>
-		<div class="footer-box">
-			<div class="footer-logo">
-				<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
-					alt=""></a>
-			</div>
-			<div class="footer-con">
-				<div class="con-text">
-					<span> 상호명 : Golden Egg chicken (골든에그) </span>
+			<div id="icon">
+				<div class="iconimg">
+					<a href="${pageContext.request.contextPath}/mylist"> <img
+						src="${pageContext.request.contextPath}/resources/img/주문내역2.png"
+						width="130" height="110">
+					</a>
+					<h3>주문내역</h3>
 				</div>
-				<div class="con-text">
-					<span> 대표자 : 송유미 </span>
+				<div class="iconimg">
+					<a href="${pageContext.request.contextPath}/pickcart"> <img
+						src="${pageContext.request.contextPath}/resources/img/찜목록2.png"
+						width="130" height="110">
+					</a>
+					<h3>찜목록</h3>
+
 				</div>
-				<div class="con-text">
-					<span> 사업자등록번호 : 112-00-001234 </span>
+				<div class="iconimg">
+					<a href="${pageContext.request.contextPath}/allreview"> <img
+						src="${pageContext.request.contextPath}/resources/img/리뷰.png"
+						width="130" height="110">
+					</a>
+					<h3>리뷰</h3>
 				</div>
-				<div class="con-text">
-					<span> 대표번호 : 031-500-1234 </span>
-				</div>
-				<div class="con-text">
-					<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
-				</div>
-				<div class="con-text">
-					<span> 이메일 : goldenEgg @ gmail.com </span>
-				</div>
-				<div class="con-text">
-					<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
+				<div class="iconimg">
+					<img src="./resources/img/포인트.png" width="130" height="110"
+						onclick="changeContent('point')">
+					<h3>포인트</h3>
 				</div>
 			</div>
-			<div class="sns">
-				<span><a href="#"><img
-						src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
-					href="#"><img src="${path}/resources/img/facebook_icon.jpg"
-						alt=""></a></span> <span><a href="#"><img
-						src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
-			</div>
+
 		</div>
-	</footer>
 
 
+
+
+
+
+
+
+
+
+
+		<footer>
+			<div class="footer-box">
+				<div class="footer-logo">
+					<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+						alt=""></a>
+				</div>
+				<div class="footer-con">
+					<div class="con-text">
+						<span> 상호명 : Golden Egg chicken (골든에그) </span>
+					</div>
+					<div class="con-text">
+						<span> 대표자 : 송유미 </span>
+					</div>
+					<div class="con-text">
+						<span> 사업자등록번호 : 112-00-001234 </span>
+					</div>
+					<div class="con-text">
+						<span> 대표번호 : 031-500-1234 </span>
+					</div>
+					<div class="con-text">
+						<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
+					</div>
+					<div class="con-text">
+						<span> 이메일 : goldenEgg @ gmail.com </span>
+					</div>
+					<div class="con-text">
+						<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
+					</div>
+				</div>
+				<div class="sns">
+					<span><a href="#"><img
+							src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
+						href="#"><img src="${path}/resources/img/facebook_icon.jpg"
+							alt=""></a></span> <span><a href="#"><img
+							src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+				</div>
+			</div>
+		</footer>
 </body>
 </html>
