@@ -1,5 +1,6 @@
 package www.egg.hom;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,12 +33,12 @@ public class MypageController {
 	@Inject
 	ReviewFileDataUtil reviewfiledatautil;
 
-	@GetMapping(value = "/")
-	public String main() {
-		return "main";
-	}
+	//	@GetMapping(value = "/")
+	//	public String main() {
+	//		return "main";
+	//	}
 
-	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)   //로그인시 마이페이지에 정보 띄위기
 	public String home(HttpSession session) {
 		session.getAttribute("userid");
 		session.getAttribute("username");
@@ -47,7 +48,7 @@ public class MypageController {
 		return "mypage/mypage";
 	}
 
-	@RequestMapping(value = "write", method = RequestMethod.GET)
+	@RequestMapping(value = "write", method = RequestMethod.GET)     //리뷰쓰기 버튼을 누르면 주문번호를 넘겨주고 리뷰작성폼으로 이동
 	public String review(@RequestParam("m_num") Integer m_num, Model model) {
 		if (m_num == null) {
 			System.out.println("m_num값 없음");
@@ -55,13 +56,13 @@ public class MypageController {
 
 		MlistVO mlvo = new MlistVO();
 		mlvo.setM_num(m_num);  //m_num 값 가져오기
-		
+
 		model.addAttribute("mlvo", mlvo);
 		return "mypage/review";
 	}
 
 
-	@RequestMapping(value = "mod", method = RequestMethod.GET)
+	@RequestMapping(value = "mod", method = RequestMethod.GET)    //수정할떄 모든 정보를 가져와서 수정 , 아이디는 수정 불가
 	public String modno(HttpSession session) throws Exception {
 		session.getAttribute("userid");
 		session.getAttribute("username");
@@ -71,7 +72,7 @@ public class MypageController {
 		return "mypage/mymod";
 	}
 
-	@RequestMapping(value = "msave", method = RequestMethod.POST)
+	@RequestMapping(value = "msave", method = RequestMethod.POST)   //수정한 정보를 다시 저장 
 	public String save(@ModelAttribute MemberVO mvo, HttpSession session) throws Exception {
 		mpservice.modsave(mvo);
 		System.out.println("저장됨");
@@ -84,170 +85,52 @@ public class MypageController {
 	}
 
 
-	@RequestMapping(value = "rwrite", method = RequestMethod.POST)
-	public void rsave(@ModelAttribute ReviewVO rvo,
-			@RequestParam("re_no") Integer re_no,
-			HttpSession session,
-			MultipartFile[] file,
-			Model model) throws Exception {
+
+	@RequestMapping(value = "rwrite", method = RequestMethod.POST)			//리뷰작성해서 저장, 사진파일은 따로 저장
+	public String rsave(@ModelAttribute ReviewVO rvo, HttpSession session, MultipartFile[] file, Model model) throws Exception {
 
 		String userid = (String) session.getAttribute("userid");
 		rvo.setRe_id(userid);
-		rvo.setRe_no(re_no); 
 
-		String[] filename = reviewfiledatautil.fileUpload(file);  
+		// 로그 출력
+		System.out.println("User ID: " + userid);
 
-		for (String rname : filename) {  
-			System.out.println(rname);
-		}
-		
-		rvo.setFilename(filename);  // 파일 이름 배열을 설정
-		System.out.println("여기까지?");
-		
-		mpservice.rsave(rvo);
-		System.out.println("저장되었다");
-	}
-
-
-	public String review() {
-		System.out.println("reviews");
-		return "mypage/review";
-	}
-
-	@RequestMapping(value = "rwrite", method = RequestMethod.POST)
-	public String rsave(@ModelAttribute ReviewVO rvo,
-			@ModelAttribute MlistVO mlvo, 
-			HttpSession session,MultipartFile[] file, Model model) throws Exception {
-		//    	rfilename = reviewfiledatautil.fileUpload(re_file);
-
-		// 파일이 있을 경우에만 처리
-		//        if (re_file != null && re_file.length > 0 && !re_file[0].isEmpty()) {
-		//            // 파일 이름 배열을 얻습니다.
-		//            // 파일 이름 배열을 하나의 문자열로 결합합니다. (예: 파일 이름을 쉼표로 구분)
-		////            String reFileStr = String.join(",", filenames);
-		//            // ReviewVO 객체에 파일 이름을 설정합니다.
-		//            rvo.setRe_file(re_file);
-		//        } else {
-		//            rvo.setRe_file(null); // 파일이 없을 경우 null로 설정
-		//        }
-		//
-		//        // 세션에서 사용자 ID 가져오기
-//		System.out.println(file.length);
-//		for(int i=0; i<file.length; i++) {
-//			System.out.println(file[i].getOriginalFilename());
-//		}
-		String userid = (String) session.getAttribute("userid");
-		rvo.setRe_id(userid);
-//		// 리뷰 정보를 저장합니다.
-		
-//		System.out.println(rvo.toString());
-//		System.out.println("리뷰 저장됨");
-		String[] filename= reviewfiledatautil.fileUpload(file);
-		
-//		for(int i=0; i<filename.length; i++) {
-//			System.out.println(filename[i]);
-//		}
+		String[] filename = reviewfiledatautil.fileUpload(file);
 		rvo.setFilename(filename);
-		System.out.println("여기까지?");
+
+		// 리뷰 및 파일 저장
 		mpservice.rsave(rvo);
-		System.out.println("저장되었다");
-		return "redirect:/"; // 실제로 이동할 URL로 변경
+		System.out.println("리뷰 및 파일 저장됨");
+
+		return "redirect:/"; 
 	}
 
-	//    @RequestMapping(value = "myreview", method = RequestMethod.GET)   //리뷰 불러오기
-	//    public String myreview(HttpSession session,ReviewVO rvo,Model model) throws Exception {
-	//    	
-	//    	String userid = (String) session.getAttribute("userid");
-	//    	System.out.println("here?");
-	//    	 System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-	//
-	//    	    if (userid != null) {
-	//    	        rvo.setRe_id(userid);
-	//    	        List<ReviewVO> list = mpservice.myreview(userid);
-	//    	        for (ReviewVO review : list) {
-	//    	            System.out.println(review);  // 디버그용 로그 출력
-	//    	        }
-	//    	        model.addAttribute("rvo", list);
-	//    	    } else {
-	//    	        System.out.println("UserID is null in session.");  // 디버그용 로그 출력
-	//    	    }
-	//    	    return "mypage/mypage";
-	//    }
-	//    	rvo.setRe_id(userid);
-	//        List<ReviewVO>list = mpservice.myreview(userid);
-	//        model.addAttribute("rvo", list);
-	//        System.out.println("here?");
-	//        return "mypage/mypage";
-	//    }
 
+	@GetMapping(value="allreview") // 내가 쓴 리뷰만 불러오기 (사진 포함)  //진짜 너무 싫다....
+	public String allreviews(HttpSession session, Model model) throws Exception {
+		String userid = (String) session.getAttribute("userid");	
 
+		List<ReviewVO> myreview = mpservice.myreview(userid);
 
-	@GetMapping(value="allreview")
-	public String allreviews(
-			HttpSession session,
-			@ModelAttribute ReviewVO rvo,
-			Model model)  throws Exception {
+		// 각 리뷰에 대해 사진 데이터 가져오기
+		List<Map<String, Object>> photolist = new ArrayList<>(); // 사진 데이터를 저장할 리스트를 초기화
+		for (ReviewVO review : myreview) { // myreview 리스트에 있는 각 리뷰에 대해 반복
+			List<Map<String, Object>> photos = mpservice.getfile(review.getRe_num()); // 현재 리뷰의 re_num에 해당하는 사진 리스트를 가져오기
+			for (Map<String, Object> photo : photos) { // 가져온 사진 리스트의 각 사진에 대해 반복
+				if (photo.get("filename") != null && !photo.get("filename").toString().trim().isEmpty()) { // filename이 null이 아니고 비어 있지 않은 경우를 확인합니다.
+					photolist.add(photo); // 조건을 만족하는 사진 데이터를 photolist에 추가
+				}
+			}
+		}
 
-		String userid = (String) session.getAttribute("userid");
-		rvo.setRe_id(userid);
-		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-		
-		List<ReviewVO> myreview= mpservice.myreview(userid);
-		 System.out.println("Reviews: " + myreview); 
-		List<Map<String, Object>> photolist = mpservice.getfilename(userid);
-		System.out.println("Photos: " + photolist);
-		//rvo.setRe_id(userid);
-		//		List<String> photolist= mpservice.getfilename(re_num);
-		System.out.println("요오오오오오기?");
-		model.addAttribute("review", myreview);	
-		model.addAttribute("photo", photolist);
+		model.addAttribute("review", myreview); 
+		model.addAttribute("photolist", photolist);
+
 		return "mypage/myreview";
 	}
-		//		model.addAttribute("photolist", photolist);  //내가 쓴 리뷰 사진
 
 
-//	@GetMapping(value="myreview")
-//	public String allreview() {
-//		return "mypage/myreview";
-//
-//	}
-
-//	@GetMapping(value="allreview")
-//	public String allreviews(@ModelAttribute ReviewVO rvo,
-//							@RequestParam("re_num") String re_num,
-//							HttpSession session,
-//							Model model)  throws Exception {
-//		
-//		String userid = (String) session.getAttribute("userid");
-//		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-//		List<ReviewVO> myreview= mpservice.myreview(userid);
-//		rvo.setRe_id(userid);
-//		List<String> photolist= mpservice.getfilename(re_num);
-//		System.out.println("요오오오오오기?");
-//		model.addAttribute("rvo", rvo);		
-//		model.addAttribute("photolist", photolist);  //내가 쓴 리뷰 사진
-//		return "mypage/myreview";
-//	}
-	
-	
-
-	@GetMapping(value ="view")
-	public String view( HttpSession session,
-			@ModelAttribute ReviewVO rvo,
-			@RequestParam("re_num") String re_num,
-			Model model) throws Exception {		//선택한 치킨 정보 보기
-		
-		String userid = (String) session.getAttribute("userid");
-		rvo.setRe_id(userid);
-		List<String> photo = mpservice.getfile(re_num);
-		model.addAttribute("photo", photo);
-		
-		return "mypage/test";
-	}
-
-
-
-	@GetMapping(value="mylist")
+	@GetMapping(value="mylist")			//주문내역 불러오기
 	public String oderlist(HttpSession session, Model model,MlistVO mlvo) throws Exception {
 		String userid = (String) session.getAttribute("userid");
 		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
@@ -268,9 +151,11 @@ public class MypageController {
 	}
 
 
-		
 
-	
+	@GetMapping(value = "pickcart")
+	public String pickcart() {
+		return "mypage/pick";
+	}
 
 
 }

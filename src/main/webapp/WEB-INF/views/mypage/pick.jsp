@@ -5,14 +5,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
-<html lang="kor">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/main.css" rel="stylesheet" />
-<title>Home</title>
+<title>Insert title here</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -22,55 +21,52 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundel/postcode/prod/postcode.v2.js"></script>
 </head>
-
 <style>
-#boxx {
+#cart {
 	float: left;
-	border: 5px solid gray; /*틀 선 굵기와 종류 색상*/
-	width: 800px; /*가로 넓이*/
-	height: 700px; /*세로 높이*/
-	text-align: center;
-	margin-top: 20px;
-	margin-left: 250px;
+	width: 1000px;
+	height: 900px;
+	border: 5px solid gray;
 	border-radius: 20px;
+	margin-left :120px;
 }
 
-#profile {
-	float: left;
-	width: 800px; /*가로 넓이*/
-	height: 280px; /*세로 높이*/
-/* 	border:1px solid blue; */
+table {
+	border-collapse: collapse;
+	width: 950px;
+	font-size: 16px;
+	margin-left:13px;
+	
 }
 
-#photo {
-	float: left;
-	width: 150px;
-	height: 150px;
-	margin-left: 325px;
-	margin-top: 10px;
-	border-radius: 100px;
-	border: 4px solid grey;
+thead {
+	text-align: center;
+	font-weight: bold;
 }
 
-#btn {
-	margin-top: 160px;
+tbody {
+	font-size: 12px;
 }
 
-.tx {
-	padding-bottom: 10px;
-	border: 2.5px solid gray;
-	margin-top: 15px;
-	item-align: center;
-	border-radius: 10px;
+td {
+	padding: 15px 0px;
+	border-bottom: 2px solid grey;
 }
 
-#savebtn {
+.container {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 20px;
+}
+
+.delete-button {
 	background-color: skyblue;
-	border-radius: 15px;
+	color: gray;
+	margin-right: 55px;
 	border: none;
+	border-radius: 15px;
 	padding: 10px 20px;
 	font-size: 16px;
 	cursor: pointer;
@@ -78,17 +74,26 @@
 	transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#savebtn:hover {
+.delete-button:hover {
 	background-color: skyblue;
 }
 
-#savebtn:active {
+.delete-button:active {
 	transform: scale(0.95);
 }
 
+.delete-button2 {
+	background-color: skyblue;
+	color: gray;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 13px;
+	cursor: pointer;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
 </style>
-
-
 <body>
 	<header>
 		<div class="login box">
@@ -135,36 +140,28 @@
 		</div>
 	</nav>
 
-	<div id="boxx">
-
-		<div id="profile">
-			<br>
-			<h2>회원 정보 수정</h2>
-			<br>
-
-			<div id="photo">
-				<input type="file" value="사진 편집" id="btn">
-			</div>
-		</div>
-		
-		<div id="ex">
-			<form action="msave" method="post">
-				<br>
-				아이디     <input type="text" name="id" class="tx" value="${userid}"	readonly>
-				 <br> <br> 
-				 이름     <input type="text"	name="name" class="tx" value="${username}"> 
-				 <br> <br>
-				전화번호     <input type="text" name="phone" class="tx" value="${userphone}">
-				<br> <br>
-				이메일     <input type="text" name="email" class="tx" value="${useremail}">
-				<br> <br> 
-				주소     <input type="text" name="address" class="tx"	value="${useraddress}">
-				<br> <br>
-				 <input type="submit" value="저장" id="savebtn">
-			</form>
+	<div id="cart">
+		<table class='cart__list'>
+			<thead>
+				<tr>
+					<td>체크박스</td>
+					<td>찜 번호</td>
+					<td>메뉴사진</td>
+					<td>메뉴이름</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='cart__list__detail'>
+					<td><input type="checkbox"></td>
+					<td>찜번호</td>
+					<td>사진</td>
+					<td>후라이드 치킨</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="container">
+			<button class="delete-button">삭제</button>
 		</div>
 	</div>
-	
-
 </body>
 </html>

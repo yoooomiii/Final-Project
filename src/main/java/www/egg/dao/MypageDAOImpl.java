@@ -23,57 +23,56 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	private SqlSession sqlsession;
 
 	@Override
-	public MemberVO modid(String id) throws Exception {
+	public MemberVO modid(String id) throws Exception {		//회원정보 수정하기 
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne(mapperQuery + ".selectone", id);
 	}
 
 	@Override
-	public void modsave(MemberVO mvo) throws Exception {
+	public void modsave(MemberVO mvo) throws Exception {		//수정된 회원정보 저장
 		// TODO Auto-generated method stub
 		sqlsession.update(mapperQuery + ".update", mvo);
 	}
 
 	@Override
-	public List<MlistVO> orderlist(String userid) throws Exception {
+	public List<MlistVO> orderlist(String userid) throws Exception {	//주문내역 불러오기
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery + ".orderlist", userid);
 	}
 
 	@Override
-	public void rsave(ReviewVO rvo) throws Exception {
+	public void rsave(ReviewVO rvo) throws Exception {			//리뷰 내용 저장하기 
 		// TODO Auto-generated method stub
 		sqlsession.insert(mapperQuery +".rinsert", rvo);
 	}
 
 
 	@Override
-	public List<ReviewVO> myreview(String userid) throws Exception {
+	public List<ReviewVO> myreview(String userid) throws Exception {		//나의 리뷰내역 전체보기
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery + ".myreview", userid);
 	}
 
 
 	@Override
-	public void savefile(Integer re_no, String filename) throws Exception {
-		// TODO Auto-generated method stub
-		Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("re_no", re_no);
-        paramMap.put("filename", filename);  // 직렬화된 객체가 아닌 문자열
+    public void savefile(Integer re_num, String filename) throws Exception {	//리뷰에 사진 파일 저장
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("re_num", re_num);
+        paramMap.put("filename", filename);
         sqlsession.insert(mapperQuery + ".savefile", paramMap);
-	}
+    }
 
 	@Override
-	public List<Map<String, Object>> getfilename(String userid) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery + ".getfile",userid);
-	}
-
-	@Override
-	public List<String> getfile(String re_num) throws Exception {
+	public List<Map<String, Object>> getfile(Integer re_num) throws Exception {		//리뷰에 해당되는 사진 가져오기
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery + ".getphoto", re_num);
 	}
+
+//	@Override
+//	public List<String> testfile(Integer re_num) throws Exception {			//사진만 불러오기 테스트용
+//		// TODO Auto-generated method stub
+//		return sqlsession.selectList(mapperQuery +".testfile", re_num);
+//	}
 
 
 
