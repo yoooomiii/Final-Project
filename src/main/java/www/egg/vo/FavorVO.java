@@ -2,39 +2,56 @@ package www.egg.vo;
 
 public class FavorVO {
 
-	private Integer num =0;           // 찜번호
-	private String id = null;     // 회원id 
-	private String code = null;   // 메인메뉴코드
-	private String scode = null;  // 사이드메뉴코드
-	
-	public Integer getNum() {
-		return num;
-	}
-	public void setNum(Integer num) {
-		this.num = num;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-	public String getScode() {
-		return scode;
-	}
-	public void setScode(String scode) {
-		this.scode = scode;
-	}
+	private Integer f_num =0;     
+	private Integer f_no =0; 
+	private String f_id = null;    
+	private String f_menu = null;   
+	private Integer f_price =0;
 	
 	@Override
 	public String toString() {
-		return "FavorVO [num=" + num + ", id=" + id + ", code=" + code + ", scode=" + scode + "]";
+		return "FavorVO [f_num=" + f_num + ", f_no=" + f_no + ", f_id=" + f_id + ", f_menu=" + f_menu + ", f_price="
+				+ f_price + "]";
+	}
+
+	public Integer getF_num() {
+		return f_num;
+	}
+
+	public void setF_num(Integer f_num) {
+		this.f_num = f_num;
+	}
+
+	public Integer getF_no() {
+		return f_no;
+	}
+
+	public void setF_no(Integer f_no) {
+		this.f_no = f_no;
+	}
+
+	public String getF_id() {
+		return f_id;
+	}
+
+	public void setF_id(String f_id) {
+		this.f_id = f_id;
+	}
+
+	public String getF_menu() {
+		return f_menu;
+	}
+
+	public void setF_menu(String f_menu) {
+		this.f_menu = f_menu;
+	}
+
+	public Integer getF_price() {
+		return f_price;
+	}
+
+	public void setF_price(Integer f_price) {
+		this.f_price = f_price;
 	}
 	
 	
