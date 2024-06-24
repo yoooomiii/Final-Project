@@ -382,6 +382,28 @@ td {
 							</c:if>
 						</td>
 					</tr>
+					<tr>
+						<td colspan=4 align=center>
+						검색결과 페이징:
+							<c:if test="${pagevo.prev }">
+								<a href="adminOSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>
+							</c:if> 
+							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+								var="idx">
+								<a href="adminOSearch?page=${idx}&sword=${sword}&m_state=${m_state }"> 
+									<c:if
+										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+										test="${idx == pagevo.page }">]</c:if>
+								</a>
+							</c:forEach> 
+							<c:if test="${pagevo.next }">
+								 <a href="adminOSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
+							</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </td>
+					</tr>
 			</tbody>
 		</table>
 	</form>

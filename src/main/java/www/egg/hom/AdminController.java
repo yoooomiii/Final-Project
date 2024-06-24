@@ -212,9 +212,12 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
 	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
-			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
-			, PageVO pagevo) throws Exception {
+			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo, 
+			 PageVO pagevo) throws Exception {
+		//MlistVO ovo = null;
 
+		System.out.println("에무스테이토: "+m_state);
+		
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
@@ -250,6 +253,9 @@ public class AdminController {
 		// finally...
 		model.addAttribute("orders", olist); // 주문내역vo 제출
 		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
+		// model.addAttribute("ordervo", ovo); // 클라가 주문내역 검색요청했던 정보 제출
+		model.addAttribute("m_state", m_state);
+		model.addAttribute("sword", sw);
 		return "admin/adminMlist";
 	}
 	

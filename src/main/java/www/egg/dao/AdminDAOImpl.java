@@ -121,15 +121,15 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		if(ovo==null) {
 			return sqlSession.selectOne(mapperQuery+".getToatalOCount");
 		}else {
-			String m_num_string= Integer.toString(ovo.getM_num()); 
-			Integer m_num = ovo.getM_num();
+			// Integer m_num = ovo.getM_num();
+			String m_num= ovo.getM_num()+""; 
 			String m_state =  ovo.getM_state();
-			if(m_num==null) {
+			if(m_state==null||m_state.equals("")) {
+				System.out.println("어드민dao m_num: "+m_num);
+				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSword", m_num);
+			}else {
 				System.out.println("어드민dao m_state: "+m_state);
 				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSelect", m_state);
-			}else {
-				System.out.println("어드민dao m_num: "+m_num);
-				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSword", m_num_string);
 			}
 		}
 	}
