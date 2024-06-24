@@ -2,24 +2,21 @@ package www.egg.vo;
 
 public class PaymentVO {
 
-	private Integer pm_no =0;          // ������ȣ
-	private Integer pm_num =0;         // �ֹ���ȣ
-	private String pm_id = null;       // ȸ�� id
-	private int pm_price = 0;          // �ֹ��ݾ�
-	private int pm_tip = 0;            // ��޺�
-	private int pm_total = 0;          // �Ѱ����ݾ�
-	private int pm_point = 0;          // ����Ʈ
-	private String pm_pay = null;      // ��������
-	private String pm_card = null;     // ��������
-	private String pm_date = null;        // �ֹ��Ͻ�
-	private String pm_address = null;  // ����ּ�
-	private String pm_pick = null;     // ���ɹ��
-	private String pm_comment = null;  // ��û����
+	private Integer pm_no =0;          //결제 번호
+	private Integer pm_num =0;         //주문번호
+	private String pm_id = null;       //회원 ID
+	private int pm_price = 0;          //주문 금액
+	private int pm_tip = 0;            //배달비
+	private int pm_total = 0;          //총 결제금액
+	private int pm_point = 0;          //포인트
+	private String pm_pay = null;      //결제수단
+	private String pm_card = null;     //결제정보
+	private String pm_date = null;     //주문일시
+	private String pm_address = null;  //배달주소
+	private String pm_pick = null;     //수령방법
+	private String pm_comment = null;  //요청사항
+	
 	@Override
-	
-	
-	
-	
 	public String toString() {
 		return "PaymentVO [pm_no=" + pm_no + ", pm_num=" + pm_num + ", pm_id=" + pm_id + ", pm_price=" + pm_price
 				+ ", pm_tip=" + pm_tip + ", pm_total=" + pm_total + ", pm_point=" + pm_point + ", pm_pay=" + pm_pay

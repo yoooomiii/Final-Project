@@ -4,10 +4,21 @@ import java.util.List;
 
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
+import www.egg.vo.PaymentVO;
 
 public interface IF_MenuDAO {
 	
-	public List<MenuVO> sideList() throws Exception;	//사이드메뉴만 출력
+	public void payment_delete(PaymentVO pvo) throws Exception;	//결제 삭제
+	
+	public List<PaymentVO> paymentList() throws Exception;	//결제 전체보기
+	
+	public void payment_insert(PaymentVO pvo) throws Exception;	//결제 등록
+	
+	//-------------------------------------------------결제
+	
+	public void item_delete(ItemVO ivo) throws Exception;	//장바구니 삭제
+	
+	public List<ItemVO> itemList() throws Exception;	//장바구니 전체보기
 	
 	public void item_insert(ItemVO ivo) throws Exception;	//장바구니 등록
 	
@@ -26,5 +37,7 @@ public interface IF_MenuDAO {
 	public List<String> getFilename(String no) throws Exception;	//메뉴 사진 불러오기
 
 	public void savepot(String filename) throws Exception;	//메뉴 사진 테이블 저장
+	
+	public List<MenuVO> sideList() throws Exception;	//사이드메뉴만 출력
 
 }
