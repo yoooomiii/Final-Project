@@ -1,6 +1,8 @@
 package www.egg.hom;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -57,14 +59,18 @@ public class AdminController {
 			 @RequestParam("city") String city,  @RequestParam("county") String county,
 			 @ModelAttribute PageVO pagevo
 			) throws Exception {
+		String getDetail = "not";
 		
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(30);
-		
+		pagevo.setTotalCount(aservice.getTotalCount(getDetail));
 		pagevo.prt();
+		
+		// 맵 만들기이...
+		Map<String, Object> spaging = new HashMap<>();
+		spaging.put("pagevo", pagevo);
 		
 		System.out.println("濡쒓렇�씤�떒 county: "+county);
 		if(county.equals("�쟾泥�")) {
@@ -76,9 +82,11 @@ public class AdminController {
 		
 		List<MemberVO> mlist = null;
 		if(sw==null || sw.equals("")) { // 寃��깋�뼱媛� �엳嫄곕굹 �뾾�뒗 寃쎌슦 
-			mlist = lservice.memberSearch(mvo, pagevo) ;
+			spaging.put("ordervo", mvo);
+			mlist = lservice.memberSearch(mvo, pagevo) ; // 모험 start!
 		}else {
 			mvo.setId(sw);
+			spaging.put("ordervo", mvo);
 			mlist = lservice.memberSearch(mvo, pagevo) ;
 		}
 		model.addAttribute("pagevo", pagevo);
@@ -112,12 +120,13 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model , @ModelAttribute PageVO pagevo) throws Exception {
+		String getDetail = "not";
 		
 		if(pagevo.getPage()==null) {
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 번호: "+pagevo.getPage());
-		pagevo.setTotalCount(aservice.getTotalCount());
+		pagevo.setTotalCount(aservice.getTotalCount(getDetail));
 		
 		pagevo.prt();
 		
@@ -191,23 +200,43 @@ public class AdminController {
 	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
 	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
 			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
-			) throws Exception {
+			, PageVO pagevo) throws Exception {
+		String getDetail = null;
+		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 정보: "+pagevo.getPage());
+		// pagevo.setTotalCount(aservice.getTotalCount()); // 그냥 모든 튜플수 적용
+		pagevo.prt();
+		
+		// 맵 만들기이...
+		Map<String, Object> spaging = new HashMap<>();
+		spaging.put("pagevo", pagevo);
 		
 		// vo 셋팅하셈. 
 		List<MlistVO> olist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
 			ovo.setM_state(m_state);
+			spaging.put("ordervo", ovo);
 			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
-			olist = aservice.searchOrder(ovo);
+			olist = aservice.searchOrderPaging(spaging);
+			
+			getDetail = "forSword";
+			pagevo.setTotalCount(aservice.getTotalCount(getDetail)); // 검색결과 튜플개수만큼만 적용 
 		}else {
 			Integer m_num = Integer.parseInt(sw);
 			ovo.setM_num(m_num);
+			spaging.put("ordervo", ovo);
 			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
-			olist = aservice.searchOrder(ovo);
+			olist = aservice.searchOrderPaging(spaging);
+			
+			getDetail = "forSelect";
+			pagevo.setTotalCount(aservice.getTotalCount(getDetail)); // 검색결과 튜플개수만큼만 적용 
 		}
 		
-		
-		model.addAttribute("orders", olist);
+		// finally...
+		model.addAttribute("orders", olist); // 주문내역vo 제출
+		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
 		return "admin/adminMlist";
 	}
 	

@@ -4,10 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="www.egg.dao.IF_AdminDAO">
 
-	<select id="selectorders" resultType="www.egg.vo.MlistVO">
-		<!-- select * from mlist -->
-		select * from mlist order by m_num asc LIMIT 10 OFFSET #{startNo}
-	</select>
 	<delete id="deleteordernum" parameterType="String">
 		delete from mlist where m_num=#{m_num}
 	</delete>
@@ -38,7 +34,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deletedeliverynum" parameterType="String">
 		delete from delivery where d_no=#{m_num}
 	</delete>
-	<select id="getToatalCount" resultType="int">
-		select count (*) from mlist
+	
+	<!-- 페이징 적용된 아이들 / 페이징 관련 -->
+	<select id="selectorders" resultType="www.egg.vo.MlistVO">
+		<!-- select * from mlist -->
+		select * from mlist order by m_num asc LIMIT 10 OFFSET #{startNo}
+	</select>
+		<select id = "selectordernum_p" resultType="www.egg.vo.MlistVO" parameterType="map">
+		select * from mlist where m_num=#{ordervo.m_num} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
+	</select> 
+	<select id="selectordersearch_p" resultType="www.egg.vo.MlistVO" parameterType="map">
+		select * from mlist where m_state = #{ordervo.m_state}  order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
+	</select>
+	<select id="getToatalCountForSword" resultType="int">
+		select count (*) from mlist where m_num=#{파라미터}
+	</select>
+	<select id="getToatalCountForSelect" resultType="int">
+		select count (*) from mlist where m_state=#{파라미터}
 	</select>
 </mapper>

@@ -1,6 +1,7 @@
 package www.egg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -98,11 +99,33 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		sqlSession.delete(mapperQuery+".deletedeliverynum", m_num);
 	}
 
+
 	@Override
-	public int getTotalCount() throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne(mapperQuery+".getToatalCount");
+	public List<MlistVO> searchOrderPaging(Map<String, Object> spage) {
+		// 맵 추출하기 
+		//PageVO pvo = (PageVO) spage.get("pagevo");
+		MlistVO ovo = (MlistVO) spage.get("ordervo");
+		
+		//String m_num = ovo.getM_num()+"";
+		String m_state = ovo.getM_state();
+		if(m_state==null||m_state.equals("")) {
+			return sqlSession.selectList(mapperQuery+".selectordernum_p", spage);
+		}
+		return sqlSession.selectList(mapperQuery+".selectordersearch_p", spage);
 	}
 	
+	@Override
+	public int getTotalCount(String getDetail) throws Exception {
+		// TODO Auto-generated method stub
+		if(getDetail.equals("not")) {
+			return sqlSession.selectOne(mapperQuery+".getToatalCount");
+		}else if(getDetail.equals("forSword")) {
+			return sqlSession.selectOne(mapperQuery+".getToatalCountForSword");
+		}else if(getDetail.equals("forSelect")) {
+			return sqlSession.selectOne(mapperQuery+".getToatalCountForSelect");
+		}else {
+			return sqlSession.selectOne(mapperQuery+".getToatalCount");
+		}
+	}
 
 }

@@ -1,6 +1,7 @@
 package www.egg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import www.egg.vo.DeliveryVO;
 import www.egg.vo.MlistVO;
@@ -19,6 +20,8 @@ public interface IF_AdminDAO {
 	public List<MlistVO> searchOrder(MlistVO ovo);
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
 	public void deleteDeliverynum(String m_num);
-	public int getTotalCount() throws Exception;
+	
+	public int getTotalCount(String getDetail) throws Exception;
+	public List<MlistVO> searchOrderPaging(Map<String, Object> spage);
 
 }

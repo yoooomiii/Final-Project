@@ -1,6 +1,7 @@
 package www.egg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -87,9 +88,15 @@ public class AdminServiceImpl implements IF_AdminService {
 	}
 
 	@Override
-	public int getTotalCount() throws Exception {
+	public int getTotalCount(String getDetail) throws Exception {
 		// TODO Auto-generated method stub
-		return adao.getTotalCount();
+		return adao.getTotalCount(getDetail);
+	}
+
+	@Override
+	public List<MlistVO> searchOrderPaging(Map<String, Object> spage) {
+		// TODO Auto-generated method stub
+		return adao.searchOrderPaging(spage);
 	}
 
 	

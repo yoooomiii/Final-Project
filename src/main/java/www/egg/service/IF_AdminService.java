@@ -1,6 +1,7 @@
 package www.egg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public interface IF_AdminService {
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
 	public void deleteDeliverynum(String m_num);
 	
-	public int getTotalCount()  throws Exception;
+	public int getTotalCount(String getDetail)  throws Exception;
+	public List<MlistVO> searchOrderPaging(Map<String, Object> spage);
 
 }
