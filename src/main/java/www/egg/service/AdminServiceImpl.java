@@ -64,9 +64,9 @@ public class AdminServiceImpl implements IF_AdminService {
 	}
 
 	@Override
-	public List<DeliveryVO> deliverylist() {
+	public List<DeliveryVO> deliverylist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return adao.deliverylist();
+		return adao.deliverylist(pagevo);
 	}
 
 	@Override
@@ -97,6 +97,18 @@ public class AdminServiceImpl implements IF_AdminService {
 	public List<MlistVO> searchOrderPaging(Map<String, Object> spage) {
 		// TODO Auto-generated method stub
 		return adao.searchOrderPaging(spage);
+	}
+
+	@Override
+	public int getTotalCountD(DeliveryVO dvo) throws Exception {
+		// TODO Auto-generated method stub
+		return adao.getTotalCountD(dvo);
+	}
+
+	@Override
+	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage) {
+		// TODO Auto-generated method stub
+		return adao.searchDeliveryPaging(spage);
 	}
 
 	

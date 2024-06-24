@@ -22,9 +22,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updatedelivery" parameterType="www.egg.vo.DeliveryVO">
 		update delivery set d_num = #{d_num}, d_time = #{d_time}, d_check =#{d_check} where d_no = #{d_no}
 	</update>
-	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
-		select * from delivery limit 6
-	</select>
 	<select id="selectordersearch" resultType="www.egg.vo.MlistVO" parameterType="www.egg.vo.MlistVO">
 		select * from mlist where m_state = #{m_state} 
 	</select>
@@ -40,12 +37,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- select * from mlist -->
 		select * from mlist order by m_num asc LIMIT 10 OFFSET #{startNo}
 	</select>
-		<select id = "selectordernum_p" resultType="www.egg.vo.MlistVO" parameterType="map">
+	<select id = "selectordernum_p" resultType="www.egg.vo.MlistVO" parameterType="map">
 		select * from mlist where m_num=#{ordervo.m_num} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select> 
 	<select id="selectordersearch_p" resultType="www.egg.vo.MlistVO" parameterType="map">
 		select * from mlist where m_state = #{ordervo.m_state}  order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select>
+	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
+		<!-- select * from delivery limit 6  -->
+		select * from delivery order by d_no asc LIMIT 10 OFFSET #{startNo}
+	</select>
+	<select id = "selectdeliverynum_p" resultType="www.egg.vo.DeliveryVO" parameterType="map">
+		select * from delivery where d_no=#{deliveryvo.d_no} order by d_no asc LIMIT 10 OFFSET #{pagevo.startNo}
+	</select> 
+	<select id="selectdeliverysearch_p" resultType="www.egg.vo.DeliveryVO" parameterType="map">
+		select * from delivery where d_check = #{deliveryvo.d_check}  order by d_no asc LIMIT 10 OFFSET #{pagevo.startNo}
+	</select>
+	
 	
 	<select id="getToatalOCount" resultType="int">
 		select count (*) from mlist 
@@ -55,5 +63,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="getToatalOCountForSelect" resultType="int" parameterType="String">
 		select count (*) from mlist where m_state=#{m_state}
+	</select>
+	<select id="getToatalDCount" resultType="int">
+		select count (*) from delivery 
+	</select>
+	<select id="getToatalDCountForSword" resultType="int" parameterType="String">
+		select count (*) from delivery where d_no = #{d_no}
+	</select>
+	<select id="getToatalDCountForSelect" resultType="int" parameterType="String">
+		select count (*) from delivery where d_check = #{d_check}
 	</select>
 </mapper>

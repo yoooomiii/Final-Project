@@ -64,9 +64,9 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	}
 
 	@Override
-	public List<DeliveryVO> deliverylist() {
+	public List<DeliveryVO> deliverylist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".selectdeliverys");
+		return sqlSession.selectList(mapperQuery+".selectdeliverys", pagevo);
 	}
 
 	@Override
@@ -110,22 +110,14 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		String m_state = ovo.getM_state();
 		if(m_state==null||m_state.equals("")) {
 			return sqlSession.selectList(mapperQuery+".selectordernum_p", spage);
+		}else{
+			return sqlSession.selectList(mapperQuery+".selectordersearch_p", spage);
 		}
-		return sqlSession.selectList(mapperQuery+".selectordersearch_p", spage);
 	}
 	
 	@Override
 	public int getTotalCountO(MlistVO ovo) throws Exception {
-		// TODO Auto-generated method stub
-		/*
-		 * if(getDetail.equals("not")) { return
-		 * sqlSession.selectOne(mapperQuery+".getToatalCount"); }else
-		 * if(getDetail.equals("forSword")) { return
-		 * sqlSession.selectOne(mapperQuery+".getToatalCountForSword"); }else
-		 * if(getDetail.equals("forSelect")) { return
-		 * sqlSession.selectOne(mapperQuery+".getToatalCountForSelect"); }else { return
-		 * sqlSession.selectOne(mapperQuery+".getToatalCount"); }
-		 */
+		
 		if(ovo==null) {
 			return sqlSession.selectOne(mapperQuery+".getToatalOCount");
 		}else {
@@ -137,6 +129,37 @@ public class AdminDAOImpl implements IF_AdminDAO{
 				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSword", m_num);
 			}
 		}
+	}
+
+	@Override
+	public int getTotalCountD(DeliveryVO dvo) throws Exception {
+		// TODO Auto-generated method stub
+		if(dvo==null) {
+			return sqlSession.selectOne(mapperQuery+".getToatalDCount");
+		}else {
+			String d_no = Integer.toString(dvo.getD_no()); 
+			String d_check = dvo.getD_check();
+			if(d_no==null) {
+				return sqlSession.selectOne(mapperQuery+".getToatalDCountForSelect", d_check);
+			}else {
+				return sqlSession.selectOne(mapperQuery+".getToatalDCountForSword", d_no);
+			}
+		}
+	}
+
+	@Override
+	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage) {
+		// 맵 추출하기 
+				//PageVO pvo = (PageVO) spage.get("pagevo");
+				DeliveryVO dvo = (DeliveryVO) spage.get("deliveryvo");
+				
+				//String m_num = ovo.getM_num()+"";
+				String d_check = dvo.getD_check();
+				if(d_check==null||d_check.equals("")) {
+					return sqlSession.selectList(mapperQuery+".selectdeliverynum_p", spage);
+				}else {
+					return sqlSession.selectList(mapperQuery+".selectdeliverysearch_p", spage);
+				}
 	}
 
 }
