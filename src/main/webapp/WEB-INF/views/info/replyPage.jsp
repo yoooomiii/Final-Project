@@ -92,11 +92,6 @@
 					<span class="content"> ${avo.a_ex} </span>
 				</div>
 				<p></p>
-                    <div class="info-file">
-                        <span class="title"> 첨부파일 </span> 
-                        <span class="content">  </span>
-                    </div>
-                    <p></p>
                     <div class="info-reply">
                         <span class="title"> 답 &nbsp;&nbsp;&nbsp; 변 </span> 
                         <input type="text" size="100" name="an_re">

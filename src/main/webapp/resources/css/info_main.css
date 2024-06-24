@@ -90,6 +90,14 @@ header a:hover {
    
 }
 
+.quite {
+    float: right;
+	width: 100px; /*가로 넓이*/
+    height: 90%;
+    margin-right: 30px;
+   
+}
+
 nav {
     position: relative;
 	width: 1260px; /*가로 넓이*/
@@ -155,9 +163,9 @@ nav {
     .submenu {
         position: absolute;
         display: none;
-        top: 80px;
-        height: 100%;
-        background-color: rgb(248, 248, 243, 0.5);
+        top: 75px;
+        height: 300px;
+        background-color: rgb(180, 110, 0);
         font-size: 20px;
     }
 
@@ -173,146 +181,125 @@ nav {
         height: 100%;
         text-align: center;
         line-height: 40px;
-    }
-
-    section {
-        font-family: 'SUITE-Regular';
-        width: 1260px;
-        height: auto;
-        background-color: rgb(255, 250, 203, 0.3);
-        float: left;
-        font-weight: bold;
-        text-align: center;
-        padding-bottom: 20px;
-
-
-    }
-    h3 {
-        text-align: center;
-    }
-    
-    h2 {
-        font-size: large;
-    }
-
-    #dpan{
-        float: right;
-        padding-right: 5px;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        width: 100px;
-        
-    }
-
-    .white-btn {
-        display: block;
-        width: 1000px;
-        height: 50px;
-        margin-left: 125px;
-        text-align: right;
-    }
-    
-    .white-btn input[type=button] {
-        width: 100px;
-        height: 40px;
-        font-size: 20px;
-        font-weight: bold;
-        background-color: aliceblue;
-        border: 4px solid rgb(143, 143, 142);
-        border-radius: 10px;
-        text-align: center;
-        text-shadow: 1px 0px 1px black;
-    }
-
-    table {
-        border-collapse: collapse;
-        width: 1000px;
-        font-size: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        border: 3px solid rgb(180, 180, 180);
-        border-radius: 5px;
-    }
-    
-    thead {
-        text-align: center;
-        font-weight: bold;
-    }
-    
-    tbody {
-       
-        font-size: 12px;
-    }
-    
-    thead th {
-        border: 5px solid rgb(180, 180, 180);
-    }
-  
-
-    thead tr {
-        padding: 15px 0px;
-        border-bottom: 5px solid rgb(180, 180, 180);
-        vertical-align: middle;
-    }
-
-    #mbtn{
-        width: 60px;
-    }
-
-    .iconimg:hover{
-        box-shadow : 4px 4px 4px black;
-        transition-duration: 0.3s;
-    }
-
-    footer {
-        font-family: 'SUITE-Regular';
-        font-size: 20px;
-        float: left;
-        background-color: #180e02;
-        width: 1260px; /*가로 넓이*/
-        height: 250px; /*세로 높이*/
-        margin: 20px 0;
-    }
-    
-    .footer-box {
-        float: left;
-        font-size: medium;
-        width: 90%;
-        height: 90%;
-    
-    }
-    
-    .footer-logo {
-        width: 100px;
-        height: 40px;
-    }
-    
-    .footer-con {
-        float: left;
-        width: 50%;
-        padding-top: 10px;
-        margin-left: 10px;
-        margin-top: 20px;
-    }
-    
-    .con-text {
         color: white;
-        text-align: left;
-    }
-    
-    .sns {
-        float: right;
-        width: 40%;
-        height: 50px;
-        margin-top: 20px;
-        margin-right: 50px;
-    }
-    
-    .sns img {
-        width: 40px;
-        height: 40px;
-        margin-right: 20px;
     }
 
-    
-    
+section {
+    float: left;
+    font-family: 'SUITE-Regular';
+    margin: 50px 10px;
+    padding: 50px;
+    text-align: center;
+    width: 1260px;
+    height: 800px;
+}
+
+.info-box {
+    float: left;
+    margin: 10px 30px;
+    width: 95%;
+    height: 600px;
+    text-align: center;
+}
+
+.info-box a {
+    color: black;
+}
+
+.info-box a:hover {
+    text-shadow: 2px 1px 2px black;
+}
+
+
+.info-banner {
+    float: left;
+    width: 45%;
+    height: 150px;
+    background-color: rgb(255, 253, 239);
+    text-align: center;
+    border: 10px double rgb(202, 202, 202);
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.info-banner span {
+    font-family: 'Cafe24Ssurround';
+    display: block;
+    height: 100%;
+    font-size: 50px;
+    padding-top: 25px;
+}
+
+.info-banner .text-ex {
+    font-size: 16px;
+
+}
+
+.info-text {
+    float: left;
+    margin: 100px 30px;
+    width: 60%;
+    height: 300px;
+    text-align: center;
+    background-color: #fdedd5;
+    text-align: left;
+    padding: 30px;
+}
+
+.info-text span {
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgb(20, 10, 0);
+}
+
+footer {
+    font-family: 'SUITE-Regular';
+    font-size: 20px;
+	float: left;
+    background-color: #180e02;
+	width: 1260px; /*가로 넓이*/
+	height: 250px; /*세로 높이*/
+	margin: 20px 0;
+
+}
+
+.footer-box {
+    float: left;
+    font-size: medium;
+    width: 90%;
+    height: 90%;
+}
+
+.footer-logo {
+    width: 100px;
+    height: 40px;
+}
+
+.footer-con {
+    float: left;
+    width: 50%;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.con-text {
+    color: white;
+    text-align: left;
+}
+
+.sns {
+    float: right;
+    width: 40%;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+.sns img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+

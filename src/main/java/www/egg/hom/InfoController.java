@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import www.egg.service.IF_InfoService;
 import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
+import www.egg.vo.InfojoinVO;
 import www.egg.vo.PageVO;
 
 
@@ -26,6 +27,13 @@ public class InfoController {
 
 	@Inject
 	IF_InfoService iservice;
+	
+	// 고객센터 첫 페이지 호출 
+	@RequestMapping(value="infomain", method=RequestMethod.GET)
+	public String infomain (Model model) throws Exception {
+
+		return "info/infomain";
+	}
 
 	// 1:1 문의하기
 	@RequestMapping(value="ask", method=RequestMethod.GET)
@@ -63,10 +71,13 @@ public class InfoController {
 		return "info/detailViewUser";
 	}
 
+	
+	
+
 	// 문의 게시판 조회하기
 	@GetMapping("allList")
-	public String allList(AskVO avo, HttpSession session, 
-			Model model, @ModelAttribute PageVO pvo) throws Exception {
+	public String allList(InfojoinVO invo, HttpSession session, 
+			Model model, @ModelAttribute PageVO pvo, AskVO askVO) throws Exception {
 
 		if(pvo.getPage()==null) {
 			pvo.setPage(1);
@@ -75,9 +86,9 @@ public class InfoController {
 		//pvo.setTotalCount(iservice.getTotalCount());
 
 		String id = (String) session.getAttribute("userid");
-		avo.setA_id(id);
+		askVO.setA_id(id);
 
-		List<AskVO> askList = iservice.allList(id);
+		List<InfojoinVO> askList = iservice.allList(id);
 
 		model.addAttribute("allListitems", askList);
 		//model.addAttribute("pvo", pvo);
@@ -151,6 +162,7 @@ public class InfoController {
 
 		return "redirect:masterview";
 	}
+	
 }
 
 
