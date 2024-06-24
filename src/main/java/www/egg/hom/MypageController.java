@@ -1,7 +1,6 @@
 package www.egg.hom;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,11 +19,10 @@ import org.springframework.web.multipart.MultipartFile;
 import www.egg.service.IF_MypageServiece;
 import www.egg.util.ReviewFileDataUtil;
 import www.egg.vo.MemberVO;
-import www.egg.vo.MenuVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
-// @Controller
+@Controller
 public class MypageController {
 
 	@Inject
