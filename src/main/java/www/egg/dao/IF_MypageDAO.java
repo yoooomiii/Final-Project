@@ -24,10 +24,11 @@ public interface IF_MypageDAO {
 	//--------------------------------------------------- 주문내역 전체보기
 	
 	public List<Map<String, Object>> getfile(Integer re_num) throws Exception;	
-//	public List<String> testfile(Integer re_num) throws Exception;
+
 	//--------------------------------------------------- 리뷰에 저장된 사진 불러오기 + 테스트용
-	public void pickinsert(FavorVO fvo) throws Exception;	
 	
+	public void pickinsert(FavorVO fvo) throws Exception;	
+	//--------------------------------------------------- 찜한 메뉴 저장
 //	public boolean deletePick(List<String> pickIds) throws Exception;
 	
 	
