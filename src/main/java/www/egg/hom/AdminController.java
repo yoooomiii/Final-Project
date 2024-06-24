@@ -121,16 +121,16 @@ public class AdminController {
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model , @ModelAttribute PageVO pagevo) throws Exception {
 		// String getDetail = "not";
-		MlistVO mvo= null;
+		MlistVO ovo= null;
 		
 		if(pagevo.getPage()==null) {
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 번호: "+pagevo.getPage());
-		pagevo.setTotalCount(aservice.getTotalCountO(mvo));
+		pagevo.setTotalCount(aservice.getTotalCountO(ovo));
 		
 		pagevo.prt();
-		
+		System.out.println("주문내역전체튜플수: "+pagevo.getTotalCount());
 		
 		
 		
@@ -219,9 +219,9 @@ public class AdminController {
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		// pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 그냥 모든 튜플수 적용
+		pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 그냥 모든 튜플수 적용
 		pagevo.prt();
-		System.out.println("주문토탈카툰트: "+pagevo.getTotalCount());
+		System.out.println("주문토탈카툰트 before: "+pagevo.getTotalCount());
 		
 		// 맵 만들기이...
 		Map<String, Object> spaging = new HashMap<>();
@@ -235,7 +235,7 @@ public class AdminController {
 			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
 			olist = aservice.searchOrderPaging(spaging);
 			
-			pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 검색결과 튜플개수만큼만 적용 
+			pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 검색결과 튜플개수만큼만 적용 @이거 안 먹는데??
 		}else {
 			Integer m_num = Integer.parseInt(sw);
 			ovo.setM_num(m_num);
@@ -264,7 +264,7 @@ public class AdminController {
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
 		pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 그냥 모든 튜플수 적용
 		pagevo.prt();
-		System.out.println("배달토탈튜플 before: "+pagevo.getTotalCount());
+		System.out.println("배달토탈카운트 before: "+pagevo.getTotalCount());
 		
 		
 		// 맵 만들기이...
@@ -295,9 +295,9 @@ public class AdminController {
 			pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 검색결과 튜플개수만큼만 적용 
 		}
 		
+		System.out.println("배달토탈카운트 after: "+pagevo.getTotalCount());
 		// finally...
 		pagevo.prt();
-		System.out.println("배달토탈튜플 after: "+pagevo.getTotalCount());
 		model.addAttribute("deliverys", dlist); // 배달내역 제출
 		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
 		return "admin/adminDelivery";

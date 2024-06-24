@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count (*) from mlist 
 	</select>
 	<select id="getToatalOCountForSword" resultType="int" parameterType="String">
-		select count (*) from mlist where m_num=#{m_num}
+		select count (*) from mlist where m_num=#{m_num_string}
 	</select>
 	<select id="getToatalOCountForSelect" resultType="int" parameterType="String">
 		select count (*) from mlist where m_state=#{m_state}
