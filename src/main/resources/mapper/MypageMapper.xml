@@ -25,6 +25,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="savefile" parameterType="map">		<!-- 리뷰 첨부파일 저장 -->
 		INSERT INTO photo (no, filename) VALUES (#{re_num}, #{filename})
 	</insert>
+	
+	<insert id="pickinsert" parameterType="www.egg.vo.ReviewVO">
+		insert into favor (f_no, f_id, f_menu, f_price) values (#{menu_no}, #{userid}, #{menu_name},#{menu_price})
+	</insert>
 
 	<select id="myreview" parameterType="string" resultType="www.egg.vo.ReviewVO"> <!-- 나의 리뷰내역 보기 -->
 		SELECT re_num, re_no, re_id, re_ex, re_star

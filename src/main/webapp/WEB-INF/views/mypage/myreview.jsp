@@ -2,42 +2,52 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="kor">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
 </head>
 <style>
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin: 20px 0;
-	font-size: 18px;
-	text-align: left;
+h2 {
+	text-align: center;
+	font-size: xx-large;
 }
 
-table thead tr {
-	background-color: #f2f2f2;
-	color: #333;
-	text-align: left;
-	font-weight: bold;
+hr {
+	width: 500px;
+	border: 3px solid grey;
 }
 
-table th, table td {
-	padding: 12px 15px;
-	border: 1px solid #ddd;
+#reviewcard {
+	float: left;
+	width: 900px;
+	height: 250px;
+	margin-top: 20px;
+    margin-left: 150px;
+	border: 4px solid skyblue;
+	border-radius: 20px;
 }
 
-table tbody tr {
-	border-bottom: 1px solid #ddd;
+#photo {
+	float: left;
+	width: 350px;
+	height: 230px;
+	margin-left: 8px;
+	margin-top: 10px;
+	/*  border: 1px solid blue;  */
 }
 
-table tbody tr:nth-of-type(even) {
-	background-color: #f9f9f9;
-}
-
-table tbody tr:last-of-type {
-	border-bottom: 2px solid #009879;
+#content {
+	float: left;
+	width: 480px;
+	height: 230px;
+	margin-left: 45px;
+	margin-top: 10px;
+	font-size: x-large;
+	font-weight: normal;
+	
+   /*  border: 1px solid red;  */
 }
 
 .image-container {
@@ -48,48 +58,91 @@ table tbody tr:last-of-type {
 }
 
 .image-container img {
-	height: 100px; /* 원하는 높이로 설정 */
+	height: 220px; /* 원하는 높이로 설정 */
 	width: auto;
 }
-
-.table-cell {
-	vertical-align: middle; /* 테이블 셀 안의 내용을 수직 가운데 정렬 */
-	padding: 0; /* 셀 안의 패딩을 제거 */
-	width: 220px; /* 테이블 셀의 너비 설정 */
+#num{
+    float: left;
+    width: 150px;
+    height: 30px;
+    font-size :22px;
+   /*  border: 1px solid black; */
 }
+#star{
+    float: left;
+    width: 170px;
+    height: 30px;
+    font-size :22px;
+    margin-left: 150px;
+  /*   border: 1px solid black; */
+}
+#menuname{
+    float: left;
+    width: 300px;
+    height: 40px;
+    margin-top: 10px;
+     font-size :24px;
+   /*  border: 1px solid black; */
+}
+#review{
+    float: left;
+    width: 480px;
+    height: 120px;
+     font-size :24px;
+    margin-top: 10px;
+    /* border: 1px solid black; */
+}
+.star-rating {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.star-rating label.star {
+    font-size: 1.2em; /* 별의 크기를 조정 */
+    color: #ddd;
+    cursor: pointer;
+}
+
+.star-rating label.star.checked {
+    color: gold;
+}
+
 </style>
 <body>
-	<h2>나의 리뷰 목록</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>사진</th>
-				<th>메뉴 이름(지금은 주문번호)</th>
-				<th>별점</th>
-				<th>리뷰</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${review}" var="review">
-				<tr>
-					<td class="table-cell">
-						<div class="image-container">
-							<c:forEach items="${photolist}" var="photo">
-								<c:if
-									test="${review.re_num == photo.re_num && not empty photo.filename}">
-									<img
-										src="${pageContext.request.contextPath}/downloads?filename=${photo.filename}"
-										alt="Review Photo">
-								</c:if>
-							</c:forEach>
-						</div>
-					</td>
-					<td class="table-cell">${review.re_num}</td>
-					<td class="table-cell">${review.re_star}점</td>
-					<td class="table-cell">${review.re_ex}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<h2>나의 리뷰</h2>
+	<hr>
+	<c:forEach items="${review}" var="review">
+		<div id="reviewcard">
+			<div id="photo">
+				<div class="image-container">
+					<c:forEach items="${photolist}" var="photo">
+						<c:if
+							test="${review.re_num == photo.re_num && not empty photo.filename}">
+							<img
+								src="${pageContext.request.contextPath}/downloads?filename=${photo.filename}"
+								alt="Review Photo" width="220" height="220">
+						</c:if>
+					</c:forEach>
+				</div>
+			</div>
+			<div id="content">
+                <div id="num">${review.re_num}번</div>
+			    <div id="star">
+			   		 <div class="star-rating">
+   						 <c:forEach var="star" begin="1" end="5">
+      					  	<label for="rate${star}" class="star ${review.re_star >= star ? 'checked' : ''}">★</label>
+   					 	</c:forEach>
+					</div>			 
+			    </div>
+                <div id="menuname">메뉴 이름 : 메뉴 이름</div>
+                 <div id="review">${review.re_ex}</div>
+			</div>
+		</div>
+	</c:forEach>
+	
+
+
+
 </body>
 </html>

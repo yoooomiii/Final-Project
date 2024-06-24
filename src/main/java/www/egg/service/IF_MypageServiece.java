@@ -3,6 +3,7 @@ package www.egg.service;
 import java.util.List;
 import java.util.Map;
 
+import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
@@ -24,6 +25,11 @@ public interface IF_MypageServiece {
 	
 	public List<MlistVO> orderlist(String userid) throws Exception;
 	//--------------------------------------------------- 주문내역 불러오기
+	
+	public void pickinsert(FavorVO fvo) throws Exception;
+	
+//	public boolean deletePick(List<String> pickIds) throws Exception;
+	
 	
 	
 	

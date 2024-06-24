@@ -2,6 +2,7 @@ package www.egg.dao;
 import java.util.List;
 import java.util.Map;
 
+import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
@@ -25,5 +26,9 @@ public interface IF_MypageDAO {
 	public List<Map<String, Object>> getfile(Integer re_num) throws Exception;	
 //	public List<String> testfile(Integer re_num) throws Exception;
 	//--------------------------------------------------- 리뷰에 저장된 사진 불러오기 + 테스트용
+	public void pickinsert(FavorVO fvo) throws Exception;	
+	
+//	public boolean deletePick(List<String> pickIds) throws Exception;
+	
 	
 }

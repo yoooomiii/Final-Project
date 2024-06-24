@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import www.egg.dao.IF_MypageDAO;
+import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
@@ -59,6 +60,17 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		// TODO Auto-generated method stub
 		return mpdao.getfile(re_num);
 	}
+
+	@Override
+	public void pickinsert(FavorVO fvo) throws Exception {
+		// TODO Auto-generated method stub
+		mpdao.pickinsert(fvo);
+	}
+	
+//	@Override
+//	public boolean deletePick(List<String> pickIds) throws Exception {
+//        return mpdao.deletePick(pickIds);
+//    }
 
 //
 //	@Override
