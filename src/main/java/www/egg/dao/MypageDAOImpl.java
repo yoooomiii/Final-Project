@@ -70,7 +70,7 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	}
 
 	@Override
-	public void pickinsert(FavorVO fvo) throws Exception {
+	public void pickinsert(FavorVO fvo) throws Exception {			//찜한 메뉴 저장
 		// TODO Auto-generated method stub
 		sqlsession.insert(mapperQuery +".pickinsert", fvo);
 	}

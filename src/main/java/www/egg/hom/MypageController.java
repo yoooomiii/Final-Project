@@ -128,7 +128,7 @@ public class MypageController {
 	}
 
 
-	@PostMapping(value = "pickcart_insert")
+	@PostMapping(value = "pickcart_insert")			//메뉴에서 찜버튼 클릭시 찜목록 테이블에 저장
 	public String pickcart(@ModelAttribute FavorVO fvo,
 						@RequestParam("menu_no") int menu_no,
 						@RequestParam("menu_name") String menu_name,
@@ -146,7 +146,7 @@ public class MypageController {
 		return "mypage/pick";
 	}
 	
-	@GetMapping(value="allreview") // 내가 쓴 리뷰만 불러오기 (사진 포함)  //진짜 너무 싫다....
+	@GetMapping(value="allreview") // 내가 쓴 리뷰만 불러오기 (사진 포함)  
 	public String allreviews(HttpSession session, Model model) throws Exception {
 		String userid = (String) session.getAttribute("userid");	
 
@@ -157,7 +157,7 @@ public class MypageController {
 		for (ReviewVO review : myreview) { // myreview 리스트에 있는 각 리뷰에 대해 반복
 			List<Map<String, Object>> photos = mpservice.getfile(review.getRe_num()); // 현재 리뷰의 re_num에 해당하는 사진 리스트를 가져오기
 			for (Map<String, Object> photo : photos) { // 가져온 사진 리스트의 각 사진에 대해 반복
-				if (photo.get("filename") != null && !photo.get("filename").toString().trim().isEmpty()) { // filename이 null이 아니고 비어 있지 않은 경우를 확인합니다.
+				if (photo.get("filename") != null && !photo.get("filename").toString().trim().isEmpty()) { // filename이 null이 아니고 비어 있지 않은 경우를 확인
 					photolist.add(photo); // 조건을 만족하는 사진 데이터를 photolist에 추가
 					System.out.println(photolist);
 				}

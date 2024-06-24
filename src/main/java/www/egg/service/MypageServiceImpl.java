@@ -62,7 +62,7 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	}
 
 	@Override
-	public void pickinsert(FavorVO fvo) throws Exception {
+	public void pickinsert(FavorVO fvo) throws Exception {		//찜한 메뉴 정보를 저장
 		// TODO Auto-generated method stub
 		mpdao.pickinsert(fvo);
 	}
