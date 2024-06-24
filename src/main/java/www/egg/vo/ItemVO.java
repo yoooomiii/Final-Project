@@ -9,12 +9,14 @@ public class ItemVO {
 	private int menu_no2 =0;   	// 사이드 코드1
 	private int menu_no3 =0;        // 사이드 코드2
 	private int menu_no4 =0;        // 사이드 코드3
+	private String menu_name = null;	//선택한 메뉴 이름
 	private int i_price =0;        // 메뉴 주문 금액
 	
 	@Override
 	public String toString() {
 		return "ItemVO [i_num=" + i_num + ", i_id=" + i_id + ", i_no=" + i_no + ", menu_no=" + menu_no + ", menu_no2="
-				+ menu_no2 + ", menu_no3=" + menu_no3 + ", menu_no4=" + menu_no4 + ", i_price=" + i_price + "]";
+				+ menu_no2 + ", menu_no3=" + menu_no3 + ", menu_no4=" + menu_no4 + ", menu_name=" + menu_name
+				+ ", i_price=" + i_price + "]";
 	}
 	public Integer getI_num() {
 		return i_num;
@@ -57,6 +59,12 @@ public class ItemVO {
 	}
 	public void setMenu_no4(int menu_no4) {
 		this.menu_no4 = menu_no4;
+	}
+	public String getMenu_name() {
+		return menu_name;
+	}
+	public void setMenu_name(String menu_name) {
+		this.menu_name = menu_name;
 	}
 	public int getI_price() {
 		return i_price;

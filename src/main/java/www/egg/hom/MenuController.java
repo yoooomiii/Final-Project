@@ -18,6 +18,7 @@ import www.egg.service.IF_MenuService;
 import www.egg.util.FileDataUtil;
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
+import www.egg.vo.PaymentVO;
 
 @Controller
 public class MenuController {
@@ -28,33 +29,61 @@ public class MenuController {
 	@Inject
 	FileDataUtil filedatautil;
 	
+	@PostMapping(value ="/payment_inputSave")
+	public String patment_inputSave(@ModelAttribute PaymentVO pvo) throws Exception {	//결제테이블 등록
+		mservice.payment_insert(pvo);
+		
+		return "redirect:payment_List";
+	}
 	
-	@PostMapping("/item_inputSave")
-    public String itemInputSave(@RequestParam("i_no") String iNo,
-                                @RequestParam("i_id") String iId,
-                                @RequestParam("menu_no") String no,
-                                @RequestParam(value = "menu_no2", required = false) String menuNo2,
-                                @RequestParam(value = "menu_no3", required = false) String menuNo3,
-                                @RequestParam(value = "menu_no4", required = false) String menuNo4,
-                                @RequestParam("i_conut") String iCount,
-                                @RequestParam("i_price") String iPrice,
-                                Model model) throws Exception {
-        // 주문 처리 로직
-        model.addAttribute("i_no", iNo);
+	@GetMapping(value ="/payment_input")
+	public String patment_input(@ModelAttribute PaymentVO pvo) throws Exception {	//결제테이블로 이동
+		
+		return "menu/paymentInput";
+	}
+	
+	@GetMapping(value ="/item_delete")
+	public String item_delete(@ModelAttribute ItemVO ivo) throws Exception {	//장바구니 삭제
+		mservice.item_delete(ivo);
+		
+		return "redirect:item_List";
+	}
+
+	@RequestMapping("/item_List")
+	public String item_List(@ModelAttribute ItemVO ivo,
+			Model model) throws Exception {	//장바구니 전체보기
+		List<ItemVO> itemList = mservice.itemList();
+		model.addAttribute("itemList", itemList);
+		return "menu/itemList";
+	}
+	
+	@GetMapping(value ="/item_inputSave")
+	public String item_input(@ModelAttribute ItemVO ivo,
+			@RequestParam("i_no") String iNo,
+            @RequestParam("i_id") String iId,
+            @RequestParam("menu_no") String no,
+            @RequestParam(value = "menu_no2", required = false) String menuNo2,
+            @RequestParam(value = "menu_no3", required = false) String menuNo3,
+            @RequestParam(value = "menu_no4", required = false) String menuNo4,
+            @RequestParam("menu_name") String name,
+            @RequestParam("i_price") String iPrice,
+            Model model) throws Exception {	//장바구니 등록 과 동시에 장바구니 리스트로 이동
+		model.addAttribute("i_no", iNo);
         model.addAttribute("i_id", iId);
         model.addAttribute("menu_no", no);
         model.addAttribute("menu_no2", menuNo2);
         model.addAttribute("menu_no3", menuNo3);
         model.addAttribute("menu_no4", menuNo4);
-        model.addAttribute("i_conut", iCount);
+        model.addAttribute("menu_name", name);
         model.addAttribute("i_price", iPrice);
-        return "menu/itemInput"; // 처리 결과 페이지로 이동
-    }
-
+		
+		mservice.item_insert(ivo);
+		return "redirect:item_List";
+	}
 	
 	@GetMapping(value ="/mviewDetail")
 	public String test(@RequestParam("menu_no") String no,
-			Model model) throws Exception {	//장바구니 등록 과정
+			Model model) throws Exception {	//장바구니 에서 사이드메뉴 체크 과정
 		MenuVO mvo = mservice.modno(no);
 		List<String> attackList = mservice.getFilename(no);
 		List<MenuVO> List = mservice.sideList();
@@ -63,24 +92,6 @@ public class MenuController {
 		model.addAttribute("attackList", attackList);
 		
 		return "menu/menuKeep";
-	}
-	
-	@PostMapping(value ="/item_inputSaveup")
-	public String item_input(@ModelAttribute ItemVO ivo) throws Exception {	//장바구니 등록 과정
-		
-		mservice.item_insert(ivo);
-		return null;
-	}
-	
-	@GetMapping(value ="/Detail")
-	public String item_Detail(@RequestParam("menu_no") String no,
-			Model model) throws Exception {		//선택한 치킨 정보 보기
-		MenuVO mvo = mservice.modno(no);
-		List<MenuVO> List = mservice.menuList();
-		model.addAttribute("List", List);
-		model.addAttribute("mvo", mvo);
-		
-		return "menu/itemInput";
 	}
 
 	@GetMapping(value ="/menu_input")
