@@ -89,7 +89,7 @@
 								<td>등록일</td>
 								<td>답변일</td>
 								<td>삭제</td>
-								<td>답변하기</td>
+								<td>답변</td>
 							</tr>
 						</thead>
 						<tbody>

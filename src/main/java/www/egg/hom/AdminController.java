@@ -1,6 +1,8 @@
 package www.egg.hom;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -57,14 +59,18 @@ public class AdminController {
 			 @RequestParam("city") String city,  @RequestParam("county") String county,
 			 @ModelAttribute PageVO pagevo
 			) throws Exception {
+		String getDetail = "not";
 		
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(30);
-		
+		pagevo.setTotalCount(lservice.getTotalCount());
 		pagevo.prt();
+		
+		// 맵 만들기이...
+		Map<String, Object> spaging = new HashMap<>();
+		spaging.put("pagevo", pagevo);
 		
 		System.out.println("濡쒓렇�씤�떒 county: "+county);
 		if(county.equals("�쟾泥�")) {
@@ -76,9 +82,11 @@ public class AdminController {
 		
 		List<MemberVO> mlist = null;
 		if(sw==null || sw.equals("")) { // 寃��깋�뼱媛� �엳嫄곕굹 �뾾�뒗 寃쎌슦 
-			mlist = lservice.memberSearch(mvo, pagevo) ;
+			spaging.put("ordervo", mvo);
+			mlist = lservice.memberSearch(mvo, pagevo) ; // 모험 start!
 		}else {
 			mvo.setId(sw);
+			spaging.put("ordervo", mvo);
 			mlist = lservice.memberSearch(mvo, pagevo) ;
 		}
 		model.addAttribute("pagevo", pagevo);
@@ -112,15 +120,17 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model , @ModelAttribute PageVO pagevo) throws Exception {
+		// String getDetail = "not";
+		MlistVO ovo= null;
 		
 		if(pagevo.getPage()==null) {
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 번호: "+pagevo.getPage());
-		pagevo.setTotalCount(aservice.getTotalCount());
+		pagevo.setTotalCount(aservice.getTotalCountO(ovo));
 		
 		pagevo.prt();
-		
+		System.out.println("주문내역전체튜플수: "+pagevo.getTotalCount());
 		
 		
 		
@@ -130,11 +140,23 @@ public class AdminController {
 		return "admin/adminMlist";
 	}
 	@RequestMapping(value = "adminDView", method = RequestMethod.GET)
-	public String adminDView(Model model) throws Exception {
+	public String adminDView(Model model , @ModelAttribute PageVO pagevo) throws Exception {
+		DeliveryVO dvo= null;
 		
-		List<DeliveryVO> dlist = aservice.deliverylist();
-		System.out.println("adminController 배달관리뷰: "+dlist);
+		if(pagevo.getPage()==null) {
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 번호: "+pagevo.getPage());
+		pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 총 튜플수 
+		System.out.println("배달토탈튜플수: "+pagevo.getTotalCount());
+		
+		pagevo.prt();
+		
+		// finally...
+		List<DeliveryVO> dlist = aservice.deliverylist(pagevo);
+		// System.out.println("adminController 배달관리뷰: "+dlist);
 		model.addAttribute("deliverys", dlist);
+		model.addAttribute("pagevo", pagevo);
 		return "admin/adminDelivery";
 	}
 	
@@ -190,31 +212,70 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOSearch", method = RequestMethod.GET)
 	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
-			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
-			) throws Exception {
+			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo, 
+			 PageVO pagevo) throws Exception {
+		//MlistVO ovo = null;
+
+		System.out.println("에무스테이토: "+m_state);
+		
+		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 정보: "+pagevo.getPage());
+		pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 그냥 모든 튜플수 적용
+		pagevo.prt();
+		System.out.println("주문토탈카툰트 before: "+pagevo.getTotalCount());
+		
+		// 맵 만들기이...
+		Map<String, Object> spaging = new HashMap<>();
+		spaging.put("pagevo", pagevo);
 		
 		// vo 셋팅하셈. 
 		List<MlistVO> olist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
 			ovo.setM_state(m_state);
+			spaging.put("ordervo", ovo);
 			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
-			olist = aservice.searchOrder(ovo);
+			olist = aservice.searchOrderPaging(spaging);
+			
+			pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 검색결과 튜플개수만큼만 적용 @이거 안 먹는데??
 		}else {
 			Integer m_num = Integer.parseInt(sw);
 			ovo.setM_num(m_num);
+			spaging.put("ordervo", ovo);
 			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
-			olist = aservice.searchOrder(ovo);
+			olist = aservice.searchOrderPaging(spaging);
+			
+			pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 검색결과 튜플개수만큼만 적용 
 		}
 		
-		
-		model.addAttribute("orders", olist);
+		System.out.println("주문토탈카툰트 after: "+pagevo.getTotalCount());
+		// finally...
+		model.addAttribute("orders", olist); // 주문내역vo 제출
+		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
+		// model.addAttribute("ordervo", ovo); // 클라가 주문내역 검색요청했던 정보 제출
+		model.addAttribute("m_state", m_state);
+		model.addAttribute("sword", sw);
 		return "admin/adminMlist";
 	}
 	
 	@RequestMapping(value = "adminDSearch", method = RequestMethod.GET)
 	public String adminDsearch( Model model, @RequestParam("sword") String sw,  
-			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo) throws Exception {
+			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo
+			, PageVO pagevo) throws Exception {
+
+		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 정보: "+pagevo.getPage());
+		pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 그냥 모든 튜플수 적용
+		pagevo.prt();
+		System.out.println("배달토탈카운트 before: "+pagevo.getTotalCount());
 		
+		
+		// 맵 만들기이...
+		Map<String, Object> spaging = new HashMap<>();
+		spaging.put("pagevo", pagevo);
 		
 		
 		// vo 셋팅하셈. 
@@ -223,16 +284,28 @@ public class AdminController {
 		List<DeliveryVO> dlist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
 			dvo.setD_check(d_check);
+			spaging.put("deliveryvo", dvo);
 			System.out.println("어드민콘트롤러 dvo(sw null): "+dvo.toString());
-			dlist = aservice.searchDelivery(dvo);
+			//dlist = aservice.searchDelivery(dvo);
+			dlist = aservice.searchDeliveryPaging(spaging);
+			
+			pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 검색결과 튜플개수만큼만 적용 
 		}else {
 			Integer d_no = Integer.parseInt(sw);
 			dvo.setD_no(d_no);
+			spaging.put("deliveryvo", dvo);
 			System.out.println("어드민콘트롤러 dvo(sw ok): "+dvo.toString());
-			dlist = aservice.searchDelivery(dvo);
+			//dlist = aservice.searchDelivery(dvo);
+			dlist = aservice.searchDeliveryPaging(spaging);
+			
+			pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 검색결과 튜플개수만큼만 적용 
 		}
 		
-		model.addAttribute("deliverys", dlist);
+		System.out.println("배달토탈카운트 after: "+pagevo.getTotalCount());
+		// finally...
+		pagevo.prt();
+		model.addAttribute("deliverys", dlist); // 배달내역 제출
+		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
 		return "admin/adminDelivery";
 	}
 	
