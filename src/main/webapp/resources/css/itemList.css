@@ -185,7 +185,8 @@ nav {
 	width: 1260px; /*가로 넓이*/
 	height: 700px; /*세로 높이*/
 	text-align: center; /*중앙 정렬*/
-	background-color: rgb(228, 230, 228)
+	background-color: rgb(228, 230, 228);
+    padding-left: 140px;
 }
 
 aside {
@@ -206,6 +207,7 @@ aside {
     padding-top: 2px;
 }
 
+
 .list{
     float: left;
     border: 0px solid black;      /*틀 선 굵기와 종류 색상*/
@@ -217,22 +219,21 @@ aside {
     margin-left: 50px;
 	/* background-color: rgb(101, 206, 145) */
 }
-
 .list h4{
     float: right;
     margin-right: 20px;
 }
 
+
 .img{
     float: left;
     border: 0px solid black;      /*틀 선 굵기와 종류 색상*/
     border-radius: 20px;
-	width: 700px; /*가로 넓이*/
-	height: 580px; /*세로 높이*/
+	width: 1000px; /*가로 넓이*/
+	height: 590px; /*세로 높이*/
 	text-align: center; /*중앙 정렬*/
-    margin-left: 80px;
     margin-top: 50px;
-    padding-top: 70px;
+    padding-top: 50px;
 	background-color: rgb(255, 255, 255)
 }
 
@@ -348,13 +349,44 @@ footer {
     color: white;
     background-color: #f06d4c;
 }
-.lien{
-    border-radius: 20px;
+table tr{
+    border: 1px solid; 
 }
-#ppp{
-    border-radius: 10px;
-    width: 40px; /*가로 넓이*/
-	height: 40px; /*세로 높이*/
-    color: rgb(255, 255, 255);
-    background-color: #f89359;
+table td{
+    border: 1px solid; 
 }
+table {
+        border-collapse: collapse;
+        width: 700px;
+        font-size: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 3px solid rgb(180, 180, 180);
+        border-radius: 5px;
+    }
+    
+    thead {
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    tbody {
+        font-size: 16px;
+    }
+    
+    thead > td {
+        border: 5px solid rgb(180, 180, 180);
+    }
+  
+
+    tbody > td {
+        border: 5px solid rgb(180, 180, 180);
+        vertical-align: middle;
+    }
+    button .i_num{
+    float: right;
+    	width: 50px; /*가로 넓이*/
+		height: 20px; /*세로 높이*/
+    	color: white;
+    	background-color: #f06d4c;
+    }
