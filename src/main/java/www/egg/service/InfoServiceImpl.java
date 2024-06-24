@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import www.egg.dao.IF_InfoDAO;
 import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
+import www.egg.vo.InfojoinVO;
 import www.egg.vo.PageVO;
 
 @Service
@@ -26,7 +27,7 @@ public class InfoServiceImpl implements IF_InfoService {
 	}
 	
 	@Override
-	public List<AskVO> allList(String a_id) throws Exception {
+	public List<InfojoinVO> allList(String a_id) throws Exception {
 		return idao.allList(a_id);
 	}
 
@@ -54,6 +55,12 @@ public class InfoServiceImpl implements IF_InfoService {
 	public void insert_re(AnswerVO anvo) throws Exception {
 		
 		idao.insert_re(anvo);
+	}
+
+	@Override
+	public AnswerVO selectOneMa(Integer a_num) throws Exception {
+
+		return idao.selectOneMa(a_num);
 	}
 	
 	
