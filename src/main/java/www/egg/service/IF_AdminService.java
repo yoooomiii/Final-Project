@@ -24,7 +24,7 @@ public interface IF_AdminService {
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
 	public void deleteDeliverynum(String m_num);
 	
-	public int getTotalCount(String getDetail)  throws Exception;
+	public int getTotalCountO(MlistVO ovo)  throws Exception;
 	public List<MlistVO> searchOrderPaging(Map<String, Object> spage);
 
 }

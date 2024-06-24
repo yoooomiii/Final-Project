@@ -65,7 +65,7 @@ public class AdminController {
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(aservice.getTotalCount(getDetail));
+		pagevo.setTotalCount(lservice.getTotalCount());
 		pagevo.prt();
 		
 		// 맵 만들기이...
@@ -120,13 +120,14 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminOView", method = RequestMethod.GET) // 주문내역관리
 	public String adminOView(Model model , @ModelAttribute PageVO pagevo) throws Exception {
-		String getDetail = "not";
+		// String getDetail = "not";
+		MlistVO mvo= null;
 		
 		if(pagevo.getPage()==null) {
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 번호: "+pagevo.getPage());
-		pagevo.setTotalCount(aservice.getTotalCount(getDetail));
+		pagevo.setTotalCount(aservice.getTotalCountO(mvo));
 		
 		pagevo.prt();
 		
@@ -201,12 +202,12 @@ public class AdminController {
 	public String adminOSearch( Model model, @RequestParam("sword") String sw,  
 			@RequestParam("m_state") String m_state, @ModelAttribute MlistVO ovo
 			, PageVO pagevo) throws Exception {
-		String getDetail = null;
+		// String getDetail = "not";
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		// pagevo.setTotalCount(aservice.getTotalCount()); // 그냥 모든 튜플수 적용
+		pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 그냥 모든 튜플수 적용
 		pagevo.prt();
 		
 		// 맵 만들기이...
@@ -221,8 +222,7 @@ public class AdminController {
 			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
 			olist = aservice.searchOrderPaging(spaging);
 			
-			getDetail = "forSword";
-			pagevo.setTotalCount(aservice.getTotalCount(getDetail)); // 검색결과 튜플개수만큼만 적용 
+			pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 검색결과 튜플개수만큼만 적용 
 		}else {
 			Integer m_num = Integer.parseInt(sw);
 			ovo.setM_num(m_num);
@@ -230,8 +230,7 @@ public class AdminController {
 			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
 			olist = aservice.searchOrderPaging(spaging);
 			
-			getDetail = "forSelect";
-			pagevo.setTotalCount(aservice.getTotalCount(getDetail)); // 검색결과 튜플개수만큼만 적용 
+			pagevo.setTotalCount(aservice.getTotalCountO(ovo)); // 검색결과 튜플개수만큼만 적용 
 		}
 		
 		// finally...

@@ -115,16 +115,27 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	}
 	
 	@Override
-	public int getTotalCount(String getDetail) throws Exception {
+	public int getTotalCountO(MlistVO ovo) throws Exception {
 		// TODO Auto-generated method stub
-		if(getDetail.equals("not")) {
-			return sqlSession.selectOne(mapperQuery+".getToatalCount");
-		}else if(getDetail.equals("forSword")) {
-			return sqlSession.selectOne(mapperQuery+".getToatalCountForSword");
-		}else if(getDetail.equals("forSelect")) {
-			return sqlSession.selectOne(mapperQuery+".getToatalCountForSelect");
+		/*
+		 * if(getDetail.equals("not")) { return
+		 * sqlSession.selectOne(mapperQuery+".getToatalCount"); }else
+		 * if(getDetail.equals("forSword")) { return
+		 * sqlSession.selectOne(mapperQuery+".getToatalCountForSword"); }else
+		 * if(getDetail.equals("forSelect")) { return
+		 * sqlSession.selectOne(mapperQuery+".getToatalCountForSelect"); }else { return
+		 * sqlSession.selectOne(mapperQuery+".getToatalCount"); }
+		 */
+		if(ovo==null) {
+			return sqlSession.selectOne(mapperQuery+".getToatalOCount");
 		}else {
-			return sqlSession.selectOne(mapperQuery+".getToatalCount");
+			String m_num= Integer.toString(ovo.getM_num()); 
+			String m_state =  ovo.getM_state();
+			if(m_num==null) {
+				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSelect", m_state);
+			}else {
+				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSword", m_num);
+			}
 		}
 	}
 
