@@ -5,8 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메뉴선택</title>
-<link href="./resources/css/menuPick.css" rel="stylesheet"/><link
+<title>장바구니</title>
+<link href="./resources/css/itemList.css" rel="stylesheet" />
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -15,7 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
-</head>
+ </head>
 <body>
 	<div id="Box">
             <header>
@@ -129,33 +130,37 @@
             <hr>
             <section id="foodList">
                 <div class="img">
-                    <c:forEach items="${attackList}" var="fname">
-						<img src="download?filename=${fname}" width="500" , height="450" class="lien">
-					</c:forEach>
-                </div>
-                <div class="list">
-                    <br>
-                   
-                    <h2><b>${mvo.menu_name }</b></h2>
-                    <br>
-                    <h6><b>${mvo.menu_ex }</b></h6>
-                    <br>
-                    <h4><b>${mvo.menu_price }원</b></h4>
+                <h1>장바구니</h1>
+                <br>
+                    <table border=1  id="table">
+                        <thead>
+                            <tr>
+                            	<td>선택</td>
+                                <td>회원 ID</td>
+                                <td>메뉴 목록</td>
+                                <td>주문 금액</td>
+                                <td>삭제</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${itemList}" var="ivo">
+                                <tr>
+                                	<td><input type="checkbox" checked value="${ivo.i_num }"></td>
+                                    <td>${ivo.i_id}</td>
+                                    <td>${ivo.menu_name }</td>
+                                    <td>${ivo.i_price}원</td>
+                                    <td><a href="item_delete?i_num=${ivo.i_num}">삭제</a></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
                     <br>
                     <hr>
                     <br>
-						<a href="mviewDetail?menu_no=${mvo.menu_no}"><button type=submit id="kkk">주문하기</button></a>
-						<form action="pickcart_insert" method="post">
-    						<input type="hidden" name="menu_no" value="${mvo.menu_no}">
-    						<input type="hidden" name="menu_name" value="${mvo.menu_name}">
-    						<input type="hidden" name="menu_price" value="${mvo.menu_price}">
-  						    <button type="submit" id="ppp">찜</button>
-						</form>
-						
-                    <br>
-                    <br>
-                    <br>
-                    <img src="https://i3.ruliweb.net/ori/22/06/17/18170fbac2d4b2a07.gif" width="300" , height="250">
+                    <a href="patment_input?i_num=${ivo.i_num}"><button type=submit id="kkk">결제하기</button></a>
+                </div>
+                <div class="list">
+                    
                 </div>
             </section>
             <hr>

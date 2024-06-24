@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,9 @@ import www.egg.vo.MenuVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
+
  @Controller
+
 public class MypageController {
 
 	@Inject
@@ -125,15 +128,21 @@ public class MypageController {
 	}
 
 
-	@GetMapping(value = "pickcart_insert")
-	public String pickcart(@ModelAttribute FavorVO fvo,@ModelAttribute MenuVO mvo,
-			HttpSession session, MultipartFile[] file, Model model) throws Exception {
+	@PostMapping(value = "pickcart_insert")
+	public String pickcart(@ModelAttribute FavorVO fvo,
+						@RequestParam("menu_no") int menu_no,
+						@RequestParam("menu_name") String menu_name,
+						@RequestParam("menu_price") String menu_price,
+						HttpSession session, Model model) throws Exception {
+		
 		String userid= (String) session.getAttribute("userid"); 
 		fvo.setF_id(userid);
-		fvo.setF_no(mvo.getMenu_no());
-		fvo.setF_name(mvo.getMenu_name());
-		fvo.setF_price(mvo.getMenu_price());
+		fvo.setF_no(menu_no);
+		fvo.setF_menu(menu_name);
+		fvo.setF_price(Integer.parseInt(menu_price));
+		
 		mpservice.pickinsert(fvo);
+		System.out.println("찜 저장됨");
 		return "mypage/pick";
 	}
 	

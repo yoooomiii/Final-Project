@@ -5,8 +5,15 @@ public class FavorVO {
 	private Integer f_num =0;     
 	private Integer f_no =0; 
 	private String f_id = null;    
-	private String f_name = null;   
+	private String f_menu = null;   
+	private Integer f_price =0;
 	
+	@Override
+	public String toString() {
+		return "FavorVO [f_num=" + f_num + ", f_no=" + f_no + ", f_id=" + f_id + ", f_menu=" + f_menu + ", f_price="
+				+ f_price + "]";
+	}
+
 	public Integer getF_num() {
 		return f_num;
 	}
@@ -31,12 +38,12 @@ public class FavorVO {
 		this.f_id = f_id;
 	}
 
-	public String getF_name() {
-		return f_name;
+	public String getF_menu() {
+		return f_menu;
 	}
 
-	public void setF_name(String f_name) {
-		this.f_name = f_name;
+	public void setF_menu(String f_menu) {
+		this.f_menu = f_menu;
 	}
 
 	public Integer getF_price() {
@@ -46,12 +53,6 @@ public class FavorVO {
 	public void setF_price(Integer f_price) {
 		this.f_price = f_price;
 	}
-
-	private Integer f_price = 0; 
 	
-	@Override
-	public String toString() {
-		return "FavorVO [f_num=" + f_num + ", f_no=" + f_no + ", f_id=" + f_id + ", f_name=" + f_name + ", f_price="
-				+ f_price + "]";
-	}
+	
 }
