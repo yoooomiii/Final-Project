@@ -21,7 +21,6 @@ import www.egg.service.IF_MypageServiece;
 import www.egg.util.ReviewFileDataUtil;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
-import www.egg.vo.MenuVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
