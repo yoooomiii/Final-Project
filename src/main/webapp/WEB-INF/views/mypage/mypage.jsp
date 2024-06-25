@@ -255,7 +255,7 @@ td {
 
 			<div id="icons">
 				<div class="iconimg">
-					<a href="${pageContext.request.contextPath}/mylist"> <img
+					<a href="${pageContext.request.contextPath}/list"> <img
 						src="${pageContext.request.contextPath}/resources/img/주문내역 최최종.png"
 						width="140" height="140">
 					</a>
