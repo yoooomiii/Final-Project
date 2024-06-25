@@ -40,8 +40,10 @@ public class MenuController {
 	@GetMapping(value ="/payment_input")
 	public String patment_input(@ModelAttribute PaymentVO pvo,
 			Model model, HttpSession session,
-			@RequestParam("i_price") String iPrice) throws Exception {	//결제테이블로 이동
+			@RequestParam("i_price") String iPrice,
+			@RequestParam("i_num") String inum) throws Exception {	//결제테이블로 이동
 		model.addAttribute("i_price", iPrice);
+		model.addAttribute("i_num", inum);
 		session.getAttribute("userid");
 		session.getAttribute("useraddress");
 		
@@ -66,7 +68,6 @@ public class MenuController {
 	
 	@GetMapping(value ="/item_inputSave")
 	public String item_input(@ModelAttribute ItemVO ivo,
-			@RequestParam("i_no") String iNo,
             @RequestParam("i_id") String iId,
             @RequestParam("menu_no") String no,
             @RequestParam(value = "menu_no2", required = false) String menuNo2,
@@ -76,7 +77,6 @@ public class MenuController {
             @RequestParam("i_price") String iPrice,
             Model model, HttpSession session) throws Exception {	//장바구니 등록 과 동시에 장바구니 리스트로 이동
 		session.getAttribute("userid");
-		model.addAttribute("i_no", iNo);
         model.addAttribute("i_id", iId);
         model.addAttribute("menu_no", no);
         model.addAttribute("menu_no2", menuNo2);

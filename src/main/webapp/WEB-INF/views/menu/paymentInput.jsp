@@ -10,7 +10,7 @@
 	<h1>장바구니다</h1>
     <form action="payment_inputSave" method="post">
         <br>
-        	주문 번호<input type="text" name="pm_no">
+        	장바구니 번호<input type="text" value="${i_num}" name="pm_num">
         <br>
         	회원 ID<input type="text" value="${userid}" name="pm_id">
         <br>
@@ -18,9 +18,9 @@
         <br>
         	배달비<input type="text" value="2000" name="pm_tip">
         <br>
-        	총 결제금액<input type="text" value="${pm_total}" name="pm_total">
+        	총 결제금액<input type="text" value="${i_price + 2000}" name="pm_total">
         <br>
-        	포인트<input type="text" value="${pm_poion}" name="pm_poion">
+        	포인트<input type="text" value="${(i_price) * 0.05}" name="pm_point">
         <br>
         	결제 수단<input type="text" name="pm_pay">
         <br>

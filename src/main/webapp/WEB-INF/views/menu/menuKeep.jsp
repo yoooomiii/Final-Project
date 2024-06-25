@@ -226,11 +226,6 @@
                 return false;
             }
 
-            if (selectedValues.length === 0) {
-                alert("하나 이상의 항목을 선택하세요.");
-                return false;
-            }
-
             if (selectedValues.length > 3) {
                 alert("3개까지 선택이 가능합니다.");
                 return false;
@@ -238,7 +233,6 @@
 
             // URL 파라미터 생성
             var params = new URLSearchParams();
-            params.append('i_no', '47'); // 임의 값, 실제 값으로 변경
             params.append('i_id', userid); // 임의 값, 실제 값으로 변경
             params.append('menu_no', document.querySelector('.menu_no').value);
             for (var i = 0; i < selectedValues.length; i++) {

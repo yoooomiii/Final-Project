@@ -4,7 +4,6 @@ public class ItemVO {
 	
 	private Integer i_num = 0;     // 아이템 번호
 	private String i_id = null;		//회원 아이디
-	private Integer i_no = 0;      // 결제 번호
 	private int menu_no =0;  	// 메뉴 코드
 	private int menu_no2 =0;   	// 사이드 코드1
 	private int menu_no3 =0;        // 사이드 코드2
@@ -14,9 +13,9 @@ public class ItemVO {
 	
 	@Override
 	public String toString() {
-		return "ItemVO [i_num=" + i_num + ", i_id=" + i_id + ", i_no=" + i_no + ", menu_no=" + menu_no + ", menu_no2="
-				+ menu_no2 + ", menu_no3=" + menu_no3 + ", menu_no4=" + menu_no4 + ", menu_name=" + menu_name
-				+ ", i_price=" + i_price + "]";
+		return "ItemVO [i_num=" + i_num + ", i_id=" + i_id + ", menu_no=" + menu_no + ", menu_no2=" + menu_no2
+				+ ", menu_no3=" + menu_no3 + ", menu_no4=" + menu_no4 + ", menu_name=" + menu_name + ", i_price="
+				+ i_price + "]";
 	}
 	public Integer getI_num() {
 		return i_num;
@@ -29,12 +28,6 @@ public class ItemVO {
 	}
 	public void setI_id(String i_id) {
 		this.i_id = i_id;
-	}
-	public Integer getI_no() {
-		return i_no;
-	}
-	public void setI_no(Integer i_no) {
-		this.i_no = i_no;
 	}
 	public int getMenu_no() {
 		return menu_no;

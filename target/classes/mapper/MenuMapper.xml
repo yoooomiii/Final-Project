@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 장바구니 -->
 	<insert id="iinsert" parameterType="www.egg.vo.ItemVO">
-		INSERT INTO item VALUES (NEXT VALUE FOR item_cnt, #{i_id}, #{i_no}, #{menu_no}, #{menu_no2}, #{menu_no3}, #{menu_no4}, #{menu_name}, #{i_price})
+		INSERT INTO item VALUES (NEXT VALUE FOR item_cnt, #{i_id}, #{menu_no}, #{menu_no2}, #{menu_no3}, #{menu_no4}, #{menu_name}, #{i_price})
 	</insert>
 	<!-- 장바구니 입력 -->
 	<select id="iselectall" resultType="www.egg.vo.ItemVO">
@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 결제 -->
 	<insert id="pinsert" parameterType="www.egg.vo.PaymentVO">
-		INSERT INTO PAYMENT VALUES (NEXT VALUE FOR payment_cnt, #{pm_no}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_point}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'), #{pm_address}, #{pm_pick}, #{pm_comment})
+		INSERT INTO PAYMENT VALUES (NEXT VALUE FOR payment_cnt, #{pm_num}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_point}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'), #{pm_address}, #{pm_pick}, #{pm_comment})
 	</insert>
 	<!-- 결제테이블 입력 -->
 	<select id="pselectall" resultType="www.egg.vo.PaymentVO">
@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 결제테이블 전체보기 -->
 	<delete id="pdelete" parameterType="www.egg.vo.PaymentVO">
-		DELETE FROM PAYMENT WHERE pm_num = #{pm_num}
+		DELETE FROM PAYMENT WHERE pm_no = #{pm_no}
 	</delete>
 	<!-- 결제테이블 삭제 -->
 </mapper>
