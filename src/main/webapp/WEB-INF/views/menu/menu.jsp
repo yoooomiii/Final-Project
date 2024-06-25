@@ -292,44 +292,71 @@
                 <br>
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=23"><input type="submit" value="상세보기" class="t"></a>
             </div>
+            <div class="list">
+                <img src="./resources/img/땅땅치킨-메뉴-추천-후왕.png" width="298" , height="250" class="e">
+                <br>
+                <br>
+                <h3><b>땅콩 치킨</b></h3>
+                <h5>땅콩과 치킨의 만남 그결과는?</h5>
+                <br>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=29"><input type="submit" value="상세보기" class="t"></a>
+            </div>
+            <div class="list">
+                <img src="./resources/img/화면 캡처 2024-06-21 165556.png" width="298" , height="250" class="e">
+                <br>
+                <br>
+                <h3><b>치킨 케이크</b></h3>
+                <h5>이제는 케이크도 치킨으로 만나보아요</h5>
+                <br>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=30"><input type="submit" value="상세보기" class="t"></a>
+            </div>
+            <div class="list">
+                <img src="./resources/img/화면 캡처 2024-06-21 165935.png" width="298" , height="250" class="e">
+                <br>
+                <br>
+                <h3><b>블랙 시그니처 치킨</b></h3>
+                <h5>지금까지 이런맛은 없었다 이맛은 차원이 다르다</h5>
+                <br>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=31"><input type="submit" value="상세보기" class="t"></a>
+            </div>
             </div>
             <div class="pop">
             <h1>사이드 / 음료</h1>
             <div class="list">
-                <img src="/Gold.html/img/egg.png" width="298" , height="250" class="e">
+                <img src="./resources/img/side01.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>후라이드 치킨</b></h3>
-                <h5>바삭한 튀김옷으로 무장한 치킨</h5>
+                <h3><b>콜라</b></h3>
+                <h5>코카콜라</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=18"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=26"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="/Gold.html/img/egg03.png" width="298" , height="250" class="e">
+                <img src="./resources/img/side02.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>양념 치킨</b></h3>
-                <h5>모두가 좋아하는 양념치킨</h5>
+                <h3><b>사이다</b></h3>
+                <h5>칠성사이다</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=19"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=27"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="/Gold.html/img/egg02.png" width="298" , height="250" class="e">
+                <img src="./resources/img/side03.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>고추 치킨</b></h3>
-                <h5>불타는 금요일 화끈하게</h5>
+                <h3><b>치킨무</b></h3>
+                <h5>느끼하지 않게</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=25"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=28"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="/Gold.html/img/egg04.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-24 095304.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>치즈마요 치킨</b></h3>
-                <h5>치킨과 치즈의 만남</h5>
+                <h3><b>샐러드</b></h3>
+                <h5>건강하게 치킨을 잡솨봐요</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=24"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=32"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="/Gold.html/img/egg05.png" width="298" , height="250" class="e">

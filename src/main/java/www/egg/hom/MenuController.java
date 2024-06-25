@@ -37,7 +37,9 @@ public class MenuController {
 	}
 	
 	@GetMapping(value ="/payment_input")
-	public String patment_input(@ModelAttribute PaymentVO pvo) throws Exception {	//결제테이블로 이동
+	public String patment_input(@ModelAttribute PaymentVO pvo,
+			Model model) throws Exception {	//결제테이블로 이동
+		
 		
 		return "menu/paymentInput";
 	}
@@ -129,19 +131,6 @@ public class MenuController {
 		
 		return "menu/menuPick";
 	}
-	
-//	@GetMapping(value ="/mviewDetail")
-//	public String menuKeep(@RequestParam("menu_no") String no,
-//			Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
-//		MenuVO mvo = mservice.modno(no);
-//		List<String> attackList = mservice.getFilename(no);
-//		List<MenuVO> List = mservice.menuList();
-//		model.addAttribute("List", List);
-//		model.addAttribute("mvo", mvo);
-//		model.addAttribute("attackList", attackList);
-//		
-//		return "menu/menuKeep";
-//	}
 	
 	@RequestMapping("/menu_List")
 	public String menu_allList(@ModelAttribute MenuVO mvo,

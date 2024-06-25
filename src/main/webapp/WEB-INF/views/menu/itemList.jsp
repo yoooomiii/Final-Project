@@ -157,7 +157,7 @@
                     <br>
                     <hr>
                     <br>
-                    <a href="patment_input?i_num=${ivo.i_num}"><button type=submit id="kkk">결제하기</button></a>
+                    <a href="payment_input?i_num=${ivo.i_num}"><button type=submit id="kkk">결제하기</button></a>
                 </div>
                 <div class="list">
                     
