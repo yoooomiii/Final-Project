@@ -1,7 +1,9 @@
 package www.egg.dao;
 
 import java.util.List;
+import java.util.Map;
 
+import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.PageVO;
 
@@ -13,6 +15,7 @@ public interface IF_LoginDAO {
 	public List<MemberVO> memberSearch(MemberVO mvo, PageVO pagevo);
 	public void modMaster(MemberVO mvo);
 	
-	public int getTotalCount()  throws Exception;
+	public int getTotalCount(MemberVO mvo)  throws Exception;
+	public List<MemberVO> memberSearchPaging(Map<String, Object> spage);
 	
 }

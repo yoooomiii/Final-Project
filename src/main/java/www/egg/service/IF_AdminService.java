@@ -23,6 +23,7 @@ public interface IF_AdminService {
 	public List<MlistVO> searchOrder(MlistVO ovo);
 	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
 	public void deleteDeliverynum(String m_num);
+	public void insertDelivery(DeliveryVO dvo);
 	
 	public int getTotalCountO(MlistVO ovo)  throws Exception;
 	public int getTotalCountD(DeliveryVO dvo)  throws Exception;
