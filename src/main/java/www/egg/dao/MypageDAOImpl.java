@@ -75,6 +75,12 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.insert(mapperQuery +".pickinsert", fvo);
 	}
 
+	@Override
+	public List<FavorVO> picklist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery+".picklist", userid);
+	}
+
 //	@Override
 //	public boolean deletePick(List<String> pickIds) {
 //		try {
