@@ -323,7 +323,7 @@ td {
 						  			<option value="주문접수">주문접수</option>
 						  			<option value="주문취소">주문취소</option>
 						  			<option value="주문완료">주문완료</option>
-						  			<option value="환불요청">환불요청</option>
+						  			<option value="환불처리">환불처리</option>
 					  		 </select>
 							</td>
 							<td><input type="text" name="m_id" value=${ovo.m_id } readonly></td>

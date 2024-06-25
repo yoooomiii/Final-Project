@@ -65,14 +65,33 @@ public class LoginDAOImpl implements IF_LoginDAO{
 	@Override
 	public int getTotalCount(MemberVO mvo) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(mapperQuery+".getToatalMCount" , mvo);
+		// return sqlSession.selectOne(mapperQuery+".getToatalMCount" , mvo);
+		
+		if(mvo==null) {
+			return sqlSession.selectOne(mapperQuery+".getToatalMCount");
+		}else {
+			// Integer m_num = ovo.getM_num();
+			String id = mvo.getId();
+			String address = mvo.getAddress();
+			System.out.println("getTotalDAO_idString: "+id);
+			System.out.println("getTotalDAO_addressString: "+address);
+			if(id==null||id.equals("")) {
+				return sqlSession.selectOne(mapperQuery+".getToatalMCountForSelect", mvo);
+			}else {
+				return sqlSession.selectOne(mapperQuery+".getToatalMCountForSword", id);
+			}
+		}
 	}
 
 	@Override
 	public List<MemberVO> memberSearchPaging(Map<String, Object> spage) {
 				// 맵 추출하기 
+				PageVO pvo = (PageVO) spage.get("pagevo");
 				MemberVO mvo = (MemberVO) spage.get("membervo");
 				String id = mvo.getId();
+				
+				System.out.println("mvo아이디 가져오라고 dao야: "+mvo.getId());
+				System.out.println("startno 가져오라고 dao야: "+pvo.getStartNo());
 
 				if(id==null||id.equals("")) {
 					System.out.println("dao단의 검색찾기 발동");

@@ -83,17 +83,25 @@ public class AdminController {
 		
 		List<MemberVO> mlist = null;
 		if(sw==null || sw.equals("")) { // 寃��깋�뼱媛� �엳嫄곕굹 �뾾�뒗 寃쎌슦 
-			spaging.put("ordervo", mvo);
+			spaging.put("membervo", mvo);
 			//mlist = lservice.memberSearch(mvo, pagevo) ; // 모험 start!
 			mlist = lservice.memberSearchPaging(spaging);
+			
+			pagevo.setTotalCount(lservice.getTotalCount(mvo));
 		}else {
 			mvo.setId(sw);
-			spaging.put("ordervo", mvo);
+			spaging.put("membervo", mvo);
 			//mlist = lservice.memberSearch(mvo, pagevo) ;
 			mlist = lservice.memberSearchPaging(spaging);
+			
+			pagevo.setTotalCount(lservice.getTotalCount(mvo));
 		}
+		
+		System.out.println("멤버토탈카툰트 after: "+pagevo.getTotalCount());
+		System.out.println("홈컨 mlist길이: "+mlist.size());
 		model.addAttribute("pagevo", pagevo);
 		model.addAttribute("members", mlist);
+		model.addAttribute("sword", sw); // 클라가 요청했던 검색조건 기억
 		return "admin/adminMember";
 	}
 	

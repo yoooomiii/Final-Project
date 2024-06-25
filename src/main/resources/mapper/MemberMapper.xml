@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from member where master = #{membervo.master} and address like concat('%',#{membervo.address},'%') order by id asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select> 
 	<select id="selectoneid_p" resultType="www.egg.vo.MemberVO" parameterType="map">
-		select * from member where id = #{membervo.id} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
+		select * from member where id = #{membervo.id} order by id asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select>
 	
 	<select id="getToatalMCount" resultType="int">
@@ -49,6 +49,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count (*) from member where id=#{id}
 	</select>
 	<select id="getToatalMCountForSelect" resultType="int" parameterType="www.egg.vo.MemberVO">
-		select count (*) member where master = #{master} and address like concat('%',#{address},'%') 
+		select count (*) from member where master = #{master} and address like concat('%',#{address},'%') 
 	</select>
 </mapper>

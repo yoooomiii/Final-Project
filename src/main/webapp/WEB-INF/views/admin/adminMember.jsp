@@ -174,7 +174,9 @@
 	margin-left: 20px;
 	border-radius: 30px;
 }
-
+#paging{
+	text-align: center;
+}
 footer {
 	float: left;
 	width: 100%;
@@ -419,7 +421,7 @@ td {
 		</table>
 		<br>
 					<div id ="paging">
-						<!-- <c:if test="${m_state != null}"> --> 
+						<c:if test="${sword != null}">
 							<div>
 								<h5>(숨길 열입니다.) 회원ID(sword): ${sword } 시티: ${city} 주: ${county }</h5>
 								검색결과 목록:
@@ -438,7 +440,7 @@ td {
 										 <a href="adminMSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
 									</c:if>
 							</div>
-						<!-- </c:if> --> 
+						</c:if>
 						<div>
 							일반 목록:
 								<c:if test="${pagevo.prev }">
