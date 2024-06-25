@@ -394,6 +394,8 @@ td {
 					</tr>
 			    </c:if>
 				</c:forEach>
+				<!-- 
+				
 						<tr>
 						<td colspan=4 align=center>
 							<c:if test="${pagevo.prev }">
@@ -412,8 +414,49 @@ td {
 							</c:if>
 						</td>
 					</tr>
+				 -->
 			</tbody>
 		</table>
+		<br>
+					<div id ="paging">
+						<!-- <c:if test="${m_state != null}"> --> 
+							<div>
+								<h5>(숨길 열입니다.) 회원ID(sword): ${sword } 시티: ${city} 주: ${county }</h5>
+								검색결과 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminMSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminMSearch?page=${idx}&sword=${sword}&m_state=${m_state }"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										 <a href="adminMSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						<!-- </c:if> --> 
+						<div>
+							일반 목록:
+								<c:if test="${pagevo.prev }">
+									<a href="adminMView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+								</c:if> 
+								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+									var="idx">
+									<a href="adminMView?page=${idx}"> 
+										<c:if
+											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+											test="${idx == pagevo.page }">]</c:if>
+									</a>
+								</c:forEach> 
+								<c:if test="${pagevo.next }">
+									<a href="adminMView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+								</c:if>
+						</div>
+					</div>
 	</form>
 		</section>
 </body>

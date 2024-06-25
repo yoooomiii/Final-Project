@@ -38,10 +38,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from mlist order by m_num asc LIMIT 10 OFFSET #{startNo}
 	</select>
 	<select id = "selectordernum_p" resultType="www.egg.vo.MlistVO" parameterType="map">
-		select * from mlist where m_num=#{ordervo.m_num} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
+		select * from mlist where m_num = #{ordervo.m_num} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select> 
 	<select id="selectordersearch_p" resultType="www.egg.vo.MlistVO" parameterType="map">
-		select * from mlist where m_state = #{ordervo.m_state}  order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
+		select * from mlist where m_state = #{ordervo.m_state} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select>
 	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
 		<!-- select * from delivery limit 6  -->
@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count (*) from mlist 
 	</select>
 	<select id="getToatalOCountForSword" resultType="int" parameterType="String">
-		select count (*) from mlist where m_num=#{m_num_string}
+		select count (*) from mlist where m_num=#{m_num}
 	</select>
 	<select id="getToatalOCountForSelect" resultType="int" parameterType="String">
 		select count (*) from mlist where m_state=#{m_state}

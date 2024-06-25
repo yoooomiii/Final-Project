@@ -1,6 +1,7 @@
 package www.egg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public interface IF_LoginService {
 	public List<MemberVO> memberSearch(MemberVO mvo, PageVO pagevo);
 	public void modMaster(MemberVO mvo);
 	
-	public int getTotalCount()  throws Exception;
+	public int getTotalCount(MemberVO mvo)  throws Exception;
+	public List<MemberVO> memberSearchPaging(Map<String, Object> spage);
 
 }

@@ -103,14 +103,17 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	@Override
 	public List<MlistVO> searchOrderPaging(Map<String, Object> spage) {
 		// 맵 추출하기 
-		//PageVO pvo = (PageVO) spage.get("pagevo");
 		MlistVO ovo = (MlistVO) spage.get("ordervo");
 		
-		//String m_num = ovo.getM_num()+"";
+		String m_num = ovo.getM_num()+"";
+		//Integer m_num = ovo.getM_num();
+		//System.out.println("dao단 m_num: "+m_num);
 		String m_state = ovo.getM_state();
 		if(m_state==null||m_state.equals("")) {
+			System.out.println("dao단의 넘버찾기 발동");
 			return sqlSession.selectList(mapperQuery+".selectordernum_p", spage);
 		}else{
+			System.out.println("dao단의 검색찾기 발동");
 			return sqlSession.selectList(mapperQuery+".selectordersearch_p", spage);
 		}
 	}
@@ -125,10 +128,10 @@ public class AdminDAOImpl implements IF_AdminDAO{
 			String m_num= ovo.getM_num()+""; 
 			String m_state =  ovo.getM_state();
 			if(m_state==null||m_state.equals("")) {
-				System.out.println("어드민dao m_num: "+m_num);
+				//System.out.println("어드민dao m_num: "+m_num);
 				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSword", m_num);
 			}else {
-				System.out.println("어드민dao m_state: "+m_state);
+				//System.out.println("어드민dao m_state: "+m_state);
 				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSelect", m_state);
 			}
 		}

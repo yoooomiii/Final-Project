@@ -1,13 +1,16 @@
 package www.egg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import www.egg.vo.DeliveryVO;
 import www.egg.vo.MemberVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PageVO;
 
 @Repository
@@ -60,9 +63,24 @@ public class LoginDAOImpl implements IF_LoginDAO{
 	}
 
 	@Override
-	public int getTotalCount() throws Exception {
+	public int getTotalCount(MemberVO mvo) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(mapperQuery+".getToatalCount");
+		return sqlSession.selectOne(mapperQuery+".getToatalMCount" , mvo);
+	}
+
+	@Override
+	public List<MemberVO> memberSearchPaging(Map<String, Object> spage) {
+				// 맵 추출하기 
+				MemberVO mvo = (MemberVO) spage.get("membervo");
+				String id = mvo.getId();
+
+				if(id==null||id.equals("")) {
+					System.out.println("dao단의 검색찾기 발동");
+					return sqlSession.selectList(mapperQuery+".selectmsearch_p", spage);
+				}else{
+					System.out.println("dao단의 넘버찾기 발동");
+					return sqlSession.selectList(mapperQuery+".selectoneid_p", spage);
+				}
 	}
 
 

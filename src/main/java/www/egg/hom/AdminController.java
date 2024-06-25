@@ -38,12 +38,13 @@ public class AdminController {
 	
 	@GetMapping("adminMView") 
 	public String adminMember(Model model, @ModelAttribute PageVO pagevo) throws Exception {
+		MemberVO mvo = null;
 
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(lservice.getTotalCount());
+		pagevo.setTotalCount(lservice.getTotalCount(mvo)); // 총튜플수 설정 
 		
 		pagevo.prt();
 		
@@ -59,13 +60,13 @@ public class AdminController {
 			 @RequestParam("city") String city,  @RequestParam("county") String county,
 			 @ModelAttribute PageVO pagevo
 			) throws Exception {
-		String getDetail = "not";
+		
 		
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(lservice.getTotalCount());
+		pagevo.setTotalCount(lservice.getTotalCount(mvo));
 		pagevo.prt();
 		
 		// 맵 만들기이...
@@ -73,7 +74,7 @@ public class AdminController {
 		spaging.put("pagevo", pagevo);
 		
 		System.out.println("濡쒓렇�씤�떒 county: "+county);
-		if(county.equals("�쟾泥�")) {
+		if(county.equals("전체")) {
 			mvo.setAddress(city);
 		}else {
 			String readdress = city+" "+county;
@@ -83,11 +84,13 @@ public class AdminController {
 		List<MemberVO> mlist = null;
 		if(sw==null || sw.equals("")) { // 寃��깋�뼱媛� �엳嫄곕굹 �뾾�뒗 寃쎌슦 
 			spaging.put("ordervo", mvo);
-			mlist = lservice.memberSearch(mvo, pagevo) ; // 모험 start!
+			//mlist = lservice.memberSearch(mvo, pagevo) ; // 모험 start!
+			mlist = lservice.memberSearchPaging(spaging);
 		}else {
 			mvo.setId(sw);
 			spaging.put("ordervo", mvo);
-			mlist = lservice.memberSearch(mvo, pagevo) ;
+			//mlist = lservice.memberSearch(mvo, pagevo) ;
+			mlist = lservice.memberSearchPaging(spaging);
 		}
 		model.addAttribute("pagevo", pagevo);
 		model.addAttribute("members", mlist);
@@ -233,8 +236,8 @@ public class AdminController {
 		// vo 셋팅하셈. 
 		List<MlistVO> olist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
-			ovo.setM_state(m_state);
-			spaging.put("ordervo", ovo);
+			ovo.setM_state(m_state); 
+			spaging.put("ordervo", ovo); // 맵에 넣깅
 			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
 			olist = aservice.searchOrderPaging(spaging);
 			
@@ -242,7 +245,7 @@ public class AdminController {
 		}else {
 			Integer m_num = Integer.parseInt(sw);
 			ovo.setM_num(m_num);
-			spaging.put("ordervo", ovo);
+			spaging.put("ordervo", ovo); // 맵에 넣깅
 			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
 			olist = aservice.searchOrderPaging(spaging);
 			
@@ -251,6 +254,11 @@ public class AdminController {
 		
 		System.out.println("주문토탈카툰트 after: "+pagevo.getTotalCount());
 		// finally...
+		for(int i =0; i<olist.size(); ++i) {
+			System.out.println("주문내역 촤락: "+olist.get(i));
+		}
+		System.out.println("주문내역크키: "+olist.size());
+		
 		model.addAttribute("orders", olist); // 주문내역vo 제출
 		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
 		// model.addAttribute("ordervo", ovo); // 클라가 주문내역 검색요청했던 정보 제출
