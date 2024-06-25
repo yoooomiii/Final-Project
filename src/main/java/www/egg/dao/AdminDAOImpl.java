@@ -173,4 +173,10 @@ public class AdminDAOImpl implements IF_AdminDAO{
 				}
 	}
 
+	@Override
+	public void insertDelivery(DeliveryVO dvo) {
+		sqlSession.update(mapperQuery+".insertdelivery", dvo);
+		
+	}
+
 }

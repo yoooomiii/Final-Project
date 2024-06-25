@@ -287,7 +287,7 @@ td {
 				<a href="adminDUpform?m_num=${dvo.d_no}"><input type="button" value="수정하기"></a>
 			</c:if>
 			<c:if test="${dvo.d_num == null }">
-				<a href="배정요청?m_num=${dvo.d_no}"><input type="button" value="배정하기"></a>
+				<a href="adminDSpform?m_num=${ordernum}"><input type="button" value="배정하기"></a>
 			</c:if>
 		</div>
 		<table border=1 id="mtable">

@@ -196,6 +196,7 @@ public class AdminController {
 	public String adminODetail(@RequestParam("m_num") String m_num ,  Model model) throws Exception {
 		PaymentVO pvo = aservice.pickPaymentnum(m_num);
 		model.addAttribute("pvo", pvo);
+		
 		return "admin/adminOPayment";
 	}
 	
@@ -203,6 +204,7 @@ public class AdminController {
 	public String adminODelivery(@RequestParam("m_num") String m_num ,  Model model) throws Exception {
 		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
 		model.addAttribute("dvo", dvo);
+		model.addAttribute("ordernum", m_num);
 		return "admin/adminODelivery";
 	}
 	
@@ -332,5 +334,20 @@ public class AdminController {
 		}
 		return "redirect:adminDView";
 	}
+	@RequestMapping(value = "adminDSpform", method = RequestMethod.GET)
+	public String adminDSpform(@RequestParam("m_num") String m_num,  Model model) throws Exception {
+		//DeliveryVO dvo = aservice.pickDeliverynum(m_num);
+		model.addAttribute("ordernum", m_num);
+		return "admin/adminDSform";
+	}
+	@RequestMapping(value = "adminDSave", method = RequestMethod.GET)
+	public String adminDSpform(@ModelAttribute DeliveryVO dvo, Model model) throws Exception {
+		aservice.modDelivery(dvo); // insert작업 수행 
+		
+		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+""); // 수행한 거 가져옴 
+		model.addAttribute("dvo", modied_dvo);
+		return "admin/adminODelivery";
+	}
+	
 	
 }

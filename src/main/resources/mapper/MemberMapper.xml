@@ -4,6 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="www.egg.dao.IF_LoginDAO">
 
+
+
 	<insert id="insertone" parameterType="www.egg.vo.MemberVO">
 		insert into member values (#{id},#{pw},#{name},#{phone},#{email},#{address},#{master})
 	</insert>
@@ -51,4 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getToatalMCountForSelect" resultType="int" parameterType="www.egg.vo.MemberVO">
 		select count (*) from member where master = #{master} and address like concat('%',#{address},'%') 
 	</select>
+	
+	
+	
 </mapper>

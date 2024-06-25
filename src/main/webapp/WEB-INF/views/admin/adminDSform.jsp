@@ -257,7 +257,7 @@ td {
 
 
 
-	<form action="adminDUp" method="post">
+	<form action="adminDSave" method="get">
 		<div id="dpan">
 			배달 배정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
 			<hr>
@@ -276,10 +276,10 @@ td {
 			<tbody>
 				<tr class="minfo_row">
 					<td>(추후수정)</td>
-					<td><input type="text" name="d_num" value=${dvo.d_num } ></td>
-					<td><input type="text" name="d_no" value=${dvo.d_no } readonly></td>
-					<td><input type="text" name="d_time" value=${dvo.d_time } ></td>
-					<td><input type="text" name="d_check" value=${dvo.d_check } ></td>
+					<td><input type="text" name="d_num"  ></td>
+					<td><input type="text" name="d_no" value=${ordernum } readonly></td>
+					<td><input type="text" name="d_time"  ></td>
+					<td><input type="text" name="d_check"  value="자동등록" readonly></td>
 				</tr>
 			</tbody>
 		</table>
