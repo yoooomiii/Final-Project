@@ -198,14 +198,14 @@ td {
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="main"> HOME </a></li>
+					<li><a href="/"> HOME </a></li>
 					<li><a href="#"> 브랜드 소개 </a>
 						<ul class="submenu">
 							<li><a href="#"> 브랜드 소개 </a></li>
 						</ul></li>
-					<li><a href="#"> 메뉴 주문하기 </a>
+					<li><a href="menuForm"> 메뉴 주문하기 </a>
 						<ul class="submenu">
-							<li><a href="#"> 인기 메뉴 </a></li>
+							<li><a href="popoo"> 인기 메뉴 </a></li>
 							<li><a href="#"> 대표 메뉴 </a></li>
 							<li><a href="#"> 치킨 메뉴 </a></li>
 							<li><a href="#"> 사이드 / 음료 </a></li>
@@ -262,7 +262,7 @@ td {
 					<h3>주문내역</h3>
 				</div>
 				<div class="iconimg">
-					<a href="${pageContext.request.contextPath}/pickcart"> <img
+					<a href="${pageContext.request.contextPath}/picklist"> <img
 						src="${pageContext.request.contextPath}/resources/img/찜목록 최종.png"
 						width="140" height="140">
 					</a>

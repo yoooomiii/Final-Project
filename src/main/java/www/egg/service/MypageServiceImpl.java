@@ -66,6 +66,12 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		// TODO Auto-generated method stub
 		mpdao.pickinsert(fvo);
 	}
+
+	@Override
+	public List<FavorVO> picklist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.picklist(userid);
+	}
 	
 //	@Override
 //	public boolean deletePick(List<String> pickIds) throws Exception {

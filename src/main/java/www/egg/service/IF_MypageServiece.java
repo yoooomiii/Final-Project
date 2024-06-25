@@ -30,7 +30,7 @@ public interface IF_MypageServiece {
 	//--------------------------------------------------- 찜한 메뉴 저장
 //	public boolean deletePick(List<String> pickIds) throws Exception;
 	
-	
+	public List<FavorVO> picklist(String userid) throws Exception;
 	
 	
 	

@@ -117,7 +117,7 @@ td {
 					<ul class="submenu">
 						<li><a href="#"> 브랜드 소개 </a></li>
 					</ul></li>
-				<li><a href="#"> 메뉴 주문하기 </a>
+				<li><a href="menuForm"> 메뉴 주문하기 </a>
 					<ul class="submenu">
 						<li><a href="#"> 인기 메뉴 </a></li>
 						<li><a href="#"> 대표 메뉴 </a></li>
@@ -145,6 +145,7 @@ td {
 		<table class='cart__list'>
 			<thead>
 				<tr>
+
 					<td>모두 선택 <input type="checkbox" name="checkall" id="checkall"
 						onclick="selectAll(this)"></td>
 					<input type="hidden" value="${menu_no}">
@@ -157,20 +158,22 @@ td {
 
 			</thead>
 			<tbody>
-				<tr class='cart__list__detail'>
-					<td><input type="checkbox" name="checkone" id="checkone"
-						class="checkone"></td>	
-					<td>사진</td>
-					<td>후라이드 치킨</td>
-					<td>20000원</td>
-				</tr>
-
+				<c:forEach items="${plist}" var="plist">
+					<tr class='cart__list__detail'>
+						<td><input type="checkbox" name="checkone" id="checkone"
+							class="checkone"></td>
+						<td>${plist.f_id }</td>
+						<td>${plist.f_menu }</td>
+						<td>${plist.f_price }</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<div class="container">
 			<button class="delete-button" onclick="deleteSelected()">삭제</button>
 		</div>
 	</div>
+
 </body>
 
 <!-- <script>

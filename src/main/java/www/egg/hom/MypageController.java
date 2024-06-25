@@ -25,7 +25,7 @@ import www.egg.vo.MlistVO;
 import www.egg.vo.ReviewVO;
 
 
- @Controller
+@Controller
 
 public class MypageController {
 
@@ -46,7 +46,7 @@ public class MypageController {
 		return "mypage/mypage";
 	}
 
-	
+
 
 
 	@RequestMapping(value = "mod", method = RequestMethod.GET)    //수정할떄 모든 정보를 가져와서 수정 , 아이디는 수정 불가
@@ -97,7 +97,7 @@ public class MypageController {
 	public String oderlist(HttpSession session, Model model,MlistVO mlvo) throws Exception {
 		String userid = (String) session.getAttribute("userid");
 		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-
+		
 		if (userid != null) {
 			mlvo.setM_id(userid);
 			List<MlistVO> orderlist = mpservice.orderlist(userid);
@@ -129,22 +129,34 @@ public class MypageController {
 
 	@PostMapping(value = "pickcart_insert")			//메뉴에서 찜버튼 클릭시 찜목록 테이블에 저장
 	public String pickcart(@ModelAttribute FavorVO fvo,
-						@RequestParam("menu_no") int menu_no,
-						@RequestParam("menu_name") String menu_name,
-						@RequestParam("menu_price") String menu_price,
-						HttpSession session, Model model) throws Exception {
-		
+			@RequestParam("menu_no") int menu_no,
+			@RequestParam("menu_name") String menu_name,
+			@RequestParam("menu_price") String menu_price,
+			HttpSession session, Model model) throws Exception {
+
 		String userid= (String) session.getAttribute("userid"); 
 		fvo.setF_id(userid);
 		fvo.setF_no(menu_no);
 		fvo.setF_menu(menu_name);
 		fvo.setF_price(Integer.parseInt(menu_price));
-		
+
 		mpservice.pickinsert(fvo);
 		System.out.println("찜 저장됨");
+		return "redirect:picklist";
+	}
+
+	@GetMapping(value="picklist")
+	public String picklist(HttpSession session, Model model,FavorVO fvo) throws Exception {
+		String userid = (String) session.getAttribute("userid");
+		fvo.setF_id(userid);
+		List<FavorVO> picklist = mpservice.picklist(userid);
+		for (FavorVO plist : picklist) {
+		}
+		model.addAttribute("plist", picklist);
+		System.out.println("불러와졌나?");
 		return "mypage/pick";
 	}
-	
+
 	@GetMapping(value="allreview") // 내가 쓴 리뷰만 불러오기 (사진 포함)  
 	public String allreviews(HttpSession session, Model model) throws Exception {
 		String userid = (String) session.getAttribute("userid");	
@@ -169,13 +181,13 @@ public class MypageController {
 
 		return "mypage/myreview";
 	}
-	
-//	 @PostMapping("/deletePick")
-//	    public Map<String, Object> deletePick(@RequestBody Map<String, List<String>> request) throws Exception {
-//	        List<String> pickIds = request.get("pickIds");
-//	        boolean success = mpservice.deletePick(pickIds);
-//	        return Collections.singletonMap("success", success);
-//	    }
+
+	//	 @PostMapping("/deletePick")
+	//	    public Map<String, Object> deletePick(@RequestBody Map<String, List<String>> request) throws Exception {
+	//	        List<String> pickIds = request.get("pickIds");
+	//	        boolean success = mpservice.deletePick(pickIds);
+	//	        return Collections.singletonMap("success", success);
+	//	    }
 
 }
 

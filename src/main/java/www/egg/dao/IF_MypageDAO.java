@@ -31,5 +31,6 @@ public interface IF_MypageDAO {
 	//--------------------------------------------------- 찜한 메뉴 저장
 //	public boolean deletePick(List<String> pickIds) throws Exception;
 	
+	public List<FavorVO> picklist(String userid) throws Exception;
 	
 }
