@@ -224,6 +224,9 @@ td {
 #mbtn{
 	width: 60px;
 }
+#paging{
+	text-align: center;
+}
 .iconimg:hover{
 	box-shadow : 4px 4px 4px black;
 	transition-duration: 0.3s;
@@ -364,48 +367,48 @@ td {
 						<td><input type="checkbox" id="chk" name="chkid" value=${mlist2vo.m_num }></td>
 					</tr>
 				</c:forEach>
-					<tr>
-						<td colspan=4 align=center>
-							<c:if test="${pagevo.prev }">
-								<a href="adminOView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-							</c:if> 
-							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-								var="idx">
-								<a href="adminOView?page=${idx}"> 
-									<c:if
-										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-										test="${idx == pagevo.page }">]</c:if>
-								</a>
-							</c:forEach> 
-							<c:if test="${pagevo.next }">
-								<a href="adminOView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-							</c:if>
-						</td>
-					</tr>
-					<tr>
-						<td colspan=4 align=center>
-						검색결과 페이징:
-							<c:if test="${pagevo.prev }">
-								<a href="adminOSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>
-							</c:if> 
-							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-								var="idx">
-								<a href="adminOSearch?page=${idx}&sword=${sword}&m_state=${m_state }"> 
-									<c:if
-										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-										test="${idx == pagevo.page }">]</c:if>
-								</a>
-							</c:forEach> 
-							<c:if test="${pagevo.next }">
-								 <a href="adminOSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
-							</c:if>
-						</td>
-					</tr>
-					<tr>
-						<td>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </td>
-					</tr>
 			</tbody>
-		</table>
+		</table>	
+		<br>
+					<div id ="paging">
+						<c:if test="${m_state != null}">
+							<div>
+								<h5>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </h5>
+								검색결과 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminOSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminOSearch?page=${idx}&sword=${sword}&m_state=${m_state }"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										 <a href="adminOSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						</c:if>
+						<div>
+							일반 목록:
+								<c:if test="${pagevo.prev }">
+									<a href="adminOView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+								</c:if> 
+								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+									var="idx">
+									<a href="adminOView?page=${idx}"> 
+										<c:if
+											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+											test="${idx == pagevo.page }">]</c:if>
+									</a>
+								</c:forEach> 
+								<c:if test="${pagevo.next }">
+									<a href="adminOView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+								</c:if>
+						</div>
+					</div>
 	</form>
 		</section>
 </body>

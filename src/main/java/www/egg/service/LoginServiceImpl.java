@@ -1,6 +1,7 @@
 package www.egg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -53,9 +54,15 @@ public class LoginServiceImpl implements IF_LoginService {
 	}
 
 	@Override
-	public int getTotalCount() throws Exception {
+	public int getTotalCount(MemberVO mvo) throws Exception {
 		// TODO Auto-generated method stub
-		return logindao.getTotalCount();
+		return logindao.getTotalCount(mvo);
+	}
+
+	@Override
+	public List<MemberVO> memberSearchPaging(Map<String, Object> spage) {
+		// TODO Auto-generated method stub
+		return logindao.memberSearchPaging(spage);
 	}
 
 

@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
-<title>배달정보</title>
+<title>배정페이지</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -24,29 +24,7 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 	   <script type="text/javascript">
-		function call_confirm(){
-			
-			if(confirm("회원 정보를 삭제하시겠습니까?")){
-				alert("정상적으로 제출되었습니다.");
-				return true;
-			}else{
-				alert("삭제 취소");
-				return false;
-			}
-			
-		}
 		
-		function tdCng(){
-			var chktr = $(this);
-			var td = chktr.children();
-			var master = td.eq(5).text();
-			
-			alert(master);
-		}
-		
-		$("tbody > tr").click(function() {
-			alert($(this).children().eq(2).text());
-		});
 	</script>
 </head>
 <style>
@@ -279,17 +257,33 @@ td {
 
 
 
-	<form action="요청URL" method="post">
-			<div id="dpan">
-			${dvo.d_no }번 주문의 배달 현황입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
+	<form action="adminDSave" method="get">
+		<div id="dpan">
+			배달 배정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
 			<hr>
-			<c:if test="${dvo.d_num != null }">
-				<a href="adminDUpform?m_num=${dvo.d_no}"><input type="button" value="수정하기"></a>
-			</c:if>
-			<c:if test="${dvo.d_num == null }">
-				<a href="adminDSpform?m_num=${ordernum}"><input type="button" value="배정하기"></a>
-			</c:if>
+		<input type="submit" value="제출하기">
 		</div>
+		<table border=1 id="mtable">
+			<thead>
+				<tr style="background-color: gray">
+					<td>배달번호</td>
+					<td>등록번호</td>
+					<td>주문번호</td>
+					<td>예상시간</td>
+					<td>배달상태</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="minfo_row">
+					<td>(추후수정)</td>
+					<td><input type="text" name="d_num"  ></td>
+					<td><input type="text" name="d_no" value=${ordernum } readonly></td>
+					<td><input type="text" name="d_time"  ></td>
+					<td><input type="text" name="d_check"  value="자동등록" readonly></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
 		<table border=1 id="mtable">
 			<tr><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
 			<tr><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
@@ -298,7 +292,6 @@ td {
 			<tr><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
 			
 		</table>
-		
 	</form>
 		</section>
 </body>
