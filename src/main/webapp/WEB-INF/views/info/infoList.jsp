@@ -54,9 +54,9 @@
 							<li><a href="#"> 사이드 / 음료 </a></li>
 							<li><a href="#"> 세트 메뉴 </a></li>
 						</ul></li>
-					<li><a href="#"> 고객센터 </a>
+					<li><a href="infomain"> 고객센터 </a>
 						<ul class="submenu">
-							<li><a href="#"> 1:1 문의 </a></li>
+							<li><a href="ask"> 1:1 문의 </a></li>
 							<li><a href="#"> FAQ </a></li>
 						</ul></li>
 					<li><a href="#"> 마이 페이지 </a>
@@ -77,6 +77,9 @@
 					<h1>"${userid} 님의 문의 게시판"</h1>
 					<hr style="height: 5px; background-color: rgb(24, 0, 0);">
 				</div>
+				<div class="white-btn">
+					<input type="button" value="글쓰기" onclick="location.href=infoList">
+				</div>
 				<table border=1 id="infotable">
 					<thead>
 						<tr>
@@ -84,23 +87,30 @@
 							<td>제목</td>
 							<td>처리여부</td>
 							<td>등록일</td>
+							<td>답변</td>
 							<td>답변일</td>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${allListitems}" var="askvo">
-							<c:if test="${askvo.a_id == null}">
-								<tr>문의 하신 내역이 없습니다.</tr>
-							</c:if>
-							<c:if test="${askvo.a_id != null}">
-								<tr>
-									<td><a href="detailView?a_num=${askvo.a_num}">${askvo.a_num}</a></td>
-									<td>${askvo.a_title}</td>
-									<td>${askvo.a_checkVal}</td>
-									<td>${askvo.a_date}</td>
-									<td></td>
-								</tr>
-							</c:if>
+						<c:forEach items="${allListitems}" var="infovo">
+							<%-- <c:choose>
+								<c:when test="${empty infovo.askVO.a_id}">
+									<tr>
+										<td colspan="6"> 문의 하신 내역이 없습니다. </td>
+									</tr>
+								</c:when>
+								<c:otherwise> --%>
+									<tr>
+										<td><a href="detailView?a_num=${infovo.askVO.a_num}">${infovo.askVO.a_num}</a></td>
+										<%-- <td><input type="hidden"  value="${userid}" name=a_id >${infovo.askVO.a_id}</td> --%>
+										<td>${infovo.askVO.a_title}</td>
+										<td>${infovo.askVO.a_checkVal}</td>
+										<td>${infovo.askVO.a_date}</td>
+										<td><input type="button" name="rebtn" value="답변보기" onclick="location.href='detailView?a_num=${infovo.askVO.a_num }'"></td>
+										<td>${infovo.answerVO.an_date}</td>
+									</tr>
+								<%-- </c:otherwise>	
+							</c:choose> --%>
 						</c:forEach>
 					</tbody>
 				</table>

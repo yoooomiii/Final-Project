@@ -134,6 +134,7 @@
                 <img src="download?filename=${fname}" width="500" height="450" class="lien">
             </c:forEach>
             <br>
+            <input type="hidden" value="${userid}" class="i_id">
             <input type="hidden" value="${mvo.menu_no}" class="menu_no">
             <input type="hidden" value="${mvo.menu_price}" class="menu_price">
             <input type="hidden" value="${mvo.menu_name}" class="menu_name">
@@ -211,6 +212,7 @@
             var selectedNames = Array.from(checkboxes).map(cb => cb.getAttribute('data-name'));
             var basePrice = parseFloat(document.querySelector('.menu_price').value);
             var baseName = document.querySelector('.menu_name').value;
+            var userid = document.querySelector('.i_id').value;
             var totalPrice = basePrice;
             var allNames = baseName;
 
@@ -237,7 +239,7 @@
             // URL 파라미터 생성
             var params = new URLSearchParams();
             params.append('i_no', '47'); // 임의 값, 실제 값으로 변경
-            params.append('i_id', 'lemon3'); // 임의 값, 실제 값으로 변경
+            params.append('i_id', userid); // 임의 값, 실제 값으로 변경
             params.append('menu_no', document.querySelector('.menu_no').value);
             for (var i = 0; i < selectedValues.length; i++) {
                 params.append('menu_no' + (i + 2), selectedValues[i]); // +2 to start menu_no2

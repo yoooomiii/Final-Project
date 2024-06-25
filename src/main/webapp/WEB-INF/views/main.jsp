@@ -108,10 +108,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="ask"> 고객센터 </a>
+                        <a href="infomain"> 고객센터 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="askpage"> 1:1 문의 </a>
+                                <a href="ask"> 1:1 문의 </a>
                             </li>
                             <li>
                                 <a href="#"> FAQ </a>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
+import www.egg.vo.InfojoinVO;
 import www.egg.vo.PageVO;
 
 @Repository
@@ -27,7 +28,7 @@ public class InfoDAOImpl implements IF_InfoDAO {
 	}
 	
 	@Override
-	public List<AskVO> allList(String a_id) throws Exception {
+	public List<InfojoinVO> allList(String a_id) throws Exception {
 		
 		return sql.selectList(mapperQurey + ".selectall" , a_id);
 	}
@@ -56,6 +57,13 @@ public class InfoDAOImpl implements IF_InfoDAO {
 	public void insert_re(AnswerVO anvo) throws Exception {
 		
 		sql.insert(mapperQurey + ".reinsert", anvo);
+		
+	}
+
+	@Override
+	public AnswerVO selectOneMa(Integer a_num) throws Exception {
+
+		return sql.selectOne(mapperQurey + ".selectoneMa", a_num);
 		
 	}
 }

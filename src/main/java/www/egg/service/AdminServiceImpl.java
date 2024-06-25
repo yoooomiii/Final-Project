@@ -1,6 +1,7 @@
 package www.egg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -63,9 +64,9 @@ public class AdminServiceImpl implements IF_AdminService {
 	}
 
 	@Override
-	public List<DeliveryVO> deliverylist() {
+	public List<DeliveryVO> deliverylist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return adao.deliverylist();
+		return adao.deliverylist(pagevo);
 	}
 
 	@Override
@@ -87,9 +88,27 @@ public class AdminServiceImpl implements IF_AdminService {
 	}
 
 	@Override
-	public int getTotalCount() throws Exception {
+	public int getTotalCountO(MlistVO ovo) throws Exception {
 		// TODO Auto-generated method stub
-		return adao.getTotalCount();
+		return adao.getTotalCountO(ovo);
+	}
+
+	@Override
+	public List<MlistVO> searchOrderPaging(Map<String, Object> spage) {
+		// TODO Auto-generated method stub
+		return adao.searchOrderPaging(spage);
+	}
+
+	@Override
+	public int getTotalCountD(DeliveryVO dvo) throws Exception {
+		// TODO Auto-generated method stub
+		return adao.getTotalCountD(dvo);
+	}
+
+	@Override
+	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage) {
+		// TODO Auto-generated method stub
+		return adao.searchDeliveryPaging(spage);
 	}
 
 	

@@ -132,7 +132,6 @@
             <br>
             <div class="popoo">
             	<h1>인기 메뉴</h1>
-            
             <div class="list">
                 <img src="./resources/img/egg.png" width="298" , height="250" class="e">
                 <br>

@@ -1,6 +1,7 @@
 package www.egg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -63,9 +64,9 @@ public class AdminDAOImpl implements IF_AdminDAO{
 	}
 
 	@Override
-	public List<DeliveryVO> deliverylist() {
+	public List<DeliveryVO> deliverylist(PageVO pagevo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(mapperQuery+".selectdeliverys");
+		return sqlSession.selectList(mapperQuery+".selectdeliverys", pagevo);
 	}
 
 	@Override
@@ -98,11 +99,70 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		sqlSession.delete(mapperQuery+".deletedeliverynum", m_num);
 	}
 
+
 	@Override
-	public int getTotalCount() throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne(mapperQuery+".getToatalCount");
+	public List<MlistVO> searchOrderPaging(Map<String, Object> spage) {
+		// 맵 추출하기 
+		//PageVO pvo = (PageVO) spage.get("pagevo");
+		MlistVO ovo = (MlistVO) spage.get("ordervo");
+		
+		//String m_num = ovo.getM_num()+"";
+		String m_state = ovo.getM_state();
+		if(m_state==null||m_state.equals("")) {
+			return sqlSession.selectList(mapperQuery+".selectordernum_p", spage);
+		}else{
+			return sqlSession.selectList(mapperQuery+".selectordersearch_p", spage);
+		}
 	}
 	
+	@Override
+	public int getTotalCountO(MlistVO ovo) throws Exception {
+		
+		if(ovo==null) {
+			return sqlSession.selectOne(mapperQuery+".getToatalOCount");
+		}else {
+			// Integer m_num = ovo.getM_num();
+			String m_num= ovo.getM_num()+""; 
+			String m_state =  ovo.getM_state();
+			if(m_state==null||m_state.equals("")) {
+				System.out.println("어드민dao m_num: "+m_num);
+				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSword", m_num);
+			}else {
+				System.out.println("어드민dao m_state: "+m_state);
+				return sqlSession.selectOne(mapperQuery+".getToatalOCountForSelect", m_state);
+			}
+		}
+	}
+
+	@Override
+	public int getTotalCountD(DeliveryVO dvo) throws Exception {
+		// TODO Auto-generated method stub
+		if(dvo==null) {
+			return sqlSession.selectOne(mapperQuery+".getToatalDCount");
+		}else {
+			String d_no = Integer.toString(dvo.getD_no()); 
+			String d_check = dvo.getD_check();
+			if(d_no==null) {
+				return sqlSession.selectOne(mapperQuery+".getToatalDCountForSelect", d_check);
+			}else {
+				return sqlSession.selectOne(mapperQuery+".getToatalDCountForSword", d_no);
+			}
+		}
+	}
+
+	@Override
+	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage) {
+		// 맵 추출하기 
+				//PageVO pvo = (PageVO) spage.get("pagevo");
+				DeliveryVO dvo = (DeliveryVO) spage.get("deliveryvo");
+				
+				//String m_num = ovo.getM_num()+"";
+				String d_check = dvo.getD_check();
+				if(d_check==null||d_check.equals("")) {
+					return sqlSession.selectList(mapperQuery+".selectdeliverynum_p", spage);
+				}else {
+					return sqlSession.selectList(mapperQuery+".selectdeliverysearch_p", spage);
+				}
+	}
 
 }

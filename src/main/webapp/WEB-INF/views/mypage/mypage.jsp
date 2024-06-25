@@ -38,7 +38,14 @@
 	width: 1200px;
 	height: 30px;
 	/* border: 1px solid black;  */
-	margin-top: 20px;
+	margin-top: 25px;
+	font-size: 26px; 
+	font-family: 'SUITE-Regular', sans-serif;
+	
+}
+.username {
+	font-family: 'Cafe24Ssurround', sans-serif;
+	font-size :30px;
 }
 
 #modbutton {
@@ -56,7 +63,7 @@
 	width: 1100px;
 	height: 240px;
 	margin-left: 40px;
-	margin-top: 15px;
+	margin-top: 40px;
 	/* border: 1px solid red; */
 }
 
@@ -65,8 +72,15 @@
 	width: 240px;
 	height: 240px;
 	margin-left: 110px;
-	border-radius: 100px;
+	border-radius: 50%; /* 원형으로 만들기 위해 50%로 변경 */
 	border: 5px solid grey;
+	overflow: hidden; /* 자식 요소가 부모 요소를 넘지 않도록 하기 위해 */
+}
+
+#photo .profile-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* 이미지가 컨테이너에 맞게 조정되도록 */
 }
 
 #info {
@@ -78,12 +92,12 @@
 	/* border: 1px solid black; */
 }
 
-#icon {
+#icons {
 	float: left;
 	width: 1100px;
 	height: 150px;
-	margin-top: 60px;
-	margin-left: 55px;
+	margin-top: 25px;
+	margin-left: 30px;
 	/* border: 1px solid blue; */
 }
 
@@ -104,10 +118,17 @@ footer {
 
 h3 {
 	text-align: center;
+	font-family: 'SUITE-Regular', sans-serif;
 }
 
-h2 {
-	font-size: large;
+#name {
+	text-align: center;
+	font-size:30px;
+	font-family: 'Cafe24Ssurround', sans-serif;
+}
+h2{
+	font-family: 'SUITE-Regular', sans-serif;
+	font-size: 22px;
 }
 
 table {
@@ -129,12 +150,6 @@ tbody {
 td {
 	padding: 15px 0px;
 	border-bottom: 2px solid grey;
-}
-
-
-.iconimg:hover {
-	box-shadow: 4px 4px 4px black;
-	transition-duration: 0.3s;
 }
 
 .container {
@@ -183,7 +198,7 @@ td {
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="#"> HOME </a></li>
+					<li><a href="main"> HOME </a></li>
 					<li><a href="#"> 브랜드 소개 </a>
 						<ul class="submenu">
 							<li><a href="#"> 브랜드 소개 </a></li>
@@ -214,12 +229,17 @@ td {
 
 		<div id="line">
 			<div id="mypage">
-				<h2>${username}님의마이페이지입니다</h2>
+				<span class="username" id="name">${username}</span>  님의 마이페이지입니다
 			</div>
 
 
 			<div id="profile">
-				<div id="photo"></div>
+				<div id="photo">
+					<img
+						src="${pageContext.request.contextPath}/resources/img/기본 프로필.png"
+						class="profile-img">
+				</div>
+				
 				<div id="info">
 					<h2>아이디 : ${userid}</h2>
 					<br>
@@ -233,31 +253,31 @@ td {
 				</div>
 			</div>
 
-			<div id="icon">
+			<div id="icons">
 				<div class="iconimg">
 					<a href="${pageContext.request.contextPath}/mylist"> <img
-						src="${pageContext.request.contextPath}/resources/img/주문내역2.png"
-						width="130" height="110">
+						src="${pageContext.request.contextPath}/resources/img/주문내역 최최종.png"
+						width="140" height="140">
 					</a>
 					<h3>주문내역</h3>
 				</div>
 				<div class="iconimg">
 					<a href="${pageContext.request.contextPath}/pickcart"> <img
-						src="${pageContext.request.contextPath}/resources/img/찜목록2.png"
-						width="130" height="110">
+						src="${pageContext.request.contextPath}/resources/img/찜목록 최종.png"
+						width="140" height="140">
 					</a>
 					<h3>찜목록</h3>
 
 				</div>
 				<div class="iconimg">
 					<a href="${pageContext.request.contextPath}/allreview"> <img
-						src="${pageContext.request.contextPath}/resources/img/리뷰.png"
-						width="130" height="110">
+						src="${pageContext.request.contextPath}/resources/img/리뷰 최최최종.png"
+						width="140" height="140">
 					</a>
 					<h3>리뷰</h3>
 				</div>
 				<div class="iconimg">
-					<img src="./resources/img/포인트.png" width="130" height="110"
+					<img src="./resources/img/포인트 최종.png" width="140" height="140"
 						onclick="changeContent('point')">
 					<h3>포인트</h3>
 				</div>

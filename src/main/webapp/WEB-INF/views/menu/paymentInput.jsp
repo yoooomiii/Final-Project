@@ -10,29 +10,27 @@
 	<h1>장바구니다</h1>
     <form action="payment_inputSave" method="post">
         <br>
-        	주문 번호<input type="text" value="${i_no}" name="pm_no">
+        	주문 번호<input type="text" name="pm_no">
         <br>
-        	회원 ID<input type="text" value="${i_id}" name="pm_id">
+        	회원 ID<input type="text" value="${userid}" name="pm_id">
         <br>
-        	주문 금액<input type="text" value="${menu_no}" name="pm_price">
+        	주문 금액<input type="text" value="${i_price}" name="pm_price">
         <br>
-        	배달비<input type="text" value="${menu_no2}" name="pm_tip">
+        	배달비<input type="text" value="2000" name="pm_tip">
         <br>
-        	총 결제금액<input type="text" value="${menu_no3}" name="pm_total">
+        	총 결제금액<input type="text" value="${pm_total}" name="pm_total">
         <br>
-        	포인트<input type="text" value="${menu_no4}" name="pm_poion">
+        	포인트<input type="text" value="${pm_poion}" name="pm_poion">
         <br>
-        	결제 수단<input type="text" value="${menu_name }" name="pm_pay">
+        	결제 수단<input type="text" name="pm_pay">
         <br>
-        	결제 정보<input type="text" value="${i_price}" name="pm_card">
+        	결제 정보<input type="text" name="pm_card">
         <br>
-        	주문 일시<input type="text" value="${menu_name }" name="pm_date">
+        	배달 주소<input type="text" value="${useraddress}" name="pm_address">
         <br>
-        	배달 주소<input type="text" value="${i_price}" name="pm_address">
+        	수령 방법<input type="text" name="pm_pick">
         <br>
-        	수령 방법<input type="text" value="${menu_name }" name="pm_pick">
-        <br>
-        	요청 사항<input type="text" value="${i_price}" name="pm_comment">
+        	요청 사항<input type="text" name="pm_comment">
         <br>
         <br>
         <button type="submit" value="">결제하기</button>

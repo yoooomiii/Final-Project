@@ -42,17 +42,23 @@
 	float: left;
 	width: 800px; /*가로 넓이*/
 	height: 280px; /*세로 높이*/
-/* 	border:1px solid blue; */
+	/* 	border:1px solid blue; */
 }
 
 #photo {
-	float: left;
-	width: 150px;
-	height: 150px;
-	margin-left: 325px;
-	margin-top: 10px;
-	border-radius: 100px;
-	border: 4px solid grey;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-left: 330px;
+    border-radius: 50%; /* 원형으로 만들기 위해 50%로 변경 */
+    border: 5px solid grey;
+    overflow: hidden; /* 자식 요소가 부모 요소를 넘지 않도록 하기 위해 */
+}
+
+#photo .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 컨테이너에 맞게 조정되도록 */
 }
 
 #btn {
@@ -62,7 +68,7 @@
 .tx {
 	padding-bottom: 10px;
 	border: 2.5px solid gray;
-	margin-top: 15px;
+	margin-top: 10px;
 	item-align: center;
 	border-radius: 10px;
 }
@@ -85,7 +91,6 @@
 #savebtn:active {
 	transform: scale(0.95);
 }
-
 </style>
 
 
@@ -106,7 +111,7 @@
 		</div>
 		<div class="menu">
 			<ul>
-				<li><a href="#"> HOME </a></li>
+				<li><a href="main"> HOME </a></li>
 				<li><a href="#"> 브랜드 소개 </a>
 					<ul class="submenu">
 						<li><a href="#"> 브랜드 소개 </a></li>
@@ -143,28 +148,28 @@
 			<br>
 
 			<div id="photo">
-				<input type="file" value="사진 편집" id="btn">
+				<img
+					src="${pageContext.request.contextPath}/resources/img/기본 프로필.png"
+					class="profile-img">
 			</div>
+
 		</div>
-		
+
 		<div id="ex">
 			<form action="msave" method="post">
-				<br>
-				아이디     <input type="text" name="id" class="tx" value="${userid}"	readonly>
-				 <br> <br> 
-				 이름     <input type="text"	name="name" class="tx" value="${username}"> 
-				 <br> <br>
-				전화번호     <input type="text" name="phone" class="tx" value="${userphone}">
-				<br> <br>
-				이메일     <input type="text" name="email" class="tx" value="${useremail}">
-				<br> <br> 
-				주소     <input type="text" name="address" class="tx"	value="${useraddress}">
-				<br> <br>
-				 <input type="submit" value="저장" id="savebtn">
+				<br> 아이디 <input type="text" name="id" class="tx"
+					value="${userid}" readonly> <br> <br> 이름 <input
+					type="text" name="name" class="tx" value="${username}"> <br>
+				<br> 전화번호 <input type="text" name="phone" class="tx"
+					value="${userphone}"> <br> <br> 이메일 <input
+					type="text" name="email" class="tx" value="${useremail}"> <br>
+				<br> 주소 <input type="text" name="address" class="tx"
+					value="${useraddress}"> <br> <br> <input
+					type="submit" value="저장" id="savebtn">
 			</form>
 		</div>
 	</div>
-	
+
 
 </body>
 </html>

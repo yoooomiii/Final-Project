@@ -145,7 +145,13 @@
                     <hr>
                     <br>
 						<a href="mviewDetail?menu_no=${mvo.menu_no}"><button type=submit id="kkk">주문하기</button></a>
-						<a href="pickcart_insert?menu_no=${mvo.menu_no}"><button type=submit id="ppp">찜</button></a>
+						<form action="pickcart_insert" method="post">
+    						<input type="hidden" name="menu_no" value="${mvo.menu_no}">
+    						<input type="hidden" name="menu_name" value="${mvo.menu_name}">
+    						<input type="hidden" name="menu_price" value="${mvo.menu_price}">
+  						    <button type="submit" id="ppp">찜</button>
+						</form>
+						
                     <br>
                     <br>
                     <br>

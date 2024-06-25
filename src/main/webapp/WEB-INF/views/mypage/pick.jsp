@@ -21,6 +21,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
+<script src="/resources/jquery/jquery-3.3.1.min.js"></script>
 </head>
 <style>
 #cart {
@@ -29,15 +30,14 @@
 	height: 900px;
 	border: 5px solid gray;
 	border-radius: 20px;
-	margin-left :120px;
+	margin-left: 120px;
 }
 
 table {
 	border-collapse: collapse;
 	width: 950px;
 	font-size: 16px;
-	margin-left:13px;
-	
+	margin-left: 13px;
 }
 
 thead {
@@ -50,6 +50,7 @@ tbody {
 }
 
 td {
+	text-align: center;
 	padding: 15px 0px;
 	border-bottom: 2px solid grey;
 }
@@ -111,7 +112,7 @@ td {
 		</div>
 		<div class="menu">
 			<ul>
-				<li><a href="#"> HOME </a></li>
+				<li><a href="main"> HOME </a></li>
 				<li><a href="#"> 브랜드 소개 </a>
 					<ul class="submenu">
 						<li><a href="#"> 브랜드 소개 </a></li>
@@ -144,24 +145,82 @@ td {
 		<table class='cart__list'>
 			<thead>
 				<tr>
-					<td>체크박스</td>
-					<td>찜 번호</td>
-					<td>메뉴사진</td>
-					<td>메뉴이름</td>
+					<td>모두 선택 <input type="checkbox" name="checkall" id="checkall"
+						onclick="selectAll(this)"></td>
+					<input type="hidden" value="${menu_no}">
+					<td>메뉴 사진</td>
+					<td>메뉴 이름</td>
+					<td>메뉴 가격</td>
 				</tr>
+
+
+
 			</thead>
 			<tbody>
 				<tr class='cart__list__detail'>
-					<td><input type="checkbox"></td>
-					<td>찜번호</td>
+					<td><input type="checkbox" name="checkone" id="checkone"
+						class="checkone"></td>	
 					<td>사진</td>
 					<td>후라이드 치킨</td>
+					<td>20000원</td>
 				</tr>
+
 			</tbody>
 		</table>
 		<div class="container">
-			<button class="delete-button">삭제</button>
+			<button class="delete-button" onclick="deleteSelected()">삭제</button>
 		</div>
 	</div>
 </body>
+
+<!-- <script>
+function selectAll(selectAllCheckbox) {
+    const checkboxes = document.querySelectorAll('.checkone');
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+}
+
+function deleteSelected() {
+    const checkboxes = document.querySelectorAll('.checkone:checked');
+    const orderIds = Array.from(checkboxes).map(checkbox => {
+        return checkbox.closest('tr').querySelector('.order-id').innerText;
+    });
+    
+    if (orderIds.length > 0) {
+        fetch('/deletePick', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ pickIds: pickIds })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                checkboxes.forEach((checkbox) => {
+                    const row = checkbox.closest('tr');
+                    row.remove();
+                });
+                document.getElementById('checkall').checked = false;
+            } else {
+                alert('Failed to delete orders');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+
+document.querySelectorAll('.checkone').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        if (!checkbox.checked) {
+            document.getElementById('checkall').checked = false;
+        }
+    });
+});
+</script> -->
+
+
+
 </html>
