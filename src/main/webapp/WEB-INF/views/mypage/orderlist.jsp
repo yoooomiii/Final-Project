@@ -188,7 +188,7 @@ td {
 					<c:forEach items="${mlvo}" var="mlvo">
 						<tr>
 							<td>${mlvo.m_num}</td>
-							<td>메뉴사진</td>
+							<td>${mlvo.m_num}</td>
 							<td>${mlvo.m_state}</td>
 							<td>
 								<form action="write" method="get">

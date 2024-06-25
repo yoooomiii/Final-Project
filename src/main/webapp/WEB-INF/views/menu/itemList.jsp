@@ -130,7 +130,7 @@
             <hr>
             <section id="foodList">
                 <div class="img">
-                <h1>장바구니</h1>
+                <h2>${username}님 의 장바구니</h2>
                 <br>
                     <table border=1  id="table">
                         <thead>
@@ -151,13 +151,14 @@
                                     <td>${ivo.i_price}원</td>
                                     <td><a href="item_delete?i_num=${ivo.i_num}">삭제</a></td>
                                 </tr>
+                                <input type="hidden" value="${ivo.i_price}" class="i_price">
                             </c:forEach>
                         </tbody>
                     </table>
                     <br>
                     <hr>
                     <br>
-                    <a href="patment_input?i_num=${ivo.i_num}"><button type=submit id="kkk">결제하기</button></a>
+                    <button type=button id="kkk" onclick="Order()">결제하기</button>
                 </div>
                 <div class="list">
                     
@@ -195,4 +196,15 @@
             </footer>
         </div>
     </body>
+    <script type="text/javascript">
+    	function Order(){
+    		var price = document.querySelector('.i_price').value;
+    		
+    		var params = new URLSearchParams();
+    		params.append('i_price', price);
+    		
+    		var url = 'payment_input?' + params.toString();
+    		window.location.href = url;
+    	}
+    </script>
     </html>

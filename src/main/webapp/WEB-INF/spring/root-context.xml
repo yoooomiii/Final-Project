@@ -14,7 +14,10 @@
 			value="jdbc:mariadb://192.168.0.72:3305/goldenegg" />
 
 
+
 		<property name="username" value="root" />
+
+
 		<property name="password" value="1111" />
 
 	</bean> 
