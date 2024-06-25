@@ -11,6 +11,7 @@ import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PaymentVO;
 import www.egg.vo.ReviewVO;
 
 @Service
@@ -71,6 +72,19 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	public List<FavorVO> picklist(String userid) throws Exception {
 		// TODO Auto-generated method stub
 		return mpdao.picklist(userid);
+	}
+
+	@Override
+	public List<PaymentVO> testlist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return mpdao.testlist(userid);
+	}
+
+	@Override
+	public void mlistinsert(MlistVO mlvo) throws Exception {
+		// TODO Auto-generated method stub
+		mpdao.mlistinsert(mlvo);
 	}
 	
 //	@Override

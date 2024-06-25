@@ -185,11 +185,11 @@ td {
 
 				<tbody>
 					<!-- 내일 학원가서 데이터 넣어보기 -->
-					<c:forEach items="${mlvo}" var="mlvo">
+					<c:forEach items="${plist}" var="pp">
 						<tr>
-							<td>${mlvo.m_num}</td>
-							<td>${mlvo.m_num}</td>
-							<td>${mlvo.m_state}</td>
+							<td>${pp.pm_no}</td>
+							<td>${pp.pm_id}</td>
+							<td>${pp.pm_id}</td>
 							<td>
 								<form action="write" method="get">
 									<input type="hidden" name="m_num" value="${mlvo.m_num}">

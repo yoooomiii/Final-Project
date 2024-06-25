@@ -6,6 +6,7 @@ import java.util.Map;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PaymentVO;
 import www.egg.vo.ReviewVO;
 
 public interface IF_MypageServiece {
@@ -24,6 +25,8 @@ public interface IF_MypageServiece {
 	//--------------------------------------------------- 리뷰에 저장된 사진 가져오기 + 테스트용
 	
 	public List<MlistVO> orderlist(String userid) throws Exception;
+	public List<PaymentVO> testlist(String userid) throws Exception;
+	public void mlistinsert (MlistVO mlvo) throws Exception;
 	//--------------------------------------------------- 주문내역 불러오기
 	
 	public void pickinsert(FavorVO fvo) throws Exception;

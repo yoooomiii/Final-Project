@@ -5,6 +5,7 @@ import java.util.Map;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PaymentVO;
 import www.egg.vo.ReviewVO;
 
 
@@ -21,6 +22,8 @@ public interface IF_MypageDAO {
 	//--------------------------------------------------- 리뷰 내용, 사진 저장, 나의 리뷰 전체불러오기
 	
 	public List<MlistVO> orderlist(String userid) throws Exception;
+	public List<PaymentVO> testlist(String userid) throws Exception;
+	public void mlistinsert(MlistVO mlvo) throws Exception;
 	//--------------------------------------------------- 주문내역 전체보기
 	
 	public List<Map<String, Object>> getfile(Integer re_num) throws Exception;	

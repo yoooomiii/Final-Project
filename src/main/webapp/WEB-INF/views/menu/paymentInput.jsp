@@ -10,7 +10,7 @@
 	<h1>장바구니다</h1>
     <form action="payment_inputSave" method="post">
         <br>
-        	주문 번호<input type="text" name="pm_no">
+        	<input type="hidden" value="${pm_no}" class="pm_no">
         <br>
         	회원 ID<input type="text" value="${userid}" name="pm_id">
         <br>
