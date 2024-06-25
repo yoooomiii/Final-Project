@@ -4,6 +4,7 @@ package www.egg.hom;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +38,12 @@ public class MenuController {
 	}
 	
 	@GetMapping(value ="/payment_input")
-	public String patment_input(@ModelAttribute PaymentVO pvo) throws Exception {	//결제테이블로 이동
+	public String patment_input(@ModelAttribute PaymentVO pvo,
+			Model model, HttpSession session,
+			@RequestParam("i_price") String iPrice) throws Exception {	//결제테이블로 이동
+		model.addAttribute("i_price", iPrice);
+		session.getAttribute("userid");
+		session.getAttribute("useraddress");
 		
 		return "menu/paymentInput";
 	}
@@ -51,7 +57,8 @@ public class MenuController {
 
 	@RequestMapping("/item_List")
 	public String item_List(@ModelAttribute ItemVO ivo,
-			Model model) throws Exception {	//장바구니 전체보기
+			Model model, HttpSession session) throws Exception {	//장바구니 전체보기
+		session.getAttribute("userid");
 		List<ItemVO> itemList = mservice.itemList();
 		model.addAttribute("itemList", itemList);
 		return "menu/itemList";
@@ -67,7 +74,8 @@ public class MenuController {
             @RequestParam(value = "menu_no4", required = false) String menuNo4,
             @RequestParam("menu_name") String name,
             @RequestParam("i_price") String iPrice,
-            Model model) throws Exception {	//장바구니 등록 과 동시에 장바구니 리스트로 이동
+            Model model, HttpSession session) throws Exception {	//장바구니 등록 과 동시에 장바구니 리스트로 이동
+		session.getAttribute("userid");
 		model.addAttribute("i_no", iNo);
         model.addAttribute("i_id", iId);
         model.addAttribute("menu_no", no);
@@ -95,7 +103,7 @@ public class MenuController {
 	}
 
 	@GetMapping(value ="/menu_input")
-	public String menu_input() {		//치킨 입력 창으로 이동
+	public String menu_input() {	//치킨 입력 창으로 이동
 
 		return "menu/menuInput";
 	}
@@ -114,7 +122,7 @@ public class MenuController {
 	}
 	 
 	@GetMapping(value ="/menuForm")
-	public String menu() {		//메뉴 창으로 이동
+	public String menu() {	//메뉴 창으로 이동
 
 		return "menu/menu";
 	}
@@ -129,19 +137,6 @@ public class MenuController {
 		
 		return "menu/menuPick";
 	}
-	
-//	@GetMapping(value ="/mviewDetail")
-//	public String menuKeep(@RequestParam("menu_no") String no,
-//			Model model) throws Exception {		//메뉴선택후 장바구니 과정 옵션 선택
-//		MenuVO mvo = mservice.modno(no);
-//		List<String> attackList = mservice.getFilename(no);
-//		List<MenuVO> List = mservice.menuList();
-//		model.addAttribute("List", List);
-//		model.addAttribute("mvo", mvo);
-//		model.addAttribute("attackList", attackList);
-//		
-//		return "menu/menuKeep";
-//	}
 	
 	@RequestMapping("/menu_List")
 	public String menu_allList(@ModelAttribute MenuVO mvo,
@@ -160,7 +155,7 @@ public class MenuController {
 	}
 
 	@GetMapping(value ="/menu_update")
-	public String menu_up(@ModelAttribute MenuVO mvo, Model model) {		//수정 창으로 이동
+	public String menu_up(@ModelAttribute MenuVO mvo, Model model) {	//수정 창으로 이동
 		model.addAttribute("mvo", mvo);
 
 		return "menu/menuUpdate";
