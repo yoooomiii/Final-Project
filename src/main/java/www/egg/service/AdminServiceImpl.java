@@ -117,6 +117,12 @@ public class AdminServiceImpl implements IF_AdminService {
 		
 	}
 
+	@Override
+	public int userIdChk(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 
 

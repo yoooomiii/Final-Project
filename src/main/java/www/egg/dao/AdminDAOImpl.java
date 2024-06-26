@@ -179,4 +179,10 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		
 	}
 
+	@Override
+	public int userIdChk(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

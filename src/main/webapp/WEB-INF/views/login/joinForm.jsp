@@ -88,6 +88,35 @@
     	  return true;
       }
       
+      // 아래로 아이디 중복체크 
+      
+      $(document).ready(function(){
+          $('#btn_idcheck').on('click', function(){
+              $.ajax({
+                  type: 'POST',
+                  url: 'checkSignupId', // url 콘트롤러 요청
+                  data: {
+                      "id" : $('#id').val() // json 데이터로 보내겠다.
+                  },
+                  
+                  // ------------------------->
+                  
+                  success: function(data){
+                      if($.trim(data) == 0){
+                    	 alert("yes you can use this idddddddd!")
+                      }
+                      else{
+                         alert("can't use this idddddddd!")
+                      }
+                  },	// end success 
+                  error: function(){
+                	  alert("there's something wrong...")
+                  }
+              });    //end ajax    
+          });    //end on    
+      });
+
+      
     </script>
 	<link href="${path}./resources/css/sign.css" rel="stylesheet"/>
 </head>
@@ -98,9 +127,14 @@
             <h3>회원가입</h3>
             <h5>골든에그와 함께하기!</h5>
             <form action="signUp" method="post"  onsubmit="return checkForm()">
-              <label for="name">회원 ID</label>
-              <input type="text" name="id" id="id" placeholder="사용할 아이디">
-              
+            
+              <div class = "form-id">
+	              <label for="name">회원 ID</label>
+	              <input type="text" name="id" id="id" placeholder="사용할 아이디"> 
+	              <input type="button" id="btn_idcheck" value="중복체크">
+	              <!-- <div  id = "id_check" hidden>체크결과</div>  id체크 결과 -->
+              </div>
+              <br>
               <label for="password">비밀번호</label>
               <input type="password" name="pw" id="pw" placeholder="">
               
