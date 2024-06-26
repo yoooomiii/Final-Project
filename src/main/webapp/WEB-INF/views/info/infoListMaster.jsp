@@ -71,7 +71,24 @@
 			<div class="info_form">
 				<div class="title">
 					<h1>고객센터 문의 게시판</h1>
-					<hr style="height: 5px; background-color: rgb(25, 0, 0); border-radius: 2px;">
+					<hr
+						style="height: 5px; background-color: rgb(25, 0, 0); border-radius: 2px;">
+				</div>
+				<div class="search-box">
+					<form action="search-action" method="get" name="search-form">
+						<label for="keyword"> 검색어 : </label> 
+						<input type="radio" id="option1" name="optionname" value="0"> 
+						<label for="option"> 작성자 </label> 
+						&nbsp; 
+						<input type="radio" id="option2" name="optionname" value="1">
+						<label for="option"> 제목 </label> 
+						&nbsp; 
+						<input type="radio" id="option3" name="optionname" value="2"> 
+						<label for="option"> 처리여부 </label> 
+						&nbsp; 
+						<input type="text" size="20" name="keyword-text">
+						<input id=search-save type="submit" value="검색" name="searchS">
+					</form>
 				</div>
 				<div class="del_btn">
 					<input type="button" value="선택항목삭제"> 
@@ -93,28 +110,34 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${allListitems}" var="askvo">
+							<c:forEach items="${allListitems}" var="infovo">
 								<tr>
-									<td><input type="checkbox" name="rowchk" id="checkbox" value="${askvo.a_num }"></td>
-									<td><a href="detailViewMa?a_num=${askvo.a_num}">${askvo.a_num}</a></td>
-									<td>${askvo.a_id}</td>
-									<td>${askvo.a_title}</td>
-									<td>${askvo.a_checkVal}</td>
-									<td>${askvo.a_date}</td>
-									<td>${askvo.a_date}</td>
+									<td>
+										<input type="checkbox" name="rowchk" id="checkbox" value="${infovo.askVO.a_num}"></td>
+									<td>
+										<a href="detailViewMa?a_num=${infovo.askVO.a_num}">${infovo.askVO.a_num}</a>
+									</td>
+									<td>${infovo.askVO.a_id}</td>
+									<td>${infovo.askVO.a_title}</td>
+									<td>${infovo.askVO.a_checkVal}</td>
+									<td>${infovo.askVO.a_date}</td>
+									<td>${infovo.answerVO.an_date}</td>
 									<td>
 										<div class="btn-td">
-											<input type="button" value="삭제" name="delbtn" onclick="delchk(${askvo.a_num })">
+											<input type="button" value="삭제" name="delbtn"
+												onclick="delchk(${infovo.askVO.a_num})">
 										</div>
 									</td>
 									<td>
 										<div class="btn-td">
-											<input type="button" name="rebtn" value="답변하기" onclick="location.href='replyPage?a_num=${askvo.a_num }'">
+											<input type="button" name="rebtn" value="답변하기"
+												onclick="location.href='replyPage?a_num=${infovo.askVO.a_num}'">
 										</div>
 									</td>
 								</tr>
 							</c:forEach>
 							
+
 							<script>
 								function delchk(dnum) {
 									if (confirm("삭제합니까?") == true) {
@@ -142,9 +165,24 @@
 								      }
 								  } 
 							</script>
-
 						</tbody>
 					</table>
+
+					<div>
+						<c:if test="${pvo.prev }">
+							<a href="masterview?page=${pvo.startPage -1 }">[이전페이지그룹]</a>
+						</c:if>
+						<c:forEach begin="${pvo.startPage }" end="${pvo.endPage }"
+							var="idx">
+							<a href="masterview?page=${idx}"> <c:if
+									test="${idx == pvo.page }">[</c:if> ${idx } <c:if
+									test="${idx == pvo.page }">]</c:if>
+							</a>
+						</c:forEach>
+						<c:if test="${pvo.next }">
+							<a href="masterview?page=${pvo.endPage +1 }">[다음페이지그룹]</a>
+						</c:if>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -179,11 +217,9 @@
 					</div>
 				</div>
 				<div class="sns">
-					<span><a href="#"><img
-							src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
-						href="#"><img src="${path}/resources/img/facebook_icon.jpg"
-							alt=""></a></span> <span><a href="#"><img
-							src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+					<span><a href="#"><img src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> 
+					<span><a href="#"><img src="${path}/resources/img/facebook_icon.jpg" alt=""></a></span> 
+					<span><a href="#"><img src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
 				</div>
 			</div>
 		</footer>
