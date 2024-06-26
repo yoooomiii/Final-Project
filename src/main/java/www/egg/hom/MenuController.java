@@ -32,6 +32,9 @@ public class MenuController {
 	FileDataUtil filedatautil;
 	
 	
+
+	
+	
 	@GetMapping(value ="/mlist_input")
 	public String mlist_input(@ModelAttribute MlistVO mvo,
 			@ModelAttribute PaymentVO pvo,
@@ -61,6 +64,7 @@ public class MenuController {
 	@GetMapping(value ="/payment_delete")
 	public String payment_delete(@ModelAttribute PaymentVO pvo) throws Exception {	//결제 삭제
 		mservice.payment_delete(pvo);
+
 		
 		return "redirect:payment_List";
 	}

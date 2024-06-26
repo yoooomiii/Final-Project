@@ -23,11 +23,9 @@ public interface IF_MypageDAO {
 	
 	public List<MlistVO> orderlist(String userid) throws Exception;
 	public List<PaymentVO> testlist(String userid) throws Exception;
-	public void mlistinsert(MlistVO mlvo) throws Exception;
 	//--------------------------------------------------- 주문내역 전체보기
 	
 	public List<Map<String, Object>> getfile(Integer re_num) throws Exception;	
-
 	//--------------------------------------------------- 리뷰에 저장된 사진 불러오기 + 테스트용
 	
 	public void pickinsert(FavorVO fvo) throws Exception;	
@@ -35,5 +33,6 @@ public interface IF_MypageDAO {
 //	public boolean deletePick(List<String> pickIds) throws Exception;
 	
 	public List<FavorVO> picklist(String userid) throws Exception;
+	//--------------------------------------------------- 찜 리스트 불러오기
 	
 }

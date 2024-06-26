@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 결제 -->
 	<insert id="pinsert" parameterType="www.egg.vo.PaymentVO">
-		INSERT INTO PAYMENT VALUES (NEXT VALUE FOR payment_cnt, #{pm_num}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_point}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H:%i:%s'), #{pm_address}, #{pm_pick}, #{pm_comment})
+		INSERT INTO PAYMENT VALUES (NEXT VALUE FOR payment_cnt, #{pm_num}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_point}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'), #{pm_address}, #{pm_pick}, #{pm_comment})
 	</insert>
 	<!-- 결제테이블 입력 -->
 	<select id="pselectall" resultType="www.egg.vo.PaymentVO">

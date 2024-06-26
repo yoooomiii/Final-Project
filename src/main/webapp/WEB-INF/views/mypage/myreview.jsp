@@ -74,7 +74,7 @@ hr {
 	float: left;
 	width: 350px;
 	height: 230px;
-	margin-left: 8px;
+	margin-left: 22px;
 	margin-top: 10px;
 	/*  border: 1px solid blue;  */
 }
@@ -83,7 +83,7 @@ hr {
 	float: left;
 	width: 480px;
 	height: 230px;
-	margin-left: 45px;
+	margin-left: 35px;
 	margin-top: 10px;
 	font-size: x-large;
 	font-weight: normal;
@@ -100,7 +100,7 @@ hr {
 }
 
 .image-container img {
-	height: 220px; /* 원하는 높이로 설정 */
+	height: 200px; /* 원하는 높이로 설정 */
 	width: auto;
 }
 
@@ -211,6 +211,7 @@ hr {
 	<br>
 	<h2>${username}님의 리뷰</h2>
 	<c:forEach items="${review}" var="review">
+	
 		<div id="reviewcard">
 			<div id="photo">
 				<div class="image-container">
@@ -219,7 +220,7 @@ hr {
 							test="${review.re_num == photo.re_num && not empty photo.filename}">
 							<img
 								src="${pageContext.request.contextPath}/downloads?filename=${photo.filename}"
-								alt="Review Photo" width="220" height="220">
+								alt="Review Photo" width="200" height="200">
 						</c:if>
 					</c:forEach>
 				</div>
@@ -234,10 +235,17 @@ hr {
 						</c:forEach>
 					</div>
 				</div>
-				<div id="menuname">메뉴 이름 : 메뉴 이름</div>
+				<div id="menuname">
+					<c:forEach items="${mmm}" var="mmm">
+						<c:if test="${mmm.m_num == review.re_no}">
+							${mmm.m_name}
+						</c:if>
+					</c:forEach>
+				</div>
 				<div id="review">${review.re_ex}</div>
 			</div>
 		</div>
+		
 	</c:forEach>
 
 
