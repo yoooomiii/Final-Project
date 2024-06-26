@@ -10,8 +10,6 @@
     <h1>장바구니다</h1>
     <form action="item_inputSave" method="get">
         <br>
-        	결제 번호<input type="text" value="${i_no}" name="i_no">
-        <br>
         	회원 아이디<input type="text" value="${i_id}" name="i_id">
         <br>
         	메뉴 코드<input type="text" value="${menu_no}" name="menu_no">
