@@ -32,19 +32,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from delivery where d_no=#{m_num}
 	</delete>
 	
-	<!-- 페이징 적용된 아이들 / 페이징 관련 -->
+
 	<select id="selectorders" resultType="www.egg.vo.MlistVO">
-		<!-- select * from mlist -->
 		select * from mlist order by m_num asc LIMIT 10 OFFSET #{startNo}
 	</select>
 	<select id = "selectordernum_p" resultType="www.egg.vo.MlistVO" parameterType="map">
-		select * from mlist where m_num=#{ordervo.m_num} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
+		select * from mlist where m_num = #{ordervo.m_num} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select> 
 	<select id="selectordersearch_p" resultType="www.egg.vo.MlistVO" parameterType="map">
-		select * from mlist where m_state = #{ordervo.m_state}  order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
+		select * from mlist where m_state = #{ordervo.m_state} order by m_num asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select>
 	<select id="selectdeliverys" resultType="www.egg.vo.DeliveryVO">
-		<!-- select * from delivery limit 6  -->
 		select * from delivery order by d_no asc LIMIT 10 OFFSET #{startNo}
 	</select>
 	<select id = "selectdeliverynum_p" resultType="www.egg.vo.DeliveryVO" parameterType="map">
@@ -53,13 +51,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectdeliverysearch_p" resultType="www.egg.vo.DeliveryVO" parameterType="map">
 		select * from delivery where d_check = #{deliveryvo.d_check}  order by d_no asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select>
+	<insert id="insertdelivery" parameterType="www.egg.vo.DeliveryVO">
+	 	insert into delivery values(#{d_no},#{d_num},#{d_time},#{d_check});
+	</insert>
 	
 	
 	<select id="getToatalOCount" resultType="int">
 		select count (*) from mlist 
 	</select>
 	<select id="getToatalOCountForSword" resultType="int" parameterType="String">
-		select count (*) from mlist where m_num=#{m_num_string}
+		select count (*) from mlist where m_num=#{m_num}
 	</select>
 	<select id="getToatalOCountForSelect" resultType="int" parameterType="String">
 		select count (*) from mlist where m_state=#{m_state}

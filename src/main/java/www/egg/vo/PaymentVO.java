@@ -3,7 +3,7 @@ package www.egg.vo;
 public class PaymentVO {
 
 	private Integer pm_no =0;          //결제 번호
-	private Integer pm_num =0;         //주문번호
+	private Integer pm_num =0;         //아이템 번호
 	private String pm_id = null;       //회원 ID
 	private int pm_price = 0;          //주문 금액
 	private int pm_tip = 0;            //배달비

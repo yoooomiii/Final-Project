@@ -1,5 +1,7 @@
 package www.egg.vo;
 
+import java.util.Arrays;
+
 public class FavorVO {
 
 	private Integer f_num =0;     
@@ -7,14 +9,9 @@ public class FavorVO {
 	private String f_id = null;    
 	private String f_menu = null;   
 	private Integer f_price =0;
+	private String[] filename;
 	
-	@Override
-	public String toString() {
-		return "FavorVO [f_num=" + f_num + ", f_no=" + f_no + ", f_id=" + f_id + ", f_menu=" + f_menu + ", f_price="
-				+ f_price + "]";
-	}
-
-	public Integer getF_num() {
+	 public Integer getF_num() {
 		return f_num;
 	}
 
@@ -53,6 +50,22 @@ public class FavorVO {
 	public void setF_price(Integer f_price) {
 		this.f_price = f_price;
 	}
+
+	public String[] getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String[] filename) {
+		this.filename = filename;
+	}
+
+	@Override
+	public String toString() {
+		return "FavorVO [f_num=" + f_num + ", f_no=" + f_no + ", f_id=" + f_id + ", f_menu=" + f_menu + ", f_price="
+				+ f_price + ", filename=" + Arrays.toString(filename) + "]";
+	}
+	 
+	
 	
 	
 }

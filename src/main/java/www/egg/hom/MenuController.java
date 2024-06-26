@@ -30,6 +30,23 @@ public class MenuController {
 	@Inject
 	FileDataUtil filedatautil;
 	
+	
+	@PostMapping(value ="/payment_delete")
+	public String payment_delete(@ModelAttribute PaymentVO pvo) throws Exception {
+		mservice.payment_delete(pvo);
+		
+		return "redirect:payment_List";
+	}
+	
+	@GetMapping(value ="/payment_List")
+	public String payment_List(@ModelAttribute PaymentVO pvo,
+			Model model) throws Exception {	//결제정보 보기
+		List<PaymentVO> paymentList = mservice.paymentList();
+		model.addAttribute("paymentList", paymentList);
+		
+		return "menu/paymentList";
+	}
+	
 	@PostMapping(value ="/payment_inputSave")
 	public String patment_inputSave(@ModelAttribute PaymentVO pvo) throws Exception {	//결제테이블 등록
 		mservice.payment_insert(pvo);
@@ -49,6 +66,8 @@ public class MenuController {
 		
 		return "menu/paymentInput";
 	}
+	
+	//------------------------------------------------------------장바구니
 	
 	@GetMapping(value ="/item_delete")
 	public String item_delete(@ModelAttribute ItemVO ivo) throws Exception {	//장바구니 삭제
@@ -101,6 +120,8 @@ public class MenuController {
 		
 		return "menu/menuKeep";
 	}
+	
+	//-------------------------------------------------------------메뉴
 
 	@GetMapping(value ="/menu_input")
 	public String menu_input() {	//치킨 입력 창으로 이동

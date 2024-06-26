@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import www.egg.service.IF_MypageServiece;
+import www.egg.util.FileDataUtil;
 import www.egg.util.ReviewFileDataUtil;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PaymentVO;
 import www.egg.vo.ReviewVO;
 
 
@@ -34,6 +36,8 @@ public class MypageController {
 
 	@Inject
 	ReviewFileDataUtil reviewfiledatautil;
+	@Inject
+	FileDataUtil filedatautil;
 
 
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)   //로그인시 마이페이지에 정보 띄위기
@@ -94,17 +98,20 @@ public class MypageController {
 
 
 	@GetMapping(value="mylist")			//주문내역 불러오기
-	public String oderlist(HttpSession session, Model model,MlistVO mlvo) throws Exception {
+	public String oderlist(HttpSession session, Model model,MlistVO mlvo,
+			@RequestParam("pm_no") String pm_no) throws Exception {
 		String userid = (String) session.getAttribute("userid");
 		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
 		
+		
+		List<MlistVO> mlist = mpservice.orderlist(userid);
 		if (userid != null) {
 			mlvo.setM_id(userid);
-			List<MlistVO> orderlist = mpservice.orderlist(userid);
-			for (MlistVO mlist : orderlist) {
-				System.out.println(mlist);  // 디버그용 로그 출력
+			List<PaymentVO> payment = mpservice.testlist(userid);
+			for (PaymentVO orderlist : payment) {
+				System.out.println(orderlist);  // 디버그용 로그 출력
 			}
-			model.addAttribute("mlvo", orderlist);
+			model.addAttribute("plist", payment);
 		} else {
 			System.out.println("아이디 없음");  // 디버그용 로그 출력
 		}
@@ -112,6 +119,9 @@ public class MypageController {
 
 		return "mypage/orderlist";
 	}
+	
+	
+	 
 
 	@RequestMapping(value = "write", method = RequestMethod.GET)     //리뷰쓰기 버튼을 누르면 주문번호를 넘겨주고 리뷰작성폼으로 이동
 	public String review(@RequestParam("m_num") Integer m_num, Model model) {
@@ -125,6 +135,19 @@ public class MypageController {
 		model.addAttribute("mlvo", mlvo);
 		return "mypage/review";
 	}
+	
+//	@RequestMapping(value = "list", method = RequestMethod.GET)     //리뷰쓰기 버튼을 누르면 주문번호를 넘겨주고 리뷰작성폼으로 이동
+//	public String list(@RequestParam("pm_no") , Model model) {
+//		if (m_num == null) {
+//			System.out.println("m_num값 없음");
+//		}
+//
+//		MlistVO mlvo = new MlistVO();
+//		mlvo.setM_num(m_num);  //m_num 값 가져오기
+//
+//		model.addAttribute("mlvo", mlvo);
+//		return "mypage/review";
+//	}
 
 
 	@PostMapping(value = "pickcart_insert")			//메뉴에서 찜버튼 클릭시 찜목록 테이블에 저장
@@ -132,37 +155,28 @@ public class MypageController {
 			@RequestParam("menu_no") int menu_no,
 			@RequestParam("menu_name") String menu_name,
 			@RequestParam("menu_price") String menu_price,
-			HttpSession session, Model model) throws Exception {
+			@RequestParam("fname") String filename,
+			MultipartFile[] file,
+			HttpSession session, Model model, String[] fname) throws Exception {
 
 		String userid= (String) session.getAttribute("userid"); 
 		fvo.setF_id(userid);
 		fvo.setF_no(menu_no);
 		fvo.setF_menu(menu_name);
 		fvo.setF_price(Integer.parseInt(menu_price));
-
+		
+		fvo.setFilename(fname);
 		mpservice.pickinsert(fvo);
 		System.out.println("찜 저장됨");
 		return "redirect:picklist";
 	}
-
-	@GetMapping(value="picklist")
-	public String picklist(HttpSession session, Model model,FavorVO fvo) throws Exception {
-		String userid = (String) session.getAttribute("userid");
-		fvo.setF_id(userid);
-		List<FavorVO> picklist = mpservice.picklist(userid);
-		for (FavorVO plist : picklist) {
-		}
-		model.addAttribute("plist", picklist);
-		System.out.println("불러와졌나?");
-		return "mypage/pick";
-	}
-
+	
 	@GetMapping(value="allreview") // 내가 쓴 리뷰만 불러오기 (사진 포함)  
 	public String allreviews(HttpSession session, Model model) throws Exception {
 		String userid = (String) session.getAttribute("userid");	
-
+		
 		List<ReviewVO> myreview = mpservice.myreview(userid);
-
+		
 		// 각 리뷰에 대해 사진 데이터 가져오기
 		List<Map<String, Object>> photolist = new ArrayList<>(); // 사진 데이터를 저장할 리스트를 초기화
 		for (ReviewVO review : myreview) { // myreview 리스트에 있는 각 리뷰에 대해 반복
@@ -174,13 +188,30 @@ public class MypageController {
 				}
 			}
 		}
-
+		
 		model.addAttribute("review", myreview); 
 		model.addAttribute("photolist", photolist);
 		System.out.println("사진 넘겼니?");
-
+		
 		return "mypage/myreview";
 	}
+
+	@GetMapping(value="picklist")
+	public String picklist(HttpSession session, Model model,FavorVO fvo) throws Exception {
+		String userid = (String) session.getAttribute("userid");
+		fvo.setF_id(userid);
+		List<FavorVO> picklist = mpservice.picklist(userid);
+		
+		//사진 가져오기
+		List<Map<String, Object>> picture = new ArrayList<>();
+		for (FavorVO plist : picklist) {
+			
+		}
+		model.addAttribute("plist", picklist);
+		System.out.println("불러와졌나?");
+		return "mypage/pick";
+	}
+
 
 	//	 @PostMapping("/deletePick")
 	//	    public Map<String, Object> deletePick(@RequestBody Map<String, List<String>> request) throws Exception {

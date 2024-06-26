@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PaymentVO;
 import www.egg.vo.ReviewVO;
 
 @Repository
@@ -79,6 +80,18 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	public List<FavorVO> picklist(String userid) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery+".picklist", userid);
+	}
+
+	@Override
+	public List<PaymentVO> testlist(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery +".testlist", userid);
+	}
+
+	@Override
+	public void mlistinsert(MlistVO mlvo) throws Exception {
+		// TODO Auto-generated method stub
+		sqlsession.insert(mapperQuery, mlvo);
 	}
 
 //	@Override

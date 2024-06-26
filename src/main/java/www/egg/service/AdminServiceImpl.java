@@ -111,6 +111,12 @@ public class AdminServiceImpl implements IF_AdminService {
 		return adao.searchDeliveryPaging(spage);
 	}
 
+	@Override
+	public void insertDelivery(DeliveryVO dvo) {
+		adao.insertDelivery(dvo);
+		
+	}
+
 	
 
 

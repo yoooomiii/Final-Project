@@ -38,12 +38,13 @@ public class AdminController {
 	
 	@GetMapping("adminMView") 
 	public String adminMember(Model model, @ModelAttribute PageVO pagevo) throws Exception {
+		MemberVO mvo = null;
 
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(lservice.getTotalCount());
+		pagevo.setTotalCount(lservice.getTotalCount(mvo)); // 총튜플수 설정 
 		
 		pagevo.prt();
 		
@@ -59,13 +60,13 @@ public class AdminController {
 			 @RequestParam("city") String city,  @RequestParam("county") String county,
 			 @ModelAttribute PageVO pagevo
 			) throws Exception {
-		String getDetail = "not";
+		
 		
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
 			pagevo.setPage(1);
 		}
 		System.out.println("현재 페이지 정보: "+pagevo.getPage());
-		pagevo.setTotalCount(lservice.getTotalCount());
+		pagevo.setTotalCount(lservice.getTotalCount(mvo));
 		pagevo.prt();
 		
 		// 맵 만들기이...
@@ -73,7 +74,7 @@ public class AdminController {
 		spaging.put("pagevo", pagevo);
 		
 		System.out.println("濡쒓렇�씤�떒 county: "+county);
-		if(county.equals("�쟾泥�")) {
+		if(county.equals("전체")) {
 			mvo.setAddress(city);
 		}else {
 			String readdress = city+" "+county;
@@ -82,15 +83,25 @@ public class AdminController {
 		
 		List<MemberVO> mlist = null;
 		if(sw==null || sw.equals("")) { // 寃��깋�뼱媛� �엳嫄곕굹 �뾾�뒗 寃쎌슦 
-			spaging.put("ordervo", mvo);
-			mlist = lservice.memberSearch(mvo, pagevo) ; // 모험 start!
+			spaging.put("membervo", mvo);
+			//mlist = lservice.memberSearch(mvo, pagevo) ; // 모험 start!
+			mlist = lservice.memberSearchPaging(spaging);
+			
+			pagevo.setTotalCount(lservice.getTotalCount(mvo));
 		}else {
 			mvo.setId(sw);
-			spaging.put("ordervo", mvo);
-			mlist = lservice.memberSearch(mvo, pagevo) ;
+			spaging.put("membervo", mvo);
+			//mlist = lservice.memberSearch(mvo, pagevo) ;
+			mlist = lservice.memberSearchPaging(spaging);
+			
+			pagevo.setTotalCount(lservice.getTotalCount(mvo));
 		}
+		
+		System.out.println("멤버토탈카툰트 after: "+pagevo.getTotalCount());
+		System.out.println("홈컨 mlist길이: "+mlist.size());
 		model.addAttribute("pagevo", pagevo);
 		model.addAttribute("members", mlist);
+		model.addAttribute("sword", sw); // 클라가 요청했던 검색조건 기억
 		return "admin/adminMember";
 	}
 	
@@ -185,6 +196,7 @@ public class AdminController {
 	public String adminODetail(@RequestParam("m_num") String m_num ,  Model model) throws Exception {
 		PaymentVO pvo = aservice.pickPaymentnum(m_num);
 		model.addAttribute("pvo", pvo);
+		
 		return "admin/adminOPayment";
 	}
 	
@@ -192,6 +204,7 @@ public class AdminController {
 	public String adminODelivery(@RequestParam("m_num") String m_num ,  Model model) throws Exception {
 		DeliveryVO dvo = aservice.pickDeliverynum(m_num);
 		model.addAttribute("dvo", dvo);
+		model.addAttribute("ordernum", m_num);
 		return "admin/adminODelivery";
 	}
 	
@@ -233,8 +246,8 @@ public class AdminController {
 		// vo 셋팅하셈. 
 		List<MlistVO> olist = null;
 		if(sw==null || sw.equals("")) { // 검색어 유무!
-			ovo.setM_state(m_state);
-			spaging.put("ordervo", ovo);
+			ovo.setM_state(m_state); 
+			spaging.put("ordervo", ovo); // 맵에 넣깅
 			System.out.println("어드민콘트롤러 OVO(sw null): "+ovo.toString());
 			olist = aservice.searchOrderPaging(spaging);
 			
@@ -242,7 +255,7 @@ public class AdminController {
 		}else {
 			Integer m_num = Integer.parseInt(sw);
 			ovo.setM_num(m_num);
-			spaging.put("ordervo", ovo);
+			spaging.put("ordervo", ovo); // 맵에 넣깅
 			System.out.println("어드민콘트롤러 OVO(sw ok): "+ovo.toString());
 			olist = aservice.searchOrderPaging(spaging);
 			
@@ -251,6 +264,11 @@ public class AdminController {
 		
 		System.out.println("주문토탈카툰트 after: "+pagevo.getTotalCount());
 		// finally...
+		for(int i =0; i<olist.size(); ++i) {
+			System.out.println("주문내역 촤락: "+olist.get(i));
+		}
+		System.out.println("주문내역크키: "+olist.size());
+		
 		model.addAttribute("orders", olist); // 주문내역vo 제출
 		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
 		// model.addAttribute("ordervo", ovo); // 클라가 주문내역 검색요청했던 정보 제출
@@ -316,5 +334,20 @@ public class AdminController {
 		}
 		return "redirect:adminDView";
 	}
+	@RequestMapping(value = "adminDSpform", method = RequestMethod.GET)
+	public String adminDSpform(@RequestParam("m_num") String m_num,  Model model) throws Exception {
+		//DeliveryVO dvo = aservice.pickDeliverynum(m_num);
+		model.addAttribute("ordernum", m_num);
+		return "admin/adminDSform";
+	}
+	@RequestMapping(value = "adminDSave", method = RequestMethod.GET)
+	public String adminDSpform(@ModelAttribute DeliveryVO dvo, Model model) throws Exception {
+		aservice.modDelivery(dvo); // insert작업 수행 
+		
+		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+""); // 수행한 거 가져옴 
+		model.addAttribute("dvo", modied_dvo);
+		return "admin/adminODelivery";
+	}
+	
 	
 }

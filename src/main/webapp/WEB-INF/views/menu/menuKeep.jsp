@@ -132,12 +132,14 @@
         <div class="img">
             <c:forEach items="${attackList}" var="fname">
                 <img src="download?filename=${fname}" width="500" height="450" class="lien">
+                <input type="hidden" value="${fname}" class="filename">
             </c:forEach>
             <br>
             <input type="hidden" value="${userid}" class="i_id">
             <input type="hidden" value="${mvo.menu_no}" class="menu_no">
             <input type="hidden" value="${mvo.menu_price}" class="menu_price">
             <input type="hidden" value="${mvo.menu_name}" class="menu_name">
+            
             <br>
             <h2><b>${mvo.menu_name}</b></h2>
             <br>
