@@ -5,11 +5,13 @@ public class MlistVO {
 	private Integer m_num =0;  
 	private Integer m_no=0;
 	private String m_id =null;
+	private String m_name =null;
 	private String m_state=null;
 
 	@Override
 	public String toString() {
-		return "MlistVO [m_num=" + m_num + ", m_no=" + m_no + ", m_id=" + m_id + ", m_state=" + m_state + "]";
+		return "MlistVO [m_num=" + m_num + ", m_no=" + m_no + ", m_id=" + m_id + ", m_name=" + m_name + ", m_state="
+				+ m_state + "]";
 	}
 
 	public Integer getM_num() {
@@ -36,6 +38,14 @@ public class MlistVO {
 		this.m_id = m_id;
 	}
 
+	public String getM_name() {
+		return m_name;
+	}
+
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+
 	public String getM_state() {
 		return m_state;
 	}
@@ -43,6 +53,6 @@ public class MlistVO {
 	public void setM_state(String m_state) {
 		this.m_state = m_state;
 	}
-	
+
 	
 }

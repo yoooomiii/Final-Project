@@ -145,7 +145,7 @@
                         <tbody>
                             <c:forEach items="${itemList}" var="ivo">
                                 <tr>
-                                	<td><input type="checkbox" checked value="${ivo.i_num }"></td>
+                                	<td><input type="checkbox" checked value="${ivo.i_num }" class="i_num"></td>
                                     <td>${ivo.i_id}</td>
                                     <td>${ivo.menu_name }</td>
                                     <td>${ivo.i_price}원</td>
@@ -199,9 +199,11 @@
     <script type="text/javascript">
     	function Order(){
     		var price = document.querySelector('.i_price').value;
+    		var inum = document.querySelector('.i_num').value;
     		
     		var params = new URLSearchParams();
     		params.append('i_price', price);
+    		params.append('i_num', inum);
     		
     		var url = 'payment_input?' + params.toString();
     		window.location.href = url;

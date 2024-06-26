@@ -5,13 +5,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
-<html>
+<html lang="kor">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/main.css" rel="stylesheet" />
-<title>Insert title here</title>
+<title>Home</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -21,78 +22,60 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
-<script src="/resources/jquery/jquery-3.3.1.min.js"></script>
 </head>
 <style>
-#cart {
-	float: left;
-	width: 1000px;
-	height: 900px;
-	border: 5px solid gray;
-	border-radius: 20px;
-	margin-left: 120px;
-}
-
-table {
-	border-collapse: collapse;
-	width: 950px;
-	font-size: 16px;
-	margin-left: 13px;
-}
-
-thead {
+h2 {
 	text-align: center;
-	font-weight: bold;
+	font-size: 40px;
+	font-family: 'Cafe24Ssurround', sans-serif;
 }
-
-tbody {
-	font-size: 12px;
+hr {
+	width: 500px;
+	border: 3px solid grey;
+	margin-left :370px;
 }
-
-td {
+h3{
 	text-align: center;
-	padding: 15px 0px;
-	border-bottom: 2px solid grey;
+	font-family: 'SUITE-Regular', sans-serif;
 }
-
-.container {
-	display: flex;
-	justify-content: flex-end;
-	width: 100%;
-	padding: 20px;
+h1{
+	text-align: center;
+	font-size :20px;
+	font-family: 'SUITE-Regular', sans-serif;
 }
-
-.delete-button {
-	background-color: skyblue;
-	color: gray;
-	margin-right: 55px;
-	border: none;
-	border-radius: 15px;
-	padding: 10px 20px;
-	font-size: 16px;
-	cursor: pointer;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition: background-color 0.3s ease, transform 0.3s ease;
+#pointbox{
+	float :left;
+	width:505px;
+	height:120px;
+	margin-left:360px;
+	/* border: 1px solid black; */
 }
-
-.delete-button:hover {
-	background-color: skyblue;
+#menu{
+	width:210px;
+	height:60px;
+	margin-top:10px;
+	margin-left:-25px;
+	font-family: 'SUITE-Regular', sans-serif;
+	/* border: 1px solid black;  */
 }
-
-.delete-button:active {
-	transform: scale(0.95);
+#plus{
+	width:140px;
+	height:60px;
+	margin-left:350px;
+	margin-top :-35px;
+	/* border: 1px solid black; */
 }
-
-.delete-button2 {
-	background-color: skyblue;
-	color: gray;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 13px;
-	cursor: pointer;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition: background-color 0.3s ease, transform 0.3s ease;
+#date{
+	width:210px;
+	height:30px;
+	margin-left:30px;
+	margin-top :-30px;
+	font-family: 'SUITE-Regular', sans-serif;
+	/* border: 1px solid black; */
+}
+p{
+	font-size:20px;
+	font-family: 'SUITE-Regular', sans-serif;
 }
 </style>
 <body>
@@ -117,7 +100,7 @@ td {
 					<ul class="submenu">
 						<li><a href="#"> 브랜드 소개 </a></li>
 					</ul></li>
-				<li><a href="menuForm"> 메뉴 주문하기 </a>
+				<li><a href="#"> 메뉴 주문하기 </a>
 					<ul class="submenu">
 						<li><a href="#"> 인기 메뉴 </a></li>
 						<li><a href="#"> 대표 메뉴 </a></li>
@@ -140,45 +123,24 @@ td {
 			</ul>
 		</div>
 	</nav>
-	<div id="cart">
-		<table class='cart__list'>
-			<thead>
-				<tr>
-					<td>모두 선택 <input type="checkbox" id="allCheck" name="allCheck"/></td>
-					<td>찜 번호</td>
-					<td>메뉴 이름</td>
-					<td>메뉴 가격</td>
-				</tr>
-			</thead>
-
-			<tbody>
-				<c:forEach items="${plist}" var="plist">
-					<tr class='cart__list__detail'>
-						<td><input type="checkbox" name="RowCheck" value="${plist.f_num}"/></td>
-						<td>${plist.f_num}</td>
-						<td><a href="viewDetail?menu_no=${plist.f_no}">${plist.f_menu}</a></td>
-						<td>${plist.f_price }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<div class="container">
-			<button class="delete-button" onclick="delete()">삭제</button>
-		</div>
-
-	</div>
-</body>
-
-<script>
-$(function() {
-	var chk = document.getElemenstsByName("RowCheck");
-	var rowCnt = chk.length;
 	
-	$("input[name='allCheck']").click(function(){
-		var chkList = $("input[]")
-	}
-}
-</script>
-
-
+	<br>
+	<br>
+	<br>
+	<br>
+	<h2>${username}님의 포인트</h2>
+	<hr>
+	<br>
+	<h1>누적 포인트 : point</h1>
+	<br>
+	<div id="pointbox">
+		<div id="menu">	<h3>간장치킨</h3></div>
+		<div id="plus">	<h3>+1170p</h3></div>
+		<div id="date">	<p>2024-06-24</p></div>
+	
+	</div>
+	<br>
+	<br>
+	
+</body>
 </html>

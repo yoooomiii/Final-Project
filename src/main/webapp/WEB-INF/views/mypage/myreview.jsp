@@ -74,7 +74,7 @@ hr {
 	float: left;
 	width: 350px;
 	height: 230px;
-	margin-left: 8px;
+	margin-left: 22px;
 	margin-top: 10px;
 	/*  border: 1px solid blue;  */
 }
@@ -83,7 +83,7 @@ hr {
 	float: left;
 	width: 480px;
 	height: 230px;
-	margin-left: 45px;
+	margin-left: 35px;
 	margin-top: 10px;
 	font-size: x-large;
 	font-weight: normal;
@@ -100,7 +100,7 @@ hr {
 }
 
 .image-container img {
-	height: 220px; /* 원하는 높이로 설정 */
+	height: 200px; /* 원하는 높이로 설정 */
 	width: auto;
 }
 
@@ -219,7 +219,7 @@ hr {
 							test="${review.re_num == photo.re_num && not empty photo.filename}">
 							<img
 								src="${pageContext.request.contextPath}/downloads?filename=${photo.filename}"
-								alt="Review Photo" width="220" height="220">
+								alt="Review Photo" width="200" height="200">
 						</c:if>
 					</c:forEach>
 				</div>

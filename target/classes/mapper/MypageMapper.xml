@@ -65,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="orderlist" resultType="www.egg.vo.MlistVO">		<!-- 주문내역 불러오기 -->
-		SELECT * FROM test_mlist WHERE m_id= #{userid}
+		SELECT * FROM mlist WHERE m_id= #{userid}
 	</select>
 
 	<select id="testlist" resultType="www.egg.vo.PaymentVO">		<!-- 주문내역 불러오기 -->

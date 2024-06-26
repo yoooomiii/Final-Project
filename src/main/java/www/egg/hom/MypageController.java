@@ -81,28 +81,26 @@ public class MypageController {
 
 	
 
-//	@GetMapping(value="mylist")			//주문내역 불러오기
-//	public String oderlist(HttpSession session, Model model,MlistVO mlvo,
-//			@RequestParam("pm_no") String pm_no) throws Exception {
-//		String userid = (String) session.getAttribute("userid");
-//		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-//		
-//		
-//		List<MlistVO> mlist = mpservice.orderlist(userid);
-//		if (userid != null) {
-//			mlvo.setM_id(userid);
-//			List<PaymentVO> payment = mpservice.testlist(userid);
-//			for (PaymentVO orderlist : payment) {
-//				System.out.println(orderlist);  // 디버그용 로그 출력
-//			}
-//			model.addAttribute("plist", payment);
-//		} else {
-//			System.out.println("아이디 없음");  // 디버그용 로그 출력
-//		}
-//
-//
-//		return "mypage/orderlist";
-//	}
+	@GetMapping(value="mylist")			//주문내역 불러오기
+	public String oderlist(HttpSession session, Model model) throws Exception {
+		String userid = (String) session.getAttribute("userid");
+		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
+		
+		
+	
+		if (userid != null) {
+			List<MlistVO> mlist = mpservice.orderlist(userid);
+			for (MlistVO list : mlist) {
+				System.out.println(list);  // 디버그용 로그 출력
+			}
+			model.addAttribute("mlist", mlist);
+		} else {
+			System.out.println("아이디 없음");  // 디버그용 로그 출력
+		}
+
+
+		return "mypage/orderlist";
+	}
 	
 	
 
@@ -202,8 +200,10 @@ public class MypageController {
 	}
 	
 
-	
-
+	@GetMapping(value="point")
+	public String point() {
+		return "mypage/point";
+	}
 	//	 @PostMapping("/deletePick")
 	//	    public Map<String, Object> deletePick(@RequestBody Map<String, List<String>> request) throws Exception {
 	//	        List<String> pickIds = request.get("pickIds");
@@ -212,4 +212,5 @@ public class MypageController {
 	//	    }
 
 }
+
 
