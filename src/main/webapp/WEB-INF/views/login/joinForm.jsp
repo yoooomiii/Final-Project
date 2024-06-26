@@ -103,10 +103,12 @@
                   
                   success: function(data){
                       if($.trim(data) == 0){
-                    	 alert("yes you can use this idddddddd!")
+                    	 // alert("사용 가능한 아이디입니다. ")
+                    	 $('#checkMsg').html('<p style="color:blue">사용 가능한 아이디입니다.</p>');
                       }
                       else{
-                         alert("can't use this idddddddd!")
+                         // alert("중복된 아이디입니다.")
+                    	  $('#checkMsg').html('<p style="color:red">중복된 아이디입니다.</p>');
                       }
                   },	// end success 
                   error: function(){
@@ -132,7 +134,7 @@
 	              <label for="name">회원 ID</label>
 	              <input type="text" name="id" id="id" placeholder="사용할 아이디"> 
 	              <input type="button" id="btn_idcheck" value="중복체크">
-	              <!-- <div  id = "id_check" hidden>체크결과</div>  id체크 결과 -->
+	              <div id = "checkMsg" >체크결과 뜰거임...</div>  
               </div>
               <br>
               <label for="password">비밀번호</label>

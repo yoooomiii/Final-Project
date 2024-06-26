@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 아이디중복찾기 -->
-	<select id ="finduserid" parameterType="String">
+	<select id ="finduserid" parameterType="String" resultType="int">
 		select count (*) from member where id = #{userid}
 	</select>
 	
