@@ -4,9 +4,14 @@ import java.util.List;
 
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
 public interface IF_MenuDAO {
+	
+	public void mlist_insert(MlistVO mvo) throws Exception;	//주문 내역 등록
+	
+	//-------------------------------------------------주문내역
 	
 	public void payment_delete(PaymentVO pvo) throws Exception;	//결제 삭제
 	

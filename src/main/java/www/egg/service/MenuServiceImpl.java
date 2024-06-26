@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import www.egg.dao.IF_MenuDAO;
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
 @Service
@@ -101,6 +102,14 @@ public class MenuServiceImpl implements IF_MenuService {
 	public void payment_insert(PaymentVO pvo) throws Exception {	//결제 등록
 		// TODO Auto-generated method stub
 		mdao.payment_insert(pvo);
+	}
+	
+	//---------------------------------------------주문내역
+
+	@Override
+	public void mlist_insert(MlistVO mvo) throws Exception {	//주문내역 등록
+		// TODO Auto-generated method stub
+		mdao.mlist_insert(mvo);
 	}
 
 }
