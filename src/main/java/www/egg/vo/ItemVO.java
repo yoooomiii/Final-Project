@@ -39,7 +39,6 @@ public class ItemVO {
 		this.i_id = i_id;
 	}
 
-
 	public int getMenu_no() {
 		return menu_no;
 	}

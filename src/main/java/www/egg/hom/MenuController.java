@@ -30,6 +30,23 @@ public class MenuController {
 	@Inject
 	FileDataUtil filedatautil;
 	
+	
+	@PostMapping(value ="/payment_delete")
+	public String payment_delete(@ModelAttribute PaymentVO pvo) throws Exception {
+		mservice.payment_delete(pvo);
+		
+		return "redirect:payment_List";
+	}
+	
+	@GetMapping(value ="/payment_List")
+	public String payment_List(@ModelAttribute PaymentVO pvo,
+			Model model) throws Exception {	//결제정보 보기
+		List<PaymentVO> paymentList = mservice.paymentList();
+		model.addAttribute("paymentList", paymentList);
+		
+		return "menu/paymentList";
+	}
+	
 	@PostMapping(value ="/payment_inputSave")
 	public String patment_inputSave(@ModelAttribute PaymentVO pvo) throws Exception {	//결제테이블 등록
 		mservice.payment_insert(pvo);
@@ -40,13 +57,18 @@ public class MenuController {
 	@GetMapping(value ="/payment_input")
 	public String patment_input(@ModelAttribute PaymentVO pvo,
 			Model model, HttpSession session,
-			@RequestParam("i_price") String iPrice) throws Exception {	//결제테이블로 이동
+			@RequestParam("i_price") String iPrice,
+			@RequestParam("i_num") String inum) throws Exception {	//결제테이블로 이동
 		model.addAttribute("i_price", iPrice);
+		model.addAttribute("i_num", inum);
 		session.getAttribute("userid");
+		session.getAttribute("username");
 		session.getAttribute("useraddress");
 		
 		return "menu/paymentInput";
 	}
+	
+	//------------------------------------------------------------장바구니
 	
 	@GetMapping(value ="/item_delete")
 	public String item_delete(@ModelAttribute ItemVO ivo) throws Exception {	//장바구니 삭제
@@ -66,7 +88,6 @@ public class MenuController {
 	
 	@GetMapping(value ="/item_inputSave")
 	public String item_input(@ModelAttribute ItemVO ivo,
-			@RequestParam("i_no") String iNo,
             @RequestParam("i_id") String iId,
             @RequestParam("menu_no") String no,
             @RequestParam(value = "menu_no2", required = false) String menuNo2,
@@ -76,7 +97,6 @@ public class MenuController {
             @RequestParam("i_price") String iPrice,
             Model model, HttpSession session) throws Exception {	//장바구니 등록 과 동시에 장바구니 리스트로 이동
 		session.getAttribute("userid");
-		model.addAttribute("i_no", iNo);
         model.addAttribute("i_id", iId);
         model.addAttribute("menu_no", no);
         model.addAttribute("menu_no2", menuNo2);
@@ -101,6 +121,8 @@ public class MenuController {
 		
 		return "menu/menuKeep";
 	}
+	
+	//-------------------------------------------------------------메뉴
 
 	@GetMapping(value ="/menu_input")
 	public String menu_input() {	//치킨 입력 창으로 이동
