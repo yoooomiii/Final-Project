@@ -15,9 +15,13 @@
 
 
 
+<<<<<<< HEAD
+		<property name="username" value="root" />
+=======
 
 		<property name="username" value="root" />
 
+>>>>>>> da976e0f73d18e1c18f17a1976f6bcb0b557bb47
 		<property name="password" value="1111" />
 
 	</bean> 
