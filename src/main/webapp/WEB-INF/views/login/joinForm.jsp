@@ -9,20 +9,29 @@
     <!-- <script src="${path}./resources/js/jquery.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-    	function checkForm(){
+    	var idCheckT = 0; 
+    	
+    	function checkForm(){ // 전체체크함수 시작
         var check = nullChek();
         var lengcheck = lengthChek();
         
-        if(check==true){
-        	if(lengcheck==true){
-        		return check;
-        	}else{
-        		return lengcheck;
-        	}
+        
+        if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면...
+        	alert("ID 중복체크가 완료되지 않았습니다.");
+        	return false;
         }else{
-        	return check;
+	        if(check==true){
+	        	if(lengcheck==true){
+	        		return check;
+	        	}else{
+	        		return lengcheck;
+	        	}
+	        }else{
+	        	return check;
+	        }
         }
-      }
+        
+      } // 전체체크함수 끝 
 
       function nullChek(){
           if($("#id").val()==""){
@@ -62,8 +71,8 @@
     	  var idvalue = document.querySelector('#id').value;
     	  var pwvalue = document.querySelector('#pw').value;
     	  
-    	  if(idvalue.length<8){
-              alert("ID는 8자 이상이어야 합니다.");
+    	  if(idvalue.length<6){
+              alert("ID는 6자 이상이어야 합니다.");
               $("#id").focus();
               return false;
             } 
@@ -73,14 +82,14 @@
               return false;
             } 
     	  if(valiCheck(pwvalue)==false){
-    		  alert("PW에 특수문자가 포함되지 않았습니다.");
+    		  alert("PW 조건을 충족하지 않습니다. (영문 대소문자, 8자 이상, 특수문자 및 숫자 포함 필수)");
               $("#pw").focus();
               return false;
     	  }
     	
     	  
       }
-      function valiCheck(text){
+      function valiCheck(text){ //Password1!
     	  var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,}$/;
     	  if(!reg.test(text)){
     		  return false
@@ -88,9 +97,8 @@
     	  return true;
       }
       
-      // 아래로 아이디 중복체크 
-      
-      $(document).ready(function(){
+      // 아이디 중복체크 함수
+	 $(document).ready(function(){
           $('#btn_idcheck').on('click', function(){
               $.ajax({
                   type: 'POST',
@@ -104,6 +112,7 @@
                   success: function(data){
                       if($.trim(data) == 0){
                     	 // alert("사용 가능한 아이디입니다. ")
+                    	 idCheckT = 1;
                     	 $('#checkMsg').html('<p style="color:blue">사용 가능한 아이디입니다.</p>');
                       }
                       else{
@@ -134,7 +143,8 @@
 	              <label for="name">회원 ID</label>
 	              <input type="text" name="id" id="id" placeholder="사용할 아이디"> 
 	              <input type="button" id="btn_idcheck" value="중복체크">
-	              <div id = "checkMsg" >체크결과 뜰거임...</div>  
+	              <br>
+	              <div id = "checkMsg" >아직 중복체크를 하지 않았습니다.</div>  
               </div>
               <br>
               <label for="password">비밀번호</label>
@@ -155,7 +165,6 @@
 
               
               <div id="form-controls">
-                <button type="button">이메일 인증하기</button>
                 <button type="submit" onclick="checkForm()">가입</button>
               </div>
               
