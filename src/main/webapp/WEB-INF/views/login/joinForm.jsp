@@ -11,7 +11,17 @@
     <script type="text/javascript">
     	function checkForm(){
         var check = nullChek();
-        return check;
+        var lengcheck = lengthChek();
+        
+        if(check==true){
+        	if(lengcheck==true){
+        		return check;
+        	}else{
+        		return lengcheck;
+        	}
+        }else{
+        	return check;
+        }
       }
 
       function nullChek(){
@@ -48,6 +58,36 @@
            
            return true;
           }
+      function lengthChek(){
+    	  var idvalue = document.querySelector('#id').value;
+    	  var pwvalue = document.querySelector('#pw').value;
+    	  
+    	  if(idvalue.length<8){
+              alert("ID는 8자 이상이어야 합니다.");
+              $("#id").focus();
+              return false;
+            } 
+    	  if(pwvalue.length<8){
+              alert("PW는 8자 이상이어야 합니다.");
+              $("#pw").focus();
+              return false;
+            } 
+    	  if(valiCheck(pwvalue)==false){
+    		  alert("PW에 특수문자가 포함되지 않았습니다.");
+              $("#pw").focus();
+              return false;
+    	  }
+    	
+    	  
+      }
+      function valiCheck(text){
+    	  var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,}$/;
+    	  if(!reg.test(text)){
+    		  return false
+    	  }
+    	  return true;
+      }
+      
     </script>
 	<link href="${path}./resources/css/sign.css" rel="stylesheet"/>
 </head>
