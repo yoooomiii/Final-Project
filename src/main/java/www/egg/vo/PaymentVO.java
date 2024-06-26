@@ -102,7 +102,4 @@ public class PaymentVO {
 		this.pm_comment = pm_comment;
 	}
 	
-	
-	
-	
 }
