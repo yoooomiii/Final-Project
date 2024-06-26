@@ -4,6 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="www.egg.dao.IF_MypageDAO">
 
+
 	<select id="selectone" resultType="www.egg.vo.MemberVO">		<!-- 회원정보 불러오기(수정용) -->
 		select
 		id,name,phone,email,address from member where id=#{id}
@@ -11,12 +12,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="update" parameterType="www.egg.vo.MemberVO">		<!-- 수정된 회원정보 업데이트 -->
 		update member set
-		name=#{name}, phone=#{phone},email=#{email},address=#{address}
+		name=#{name},
+		phone=#{phone},email=#{email},address=#{address}
 		where
 		id=#{id}
 	</update>
 
-	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO" useGeneratedKeys="true" keyProperty="re_num"> <!-- 리뷰내용 저장 -->
+
+
+
+	<insert id="rinsert" parameterType="www.egg.vo.ReviewVO"
+		useGeneratedKeys="true" keyProperty="re_num"> <!-- 리뷰내용 저장 -->
 		INSERT INTO review (re_id, re_no, re_ex, re_star)
 		VALUES (#{re_id},
 		#{re_no}, #{re_ex}, #{re_star})
@@ -25,15 +31,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="savefile" parameterType="map">		<!-- 리뷰 첨부파일 저장 -->
 		INSERT INTO photo (no, filename) VALUES (#{re_num}, #{filename})
 	</insert>
-	
-	<insert id="pickinsert" parameterType="www.egg.vo.ReviewVO">	 <!--  찜한 메뉴의 정보를 테이블에 저장 -->
-		insert into favor (f_no, f_id, f_menu, f_price) values (#{f_no}, #{f_id}, #{f_menu},#{f_price})
-	</insert>
 
-	<select id="myreview" parameterType="string" resultType="www.egg.vo.ReviewVO"> <!-- 나의 리뷰내역 보기 -->
+	<select id="myreview" parameterType="string"
+		resultType="www.egg.vo.ReviewVO"> <!-- 나의 리뷰내역 보기 -->
 		SELECT re_num, re_no, re_id, re_ex, re_star
 		FROM review
-		WHERE re_id = #{userid}
+		WHERE re_id =
+		#{userid}
 	</select>
 
 	<select id="getphoto" parameterType="Integer" resultType="map">		<!-- 리뷰에 맞는 사진 불러오기 -->
@@ -43,32 +47,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE no = #{re_num}
 	</select>
 
+
+
+
+	<insert id="pickinsert" parameterType="www.egg.vo.ReviewVO">	 <!-- 찜한 메뉴의 정보를 테이블에 저장 -->
+		insert into favor (f_no, f_id, f_menu, f_price) values (#{f_no},
+		#{f_id}, #{f_menu},#{f_price})
+	</insert>
+
+	<select id="picklist" resultType="www.egg.vo.FavorVO">				<!-- 찜 리스트 불러오기 -->
+		select * from favor where f_id=#{userid}
+	</select>
+	
+	
+
+
+
+
 	<select id="orderlist" resultType="www.egg.vo.MlistVO">		<!-- 주문내역 불러오기 -->
 		SELECT * FROM test_mlist WHERE m_id= #{userid}
 	</select>
-	
+
 	<select id="testlist" resultType="www.egg.vo.PaymentVO">		<!-- 주문내역 불러오기 -->
 		SELECT * FROM test_payment WHERE pm_id= #{userid}
 	</select>
-	
-	<insert id="mlistinsert" parameterType="www.egg.vo.MlistVO">
-		insert into test_mlist (m_no, m_id, m_menu, f_price) values (#{f_no}, #{f_id}, #{f_menu},#{f_price})
-	</insert>
-	
+
 	<select id="test_orderlist" resultType="www.egg.vo.MlistVO">		<!-- 주문내역 불러오기 -->
-		SELECT * FROM test_payment left  WHERE m_id= #{userid}
+		SELECT * FROM test_payment left WHERE m_id= #{userid}
 	</select>
 
-	<select id="picklist" resultType="www.egg.vo.FavorVO">
-		select * from favor f left outer join menu m on f.f_no =m.menu_no where f_id=#{userid}
-	</select>
 
-	<select id="getpicture" parameterType="Integer" resultType="map">		<!-- 리뷰에 맞는 사진 불러오기 -->
-		SELECT
-		no AS menu_no, filename
-		FROM picture
-		WHERE no = #{menu_no}
-	</select>
+
 
 
 

@@ -22,18 +22,17 @@ public interface IF_MypageServiece {
 	
 	public List<Map<String, Object>> getfile(Integer re_num) throws Exception;
 
-	//--------------------------------------------------- 리뷰에 저장된 사진 가져오기 + 테스트용
+	//--------------------------------------------------- 리뷰에 저장된 사진 가져오기 
 	
 	public List<MlistVO> orderlist(String userid) throws Exception;
-	public List<PaymentVO> testlist(String userid) throws Exception;
-	public void mlistinsert (MlistVO mlvo) throws Exception;
 	//--------------------------------------------------- 주문내역 불러오기
 	
 	public void pickinsert(FavorVO fvo) throws Exception;
 	//--------------------------------------------------- 찜한 메뉴 저장
-//	public boolean deletePick(List<String> pickIds) throws Exception;
 	
 	public List<FavorVO> picklist(String userid) throws Exception;
+	//--------------------------------------------------- 찜한 메뉴 불러오기
+	
 	
 	
 	

@@ -140,30 +140,25 @@ td {
 			</ul>
 		</div>
 	</nav>
-
 	<div id="cart">
 		<table class='cart__list'>
 			<thead>
 				<tr>
-
 					<td>모두 선택 <input type="checkbox" name="checkall" id="checkall"
 						onclick="selectAll(this)"></td>
-					<input type="hidden" value="${menu_no}">
-					<td>메뉴 사진</td>
+					<td>주문번호</td>
 					<td>메뉴 이름</td>
 					<td>메뉴 가격</td>
 				</tr>
-
-
-
 			</thead>
+
 			<tbody>
 				<c:forEach items="${plist}" var="plist">
 					<tr class='cart__list__detail'>
 						<td><input type="checkbox" name="checkone" id="checkone"
 							class="checkone"></td>
-						<td>${plist.f_id }</td>
-						<td>${plist.f_menu }</td>
+						<td>${plist.f_num}</td>
+						<td><a href="viewDetail?menu_no=${plist.f_no}">${plist.f_menu}</a></td>
 						<td>${plist.f_price }</td>
 					</tr>
 				</c:forEach>
@@ -172,8 +167,8 @@ td {
 		<div class="container">
 			<button class="delete-button" onclick="deleteSelected()">삭제</button>
 		</div>
-	</div>
 
+	</div>
 </body>
 
 <!-- <script>

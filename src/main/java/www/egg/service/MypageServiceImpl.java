@@ -69,35 +69,23 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	}
 
 	@Override
-	public List<FavorVO> picklist(String userid) throws Exception {
+	public List<FavorVO> picklist(String userid) throws Exception {			//찜 리스트 불러오기
 		// TODO Auto-generated method stub
 		return mpdao.picklist(userid);
 	}
 
-	@Override
-	public List<PaymentVO> testlist(String userid) throws Exception {
-		// TODO Auto-generated method stub
-		
-		return mpdao.testlist(userid);
-	}
 
-	@Override
-	public void mlistinsert(MlistVO mlvo) throws Exception {
-		// TODO Auto-generated method stub
-		mpdao.mlistinsert(mlvo);
-	}
+
+
+
+
 	
 //	@Override
 //	public boolean deletePick(List<String> pickIds) throws Exception {
 //        return mpdao.deletePick(pickIds);
 //    }
 
-//
-//	@Override
-//	public List<String> testfile(Integer re_num) throws Exception {		//사진만 가져오는 테스트용
-//		// TODO Auto-generated method stub
-//		return mpdao.testfile(re_num);
-//	}
+
 
 	
 	
