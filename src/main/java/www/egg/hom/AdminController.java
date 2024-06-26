@@ -342,9 +342,11 @@ public class AdminController {
 	}
 	@RequestMapping(value = "adminDSave", method = RequestMethod.GET)
 	public String adminDSpform(@ModelAttribute DeliveryVO dvo, Model model) throws Exception {
-		aservice.modDelivery(dvo); // insert작업 수행 
+		aservice.insertDelivery(dvo); // insert작업 수행 
+		System.out.println("어드민dao dvo before: "+dvo.toString());
 		
 		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+""); // 수행한 거 가져옴 
+		System.out.println("어드민dao dvo after: "+dvo.toString());
 		model.addAttribute("dvo", modied_dvo);
 		return "admin/adminODelivery";
 	}

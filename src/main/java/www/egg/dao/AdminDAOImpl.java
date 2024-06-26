@@ -175,8 +175,14 @@ public class AdminDAOImpl implements IF_AdminDAO{
 
 	@Override
 	public void insertDelivery(DeliveryVO dvo) {
-		sqlSession.update(mapperQuery+".insertdelivery", dvo);
+		sqlSession.insert(mapperQuery+".insertdelivery", dvo);
 		
+	}
+
+	@Override
+	public int userIdChk(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

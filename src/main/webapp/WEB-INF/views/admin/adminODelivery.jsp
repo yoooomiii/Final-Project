@@ -292,7 +292,7 @@ td {
 		</div>
 		<table border=1 id="mtable">
 			<tr><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
-			<tr><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
+			<tr><td style="background-color: gray">등록번호:</td><td><a href="배달원보기url">${dvo.d_num}</a></td></tr>
 			<tr><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
 			<tr><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
 			<tr><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>

@@ -26,5 +26,7 @@ public interface IF_AdminDAO {
 	public int getTotalCountD(DeliveryVO dvo) throws Exception;
 	public List<MlistVO> searchOrderPaging(Map<String, Object> spage);
 	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage);
+	
+	public int userIdChk(String userid) throws Exception;
 
 }
