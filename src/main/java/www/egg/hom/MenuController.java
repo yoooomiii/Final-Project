@@ -62,6 +62,7 @@ public class MenuController {
 		model.addAttribute("i_price", iPrice);
 		model.addAttribute("i_num", inum);
 		session.getAttribute("userid");
+		session.getAttribute("username");
 		session.getAttribute("useraddress");
 		
 		return "menu/paymentInput";

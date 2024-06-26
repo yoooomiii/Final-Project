@@ -13,6 +13,12 @@
     font-style: normal;
 }
 
+.text{
+    border-radius: 10px;
+    width: 200px; /*가로 넓이*/
+	height: 30px; /*세로 높이*/
+}
+
 * {
     margin: 0;
     padding: 0;

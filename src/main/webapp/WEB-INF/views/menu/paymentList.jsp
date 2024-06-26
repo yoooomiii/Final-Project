@@ -29,6 +29,7 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${paymentList}" var="pvo">
+				<form action="payment_delete" method="post">
 				<tr>
 					<td>${pvo.pm_no}</td>
 					<td>${pvo.pm_num }</td>
@@ -43,8 +44,9 @@
 					<td>${pvo.pm_address}</td>
 					<td>${pvo.pm_pick}</td>
 					<td>${pvo.pm_comment}</td>
-					<td><a href="payment_delete?pm_no=${pvo.pm_no}">삭제</a></td>
+					<td><button type="submit" value="${pvo.pm_no}">삭제</button></td>
 				</tr>
+				</form>
 			</c:forEach>
 		</tbody>
 	</table>
