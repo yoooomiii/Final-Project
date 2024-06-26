@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
 
@@ -107,6 +108,14 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	public void payment_insert(PaymentVO pvo) throws Exception {	//결제 등록
 		// TODO Auto-generated method stub
 		sqlSession.insert(mapperQuery+".pinsert", pvo);
+	}
+	
+	//--------------------------------------------주문내역
+
+	@Override
+	public void mlist_insert(MlistVO mvo) throws Exception {	//주문내역 등록
+		// TODO Auto-generated method stub
+		sqlSession.insert(mapperQuery+".minsert", mvo);
 	}
 
 }

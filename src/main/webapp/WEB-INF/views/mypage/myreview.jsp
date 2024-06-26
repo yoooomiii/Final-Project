@@ -211,6 +211,7 @@ hr {
 	<br>
 	<h2>${username}님의 리뷰</h2>
 	<c:forEach items="${review}" var="review">
+	
 		<div id="reviewcard">
 			<div id="photo">
 				<div class="image-container">
@@ -234,10 +235,17 @@ hr {
 						</c:forEach>
 					</div>
 				</div>
-				<div id="menuname">메뉴 이름 : 메뉴 이름</div>
+				<div id="menuname">
+					<c:forEach items="${mmm}" var="mmm">
+						<c:if test="${mmm.m_num == review.re_no}">
+							${mmm.m_name}
+						</c:if>
+					</c:forEach>
+				</div>
 				<div id="review">${review.re_ex}</div>
 			</div>
 		</div>
+		
 	</c:forEach>
 
 

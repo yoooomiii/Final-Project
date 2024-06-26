@@ -65,5 +65,11 @@ public class LoginServiceImpl implements IF_LoginService {
 		return logindao.memberSearchPaging(spage);
 	}
 
+	@Override
+	public int userIdChk(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return logindao.userIdChk(userid);
+	}
+
 
 }

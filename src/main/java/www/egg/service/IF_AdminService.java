@@ -12,22 +12,24 @@ import www.egg.vo.PaymentVO;
 
 @Service
 public interface IF_AdminService {
-	public List<MlistVO> orderlist(PageVO pagevo);
-	public void deleteOdernum(String m_num);
-	public MlistVO pickOrdernum(String m_num);
-	public void modOrderstate(MlistVO ovo);
-	public PaymentVO pickPaymentnum(String m_num);
-	public DeliveryVO pickDeliverynum(String m_num);
-	public void modDelivery(DeliveryVO dvo);
-	public List<DeliveryVO> deliverylist(PageVO pagevo);
-	public List<MlistVO> searchOrder(MlistVO ovo);
-	public List<DeliveryVO> searchDelivery(DeliveryVO dvo);
-	public void deleteDeliverynum(String m_num);
-	public void insertDelivery(DeliveryVO dvo);
+	public List<MlistVO> orderlist(PageVO pagevo) throws Exception;
+	public void deleteOdernum(String m_num) throws Exception;
+	public MlistVO pickOrdernum(String m_num) throws Exception;
+	public void modOrderstate(MlistVO ovo) throws Exception;
+	public PaymentVO pickPaymentnum(String m_num) throws Exception;
+	public DeliveryVO pickDeliverynum(String m_num) throws Exception;
+	public void modDelivery(DeliveryVO dvo) throws Exception;
+	public List<DeliveryVO> deliverylist(PageVO pagevo) throws Exception;
+	public List<MlistVO> searchOrder(MlistVO ovo) throws Exception;
+	public List<DeliveryVO> searchDelivery(DeliveryVO dvo) throws Exception;
+	public void deleteDeliverynum(String m_num) throws Exception;
+	public void insertDelivery(DeliveryVO dvo) throws Exception;
 	
 	public int getTotalCountO(MlistVO ovo)  throws Exception;
 	public int getTotalCountD(DeliveryVO dvo)  throws Exception;
-	public List<MlistVO> searchOrderPaging(Map<String, Object> spage);
-	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage);
+	public List<MlistVO> searchOrderPaging(Map<String, Object> spage) throws Exception;
+	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage) throws Exception;
+	
+	public int userIdChk(String userid) throws Exception; // 잘못만듦 (loginservice에있어야댐) 
 
 }

@@ -19,6 +19,7 @@ import www.egg.service.IF_MenuService;
 import www.egg.util.FileDataUtil;
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
 @Controller
@@ -31,16 +32,46 @@ public class MenuController {
 	FileDataUtil filedatautil;
 	
 	
-	@PostMapping(value ="/payment_delete")
-	public String payment_delete(@ModelAttribute PaymentVO pvo) throws Exception {
+
+	
+	
+	@GetMapping(value ="/mlist_input")
+	public String mlist_input(@ModelAttribute MlistVO mvo,
+			@ModelAttribute PaymentVO pvo,
+			@ModelAttribute ItemVO ivo,
+			Model model, HttpSession session) throws Exception {	//주문정보 입력 창으로
+		List<PaymentVO> paymentList = mservice.paymentList();
+		model.addAttribute("paymentList", paymentList);
+		//장바구니 번호
+		List<ItemVO> itemList = mservice.itemList();
+		model.addAttribute("itemList", itemList);
+		//메뉴이름
+		String userid = (String) session.getAttribute("userid");
+		mvo.setM_id(userid);
+		session.getAttribute("username");
+		//회원 아이디
+		return "menu/payment";
+	}
+	
+	@PostMapping(value ="/mlist_inputSave")
+	public String mlist_inputSave(@ModelAttribute MlistVO mvo) throws Exception {	//주문정보 입력 동작
+		mservice.mlist_insert(mvo);
+		return "menu/menu";
+	}
+	
+	//---------------------------------------------------결제
+	
+	@GetMapping(value ="/payment_delete")
+	public String payment_delete(@ModelAttribute PaymentVO pvo) throws Exception {	//결제 삭제
 		mservice.payment_delete(pvo);
+
 		
 		return "redirect:payment_List";
 	}
 	
-	@GetMapping(value ="/payment_List")
+	@RequestMapping("/payment_List")
 	public String payment_List(@ModelAttribute PaymentVO pvo,
-			Model model) throws Exception {	//결제정보 보기
+			Model model) throws Exception {	//결제정보 전체보기
 		List<PaymentVO> paymentList = mservice.paymentList();
 		model.addAttribute("paymentList", paymentList);
 		
@@ -48,10 +79,11 @@ public class MenuController {
 	}
 	
 	@PostMapping(value ="/payment_inputSave")
-	public String patment_inputSave(@ModelAttribute PaymentVO pvo) throws Exception {	//결제테이블 등록
+	public String patment_inputSave(@ModelAttribute PaymentVO pvo,
+			Model model) throws Exception {	//결제테이블 등록
 		mservice.payment_insert(pvo);
 		
-		return "redirect:payment_List";
+		return "redirect:mlist_input";
 	}
 	
 	@GetMapping(value ="/payment_input")

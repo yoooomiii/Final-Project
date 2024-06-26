@@ -7,10 +7,15 @@ import org.springframework.stereotype.Service;
 
 import www.egg.vo.ItemVO;
 import www.egg.vo.MenuVO;
+import www.egg.vo.MlistVO;
 import www.egg.vo.PaymentVO;
 
 @Service
 public interface IF_MenuService {
+	
+	public void mlist_insert(MlistVO mvo) throws Exception;	//주문 내역 등록
+	
+	//------------------------------------------------주문내역
 	
 	public void payment_delete(PaymentVO pvo) throws Exception;	//결제 삭제
 	

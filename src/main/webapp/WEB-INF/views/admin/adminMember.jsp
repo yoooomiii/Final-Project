@@ -36,18 +36,7 @@
 			
 		}
 		
-		function tdCng(){
-			var chktr = $(this);
-			var td = chktr.children();
-			var master = td.eq(5).text();
-			
-			alert(master);
-		}
-		
-		$("tbody > tr").click(function() {
-			alert($(this).children().eq(2).text());
-		});
-		
+	
 		//------------>
 		
 		

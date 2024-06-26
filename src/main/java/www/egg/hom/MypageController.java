@@ -109,7 +109,8 @@ public class MypageController {
 	 
 
 	@RequestMapping(value = "write", method = RequestMethod.GET)     //리뷰쓰기 버튼을 누르면 주문번호를 넘겨주고 리뷰작성폼으로 이동
-	public String review(@RequestParam("m_num") Integer m_num, Model model) {
+	public String review(@RequestParam("m_num") Integer m_num, Model model,
+			@RequestParam("m_name") String m_name) {
 		if (m_num == null) {
 			System.out.println("m_num값 없음");
 		}
@@ -162,11 +163,13 @@ public class MypageController {
 	}
 	
 	@GetMapping(value="allreview") // 내가 쓴 리뷰만 불러오기 (사진 포함)  
-	public String allreviews(HttpSession session, Model model) throws Exception {
+	public String allreviews(HttpSession session, Model model,
+			@ModelAttribute MlistVO mlvo) throws Exception {
 		String userid = (String) session.getAttribute("userid");	
 		
 		List<ReviewVO> myreview = mpservice.myreview(userid);
-		
+		List<MlistVO> mmm = mpservice.orderlist(userid);
+	
 		// 각 리뷰에 대해 사진 데이터 가져오기
 		List<Map<String, Object>> photolist = new ArrayList<>(); // 사진 데이터를 저장할 리스트를 초기화
 		for (ReviewVO review : myreview) { // myreview 리스트에 있는 각 리뷰에 대해 반복
@@ -178,7 +181,7 @@ public class MypageController {
 				}
 			}
 		}
-		
+		model.addAttribute("mmm", mmm);
 		model.addAttribute("review", myreview); 
 		model.addAttribute("photolist", photolist);
 		System.out.println("사진 넘겼니?");

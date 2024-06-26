@@ -192,9 +192,10 @@ td {
 							<td>${mm.m_state}</td>
 							<td>
 								<form action="write" method="get">
-									<input type="hidden" name="m_num" value="${mm.m_num}">
+									<input type="hidden" name="m_num" value="${mm.m_num}">	
+									<input type="hidden" name="m_name" value="${mm.m_name}">							
 									<button type="submit" id="rbtn">리뷰쓰기</button>
-								</form>
+								</form>							
 							</td>
 						</tr>
 					</c:forEach>
