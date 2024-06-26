@@ -1,6 +1,7 @@
 package www.egg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import www.egg.vo.AnswerVO;
 import www.egg.vo.AskVO;
@@ -20,11 +21,13 @@ public interface IF_InfoDAO {
 	
 	//----------------------------------------------- 관리자용
 	
-	public List<AskVO> allListMa() throws Exception;
+	public List<Map<String, Object>> allListMa(Map<String, Object> paramMap) throws Exception;
 	
 	public int delete(Integer a_num) throws Exception;
 	
 	public void insert_re(AnswerVO anvo) throws Exception;
 	
 	public AnswerVO selectOneMa(Integer a_num) throws Exception;
+	
+	public int getTotalCount() throws Exception;
 }
