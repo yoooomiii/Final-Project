@@ -72,6 +72,7 @@
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	font-family: 'SUITE-Regular';
 }
 
 #surchpan {
@@ -81,7 +82,12 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-
+#mbr-form{
+    font-family: 'SUITE-Regular';
+}
+#srcbtn{
+	width: 100px;
+}
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -233,7 +239,7 @@ td {
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 주문 관리 </a>
+                        <a href="adminOView"> 주문 관리 </a>
                         <ul class="submenu">
                             <li>
                                 <a href="#"> 주문 상태 관리 </a>
@@ -290,7 +296,7 @@ td {
 						  <label for="option2">관리자</label>
 						  <input type="radio" id="option2" name="master" value="1">
 
-					<input type="text" name="sword"> <input type="submit" value="검색">
+					<input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
@@ -301,13 +307,13 @@ td {
 
 
 
-	<form action="adminMUp" method="post">
+	<form action="adminMUp" method="post" id="mbr-form">
 			<div id="dpan">
 			회원 권한만 수정하실 수 있습니다.
 		</div>
-		<table border=1 id="mtable">
+		<table border=1 id="mtable" style="font-size: 15px">
 			<thead>
-				<tr>
+				<tr style="background-color: gray">
 					<td>회원ID</td>
 					<td>회원명</td>
 					<td>전화번호</td>
@@ -317,7 +323,7 @@ td {
 					<td>제출</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="font-size: 15px">
 					<c:if test="${mvo.master==0}">
 						<tr class="minfo_row">
 							<td><input type="text" name="id" value=${mvo.id } readonly></td>

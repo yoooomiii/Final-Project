@@ -74,6 +74,7 @@
 	</script>
 </head>
 <style>
+
 .login {
 	float: right;
 	width: 100px; /*가로 넓이*/
@@ -96,6 +97,7 @@
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	font-family: 'SUITE-Regular';
 }
 
 #surchpan {
@@ -105,7 +107,12 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-
+#dlv-form{
+    font-family: 'SUITE-Regular';
+}
+#srcbtn{
+	width: 100px;
+}
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -217,6 +224,9 @@ td {
 	box-shadow : 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
+#paging{
+	text-align: center;
+}
 </style>
 
 <body>
@@ -313,7 +323,7 @@ td {
 						  <label for="option2">옵션2</label>
 						  <input type="radio" id="option2" name="키값" value="값">
 
-					주문번호: <input type="text" name="sword"> <input type="submit" value="검색">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
@@ -324,11 +334,11 @@ td {
 
 
 
-	<form action="adminDDelete" method="get" onsubmit="return call_confirm()">
+	<form action="adminDDelete" method="get" onsubmit="return call_confirm()" id="dlv-form">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
-		<table border=1 id="dtable">
+		<table border=1 id="dtable" style="font-size: 15px">
 			<thead>
 				<tr style="background-color: gray">
 					<td>배달번호</td>
@@ -341,7 +351,7 @@ td {
 					<td>선택</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="font-size: 15px">
 			    <c:forEach items="${deliverys }" var="deliveryvo">
 					<tr class="minfo_row">
 						<td>(추후수정)</td>
@@ -354,26 +364,48 @@ td {
 						<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.d_no }></td>
 					</tr>
 				</c:forEach>
-				<tr>
-						<td colspan=4 align=center>
-							<c:if test="${pagevo.prev }">
-								<a href="adminDView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-							</c:if> 
-							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-								var="idx">
-								<a href="adminDView?page=${idx}"> 
-									<c:if
-										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-										test="${idx == pagevo.page }">]</c:if>
-								</a>
-							</c:forEach> 
-							<c:if test="${pagevo.next }">
-								<a href="adminDView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-							</c:if>
-						</td>
-					</tr>
 			</tbody>
 		</table>
+		<br>
+		<div id ="paging">
+						<c:if test="${m_state != null}">
+							<div>
+								<h5>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </h5>
+								검색결과 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminDSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminDSearch?page=${idx}&sword=${sword}&m_state=${m_state }"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										 <a href="adminDSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						</c:if>
+						<div>
+							일반 목록:
+								<c:if test="${pagevo.prev }">
+									<a href="adminDView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+								</c:if> 
+								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+									var="idx">
+									<a href="adminDView?page=${idx}"> 
+										<c:if
+											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+											test="${idx == pagevo.page }">]</c:if>
+									</a>
+								</c:forEach> 
+								<c:if test="${pagevo.next }">
+									<a href="adminDView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+								</c:if>
+						</div>
+					</div>
 	</form>
 		</section>
 </body>
