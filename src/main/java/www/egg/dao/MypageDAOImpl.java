@@ -88,6 +88,12 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		return sqlsession.selectList(mapperQuery +".testlist", userid);
 	}
 
+	@Override
+	public void pickdelete(String f_no) throws Exception {
+		// TODO Auto-generated method stub
+		sqlsession.delete(mapperQuery +".pickdelete", f_no);
+	}
+
 
 //	@Override
 //	public boolean deletePick(List<String> pickIds) {

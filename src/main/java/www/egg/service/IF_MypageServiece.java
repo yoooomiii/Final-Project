@@ -33,6 +33,7 @@ public interface IF_MypageServiece {
 	public List<FavorVO> picklist(String userid) throws Exception;
 	//--------------------------------------------------- 찜한 메뉴 불러오기
 	
+	public void pickdelete(String f_no) throws Exception;
 	
 	
 	

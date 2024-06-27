@@ -97,13 +97,13 @@
 	width: 1100px;
 	height: 150px;
 	margin-top: 25px;
-	margin-left: 30px;
+	margin-left: 100px;
 	/* border: 1px solid blue; */
 }
 
 .iconimg {
 	float: left;
-	margin-left: 120px;
+	margin-left: 150px;
 	margin-top: 20px;
 }
 
@@ -275,13 +275,6 @@ td {
 						width="140" height="140">
 					</a>
 					<h3>리뷰</h3>
-				</div>
-				<div class="iconimg">
-					<a href="${pageContext.request.contextPath}/point"> <img
-						src="${pageContext.request.contextPath}/resources/img/포인트 최종.png"
-						width="140" height="140">
-					</a>
-					<h3>포인트</h3>
 				</div>
 			</div>
 		</div>

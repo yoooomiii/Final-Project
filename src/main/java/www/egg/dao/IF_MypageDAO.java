@@ -35,4 +35,5 @@ public interface IF_MypageDAO {
 	public List<FavorVO> picklist(String userid) throws Exception;
 	//--------------------------------------------------- 찜 리스트 불러오기
 	
+	public void pickdelete(String f_no) throws Exception;
 }

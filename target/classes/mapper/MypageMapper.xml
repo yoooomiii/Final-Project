@@ -59,6 +59,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from favor where f_id=#{userid}
 	</select>
 	
+	<delete id="pickdelete" parameterType="String">
+		delete from favor where f_no=#{f_no}
+	</delete>
 	
 
 

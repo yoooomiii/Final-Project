@@ -201,17 +201,17 @@ public class MypageController {
 	}
 	
 
-	@GetMapping(value="point")
-	public String point() {
-		return "mypage/point";
+	@GetMapping(value="pickdelete")
+	public String pickdelete(@RequestParam List<String> chkid) throws Exception {
+		for(String check :chkid) {
+			mpservice.pickdelete(check);
+			System.out.println("삭제되었습니당");
+		}
+		return "redirect:picklist";
+		
 	}
-	//	 @PostMapping("/deletePick")
-	//	    public Map<String, Object> deletePick(@RequestBody Map<String, List<String>> request) throws Exception {
-	//	        List<String> pickIds = request.get("pickIds");
-	//	        boolean success = mpservice.deletePick(pickIds);
-	//	        return Collections.singletonMap("success", success);
-	//	    }
-
+	
+	//남은것 : ajax , 페이징, 체크박스 전체삭제 , 업무일지, 요청명세서  
 }
 
 
