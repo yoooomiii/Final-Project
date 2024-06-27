@@ -216,6 +216,8 @@ public class AdminController {
 	}
 	@RequestMapping(value = "adminDUp", method = RequestMethod.POST)
 	public String adminDUdate(@ModelAttribute DeliveryVO dvo,  Model model) throws Exception {
+		String dlvtime = dvo.getD_time()+"분";
+		dvo.setD_time(dlvtime);
 		aservice.modDelivery(dvo);
 		
 		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+"");

@@ -12,22 +12,24 @@
     	var idCheckT = 0; 
     	
     	function checkForm(){ // 전체체크함수 시작
-        var check = nullChek();
-        var lengcheck = lengthChek();
+        // var check = nullChek();
+        // var lengcheck = lengthChek();
         
         
         if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면...
         	alert("ID 중복체크가 완료되지 않았습니다.");
         	return false;
         }else{
-	        if(check==true){
-	        	if(lengcheck==true){
-	        		return check;
+	        if(nullChek()==true){
+	        	if(lengthChek()==true){
+	        		return true;
 	        	}else{
-	        		return lengcheck;
+	        	    alert('조건 및 길이를 확인해 주세요.');
+	        		return false;
 	        	}
 	        }else{
-	        	return check;
+	        	alert('공백을 확인해 주세요.');
+	        	return false;
 	        }
         }
         
@@ -93,6 +95,7 @@
               $("#pw").focus();
               return false;
     	  }
+    	  return true
     	
     	  
       }
