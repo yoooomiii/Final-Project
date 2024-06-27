@@ -278,7 +278,7 @@ td {
                         <a href="#"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 문의글 관리 </a>
+                                <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
                                 <a href="#"> (답변 관리) </a>
@@ -289,13 +289,13 @@ td {
                         </ul>
                     </li>
                       <li>
-                        <a href="#"> 상품 관리 </a>
+                        <a href="menu_List"> 상품 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 상품 조회 </a>
+                                <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="#"> (상품 등록) </a>
+                                <a href=menu_input> (상품 등록) </a>
                             </li>
                         </ul>
                     </li>

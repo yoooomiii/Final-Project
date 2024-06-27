@@ -74,6 +74,12 @@ public class InfoDAOImpl implements IF_InfoDAO {
 		return sql.selectOne(mapperQurey + ".getTotalCount");
 	}
 
+	@Override
+	public List<InfojoinVO> infoListAll(PageVO pvo) {
+		
+		return sql.selectList(mapperQurey + ".infoselectall", pvo);
+	}
+
 
 
 }

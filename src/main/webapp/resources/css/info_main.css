@@ -194,6 +194,13 @@ section {
     height: 800px;
 }
 
+section h1 {
+    font-weight: bold;
+    font-size: 65px;
+    padding-top: 20px;
+    text-shadow: 2px 2px 1px black;
+}
+
 .info-box {
     float: left;
     margin: 10px 30px;

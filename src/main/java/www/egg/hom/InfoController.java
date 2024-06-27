@@ -73,9 +73,6 @@ public class InfoController {
 		return "info/detailViewUser";
 	}
 
-	
-	
-
 	// 문의 게시판 조회하기
 	@GetMapping("allList")
 	public String allList(InfojoinVO invo, AskVO askVO, HttpSession session, 
@@ -100,6 +97,13 @@ public class InfoController {
 
 		return "info/infoList";
 	}
+	
+	// FAQ 페이지 호출
+	@RequestMapping(value="faqpage", method=RequestMethod.GET)
+	public String faqpage (Model model) throws Exception {
+
+		return "info/faq";
+	}
 
 	//---------------------------------------------- 관리자
 
@@ -111,22 +115,12 @@ public class InfoController {
 			pvo.setPage(1);
 		}
 		pvo.setTotalCount(iservice.getToTalCount());
-
-		int startRow = (pvo.getPage() -1) * pvo.getPerPageNum();
 		
-		  Map<String, Object> paramMap = new HashMap<>(); 
-		  paramMap.put("a_num", a_num);
-		  paramMap.put("startRow", startRow); 
-		  paramMap.put("perPageNum", pvo.getPerPageNum());
-		 
-
-		List<Map<String, Object>> infoList = iservice.allListMa(paramMap);
-
+		List<InfojoinVO> infoList = iservice.infoListAll(pvo);
+		
 		model.addAttribute("allListitems", infoList);
-		model.addAttribute("paramMap", paramMap);
 		model.addAttribute("pvo", pvo);
 		pvo.prt();
-		//System.out.println(id);
 
 		return "info/infoListMaster";
 	}
@@ -171,6 +165,7 @@ public class InfoController {
 
 		return "redirect:masterview";
 	}
+	
 	
 }
 

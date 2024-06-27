@@ -30,4 +30,6 @@ public interface IF_InfoDAO {
 	public AnswerVO selectOneMa(Integer a_num) throws Exception;
 	
 	public int getTotalCount() throws Exception;
+	
+	public List<InfojoinVO> infoListAll(PageVO pvo);
 }
