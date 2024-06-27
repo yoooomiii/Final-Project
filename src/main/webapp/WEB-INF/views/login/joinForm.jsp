@@ -14,6 +14,7 @@
     	function checkForm(){ // 전체체크함수 시작
         // var check = nullChek();
         // var lengcheck = lengthChek();
+        // var valicheck = valiCheck($('#pw').val());
         
         
         if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면...
@@ -22,9 +23,14 @@
         }else{
 	        if(nullChek()==true){
 	        	if(lengthChek()==true){
-	        		return true;
+	        		if(valiCheck($('#pw').val())==true){
+	        			return true;
+	        		}else{
+	        			alert('PW 조건을 확인해 주세요.');
+		        		return false;
+	        		}
 	        	}else{
-	        	    alert('조건 및 길이를 확인해 주세요.');
+	        	    alert('길이를 확인해 주세요.');
 	        		return false;
 	        	}
 	        }else{
@@ -35,7 +41,7 @@
         
       } // 전체체크함수 끝 
 
-      function nullChek(){
+      function nullChek(){ // 공백체크
           if($("#id").val()==""){
             // alert("ID을 입력해 주세요.");
             $('#checkMsg').html('<p style="color:red">ID를 입력해 주세요.</p>');
@@ -73,35 +79,29 @@
            
            return true;
       }
-      function lengthChek(){
-    	  var idvalue = document.querySelector('#id').value;
-    	  var pwvalue = document.querySelector('#pw').value;
+      function lengthChek(){ // 길이 체크 
     	  
-    	  if(idvalue.length<6){
-              // alert("ID는 6자 이상이어야 합니다.");
+    	  if($("#id").val().length<5){
+              alert("ID는 6자 이상이어야 합니다.");
               $('#checkMsg').html('<p style="color:red">ID는 6자 이상이어야 합니다.</p>');
               $("#id").focus();
               return false;
             } 
-    	  if(pwvalue.length<8){
-              // alert("PW는 8자 이상이어야 합니다.");
+    	  if($("#pw").val().length<8){
+              alert("PW는 8자 이상이어야 합니다.");
               $('#pwcheckMsg').html('<p style="color:red">PW는 8자 이상이어야 합니다.</p>');
               $("#pw").focus();
               return false;
             } 
-    	  if(valiCheck(pwvalue)==false){
-    		  // alert("PW 조건을 충족하지 않습니다. (영문 대소문자, 8자 이상, 특수문자 및 숫자 포함 필수)");
-    		  $('#pwcheckMsg').html('<p style="color:red">PW 조건을 충족하지 않습니다. (영문 대소문자, 8자 이상, 특수문자 및 숫자 포함 필수)</p>');
-              $("#pw").focus();
-              return false;
-    	  }
     	  return true
     	
     	  
       }
-      function valiCheck(text){ //Password1!
+      function valiCheck(text){ // pw유효성 체크 (Password1!)
     	  var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,}$/;
     	  if(!reg.test(text)){
+    		  $('#pwcheckMsg').html('<p style="color:red">PW 조건을 충족하지 않습니다. (영문 대소문자, 8자 이상, 특수문자 및 숫자 포함 필수)</p>');
+              $("#pw").focus();
     		  return false
     	  }
     	  return true;
