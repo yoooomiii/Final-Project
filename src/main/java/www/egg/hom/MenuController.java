@@ -32,9 +32,6 @@ public class MenuController {
 	FileDataUtil filedatautil;
 	
 	
-
-	
-	
 	@GetMapping(value ="/mlist_input")
 	public String mlist_input(@ModelAttribute MlistVO mvo,
 			@ModelAttribute PaymentVO pvo,
@@ -56,7 +53,15 @@ public class MenuController {
 	@PostMapping(value ="/mlist_inputSave")
 	public String mlist_inputSave(@ModelAttribute MlistVO mvo) throws Exception {	//주문정보 입력 동작
 		mservice.mlist_insert(mvo);
-		return "menu/menu";
+		PaymentVO ppvo = new PaymentVO(); 
+		ppvo.setPm_no(mvo.getM_no());
+		ItemVO iivo = new ItemVO();
+		iivo.setI_num(ppvo.getPm_num());
+		
+		mservice.payment_delete(ppvo);
+		mservice.item_delete(iivo);
+		System.out.println("끝");
+		return "redirect:menuForm";
 	}
 	
 	//---------------------------------------------------결제
@@ -65,7 +70,6 @@ public class MenuController {
 	public String payment_delete(@ModelAttribute PaymentVO pvo) throws Exception {	//결제 삭제
 		mservice.payment_delete(pvo);
 
-		
 		return "redirect:payment_List";
 	}
 	

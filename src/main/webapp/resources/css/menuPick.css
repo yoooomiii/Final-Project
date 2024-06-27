@@ -183,7 +183,7 @@ nav {
     float: left;
     border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
 	width: 1260px; /*가로 넓이*/
-	height: 700px; /*세로 높이*/
+	height: 900px; /*세로 높이*/
 	text-align: center; /*중앙 정렬*/
 	background-color: rgb(228, 230, 228)
 }
