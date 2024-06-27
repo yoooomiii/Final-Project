@@ -91,16 +91,16 @@
                         <a href="menuForm"> 메뉴 주문하기 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 인기 메뉴 </a>
+                                <a href="menuForm"> 인기 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 대표 메뉴 </a>
+                                <a href="menuForm"> 대표 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 전체 메뉴 </a>
+                                <a href="menuForm"> 전체 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 사이드 / 음료 </a>
+                                <a href="menuForm"> 사이드 / 음료 </a>
                             </li>
                             <li>
                             
@@ -201,30 +201,30 @@
 			<div class="title">인기 메뉴</div>
 			<div class="menulist">
 				<div class="menu-img">
-					<img src="${path}/resources/img/image.png">
+					<img src="${path}/resources/img/egg.png">
 				</div>
 				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=18" order> 후라이드 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
-					<img src="${path}/resources/img/egg02.png">
+					<img src="${path}/resources/img/화면 캡처 2024-06-21 165935.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=25" order> 고추 치킨 </a></span>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=31" order> 블랙시그니처 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
-					<img src="${path}/resources/img/egg03.png">
+					<img src="${path}/resources/img/화면 캡처 2024-06-27 144811.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=19" order> 양념 치킨 </a></span>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=1007" order> 마라바사삭 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
-					<img src="${path}/resources/img/egg04.png">
+					<img src="${path}/resources/img/egg06.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=24" order> 치즈마요 치킨 </a></span>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=21" order> 크리미언 치킨 </a></span>
 			</div>
 			
 		</section>

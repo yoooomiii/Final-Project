@@ -222,12 +222,6 @@ td {
 	box-shadow: 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
-#isert{
-	float: right;
-	width: 200px;
-	height: 50px;
-	margin-left: 1100px;
-}
 </style>
 
 <body>
@@ -299,11 +293,6 @@ td {
 		</div>
 	</div>
 	<section id="page">
-	<div id="isert">
-	<form action="menu_input" method="get">
-		<input type="submit" value="메뉴 등록하기">
-	</form>
-	</div>
 		<form action="adminODelete" method="get"
 			onsubmit="return call_confirm()">
 			<div id="dpan">
