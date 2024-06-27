@@ -81,7 +81,9 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-
+#dlv-form{
+    font-family: 'SUITE-Regular';
+}
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -279,7 +281,7 @@ td {
 
 
 
-	<form action="요청URL" method="post">
+	<form action="요청URL" method="post" id="dlv-form">
 			<div id="dpan">
 			${dvo.d_no }번 주문의 배달 현황입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
 			<hr>
@@ -290,12 +292,12 @@ td {
 				<a href="adminDSpform?m_num=${ordernum}"><input type="button" value="배정하기"></a>
 			</c:if>
 		</div>
-		<table border=1 id="mtable">
-			<tr><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
-			<tr><td style="background-color: gray">등록번호:</td><td><a href="배달원보기url">${dvo.d_num}</a></td></tr>
-			<tr><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
-			<tr><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
-			<tr><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
+		<table border=1 id="mtable" >
+			<tr style="font-size: 15px"><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">등록번호:</td><td><a href="배달원보기url">${dvo.d_num}</a></td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
 			
 		</table>
 		
