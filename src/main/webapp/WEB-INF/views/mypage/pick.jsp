@@ -22,6 +22,22 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 <script src="/resources/jquery/jquery-3.3.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+<script type="text/javascript">
+		function pick_confirm(){
+			
+			if(confirm("찜을 삭제하시겠습니까?")){
+				alert("정상적으로 삭제되었습니다.");
+				return true;
+			}else{
+				alert("삭제 취소");
+				return false;
+			}
+			
+		}
+
+</script>
 </head>
 <style>
 #cart {
@@ -141,10 +157,11 @@ td {
 		</div>
 	</nav>
 	<div id="cart">
+	<form action="pickdelete" method="get" onsubmit="return pick_confirm()">
 		<table class='cart__list'>
 			<thead>
 				<tr>
-					<td>모두 선택 <input type="checkbox" id="allCheck" name="allCheck"/></td>
+					<td>모두 선택 <input type="checkbox" id="allCheck" name="allCheck" /></td>
 					<td>찜 번호</td>
 					<td>메뉴 이름</td>
 					<td>메뉴 가격</td>
@@ -154,7 +171,7 @@ td {
 			<tbody>
 				<c:forEach items="${plist}" var="plist">
 					<tr class='cart__list__detail'>
-						<td><input type="checkbox" name="RowCheck" value="${plist.f_num}"/></td>
+						<td><input type="checkbox" id="chk" name="chkid" value="${plist.f_no}"></td>
 						<td>${plist.f_num}</td>
 						<td><a href="viewDetail?menu_no=${plist.f_no}">${plist.f_menu}</a></td>
 						<td>${plist.f_price }</td>
@@ -163,22 +180,11 @@ td {
 			</tbody>
 		</table>
 		<div class="container">
-			<button class="delete-button" onclick="delete()">삭제</button>
+			<input type="submit" value="삭제">
 		</div>
-
+	</form>
 	</div>
 </body>
-
-<script>
-$(function() {
-	var chk = document.getElemenstsByName("RowCheck");
-	var rowCnt = chk.length;
-	
-	$("input[name='allCheck']").click(function(){
-		var chkList = $("input[]")
-	}
-}
-</script>
 
 
 </html>
