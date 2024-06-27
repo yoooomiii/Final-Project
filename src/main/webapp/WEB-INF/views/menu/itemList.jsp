@@ -20,113 +20,120 @@
 <body>
 	<div id="Box">
             <header>
-                <div class="login box">
-                    <a href="#"><span> 로그인 </span></a>
-                </div>
-                <div class="join box">
-                    <a href="#"><span> 회원가입 </span></a>
-                </div>
-            </header>
-            
-            <nav>
-                <div class="logo">
-                    <a href="#"><span><img src="./resources/img/logo1_ size60.png" alt=""></span></a>
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li>
-                            <a href="#"> HOME </a>
-                        </li>
-                        <li>
-                            <a href="#"> 브랜드 소개 </a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#"> 브랜드 소개 </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="menu_List"> 메뉴 주문하기 </a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#"> 인기 메뉴 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> 대표 메뉴 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> 치킨 메뉴 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> 사이드 / 음료 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> 세트 메뉴 </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"> 고객센터 </a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#"> 1:1 문의 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> FAQ </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"> 마이 페이지 </a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#"> 주문 내역 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> 찜목록 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> 나의 리뷰 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> 내 정보관리 </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <aside>
-                <div id="silde">
-                    <div id="carouselExampleInterval" class="carousel slide"
-                        data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="1000">
-                                <img src="./resources/img/sing01.png" width="1260" , height="150"
-                                    class="d-block w-100" alt="준비중">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="1000">
-                                <img src="./resources/img/sing01.png" width="1260" , height="150"
-                                    class="d-block w-100" alt="준비중">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="1000">
-                                <img src="./resources/img/sing01.png" width="1260" , height="150" class="d-block w-100"
-                                    alt="준비중">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button"
-                            data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </aside>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
+			<div class="login box">
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
+			</div>
+			<div class="join box">
+				<c:if test="${userid == null }">
+					<a href="join"><span> 회원가입 </span></a>
+				</c:if>
+			</div>
+			
+		</header>
+		<nav>
+            <div class="logo">
+				<a href="./"><span><img src="./resources/img/logo1_ size60.png" alt=""></span></a>
+			</div>
+			<div class="menu">
+				<ul>
+                    <li>
+                        <a href="./"> HOME </a>
+                    </li>
+                    <li>
+                        <a href="#"> 브랜드 소개 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 브랜드 소개 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="menuForm"> 메뉴 주문하기 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="menuForm"> 인기 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="menuForm"> 대표 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="menuForm"> 전체 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="menuForm"> 사이드 / 음료 </a>
+                            </li>
+                            <li>
+                            
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="infomain"> 고객센터 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="ask"> 1:1 문의 </a>
+                            </li>
+                            <li>
+                                <a href="#"> FAQ </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="mypage"> 마이 페이지 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="mypage"> 주문 내역 </a>
+                            </li>
+                            <li>
+                                <a href="mypage"> 찜목록 </a>
+                            </li>
+                            <li>
+                                <a href="mypage"> 나의 리뷰 </a>
+                            </li>
+                            <li>
+                                <a href="mypage"> 내 정보관리 </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+			</div>
+		</nav>
+		<aside>
+			<div id="silde">
+				<div id="carouselExampleInterval" class="carousel slide"
+					data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active" data-bs-interval="1000">
+							<img src="./resources/img/화면 캡처 2024-06-27 121409.png" width="1260" , height="150"
+								class="d-block w-100" alt="준비중">
+						</div>
+						<div class="carousel-item" data-bs-interval="1000">
+							<img src="./resources/img/화면 캡처 2024-06-27 121753.png" width="1260" , height="150"
+								class="d-block w-100" alt="준비중">
+						</div>
+						<div class="carousel-item" data-bs-interval="1000">
+							<img src="./resources/img/화면 캡처 2024-06-27 122740.png" width="1260" , height="150"
+								class="d-block w-100" alt="준비중">
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button"
+						data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button"
+						data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</aside>
             <hr>
             <section id="foodList">
                 <div class="img">
@@ -176,7 +183,7 @@
             <footer>
                 <div class="footer-box">
                     <div class="footer-logo">
-                        <a href="#"><img src="./resources/img/logo1_ size60.png" alt=""></a>
+                        <a href="#"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
                     </div>
                     <div class="footer-con">
                         <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>

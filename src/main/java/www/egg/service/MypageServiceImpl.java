@@ -74,6 +74,12 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		return mpdao.picklist(userid);
 	}
 
+	@Override
+	public void pickdelete(String f_no) throws Exception {
+		// TODO Auto-generated method stub
+		mpdao.pickdelete(f_no);
+	}
+
 
 
 

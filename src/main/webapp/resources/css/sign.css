@@ -13,10 +13,11 @@
 }
 
 body {
-    background-color: #F3F4F9;
+    background-color:  #F3F4F9;
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
 }
 
 #form-container {
@@ -42,7 +43,7 @@ body {
     display: inline-block;
 }
 
-form input:not(:last-of-type) {
+form input {
     font-family: 'SUITE-Regular';
     display: block;
     margin-bottom: 20px;
@@ -172,8 +173,8 @@ label[for="terms"] {
     button {
         width: 100%;
     }
-
-    form input:not(:last-of-type) {
+    
+    form input {
         width: 85%;
     }
 

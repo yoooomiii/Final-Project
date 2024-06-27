@@ -1,0 +1,28 @@
+@charset "UTF-8";
+#Box {
+	float: left;
+	width: auto; /*가로 넓이*/
+	height: auto; /*세로 높이*/
+	text-align: center; /*중앙 정렬*/
+}
+#list{
+    float: left;
+    border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
+    border-radius: 30px;
+	width: 700px; /*가로 넓이*/
+	height: 600px; /*세로 높이*/
+	text-align: center; /*중앙 정렬*/
+    margin-left: 280px;
+    margin-top: 100px;
+	background-color: rgb(228, 230, 228);
+}
+#but{
+    font-size: 20px;
+    border-radius: 20px;
+    width: 150px; /*가로 넓이*/
+	height: 50px; /*세로 높이*/
+    background-color: rgb(223, 253, 161)
+}
+h1{
+    font-size: 40px;
+}
