@@ -59,7 +59,9 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-
+#dlv-form{
+	font-family: 'SUITE-Regular';
+}
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -236,13 +238,13 @@ td {
                         </ul>
                     </li>
                       <li>
-                        <a href="#"> 상품 관리 </a>
+                        <a href="menu_List"> 상품 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 상품 조회 </a>
+                                <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="#"> (상품 등록) </a>
+                                <a href="menu_input"> (상품 등록) </a>
                             </li>
                         </ul>
                     </li>
@@ -257,7 +259,7 @@ td {
 
 
 
-	<form action="adminDUp" method="post">
+	<form action="adminDUp" method="post" id="dlv-form">
 		<div id="dpan">
 			배달 상태 수정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
 			<hr>
@@ -273,23 +275,31 @@ td {
 					<td>배달상태</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="font-size: 15px">
 				<tr class="minfo_row">
 					<td>(추후수정)</td>
 					<td><input type="text" name="d_num" value=${dvo.d_num } ></td>
 					<td><input type="text" name="d_no" value=${dvo.d_no } readonly></td>
-					<td><input type="text" name="d_time" value=${dvo.d_time } ></td>
-					<td><input type="text" name="d_check" value=${dvo.d_check } ></td>
+					<td><input type="text" name="d_time" value=${dvo.d_time } >분</td>
+					<!-- <td><input type="text" name="d_check" value=${dvo.d_check } ></td> -->
+					<td>
+					 <select name="d_check" id="dc">
+					  		<option value="배정대기">배정대기</option>
+					  		<option value="배달준비">배달준비</option>
+					  		<option value="배달중">배달중</option>
+					  		<option value="배달완료">배달완료</option>
+					  </select>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 		<br>
 		<table border=1 id="mtable">
-			<tr><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
-			<tr><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
-			<tr><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
-			<tr><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
-			<tr><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
 			
 		</table>
 	</form>

@@ -6,7 +6,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
 	 <!-- MariaDB JDBC DataSource -->
- 	<bean id="dataSource"
+	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
 			value="org.mariadb.jdbc.Driver" />

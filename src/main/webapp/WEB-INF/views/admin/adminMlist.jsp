@@ -97,6 +97,7 @@
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	font-family: 'SUITE-Regular';
 }
 
 #surchpan {
@@ -106,7 +107,12 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-
+#odr-form{
+    font-family: 'SUITE-Regular';
+}
+#srcbtn{
+	width: 100px;
+}
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -283,13 +289,13 @@ td {
                         </ul>
                     </li>
                       <li>
-                        <a href="#"> 상품 관리 </a>
+                        <a href="menu_List"> 상품 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 상품 조회 </a>
+                                <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="#"> (상품 등록) </a>
+                                <a href=menu_input> (상품 등록) </a>
                             </li>
                         </ul>
                     </li>
@@ -318,7 +324,7 @@ td {
 						  <label for="option2">옵션2</label>
 						  <input type="radio" id="option2" name="키값" value="값">
 
-					주문번호: <input type="text" name="sword"> <input type="submit" value="검색">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
@@ -329,11 +335,11 @@ td {
 
 
 
-	<form action="adminODelete" method="get" onsubmit="return call_confirm()">
+	<form action="adminODelete" method="get" onsubmit="return call_confirm()" id="odr-form">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
-		<table border=1 id="otable">
+		<table border=1 id="otable" style="font-size: 15px">
 			<thead>
 				<tr style="background-color: gray">
 					<td>주문번호</td>
@@ -345,7 +351,7 @@ td {
 					<td>선택</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="font-size: 15px">
 			    <c:forEach items="${orders }" var="mlist2vo">
 					<tr class="minfo_row">
 						<td>${mlist2vo.m_num}</td>

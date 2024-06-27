@@ -72,6 +72,11 @@
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	font-family: 'SUITE-Regular';
+}
+
+#srcbtn{
+	width: 100px;
 }
 
 #surchpan {
@@ -80,6 +85,10 @@
 	height: 70px;
 	/* border: 1px solid black; */
 	margin-top: 20px;
+}
+
+#odr-form{
+    font-family: 'SUITE-Regular';
 }
 
 #modbutton {
@@ -258,13 +267,13 @@ td {
                         </ul>
                     </li>
                       <li>
-                        <a href="#"> 상품 관리 </a>
+                        <a href="menu_List"> 상품 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 상품 조회 </a>
+                                <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="#"> (상품 등록) </a>
+                                <a href="menu_input"> (상품 등록) </a>
                             </li>
                         </ul>
                     </li>
@@ -274,23 +283,25 @@ td {
 
 		<div id="span">
 			<div id="surchpan">
-				<h2>${username} 주문 관리 페이지입니다.</h2>
+				<h2>주문 관리 페이지입니다.</h2>
 				<form action="adminMSearch" method="get">
-				
-					  <label for="loc">지역(광역시)</label>
-					  <select name="address" id="loc">
+				  
+					   <label for="m_state">주문상태</label>
+					  <select name="m_state" id="loc" >
 					  		<option value="">(선택안함)</option>
-						  <option value="수원시">수원시</option>
-						  <option value="화성시">화성시</option>
-					  <option value="용인시">용인시</option>
+					  		<option value="주문접수">주문접수</option>
+					  		<option value="주문취소">주문취소</option>
+					  		<option value="결제완료">결제완료</option>
+					  		<option value="환불처리">환불처리</option>
 					  </select>
 					  
-						  <label for="option1">일반</label>
-					    <input type="radio" id="option1" name="master" value="0">
-						  <label for="option2">관리자</label>
-						  <input type="radio" id="option2" name="master" value="1">
+					  
+						  <label for="option1">옵션1</label>
+					    <input type="radio" id="option1" name="키값" value="값">
+						  <label for="option2">옵션2</label>
+						  <input type="radio" id="option2" name="키값" value="값">
 
-					<input type="text" name="sword"> <input type="submit" value="검색">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
@@ -301,11 +312,11 @@ td {
 
 
 
-	<form action="adminOUp" method="post">
+	<form action="adminOUp" method="post" id="odr-form">
 			<div id="dpan">
 			주문 상태만 수정하실 수 있습니다.
 		</div>
-		<table border=1 id="mtable">
+		<table border=1 id="mtable" style="font-size: 15px">
 			<thead>
 				<tr style="background-color: gray">
 					<td>주문번호</td>
@@ -315,7 +326,7 @@ td {
 					<td>제출</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="font-size: 15px">
 						<tr class="minfo_row">
 							<td><input type="text" name="m_num" value=${ovo.m_num } readonly></td>
 							<td>

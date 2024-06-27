@@ -20,22 +20,29 @@
 <body>
 	<div id="Box">
 		<header>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
 			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+				<c:if test="${userid == null }">
+					<a href="join"><span> 회원가입 </span></a>
+				</c:if>
 			</div>
+			
 		</header>
-        
 		<nav>
             <div class="logo">
-				<a href="#"><span><img src="./resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="./"><span><img src="./resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
                     <li>
-                        <a href="#"> HOME </a>
+                        <a href="./"> HOME </a>
                     </li>
                     <li>
                         <a href="#"> 브랜드 소개 </a>
@@ -46,30 +53,30 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="menu_List"> 메뉴 주문하기 </a>
+                        <a href="menuForm"> 메뉴 주문하기 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 인기 메뉴 </a>
+                                <a href="menuForm"> 인기 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 대표 메뉴 </a>
+                                <a href="menuForm"> 대표 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 치킨 메뉴 </a>
+                                <a href="menuForm"> 전체 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 사이드 / 음료 </a>
+                                <a href="menuForm"> 사이드 / 음료 </a>
                             </li>
                             <li>
-                                <a href="#"> 세트 메뉴 </a>
+                            
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 고객센터 </a>
+                        <a href="infomain"> 고객센터 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 1:1 문의 </a>
+                                <a href="ask"> 1:1 문의 </a>
                             </li>
                             <li>
                                 <a href="#"> FAQ </a>
@@ -77,19 +84,19 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 마이 페이지 </a>
+                        <a href="mypage"> 마이 페이지 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 주문 내역 </a>
+                                <a href="mypage"> 주문 내역 </a>
                             </li>
                             <li>
-                                <a href="#"> 찜목록 </a>
+                                <a href="mypage"> 찜목록 </a>
                             </li>
                             <li>
-                                <a href="#"> 나의 리뷰 </a>
+                                <a href="mypage"> 나의 리뷰 </a>
                             </li>
                             <li>
-                                <a href="#"> 내 정보관리 </a>
+                                <a href="mypage"> 내 정보관리 </a>
                             </li>
                         </ul>
                     </li>
@@ -102,16 +109,16 @@
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active" data-bs-interval="1000">
-							<img src="./resources/img/sing01.png" width="1260" , height="150"
+							<img src="./resources/img/화면 캡처 2024-06-27 121409.png" width="1260" , height="150"
 								class="d-block w-100" alt="준비중">
 						</div>
 						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/sing01.png" width="1260" , height="150"
+							<img src="./resources/img/화면 캡처 2024-06-27 121753.png" width="1260" , height="150"
 								class="d-block w-100" alt="준비중">
 						</div>
 						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/sing01.png" width="1260" , height="150" class="d-block w-100"
-								alt="준비중">
+							<img src="./resources/img/화면 캡처 2024-06-27 122740.png" width="1260" , height="150"
+								class="d-block w-100" alt="준비중">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button"
@@ -131,6 +138,8 @@
 		<section id="foodList">
             <br>
             <div class="popoo">
+            <br>
+            <br>
             	<h1>인기 메뉴</h1>
             <div class="list">
                 <img src="./resources/img/egg.png" width="298" , height="250" class="e">
@@ -142,22 +151,22 @@
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=18"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="./resources/img/egg02.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-21 165935.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>고추 치킨</b></h3>
-                <h5>불타는 금요일 화끈하게</h5>
+                <h3><b>블랙시그니처 치킨</b></h3>
+                <h5>지금까지 이런 맛은 없었다 이맛은 차원이 다르다</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=25"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=31"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="./resources/img/egg05.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-27 144811.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>간장 치킨</b></h3>
-                <h5>간장으로 목욕한 치킨</h5>
+                <h3><b>마라바사삭 치킨</b></h3>
+                <h5>마라와 치킨의 콜라보</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=20"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1007"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg06.png" width="298" , height="250" class="e">
@@ -179,24 +188,28 @@
             </div>
             </div>
             <div class="qoq">
+            <br>
+            <br>
+            <br>
+            <br>
             <h1>대표 메뉴</h1>
             <div class="list">
-                <img src="./resources/img/egg04.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-27 144542.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>치즈마요 치킨</b></h3>
-                <h5>치킨과 치즈의 만남</h5>
+                <h3><b>인절미 치킨</b></h3>
+                <h5>누구나 좋아하는 그맛!</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=24"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1006"><input type="submit" value="상세보기" class="t"></a>
             </div>
-            <div class="list">
-                <img src="./resources/img/egg05.png" width="298" , height="250" class="e">
+           	<div class="list">
+                <img src="./resources/img/땅땅치킨-메뉴-추천-후왕.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>간장 치킨</b></h3>
-                <h5>간장으로 목욕한 치킨</h5>
+                <h3><b>땅콩 치킨</b></h3>
+                <h5>땅콩과 치킨의 만남 그결과는?</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=20"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=29"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/egg06.png" width="298" , height="250" class="e">
@@ -208,13 +221,13 @@
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=21"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="./resources/img/egg07.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-27 144301.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>마늘 치킨</b></h3>
-                <h5>한국인의 맛 마늘 치킨</h5>
+                <h3><b>닭발</b></h3>
+                <h5>닭발도 치킨이다!</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=23"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1005"><input type="submit" value="상세보기" class="t"></a>
             </div>
             </div>
             <div class="opp">
@@ -318,6 +331,33 @@
                 <br>
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=31"><input type="submit" value="상세보기" class="t"></a>
             </div>
+            <div class="list">
+                <img src="./resources/img/화면 캡처 2024-06-27 144301.png" width="298" , height="250" class="e">
+                <br>
+                <br>
+                <h3><b>닭발</b></h3>
+                <h5>닭발도 치킨이다!</h5>
+                <br>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1005"><input type="submit" value="상세보기" class="t"></a>
+            </div>
+            <div class="list">
+                <img src="./resources/img/화면 캡처 2024-06-27 144542.png" width="298" , height="250" class="e">
+                <br>
+                <br>
+                <h3><b>인절미 치킨</b></h3>
+                <h5>누구나 좋아하는 그맛!</h5>
+                <br>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1006"><input type="submit" value="상세보기" class="t"></a>
+            </div>
+            <div class="list">
+                <img src="./resources/img/화면 캡처 2024-06-27 144811.png" width="298" , height="250" class="e">
+                <br>
+                <br>
+                <h3><b>마라바사삭 치킨</b></h3>
+                <h5>마라와 치킨의 콜라보</h5>
+                <br>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1007"><input type="submit" value="상세보기" class="t"></a>
+            </div>
             </div>
             <div class="pop">
             <h1>사이드 / 음료</h1>
@@ -358,56 +398,55 @@
                 <a href="http://localhost:8080/hom/viewDetail?menu_no=32"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="/Gold.html/img/egg05.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-27 144052.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>간장 치킨</b></h3>
-                <h5>간장으로 목욕한 치킨</h5>
+                <h3><b>이스터에그타르트</b></h3>
+                <h5>시그니처 메뉴</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=20"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1004"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="/Gold.html/img/egg06.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-27 143826.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>크리미언 치킨</b></h3>
-                <h5>꾸덕꾸덕한 순살 치킨</h5>
+                <h3><b>떡볶이</b></h3>
+                <h5>떡볶이 출시! 치킨과의 조화로운 맛!</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=21"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1003"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="/Gold.html/img/egg08.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-27 143603.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>통닭 치킨</b></h3>
-                <h5>추억의 치킨</h5>
+                <h3><b>치즈볼</b></h3>
+                <h5>겉바속촉!</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=22"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1002"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
-                <img src="/Gold.html/img/egg07.png" width="298" , height="250" class="e">
+                <img src="./resources/img/화면 캡처 2024-06-27 143353.png" width="298" , height="250" class="e">
                 <br>
                 <br>
-                <h3><b>마늘 치킨</b></h3>
-                <h5>한국인의 맛 마늘 치킨</h5>
+                <h3><b>소떡소떡</b></h3>
+                <h5>실망할수 없는 맛!</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=23"><input type="submit" value="상세보기" class="t"></a>
+                <a href="http://localhost:8080/hom/viewDetail?menu_no=1001"><input type="submit" value="상세보기" class="t"></a>
             </div>
             </div>
         </section>
-        <hr>
         <section class="main-banner">
-            <div class="banner notice">
-                <a href="#"> 공지사항 / 안내 </a>
-            </div>
-            <div class="banner event">
-                <a href="#"> 이벤트 </a>
-            </div>
-        </section>
+			<div class="banner notice">
+				<a href="#"> 공지사항 / 안내 </a>
+			</div>
+			<div class="banner event">
+				<a href="#"> 이벤트 </a>
+			</div>
+		</section>
 		<footer>
             <div class="footer-box">
                 <div class="footer-logo">
-                    <a href="#"><img src="${path}./resources/img/logo1_ size60.png" alt=""></a>
+                    <a href="#"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
                 </div>
                 <div class="footer-con">
                     <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>
@@ -419,12 +458,12 @@
                     <div class="con-text"><span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span></div>
                 </div>
                 <div class="sns">
-                    <span><a href="#"><img src="${path}./resources/img/instahram_icon.jpg" alt=""></a></span>
-                    <span><a href="#"><img src="${path}./resources/img/facebook_icon.jpg" alt=""></a></span>
-                    <span><a href="#"><img src="${path}./resources/img/twiter_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="./resources/img/instahram_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="./resources/img/facebook_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="./resources/img/twiter_icon.jpg" alt=""></a></span>
                 </div>
             </div>
-		</footer>
+        </footer>
 	</div>
 </body>
 </html>

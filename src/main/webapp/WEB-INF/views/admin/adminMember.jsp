@@ -96,6 +96,7 @@
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	font-family: 'SUITE-Regular';
 }
 
 #surchpan {
@@ -105,7 +106,12 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-
+#srcbtn{
+	width: 100px;
+}
+#mbr-form{
+    font-family: 'SUITE-Regular';
+}
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -281,13 +287,13 @@ td {
                         </ul>
                     </li>
                       <li>
-                        <a href="#"> 상품 관리 </a>
+                        <a href="menu_List"> 상품 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 상품 조회 </a>
+                                <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="#"> (상품 등록) </a>
+                                <a href="menu_input"> (상품 등록) </a>
                             </li>
                         </ul>
                     </li>
@@ -330,7 +336,7 @@ td {
 						  <label for="option2">관리자</label>
 						  <input type="radio" id="option2" name="master" value="1">
 
-					ID: <input type="text" name="sword"> <input type="submit" value="검색">
+					ID: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
@@ -341,11 +347,11 @@ td {
 
 
 
-	<form action="adminMDelete" method="get" onsubmit="return call_confirm()">
+	<form action="adminMDelete" method="get" onsubmit="return call_confirm()" id="mbr-form">
 			<div id="dpan">
 			<input type="submit" value="삭제하기">
 		</div>
-		<table border=1 id="mtable">
+		<table border=1 id="mtable" style="font-size: 15px">
 			<thead>
 				<tr style="background-color: gray">
 					<td>회원ID</td>
@@ -358,7 +364,7 @@ td {
 					<td>선택</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="font-size: 15px">
 			    <c:forEach items="${members }" var="membervo">
 			    <c:if test="${membervo.master==0}">
 					<tr class="minfo_row">
