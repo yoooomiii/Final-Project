@@ -343,11 +343,15 @@ public class AdminController {
 	@RequestMapping(value = "adminDSave", method = RequestMethod.GET)
 	public String adminDSpform(@ModelAttribute DeliveryVO dvo, Model model) throws Exception {
 		aservice.insertDelivery(dvo); // insert작업 수행 
-		System.out.println("어드민dao dvo before: "+dvo.toString());
+		//System.out.println("어드민dao dvo before: "+dvo.toString());
 		
 		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+""); // 수행한 거 가져옴 
-		System.out.println("어드민dao dvo after: "+dvo.toString());
+		//System.out.println("어드민dao dvo after: "+dvo.toString());
+		
+		Integer d_no = dvo.getD_no();
+		String m_num = Integer.toString(d_no);
 		model.addAttribute("dvo", modied_dvo);
+		model.addAttribute("ordernum",m_num );
 		return "admin/adminODelivery";
 	}
 	

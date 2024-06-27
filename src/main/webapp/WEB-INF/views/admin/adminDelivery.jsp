@@ -217,6 +217,9 @@ td {
 	box-shadow : 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
+#paging{
+	text-align: center;
+}
 </style>
 
 <body>
@@ -354,26 +357,48 @@ td {
 						<td><input type="checkbox" id="chk" name="chkid" value=${deliveryvo.d_no }></td>
 					</tr>
 				</c:forEach>
-				<tr>
-						<td colspan=4 align=center>
-							<c:if test="${pagevo.prev }">
-								<a href="adminDView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-							</c:if> 
-							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-								var="idx">
-								<a href="adminDView?page=${idx}"> 
-									<c:if
-										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-										test="${idx == pagevo.page }">]</c:if>
-								</a>
-							</c:forEach> 
-							<c:if test="${pagevo.next }">
-								<a href="adminDView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-							</c:if>
-						</td>
-					</tr>
 			</tbody>
 		</table>
+		<br>
+		<div id ="paging">
+						<c:if test="${m_state != null}">
+							<div>
+								<h5>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </h5>
+								검색결과 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminDSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminDSearch?page=${idx}&sword=${sword}&m_state=${m_state }"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										 <a href="adminDSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						</c:if>
+						<div>
+							일반 목록:
+								<c:if test="${pagevo.prev }">
+									<a href="adminDView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+								</c:if> 
+								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+									var="idx">
+									<a href="adminDView?page=${idx}"> 
+										<c:if
+											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+											test="${idx == pagevo.page }">]</c:if>
+									</a>
+								</c:forEach> 
+								<c:if test="${pagevo.next }">
+									<a href="adminDView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+								</c:if>
+						</div>
+					</div>
 	</form>
 		</section>
 </body>
