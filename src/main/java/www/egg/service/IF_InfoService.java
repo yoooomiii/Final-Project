@@ -33,5 +33,7 @@ public interface IF_InfoService {
 	public AnswerVO selectOneMa(Integer a_num) throws Exception;
 	
 	public int getToTalCount() throws Exception;
+
+	public List<InfojoinVO> infoListAll(PageVO pvo);
 		
 }

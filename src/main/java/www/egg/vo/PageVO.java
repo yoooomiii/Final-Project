@@ -9,7 +9,7 @@ public class PageVO {
 	private int totalCount; // 전체 튜플의 수
 	// page, totalCount, perPageNum 3개의 변수로 startNo endNo 값을 자동으로 계산한다. 
 	
-	
+
 	private int endPage;	// 페이지가 속한 그룹의 끝 페이지 번호 
 	private int startPage; // 페이지가 속한 그룹의 시작 페이지 번호 
 	private boolean prev;

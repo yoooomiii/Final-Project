@@ -70,6 +70,12 @@ public class InfoServiceImpl implements IF_InfoService {
 		return idao.getTotalCount();
 	}
 
+	@Override
+	public List<InfojoinVO> infoListAll(PageVO pvo) {
+		
+		return idao.infoListAll(pvo);
+	}
+
 
 
 	
