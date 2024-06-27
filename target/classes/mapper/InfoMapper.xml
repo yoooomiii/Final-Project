@@ -34,11 +34,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from ask where a_num = #{a_num}
 	</select>
 	
+	<select id="infoselectall" resultMap="infojoinMap">
+		SELECT a_num, a.a_id, a.a_title, a.a_checkVal, a.a_date,
+		an.an_num, an.an_re, an.an_date
+		FROM ask a LEFT JOIN answer an ON a.a_num=an.an_num
+		ORDER BY a.a_num ASC LIMIT #{perPageNum} OFFSET #{startNo}
+	</select>
+	
 	<select id="selectallMa" parameterType="map" resultType="map">
 		SELECT a.a_num, a.a_id, a.a_title, a.a_checkVal, a.a_date,
 		an.an_num, an.an_date
 		FROM ask a LEFT JOIN answer an ON a.a_num = an.an_num 
-		ORDER BY a.a_num DESC LIMIT #{startRow}, #{perPageNum}
+		ORDER BY a.a_num DESC LIMIT #{perPageNum} OFFSET #{startRow}
 	</select>
 	
 	<delete id="delete">
@@ -54,7 +61,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getTotalCount" resultType="int">
-		select count(*) from ask
+		select count(*) 
+		FROM ask a LEFT JOIN answer an ON a.a_num=an.an_num
 	</select>
 	
 	

@@ -54,7 +54,7 @@
 						</ul></li>
 					<li><a href="#"> 글 관리 </a>
 						<ul class="submenu">
-							<li><a href="#"> 문의글 관리 </a></li>
+							<li><a href="masterview"> 문의글 관리 </a></li>
 							<li><a href="#"> (답변 관리) </a></li>
 							<li><a href="#"> 리뷰 관리 </a></li>
 						</ul></li>
@@ -169,19 +169,19 @@
 					</table>
 
 					<div>
-						<c:if test="${pvo.prev }">
-							<a href="masterview?page=${pvo.startPage -1 }">[이전페이지그룹]</a>
-						</c:if>
-						<c:forEach begin="${pvo.startPage }" end="${pvo.endPage }"
-							var="idx">
-							<a href="masterview?page=${idx}"> <c:if
-									test="${idx == pvo.page }">[</c:if> ${idx } <c:if
-									test="${idx == pvo.page }">]</c:if>
-							</a>
-						</c:forEach>
-						<c:if test="${pvo.next }">
-							<a href="masterview?page=${pvo.endPage +1 }">[다음페이지그룹]</a>
-						</c:if>
+						<tr>
+							<td colspan=4 align=center><c:if test="${pvo.prev }">
+									<a href="masterview?page=${pvo.startPage -1 }">[이전페이지그룹]</a>
+								</c:if> <c:forEach begin="${pvo.startPage }" end="${pvo.endPage }"
+									var="idx">
+									<a href="masterview?page=${idx}"> <c:if
+											test="${idx == pvo.page }">[</c:if> ${idx } <c:if
+											test="${idx == pvo.page }">]</c:if>
+									</a>
+								</c:forEach> <c:if test="${pvo.next }">
+									<a href="masterview?page=${pvo.endPage +1 }">[다음페이지그룹]</a>
+								</c:if></td>
+						</tr>
 					</div>
 				</div>
 			</div>
