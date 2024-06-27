@@ -2,6 +2,7 @@ package www.egg.service;
 
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -40,12 +41,6 @@ public class InfoServiceImpl implements IF_InfoService {
 	// --------------------------------------------- 관리자용
 	
 	@Override
-	public List<AskVO> allListMa() throws Exception {
-
-		return idao.allListMa();
-	}
-
-	@Override
 	public int delete(Integer a_num) throws Exception {
 		
 		return idao.delete(a_num);
@@ -62,6 +57,21 @@ public class InfoServiceImpl implements IF_InfoService {
 
 		return idao.selectOneMa(a_num);
 	}
+	
+	@Override
+	public List<Map<String, Object>> allListMa(Map<String, Object> paramMap) throws Exception {
+		
+		return idao.allListMa(paramMap);
+	}
+
+	@Override
+	public int getToTalCount() throws Exception {
+		
+		return idao.getTotalCount();
+	}
+
+
+
 	
 	
 }

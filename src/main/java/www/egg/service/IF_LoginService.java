@@ -19,5 +19,7 @@ public interface IF_LoginService {
 	
 	public int getTotalCount(MemberVO mvo)  throws Exception;
 	public List<MemberVO> memberSearchPaging(Map<String, Object> spage);
+	
+	public int userIdChk(String userid) throws Exception;
 
 }

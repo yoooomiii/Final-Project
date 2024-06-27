@@ -193,12 +193,12 @@ td {
 
 		<nav>
 			<div class="logo">
-				<a href="main"><span><img
+				<a href="./"><span><img
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="/"> HOME </a></li>
+					<li><a href="./"> HOME </a></li>
 					<li><a href="#"> 브랜드 소개 </a>
 						<ul class="submenu">
 							<li><a href="#"> 브랜드 소개 </a></li>
@@ -255,7 +255,7 @@ td {
 
 			<div id="icons">
 				<div class="iconimg">
-					<a href="${pageContext.request.contextPath}/list"> <img
+					<a href="${pageContext.request.contextPath}/mylist"> <img
 						src="${pageContext.request.contextPath}/resources/img/주문내역 최최종.png"
 						width="140" height="140">
 					</a>
@@ -277,12 +277,13 @@ td {
 					<h3>리뷰</h3>
 				</div>
 				<div class="iconimg">
-					<img src="./resources/img/포인트 최종.png" width="140" height="140"
-						onclick="changeContent('point')">
+					<a href="${pageContext.request.contextPath}/point"> <img
+						src="${pageContext.request.contextPath}/resources/img/포인트 최종.png"
+						width="140" height="140">
+					</a>
 					<h3>포인트</h3>
 				</div>
 			</div>
-
 		</div>
 
 

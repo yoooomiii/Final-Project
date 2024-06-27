@@ -77,7 +77,7 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	}
 
 	@Override
-	public List<FavorVO> picklist(String userid) throws Exception {
+	public List<FavorVO> picklist(String userid) throws Exception {			//찜 리스트 불러오기
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery+".picklist", userid);
 	}
@@ -88,11 +88,6 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		return sqlsession.selectList(mapperQuery +".testlist", userid);
 	}
 
-	@Override
-	public void mlistinsert(MlistVO mlvo) throws Exception {
-		// TODO Auto-generated method stub
-		sqlsession.insert(mapperQuery, mlvo);
-	}
 
 //	@Override
 //	public boolean deletePick(List<String> pickIds) {

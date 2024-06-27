@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 결제 -->
 	<insert id="pinsert" parameterType="www.egg.vo.PaymentVO">
-		INSERT INTO PAYMENT VALUES (NEXT VALUE FOR payment_cnt, #{pm_num}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_point}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H:%i:%s'), #{pm_address}, #{pm_pick}, #{pm_comment})
+		INSERT INTO PAYMENT VALUES (NEXT VALUE FOR payment_cnt, #{pm_num}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_point}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'), #{pm_address}, #{pm_pick}, #{pm_comment})
 	</insert>
 	<!-- 결제테이블 입력 -->
 	<select id="pselectall" resultType="www.egg.vo.PaymentVO">
@@ -64,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM PAYMENT WHERE pm_no = #{pm_no}
 	</delete>
 	<!-- 결제테이블 삭제 -->
-	
+
 	<!-- 주문내역 -->
 	<insert id="minsert" parameterType="www.egg.vo.MlistVO">
 		INSERT INTO MLIST VALUES (NEXT VALUE FOR mlist_cnt, #{m_id}, #{m_no}, #{m_state}, #{m_name})

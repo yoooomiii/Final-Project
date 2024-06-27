@@ -102,6 +102,12 @@ public class LoginDAOImpl implements IF_LoginDAO{
 				}
 	}
 
+	@Override
+	public int userIdChk(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(mapperQuery+".finduserid", userid);
+	}
+
 
 
 }

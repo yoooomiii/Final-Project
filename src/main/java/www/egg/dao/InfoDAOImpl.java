@@ -1,6 +1,7 @@
 package www.egg.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -40,12 +41,6 @@ public class InfoDAOImpl implements IF_InfoDAO {
 	}
 
 	// --------------------------------------------- 관리자용
-	
-	@Override
-	public List<AskVO> allListMa() throws Exception {
-		
-		return sql.selectList(mapperQurey + ".selectallMa");
-	}
 
 	@Override
 	public int delete(Integer a_num) throws Exception {
@@ -66,4 +61,19 @@ public class InfoDAOImpl implements IF_InfoDAO {
 		return sql.selectOne(mapperQurey + ".selectoneMa", a_num);
 		
 	}
+	
+	@Override
+	public List<Map<String, Object>> allListMa(Map<String, Object> paramMap) throws Exception {
+		
+		return sql.selectList(mapperQurey + ".selectallMa", paramMap);
+	}
+	
+	@Override
+	public int getTotalCount() throws Exception {
+		
+		return sql.selectOne(mapperQurey + ".getTotalCount");
+	}
+
+
+
 }

@@ -52,8 +52,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from delivery where d_check = #{deliveryvo.d_check}  order by d_no asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select>
 	<insert id="insertdelivery" parameterType="www.egg.vo.DeliveryVO">
-	 	insert into delivery values(#{d_no},#{d_num},#{d_time},#{d_check});
+	 	insert into delivery values(#{d_no},#{d_num},#{d_time},default)
 	</insert>
+	
 	
 	
 	<select id="getToatalOCount" resultType="int">

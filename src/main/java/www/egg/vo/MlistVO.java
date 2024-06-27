@@ -5,7 +5,7 @@ public class MlistVO {
 	private Integer m_num =0; 
 	private String m_id =null;
 	private Integer m_no =0;
-	private String m_state =null;
+	private String m_state=null;
 	private String m_name =null;
 	
 	@Override
@@ -43,5 +43,5 @@ public class MlistVO {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
-
+	
 }

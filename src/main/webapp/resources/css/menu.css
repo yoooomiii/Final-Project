@@ -91,6 +91,14 @@ header a:hover {
    
 }
 
+.quite {
+    float: right;
+	width: 100px; /*가로 넓이*/
+    height: 90%;
+    margin-right: 30px;
+   
+}
+
 nav {
     position: relative;
 	width: 1260px; /*가로 넓이*/
@@ -146,11 +154,7 @@ nav {
         text-align: center;
         line-height: 30px;
         outline: 0;
-
-
     }
-
-
 
     .menu a:hover {
         color: #f1b546;

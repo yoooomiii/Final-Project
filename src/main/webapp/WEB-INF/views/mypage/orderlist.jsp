@@ -176,25 +176,26 @@ td {
 			<table class='order__list'>
 				<thead>
 					<tr>
-						<td>주문번호</td>
-						<td>메뉴사진</td>
-						<td>주문상태</td>
+						<td>결제 번호</td>
+						<td>메뉴 이름</td>
+						<td>주문 상태</td>
 						<td>리뷰</td>
 					</tr>
 				</thead>
 
 				<tbody>
 					<!-- 내일 학원가서 데이터 넣어보기 -->
-					<c:forEach items="${plist}" var="pp">
+					<c:forEach items="${mlist}" var="mm">
 						<tr>
-							<td>${pp.pm_no}</td>
-							<td>${pp.pm_id}</td>
-							<td>${pp.pm_id}</td>
+							<td>${mm.m_num}</td>
+							<td>${mm.m_name}</td>
+							<td>${mm.m_state}</td>
 							<td>
 								<form action="write" method="get">
-									<input type="hidden" name="m_num" value="${mlvo.m_num}">
+									<input type="hidden" name="m_num" value="${mm.m_num}">	
+									<input type="hidden" name="m_name" value="${mm.m_name}">							
 									<button type="submit" id="rbtn">리뷰쓰기</button>
-								</form>
+								</form>							
 							</td>
 						</tr>
 					</c:forEach>

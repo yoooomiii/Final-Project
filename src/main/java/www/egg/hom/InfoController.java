@@ -1,7 +1,9 @@
 package www.egg.hom;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -76,8 +78,8 @@ public class InfoController {
 
 	// 문의 게시판 조회하기
 	@GetMapping("allList")
-	public String allList(InfojoinVO invo, HttpSession session, 
-			Model model, @ModelAttribute PageVO pvo, AskVO askVO) throws Exception {
+	public String allList(InfojoinVO invo, AskVO askVO, HttpSession session, 
+			Model model, @ModelAttribute PageVO pvo) throws Exception {
 
 		if(pvo.getPage()==null) {
 			pvo.setPage(1);
@@ -91,7 +93,7 @@ public class InfoController {
 		List<InfojoinVO> askList = iservice.allList(id);
 
 		model.addAttribute("allListitems", askList);
-		//model.addAttribute("pvo", pvo);
+		model.addAttribute("pvo", pvo);
 
 		//System.out.println(id);
 		//System.out.println(askList);
@@ -103,21 +105,28 @@ public class InfoController {
 
 	// 문의 게시판 전체 목록 조회하기
 	@GetMapping("masterview")
-	public String allListMarter(AskVO avo, 
-			Model model, @ModelAttribute PageVO pvo) throws Exception {
+	public String allListMarter(Model model, @ModelAttribute PageVO pvo, @RequestParam(required = false) Integer a_num) throws Exception {
 
 		if(pvo.getPage()==null) {
 			pvo.setPage(1);
 		}
-		//iservice.getTotalCount();
-		//pvo.setTotalCount(iservice.getTotalCount());
+		pvo.setTotalCount(iservice.getToTalCount());
 
-		List<AskVO> askList = iservice.allListMa();
+		int startRow = (pvo.getPage() -1) * pvo.getPerPageNum();
+		
+		  Map<String, Object> paramMap = new HashMap<>(); 
+		  paramMap.put("a_num", a_num);
+		  paramMap.put("startRow", startRow); 
+		  paramMap.put("perPageNum", pvo.getPerPageNum());
+		 
 
-		model.addAttribute("allListitems", askList);
-		//model.addAttribute("pvo", pvo);
+		List<Map<String, Object>> infoList = iservice.allListMa(paramMap);
+
+		model.addAttribute("allListitems", infoList);
+		model.addAttribute("paramMap", paramMap);
+		model.addAttribute("pvo", pvo);
+		pvo.prt();
 		//System.out.println(id);
-		//System.out.println(askList);
 
 		return "info/infoListMaster";
 	}

@@ -87,6 +87,7 @@ public class MenuDAOImpl implements IF_MenuDAO {
 	@Override
 	public void item_delete(ItemVO ivo) throws Exception {	//장바구니 삭제
 		// TODO Auto-generated method stub
+		System.out.println("dao");
 		sqlSession.delete(mapperQuery+".idelete", ivo);
 	}
 	

@@ -20,14 +20,30 @@
 <body>
 	<div id="Box">
 		<header>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
 			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+				<c:if test="${userid == null }">
+					<a href="join"><span> 회원가입 </span></a>
+				</c:if>
+			</div>
+			<div class="logout box">
+				<c:if test="${userid != null }">
+					<a href="logout"><span> 로그아웃 </span></a>
+				</c:if>
+			</div>
+			<div class="quite box">
+				<c:if test="${userid != null }">
+					<a href="byebye"><span> 회원탈퇴 </span></a>
+				</c:if>
 			</div>
 		</header>
-        
 		<nav>
             <div class="logo">
 				<a href="#"><span><img src="./resources/img/logo1_ size60.png" alt=""></span></a>
@@ -102,16 +118,16 @@
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active" data-bs-interval="1000">
-							<img src="./resources/img/sing01.png" width="1260" , height="150"
+							<img src="./resources/img/화면 캡처 2024-06-27 121409.png" width="1260" , height="150"
 								class="d-block w-100" alt="준비중">
 						</div>
 						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/sing01.png" width="1260" , height="150"
+							<img src="./resources/img/화면 캡처 2024-06-27 121753.png" width="1260" , height="150"
 								class="d-block w-100" alt="준비중">
 						</div>
 						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/sing01.png" width="1260" , height="150" class="d-block w-100"
-								alt="준비중">
+							<img src="./resources/img/화면 캡처 2024-06-27 122740.png" width="1260" , height="150"
+								class="d-block w-100" alt="준비중">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button"
