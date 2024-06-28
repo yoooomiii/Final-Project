@@ -65,16 +65,37 @@ public class InfoServiceImpl implements IF_InfoService {
 	}
 
 	@Override
+	public List<InfojoinVO> infoListAll(Map<String, Object> params) throws Exception {
+		
+		return idao.infoListAll(params);
+	}
+	
+	@Override
 	public int getToTalCount() throws Exception {
 		
 		return idao.getTotalCount();
 	}
 
 	@Override
-	public List<InfojoinVO> infoListAll(PageVO pvo) {
+	public void trigger_complete() throws Exception {
+		idao.trigger_complete();
 		
-		return idao.infoListAll(pvo);
 	}
+
+	@Override
+	public List<InfojoinVO> infojoin() throws Exception {
+		
+		return idao.infojoin();
+	}
+
+	@Override
+	public List<AnswerVO> answerList() throws Exception {
+		
+		return idao.answerList();
+	}
+
+
+	
 
 
 
