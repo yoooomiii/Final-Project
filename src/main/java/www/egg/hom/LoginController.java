@@ -125,21 +125,36 @@ public class LoginController {
 		return "login/goodBye";
 	}
 	
-	@RequestMapping(value = "quiteConfirm", method = RequestMethod.POST) // 로그인비번컨펌 메소드
-	public String quiteConfirm(@RequestParam("id") String id, @RequestParam("pw") String pw) {
-		// System.out.println("quiteConfirm: "+pw);
-		return "redirect:byebye";
+	// ---------------------> 회원 정보 확인  
+	@ResponseBody
+	@RequestMapping(value = "quiteConfirm_now", method = RequestMethod.POST) // 로그인비번컨펌 메소드
+	public String quiteConfirm(HttpServletRequest request, Model model) {
+		int result = 0;
+		String id = request.getParameter("id");
+	    String pw = request.getParameter("pw");
+	    
+	    MemberVO get_mvo = lservice.signIn(id);
+	    if(get_mvo!=null) { // 회원 정보를 찾았으면
+	    	String get_pw = get_mvo.getPw();
+	    	if(get_pw.equals(pw)) { // 입력한 비번과 일치하면...
+	    		result = 1;
+	    		return String.valueOf(result);
+	    	}else { // 일치하지 않으면...
+	    		return String.valueOf(result);
+	    	}
+	    }
+	    return String.valueOf(result);
 	}
 	
 	// ---------------------> 아이디 중복체크 
 	 @ResponseBody
 	 @RequestMapping(value = "checkSignupId", method = RequestMethod.POST)
 	 public String checkSignupId(HttpServletRequest request, Model model) throws Exception {
-	       String id = request.getParameter("id");
+		 String id = request.getParameter("id");
 	       
-	       int rowcount = lservice.userIdChk(id);
+	     int rowcount = lservice.userIdChk(id);
 	        
-	       return String.valueOf(rowcount);
+	     return String.valueOf(rowcount);
 	 }
 
 	

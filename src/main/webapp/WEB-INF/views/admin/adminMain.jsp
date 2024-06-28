@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/main_fixed.css" rel="stylesheet"/>
+<link href="${path}/resources/css/main_fixed.css?after" rel="stylesheet"/>
 <title> 관리자 Home </title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -21,7 +21,9 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
-
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>
@@ -44,7 +46,7 @@
         
 		<nav>
             <div class="logo">
-				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="adminEnter"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
@@ -53,11 +55,6 @@
                     </li>
                     <li>
                         <a href="adminMView"> 회원 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#"> 회원 정보 조회 </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="adminOView"> 주문 관리 </a>
@@ -66,7 +63,7 @@
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="adminDView"> (배달 관리) </a>
+                                <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -91,7 +88,10 @@
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
+                            </li>
+                             <li>
+                                <a href="#"> (필요하면 추가하세요) </a>
                             </li>
                         </ul>
                     </li>
@@ -104,16 +104,16 @@
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active" data-bs-interval="1000">
-							<img src="/Gold.html/img/sing01.png" width="1260" , height="150"
+							<img src="./resources/img/화면 캡처 2024-06-27 121409.png" width="1260" , height="150"
 								class="d-block w-100" alt="준비중">
 						</div>
 						<div class="carousel-item" data-bs-interval="1000">
-							<img src="/Gold.html/img/sing02.png" width="1260" , height="150"
+							<img src="./resources/img/화면 캡처 2024-06-27 121753.png" width="1260" , height="150"
 								class="d-block w-100" alt="준비중">
 						</div>
 						<div class="carousel-item" data-bs-interval="1000">
-							<img src="..." width="1260" , height="150" class="d-block w-100"
-								alt="준비중">
+							<img src="./resources/img/화면 캡처 2024-06-27 122740.png" width="1260" , height="150"
+								class="d-block w-100" alt="준비중">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button"
