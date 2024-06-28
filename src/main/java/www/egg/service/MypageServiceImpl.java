@@ -11,7 +11,7 @@ import www.egg.dao.IF_MypageDAO;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
-import www.egg.vo.PaymentVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.ReviewVO;
 
 @Service
@@ -50,9 +50,9 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	}
 
 	@Override
-	public List<MlistVO> orderlist(String userid) throws Exception {		//주문내역 전체보기
+	public List<MlistVO> orderlist(String userid,PageVO pagevo) throws Exception {		//주문내역 전체보기
 		// TODO Auto-generated method stub
-		return mpdao.orderlist(userid);
+		return mpdao.orderlist(userid, pagevo);
 	}
 
 
@@ -69,9 +69,9 @@ public class MypageServiceImpl implements IF_MypageServiece{
 	}
 
 	@Override
-	public List<FavorVO> picklist(String userid) throws Exception {			//찜 리스트 불러오기
+	public List<FavorVO> picklist(String userid, PageVO pagevo) throws Exception {			//찜 리스트 불러오기
 		// TODO Auto-generated method stub
-		return mpdao.picklist(userid);
+		return mpdao.picklist(userid, pagevo);
 	}
 
 	@Override
@@ -80,29 +80,17 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		mpdao.pickdelete(f_no);
 	}
 
+	@Override
+	public int getTotalCount(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.getTotalCount(userid);
+	}
 
-
-
-
-
-	
-//	@Override
-//	public boolean deletePick(List<String> pickIds) throws Exception {
-//        return mpdao.deletePick(pickIds);
-//    }
-
-
-
-	
-	
-
-	
-
-
-
-
-
-
-
+	@Override
+	public int getTotalCountPick(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.getTotalCountPick(userid);
+	}
 
 }
+

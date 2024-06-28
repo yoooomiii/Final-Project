@@ -62,46 +62,51 @@ hr {
 #reviewcard {
 	float: left;
 	width: 900px;
-	height: 250px;
+	height: 200px;
 	margin-top: 20px;
-	margin-left: 150px;
-	border: 4px solid skyblue;
+	margin-left: 190px;
+	border: 4px solid  rgb(162, 220, 243);
 	border-radius: 30px;
 	font-family: 'SUITE-Regular', sans-serif;
 }
 
 #photo {
 	float: left;
-	width: 350px;
-	height: 230px;
+	width: 330px;
+	height: auto;
 	margin-left: 22px;
-	margin-top: 10px;
-	/*  border: 1px solid blue;  */
+	margin-top: -12px;
+	  /*  border: 1px solid blue;    */
 }
 
 #content {
 	float: left;
 	width: 480px;
-	height: 230px;
+	height: 190px;
 	margin-left: 35px;
-	margin-top: 10px;
 	font-size: x-large;
 	font-weight: normal;
 	font-family: 'SUITE-Regular', sans-serif;
 
-	/*  border: 1px solid red;  */
+	 /*  border: 1px solid red;   */
 }
 
 .image-container {
-	display: flex;
-	gap: 30px; /* 이미지 간의 간격 설정 */
-	justify-content: center; /* 이미지를 가운데 정렬 */
-	align-items: center; /* 이미지가 가운데 정렬되도록 설정 */
+
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	border-radius: 8px; 
+	display: inline-block;
+	margin-left:10px;
+	margin-top:30px;
 }
 
 .image-container img {
-	height: 200px; /* 원하는 높이로 설정 */
-	width: auto;
+    
+	height: 150px; /* 원하는 높이로 설정 */
+	width: 150px;
+	object-fit: cover;
 }
 
 #num {
@@ -110,8 +115,9 @@ hr {
 	height: 30px;
 	font-size: 22px;
 	margin-top:5px;
+	color : rgb(4, 178, 247);
 	font-family: 'SUITE-Regular', sans-serif;
-	/* border: 1px solid black;  */
+	/*  border: 1px solid black;   */
 }
 
 #star {
@@ -120,27 +126,29 @@ hr {
 	height: 40px;
 	font-size: 22px;
 	margin-left: 130px;
-	/*  border: 1px solid black; */
+	 /*  border: 1px solid black;  */
 }
 
 #menuname {
 	float: left;
-	width: 300px;
+	width: 500px;
 	height: 40px;
-	margin-top: 15px;
+	margin-top: 5px;
 	font-size: 24px;
+	font-weight :bold;
 	font-family: 'SUITE-Regular', sans-serif;
-/* 	 border: 1px solid black;  */
+	 /* border: 1px solid black;    */
 }
 
 #review {
 	float: left;
 	width: 480px;
-	height: 120px;
-	font-size: 24px;
-	margin-top: 15px;
+	height: 100px;
+	font-size: 22px;
+	font-weight :bold;
+	color:grey;
 	font-family: 'SUITE-Regular', sans-serif;
-	/*  border: 1px solid black;  */
+	 /*  border: 1px solid black;   */
 }
 
 .star-rating {
@@ -209,21 +217,23 @@ hr {
 	<br>
 	<br>
 	<br>
-	<h2>${username}님의 리뷰</h2>
+	<h2>${username}님의리뷰</h2>
+	<br>
+	<br>
 	<c:forEach items="${review}" var="review">
-	
+
 		<div id="reviewcard">
 			<div id="photo">
-				<div class="image-container">
-					<c:forEach items="${photolist}" var="photo">
-						<c:if
-							test="${review.re_num == photo.re_num && not empty photo.filename}">
+				<c:forEach items="${photolist}" var="photo">
+					<c:if
+						test="${review.re_num == photo.re_num && not empty photo.filename}">
+						<div class="image-container">
 							<img
 								src="${pageContext.request.contextPath}/downloads?filename=${photo.filename}"
-								alt="Review Photo" width="200" height="200">
-						</c:if>
-					</c:forEach>
-				</div>
+								alt="Review Photo">
+						</div>
+					</c:if>
+				</c:forEach>
 			</div>
 			<div id="content">
 				<div id="num">${review.re_num}번</div>
@@ -238,14 +248,14 @@ hr {
 				<div id="menuname">
 					<c:forEach items="${mmm}" var="mmm">
 						<c:if test="${mmm.m_num == review.re_no}">
-							${mmm.m_name}
+							<${mmm.m_name}>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div id="review">${review.re_ex}</div>
 			</div>
 		</div>
-		
+
 	</c:forEach>
 
 

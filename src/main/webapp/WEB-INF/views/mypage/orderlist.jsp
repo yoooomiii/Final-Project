@@ -51,10 +51,10 @@
 #box {
 	float: left;
 	width: 1000px;
-	height: 800px;
+	height: 1040px;
 	margin-left: 135px;
 	margin-top: 40px;
-	border: 7px solid rgb(249, 245, 194);
+	border: 7px solid  rgb(240, 240, 95);
 	border-radius: 50px;
 }
 
@@ -73,7 +73,6 @@ table {
 	width: 985px;
 	font-size: 16px;
 	text-align: center;
-	 
 }
 
 thead {
@@ -86,13 +85,11 @@ thead {
 tbody {
 	font-size: 15px;
 	font-family: 'SUITE-Regular', sans-serif;
-	
 }
 
 td {
 	padding: 15px 0px;
 	border-bottom: 2px solid rgb(197, 194, 194);
-	
 }
 
 #rbtn {
@@ -119,6 +116,24 @@ td {
 #rbtn:active {
 	background-color: #3e8e41;
 	transform: scale(1);
+}
+
+.page-container {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.page-container a {
+	margin: 0 5px;
+	text-decoration: none;
+	font-size: 20px; font-family : 'SUITE-Regular', sans-serif;
+	color: black;
+	font-family: 'SUITE-Regular', sans-serif;
+}
+
+.page-container a.current {
+	font-weight: bold;
+	text-decoration: underline;
 }
 </style>
 <body>
@@ -166,12 +181,13 @@ td {
 			</ul>
 		</div>
 	</nav>
-
+	<br>
+	<br>
+	<br>
 	<div id="box">
 		<br>
-		<h2>${username}님의 주문내역</h2>
-		<br>
-		<br>
+		<h2>${username}님의주문내역</h2>
+		<br> <br>
 		<div id="orderlist" class="content">
 			<table class='order__list'>
 				<thead>
@@ -192,21 +208,36 @@ td {
 							<td>${mm.m_state}</td>
 							<td>
 								<form action="write" method="get">
-									<input type="hidden" name="m_num" value="${mm.m_num}">	
-									<input type="hidden" name="m_name" value="${mm.m_name}">							
+									<input type="hidden" name="m_num" value="${mm.m_num}">
+									<input type="hidden" name="m_name" value="${mm.m_name}">
 									<button type="submit" id="rbtn">리뷰쓰기</button>
-								</form>							
+								</form>
 							</td>
 						</tr>
 					</c:forEach>
-
-
 				</tbody>
+
 			</table>
+			<div class="page-container">
+				<tr>
+					<td colspan=4 align=center><c:if test="${pagevo.prev }">
+							<a href="mylist?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+						</c:if> <c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+							var="idx">
+							<a href="mylist?page=${idx}"> <c:if
+									test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+									test="${idx == pagevo.page }">]</c:if>
+							</a>
+						</c:forEach> <c:if test="${pagevo.next }">
+							<a href="mylist?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+						</c:if></td>
+				</tr>
+			</div>
+			<br>
+			<br>
+			 <br>
 		</div>
-
 	</div>
-
 
 </body>
 </html>
