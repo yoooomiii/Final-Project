@@ -135,7 +135,7 @@
 								<tr>
 									<td>
 										<input type="checkbox" name="rowchk" id="checkbox" value="${infovo.askVO.a_num}"></td>
-									<td><a href="detailViewMa?a_num=${infovo.askVO.a_num}">"${infovo.askVO.a_num}"</a></td>
+									<td><a href="detailViewMa?a_num=${infovo.askVO.a_num}">${infovo.askVO.a_num}</a></td>
 									<td>${infovo.askVO.a_id}</td>
 									<td>${infovo.askVO.a_title}</td>
 									<td>${infovo.askVO.a_checkVal}</td>
