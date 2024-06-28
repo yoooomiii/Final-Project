@@ -9,9 +9,16 @@
     <title>bye...</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
+    	var usCheckT = 0;
+    
+    	// 탈퇴 컨펌 함수 
 		function call_confirm(){
+    		if(usCheckT==0){
+    			alert("회원정보 확인을 먼저 진행해 주세요.");
+    			return false;
+    		}
 			
-			if(confirm("제출하시겠습니까?")){
+			if(confirm("정말 탈퇴하시겠습니까?")){
 				alert("정상적으로 제출되었습니다.");
 				return true;
 			}else{
@@ -20,6 +27,42 @@
 			}
 			
 		}
+		
+		 // 아이디 중복체크 함수
+		 $(document).ready(function(){
+	          $('#btn_uscheck').on('click', function(){
+	        	  if($("#id").val()==""){ // 공백이면 그냥 종료해라... 
+	        		  alert('아이디가 입력되지 않았습니다!')
+	        		  return false;
+	        	  }
+	        	  
+	              $.ajax({
+	                  type: 'POST',
+	                  url: 'quiteConfirm_now', // url 콘트롤러 요청
+	                  data: {
+	                      "id" : $('#id').val(),
+	                      "pw" : $('#pw').val()// json 데이터로 보내겠다.
+	                  },
+	                  
+	                  // ------------------------->
+	                  
+	                  success: function(data){
+	                      if($.trim(data) == 1){
+	                    	 // alert("회원 정보가 확인되었습니다.")
+	                    	 usCheckT = 1;
+	                    	 $('#uschkpan').html('<p style="color:blue">회원 정보가 확인되었습니다.</p>');
+	                      }
+	                      else{
+	                         // alert("경고: 회원 정보가 존재하지 않습니다.")
+	                    	  $('#uschkpan').html('<p style="color:red">경고: 회원 정보가 존재하지 않습니다.</p>');
+	                      }
+	                  },	// end success 
+	                  error: function(){
+	                	  alert("there's something wrong...")
+	                  }
+	              });    //end ajax    
+	          });    //end on    
+	      });
 	</script>
     
 	<link href="${path}./resources/css/sign.css" rel="stylesheet"/>
@@ -35,14 +78,13 @@
             <h5>
             	그동안 골든에그를 사랑해 주셔서 감사했습니다.
             </h5>
-            <form action="quiteConfirm" method="post">
-            	ID 입력: <input type="text" name="id"> 
-            	PW 입력: <input type="text" name="pw"> 
-            	<button type="submit">제출</button>
-            </form>
             <form action="quiteAccount" method="post" onsubmit="return call_confirm()" id="quiteFrm">
+            	ID 입력: <input type="text" name="id" id="id"> 
+            	PW 입력: <input type="text" name="pw" id ="pw"> 
+            	<input type="button" id="btn_uscheck" value="회원정보 확인">
+            	<div style="color:orange" id="uschkpan">(wait... 아직 제출하지 않았습니다.)</div>
               <div id="form-controls">
-			  	<input type="hidden" name="id" value=${userid }>
+			  	<!-- <input type="hidden" name="id" value=${userid }> -->
                 <button type="submit" id="toggleSignIn">회원탈퇴</button>
               </div>
             </form>

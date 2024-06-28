@@ -368,6 +368,10 @@ td {
 		</table>	
 		<br>
 					<div id ="paging">
+						<c:if test="${not_data !=null }">
+							<div>${not_data }</div>
+						</c:if>
+						<br>
 						<c:if test="${m_state != null}">
 								<div>검색조건 | 주문번호: ${sword } 주문상태: ${m_state} </div>
 							<div>

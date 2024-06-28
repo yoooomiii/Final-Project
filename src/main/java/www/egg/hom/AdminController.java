@@ -97,10 +97,6 @@ public class AdminController {
 			pagevo.setTotalCount(lservice.getTotalCount(mvo));
 		}
 		
-		if(mlist.size()==0) {
-			model.addAttribute("not_data", "(결과가 없습니다.)");
-		}
-		
 		System.out.println("멤버토탈튜플갯수 after: "+pagevo.getTotalCount());
 		System.out.println("홈컨 mlist길이: "+mlist.size());
 		model.addAttribute("pagevo", pagevo);
@@ -277,11 +273,12 @@ public class AdminController {
 		
 		// System.out.println("pagevo after: "+pagevo.toString());
 		// finally...
-		for(int i =0; i<olist.size(); ++i) {
-			System.out.println("주문내역 촤락: "+olist.get(i));
+		if(olist!=null) {
+			for(int i =0; i<olist.size(); ++i) {
+				System.out.println("주문내역 촤락: "+olist.get(i));
+			}
 		}
-		System.out.println("주문내역(olist) 크기: "+olist.size());
-		
+			
 		model.addAttribute("orders", olist); // 주문내역vo 제출
 		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
 		// model.addAttribute("ordervo", ovo); // 클라가 주문내역 검색요청했던 정보 제출
@@ -339,10 +336,6 @@ public class AdminController {
 		System.out.println("배달토탈튜플갯수 after: "+pagevo.getTotalCount());
 		// finally...
 		pagevo.prt();
-		
-		if(dlist.size()==0) {
-			model.addAttribute("not_data", "(결과가 없습니다.)");
-		}
 		
 		model.addAttribute("deliverys", dlist); // 배달내역vo 제출
 		model.addAttribute("pagevo", pagevo); // 페이지vo 제출
