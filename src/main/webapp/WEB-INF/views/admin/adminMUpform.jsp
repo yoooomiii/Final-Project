@@ -202,6 +202,9 @@ td {
 	box-shadow : 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>

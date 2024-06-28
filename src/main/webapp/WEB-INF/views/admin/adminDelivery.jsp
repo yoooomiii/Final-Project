@@ -227,6 +227,9 @@ td {
 #paging{
 	text-align: center;
 }
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>
