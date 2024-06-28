@@ -228,6 +228,9 @@ td {
 	height: 50px;
 	margin-left: 1100px;
 }
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>
@@ -280,8 +283,8 @@ td {
 
 		<div id="span">
 			<div id="surchpan">
-				<h2>${username}회원 주문상태 관리 페이지입니다.</h2>
-				<form action="adminOSearch" method="get" name=form>
+				<h2>메뉴 관리 페이지입니다.</h2>
+				<form action="검색url" method="get" name=form>
 
 
 					<label for="m_state">주문상태</label> <select name="m_state" id="loc">
@@ -312,7 +315,7 @@ td {
 			<br>
 			<table border=1 id="otable">
 				<thead>
-					<tr style="background-color: gray">
+					<tr style="background-color: gray" style="font-size: 15px">
 						<td>메뉴 코드</td>
 						<td>메뉴 번호</td>
 						<td>메뉴 이름</td>
@@ -326,7 +329,7 @@ td {
 				</thead>
 				<tbody>
 					<c:forEach items="${menuList}" var="menuvo">
-						<tr>
+						<tr style="font-size: 15px">
 							<form action="menu_update" method="get">
 								<td>${menuvo.menu_code}</td>
 								<td>${menuvo.menu_no}</td>

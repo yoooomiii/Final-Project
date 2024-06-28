@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.PaymentVO;
 import www.egg.vo.ReviewVO;
 
@@ -37,9 +38,27 @@ public class MypageDAOImpl implements IF_MypageDAO {
 	}
 
 	@Override
-	public List<MlistVO> orderlist(String userid) throws Exception {	//주문내역 불러오기
+	public List<MlistVO> orderlist(String userid, PageVO pagevo) throws Exception {	//주문내역 불러오기
 		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery + ".orderlist", userid);
+		if(pagevo == null) {
+			return sqlsession.selectList(mapperQuery + ".orderall", userid );
+		} else {
+			Map<String, Object> paramMap = new HashMap<>();
+			paramMap.put("userid", userid);
+			paramMap.put("startNo", pagevo.getStartNo()-1);
+			paramMap.put("perPageNum", pagevo.getPerPageNum());
+			return sqlsession.selectList(mapperQuery + ".orderlist",paramMap);
+		}
+	}
+	
+	@Override
+	public List<FavorVO> picklist(String userid, PageVO pagevo) throws Exception {			//찜 리스트 불러오기
+		// TODO Auto-generated method stub
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("userid", userid);
+		paramMap.put("startNo", pagevo.getStartNo()-1);
+		paramMap.put("perPageNum", pagevo.getPerPageNum());
+		return sqlsession.selectList(mapperQuery+".picklist", paramMap);
 	}
 
 	@Override
@@ -76,17 +95,7 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.insert(mapperQuery +".pickinsert", fvo);
 	}
 
-	@Override
-	public List<FavorVO> picklist(String userid) throws Exception {			//찜 리스트 불러오기
-		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery+".picklist", userid);
-	}
-
-	@Override
-	public List<PaymentVO> testlist(String userid) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlsession.selectList(mapperQuery +".testlist", userid);
-	}
+	
 
 	@Override
 	public void pickdelete(String f_no) throws Exception {
@@ -94,20 +103,32 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		sqlsession.delete(mapperQuery +".pickdelete", f_no);
 	}
 
+	@Override
+	public int getTotalCount(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(mapperQuery+".getTotalCount", userid);
+	}
 
-//	@Override
-//	public boolean deletePick(List<String> pickIds) {
-//		try {
-//			String sql = "DELETE FROM orders WHERE id = ?";
-//			for (String pickId : pickIds) {
-//				jdbcTemplate.update(sql, pickId);
-//			}
-//			return true;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return false;
-//		}
-//	}
+	@Override
+	public int getTotalCountPick(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(mapperQuery+ ".getTotalCountPick", userid);
+	}
+
+
+	//	@Override
+	//	public boolean deletePick(List<String> pickIds) {
+	//		try {
+	//			String sql = "DELETE FROM orders WHERE id = ?";
+	//			for (String pickId : pickIds) {
+	//				jdbcTemplate.update(sql, pickId);
+	//			}
+	//			return true;
+	//		} catch (Exception e) {
+	//			e.printStackTrace();
+	//			return false;
+	//		}
+	//	}
 }
 
 
