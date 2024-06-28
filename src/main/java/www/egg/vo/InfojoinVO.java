@@ -19,12 +19,5 @@ public class InfojoinVO {
 	public void setAnswerVO(AnswerVO answerVO) {
 		this.answerVO = answerVO;
 	}
-	
-	public void setA_id(String a_id) { 
-		if (this.askVO == null) { 
-			this.askVO = new AskVO(); 
-		} 
-		this.askVO.setA_id(a_id); 
-	}
 	 
 }

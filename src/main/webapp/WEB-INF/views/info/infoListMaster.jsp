@@ -21,6 +21,28 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
+	.info_form .title {
+		font-family: 'Cafe24Ssurround';
+		border: 2px soild;
+		font-size: 50px;
+		margin-top: 20px;
+	}
+	
+	.btn-td input[type=button] {
+		width: 50px;
+		height: 35px;
+		border: 3px solid rgb(180, 180, 180);
+		border-radius: 5px;
+		font-weight: bold;
+		background-color: white;
+		padding: 5px;
+	}
+	
+	.rebtn input[type=button] {
+		width: 80px;
+	}
+	
+	
 </style>
 
 <body>
@@ -70,9 +92,8 @@
 		<section>
 			<div class="info_form">
 				<div class="title">
-					<h1>고객센터 문의 게시판</h1>
-					<hr
-						style="height: 5px; background-color: rgb(25, 0, 0); border-radius: 2px;">
+					<span>고객센터 문의 게시판</span>
+					<hr style="height: 5px; background-color: rgb(25, 0, 0); border-radius: 2px;">
 				</div>
 				<div class="search-box">
 					<form action="search-action" method="get" name="search-form">
@@ -86,7 +107,7 @@
 						<input type="radio" id="option3" name="optionname" value="2"> 
 						<label for="option"> 처리여부 </label> 
 						&nbsp; 
-						<input type="text" size="20" name="keyword-text">
+						<input type="text" size="20" name="keyword-text" >
 						<input id=search-save type="submit" value="검색" name="searchS">
 					</form>
 				</div>
@@ -114,9 +135,7 @@
 								<tr>
 									<td>
 										<input type="checkbox" name="rowchk" id="checkbox" value="${infovo.askVO.a_num}"></td>
-									<td>
-										<a href="detailViewMa?a_num=${infovo.askVO.a_num}">${infovo.askVO.a_num}</a>
-									</td>
+									<td><a href="detailViewMa?a_num=${infovo.askVO.a_num}">"${infovo.askVO.a_num}"</a></td>
 									<td>${infovo.askVO.a_id}</td>
 									<td>${infovo.askVO.a_title}</td>
 									<td>${infovo.askVO.a_checkVal}</td>
@@ -129,7 +148,7 @@
 										</div>
 									</td>
 									<td>
-										<div class="btn-td">
+										<div class="btn-td rebtn">
 											<input type="button" name="rebtn" value="답변하기"
 												onclick="location.href='replyPage?a_num=${infovo.askVO.a_num}'">
 										</div>

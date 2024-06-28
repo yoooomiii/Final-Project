@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import www.egg.service.IF_InfoService;
 import www.egg.vo.AnswerVO;
@@ -58,7 +59,7 @@ public class InfoController {
 		String userid = (String) session.getAttribute("userid");
 		avo.setA_id(userid);
 		iservice.insert(avo);
-		//System.out.println(avo.toString());
+		System.out.println(avo.toString());
 
 		return "redirect:allList";
 	}
@@ -76,13 +77,7 @@ public class InfoController {
 	// 문의 게시판 조회하기
 	@GetMapping("allList")
 	public String allList(InfojoinVO invo, AskVO askVO, HttpSession session, 
-			Model model, @ModelAttribute PageVO pvo) throws Exception {
-
-		if(pvo.getPage()==null) {
-			pvo.setPage(1);
-		}
-		//iservice.getTotalCount();
-		//pvo.setTotalCount(iservice.getTotalCount());
+			Model model) throws Exception {
 
 		String id = (String) session.getAttribute("userid");
 		askVO.setA_id(id);
@@ -90,10 +85,6 @@ public class InfoController {
 		List<InfojoinVO> askList = iservice.allList(id);
 
 		model.addAttribute("allListitems", askList);
-		model.addAttribute("pvo", pvo);
-
-		//System.out.println(id);
-		//System.out.println(askList);
 
 		return "info/infoList";
 	}
@@ -109,22 +100,33 @@ public class InfoController {
 
 	// 문의 게시판 전체 목록 조회하기
 	@GetMapping("masterview")
-	public String allListMarter(Model model, @ModelAttribute PageVO pvo, @RequestParam(required = false) Integer a_num) throws Exception {
+	public String allListMarter(Model model, @ModelAttribute PageVO pvo) throws Exception {
 
 		if(pvo.getPage()==null) {
 			pvo.setPage(1);
 		}
 		pvo.setTotalCount(iservice.getToTalCount());
 		
-		List<InfojoinVO> infoList = iservice.infoListAll(pvo);
+		int startNo = (pvo.getPage()- 1) * pvo.getPerPageNum() + 1;
+		int endNo = pvo.getPerPageNum();
+		
+		
+		Map<String, Object> params = new HashMap<>();
+		params.put("startNo", startNo);
+		params.put("endNo", endNo);
+		
+		List<InfojoinVO> infoList = iservice.infoListAll(params);
 		
 		model.addAttribute("allListitems", infoList);
 		model.addAttribute("pvo", pvo);
 		pvo.prt();
+		
+		System.out.println(infoList.size());
 
 		return "info/infoListMaster";
 	}
 
+	// 문의 글 상세 보기
 	@GetMapping("detailViewMa")
 	public String detailViewMa(@RequestParam("a_num") Integer a_num, Model model) throws Exception {
 
@@ -166,7 +168,40 @@ public class InfoController {
 		return "redirect:masterview";
 	}
 	
+	// 답변 등록 리스트
+	@GetMapping("answerList")
+	public String answerList(AnswerVO anvo,	Model model) throws Exception {
+
+		List<AnswerVO> answerList = iservice.answerList();
+
+		model.addAttribute("allListitems", answerList);
+
+		return "info/answerList";
+	}
 	
+	// 답변 등록 처리하기 (trigger)
+	@PostMapping("complete")
+	@ResponseBody
+	public String complete_answer() throws Exception {
+		
+		iservice.trigger_complete();
+		
+		return "redirect:infoList";
+	}
+	
+	// join table 확인용
+	@GetMapping("jointable")
+	public String join(Model model) throws Exception {
+		
+		List<InfojoinVO> joinList = iservice.infojoin();
+
+		model.addAttribute("allListitems", joinList);
+		
+		System.out.println(joinList.size());
+		
+		return "info/join";
+	}
+
 }
 
 

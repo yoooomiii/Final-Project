@@ -215,7 +215,7 @@ nav {
         padding: 5px;
     }
 
-    .search-box #search-save {
+    .search-box input[name=search-save] {
         width: 50px;
         border: 3px solid rgb(180, 180, 180);
         border-radius: 3px;
@@ -224,7 +224,7 @@ nav {
         z-index: -1;
     }
     
-    .search-box #search-save:hover {
+    .search-box input[name=search-save]:hover {
         box-shadow: 1px 0px 1px black, 0px 1px 1px black;
         text-shadow: 1px 0px 1px black;
     }
@@ -234,6 +234,13 @@ nav {
         width: 100%;
         height: auto;
         text-align: center;
+    }
+
+    .title {
+    	font-family: 'Cafe24Ssurround';
+    	border : 2px soild;
+    	font-size: 30px;
+        margin-top: 10px;
     }
     
     .info_form .del_btn {
@@ -303,7 +310,7 @@ nav {
     }
 
     input [name="rebtn"] {
-        width: 80px;
+        width: 100px;
     }
 
     #mbtn{
