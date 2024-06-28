@@ -107,12 +107,9 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		PageVO pvo = (PageVO) spage.get("pagevo");
 		
 		String m_num = ovo.getM_num()+"";
-		//Integer m_num = ovo.getM_num();
-		//System.out.println("dao단 m_num: "+m_num);
 		String m_state = ovo.getM_state();
 		
-		System.out.println("ovo번호 가져오라고 dao야: "+m_num);
-		System.out.println("ovo상태 가져오라고 dao야: "+m_state);
+		System.out.println("어드민dao ovo: "+ovo.toString());
 		System.out.println("startno 가져오라고 dao야: "+pvo.getStartNo());
 		if(m_state==null||m_state.equals("")) {
 			System.out.println("dao단의 넘버찾기 발동");
@@ -165,12 +162,21 @@ public class AdminDAOImpl implements IF_AdminDAO{
 				DeliveryVO dvo = (DeliveryVO) spage.get("deliveryvo");
 				
 				//String m_num = ovo.getM_num()+"";
+				Integer d_num = dvo.getD_num();
 				String d_check = dvo.getD_check();
-				if(d_check==null||d_check.equals("")) {
+				if(d_num!=null) {
+					return sqlSession.selectList(mapperQuery+".selectdeliveryrider_p", spage);
+				}else if(d_check!=null) {
+					return sqlSession.selectList(mapperQuery+".selectdeliverysearch_p", spage);
+				}else {
+					return sqlSession.selectList(mapperQuery+".selectdeliverynum_p", spage);
+				}
+				
+				/*if(d_check==null||d_check.equals("")) {
 					return sqlSession.selectList(mapperQuery+".selectdeliverynum_p", spage);
 				}else {
 					return sqlSession.selectList(mapperQuery+".selectdeliverysearch_p", spage);
-				}
+				}*/
 	}
 
 	@Override

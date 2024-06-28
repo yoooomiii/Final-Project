@@ -227,6 +227,9 @@ td {
 	box-shadow : 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>
@@ -270,7 +273,7 @@ td {
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                 <a href="adminDView"> (배달 관리) </a>
+                                 <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -295,7 +298,7 @@ td {
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href=menu_input> (상품 등록) </a>
+                                <a href=menu_input> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>
@@ -316,6 +319,7 @@ td {
 					  		<option value="주문취소">주문취소</option>
 					  		<option value="결제완료">결제완료</option>
 					  		<option value="환불처리">환불처리</option>
+					  		<option value="수령완료">수령완료</option>
 					  </select>
 					  
 					  
@@ -357,7 +361,7 @@ td {
 						<td>${mlist2vo.m_num}</td>
 						<td><a href="adminODetail?m_num=${mlist2vo.m_num }">${mlist2vo.m_state}</a></td>
 						<td>${mlist2vo.m_id}</td>
-						<td>수령방법</td>
+						<td style="color: gray">(수령방법)</td>
 						<td><a href="adminOUpform?m_num=${mlist2vo.m_num }"><input type="button" value="수정하기" id="mbtn"></a></td>
 						<td><a href="adminODelivery?m_num=${mlist2vo.m_num }"><input type="button" value="배달정보" id="mbtn"></a></td>
 						<td><input type="checkbox" id="chk" name="chkid" value=${mlist2vo.m_num }></td>
@@ -367,9 +371,13 @@ td {
 		</table>	
 		<br>
 					<div id ="paging">
+						<c:if test="${not_data !=null }">
+							<div>${not_data }</div>
+						</c:if>
+						<br>
 						<c:if test="${m_state != null}">
+								<div>검색조건 | 주문번호: ${sword } 주문상태: ${m_state} </div>
 							<div>
-								<h5>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </h5>
 								검색결과 목록:
 									<c:if test="${pagevo.prev }">
 										<a href="adminOSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>

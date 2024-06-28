@@ -47,3 +47,40 @@
 					
 					
 					letContext resource [/WEB-INF/spring/root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\src\spring\common\apache-tomcat-8.5.97-windows-x64\apache-tomcat-8.5.97\wtpwebapps\Golden_EGG\WEB-INF\classes\mapper\AdminMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 78; columnNumber: 10; 요소 유형 "mapper"의 콘텐츠는 "(cache-ref|cache|resultMap*|parameterMap*|sql*|insert*|update*|delete*|select*)+"과(와) 일치해야 합니다.
+					
+					
+					
+					
+					-----
+					
+					
+					
+					function checkForm(){ // 전체체크함수 시작
+        // var check = nullChek();
+        // var lengcheck = lengthChek();
+        // var valicheck = valiCheck($('#pw').val());
+        
+        
+        if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면...
+        	alert("ID 중복체크가 완료되지 않았습니다.");
+        	return false;
+        }else{
+	        if(nullChek()==true){
+	        	if(lengthChek()==true){
+	        		if(valiCheck($('#pw').val())==true){
+	        			return true;
+	        		}else{
+	        			alert('PW 조건을 확인해 주세요.');
+		        		return false;
+	        		}
+	        	}else{
+	        	    alert('길이를 확인해 주세요.');
+	        		return false;
+	        	}
+	        }else{
+	        	alert('공백을 확인해 주세요.');
+	        	return false;
+	        }
+        }
+        
+      } // 전체체크함수 끝      * God1!
