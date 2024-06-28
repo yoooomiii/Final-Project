@@ -416,9 +416,13 @@ td {
 		</table>
 		<br>
 					<div id ="paging">
+						<c:if test="${not_data !=null }">
+							<div>${not_data }</div>
+						</c:if>
+						<br>
 						<c:if test="${sword != null}">
+								<div>검색조건 | 회원ID: ${sword } 지역: ${city} ${county }</div>
 							<div>
-								<h5>(숨길 열입니다.) 회원ID(sword): ${sword } 시티: ${city} 주: ${county }</h5>
 								검색결과 목록:
 									<c:if test="${pagevo.prev }">
 										<a href="adminMSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>

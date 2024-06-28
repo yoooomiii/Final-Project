@@ -316,6 +316,7 @@ td {
 					  		<option value="주문취소">주문취소</option>
 					  		<option value="결제완료">결제완료</option>
 					  		<option value="환불처리">환불처리</option>
+					  		<option value="수령완료">수령완료</option>
 					  </select>
 					  
 					  
@@ -368,8 +369,8 @@ td {
 		<br>
 					<div id ="paging">
 						<c:if test="${m_state != null}">
+								<div>검색조건 | 주문번호: ${sword } 주문상태: ${m_state} </div>
 							<div>
-								<h5>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </h5>
 								검색결과 목록:
 									<c:if test="${pagevo.prev }">
 										<a href="adminOSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>

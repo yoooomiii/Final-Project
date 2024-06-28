@@ -368,9 +368,13 @@ td {
 		</table>
 		<br>
 		<div id ="paging">
-						<c:if test="${m_state != null}">
+						<c:if test="${not_data !=null }">
+							<div>${not_data }</div>
+						</c:if>
+						<br>
+						<c:if test="${d_check != null}">
+								<div>검색조건 | 주문번호: ${d_no } 주문상태: ${d_check} </div>
 							<div>
-								<h5>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </h5>
 								검색결과 목록:
 									<c:if test="${pagevo.prev }">
 										<a href="adminDSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>

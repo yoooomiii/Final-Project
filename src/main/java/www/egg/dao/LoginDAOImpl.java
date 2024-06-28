@@ -90,8 +90,8 @@ public class LoginDAOImpl implements IF_LoginDAO{
 				MemberVO mvo = (MemberVO) spage.get("membervo");
 				String id = mvo.getId();
 				
-				System.out.println("mvo아이디 가져오라고 dao야: "+mvo.getId());
-				System.out.println("startno 가져오라고 dao야: "+pvo.getStartNo());
+				System.out.println("로그인dao mvo: "+mvo.toString());
+				//System.out.println("startno 가져오라고 dao야: "+pvo.getStartNo());
 
 				if(id==null||id.equals("")) {
 					System.out.println("dao단의 검색찾기 발동");

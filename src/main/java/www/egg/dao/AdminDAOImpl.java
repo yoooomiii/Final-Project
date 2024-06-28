@@ -107,12 +107,9 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		PageVO pvo = (PageVO) spage.get("pagevo");
 		
 		String m_num = ovo.getM_num()+"";
-		//Integer m_num = ovo.getM_num();
-		//System.out.println("dao단 m_num: "+m_num);
 		String m_state = ovo.getM_state();
 		
-		System.out.println("ovo번호 가져오라고 dao야: "+m_num);
-		System.out.println("ovo상태 가져오라고 dao야: "+m_state);
+		System.out.println("어드민dao ovo: "+ovo.toString());
 		System.out.println("startno 가져오라고 dao야: "+pvo.getStartNo());
 		if(m_state==null||m_state.equals("")) {
 			System.out.println("dao단의 넘버찾기 발동");
