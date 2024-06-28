@@ -106,6 +106,12 @@
 	margin-left: 150px;
 	margin-top: 20px;
 }
+.iconimg:hover {
+	transform: scale(1.05);
+}
+.iconimg:active {
+	transform: scale(1);
+}
 
 footer {
 	float: left;
@@ -160,7 +166,7 @@ td {
 }
 
 #mod-button {
-	background-color: skyblue;
+	background-color:  #b3c5fd;
 	color: black;
 	border: none;
 	border-radius: 15px;
@@ -172,11 +178,12 @@ td {
 }
 
 #mod-button:hover {
-	background-color: skyblue;
+	background-color:  #b3c5fd;
+	transform: scale(1.05);
 }
 
 #mod-button:active {
-	transform: scale(0.95);
+	transform: scale(1);
 }
 </style>
 
@@ -226,7 +233,9 @@ td {
 				</ul>
 			</div>
 		</nav>
-
+		<br>
+		<br>
+		<br>
 		<div id="line">
 			<div id="mypage">
 				<span class="username" id="name">${username}</span>  님의 마이페이지입니다
@@ -278,16 +287,9 @@ td {
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
+		<br>
+		<br>
+		<br>
 
 		<footer>
 			<div class="footer-box">
