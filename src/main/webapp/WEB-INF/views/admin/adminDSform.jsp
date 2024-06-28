@@ -217,7 +217,7 @@ td {
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="adminDView"> (배달 관리) </a>
+                                <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -242,7 +242,7 @@ td {
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>

@@ -251,7 +251,7 @@ body{
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                 <a href="adminDView"> (배달 관리) </a>
+                                 <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -276,7 +276,7 @@ body{
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>
@@ -287,8 +287,9 @@ body{
 		<div id="span">
 			<div id="surchpan">
 				<h2>주문 관리 페이지입니다.</h2>
-				<form action="adminMSearch" method="get">
-				  
+				<form action="adminOSearch" method="get" name=form>
+				
+					  
 					   <label for="m_state">주문상태</label>
 					  <select name="m_state" id="loc" >
 					  		<option value="">(선택안함)</option>
@@ -296,6 +297,7 @@ body{
 					  		<option value="주문취소">주문취소</option>
 					  		<option value="결제완료">결제완료</option>
 					  		<option value="환불처리">환불처리</option>
+					  		<option value="수령완료">수령완료</option>
 					  </select>
 					  
 					  

@@ -271,7 +271,7 @@ body{
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                  <a href="adminDView"> (배달 관리) </a>
+                                  <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -296,7 +296,7 @@ body{
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>
@@ -334,10 +334,12 @@ body{
 					  		<option value="">전체</option>
 					  </select>
 					  
+					  <!-- 
 						  <label for="option1">일반</label>
 					    <input type="radio" id="option1" name="master" value="0">
 						  <label for="option2">관리자</label>
 						  <input type="radio" id="option2" name="master" value="1">
+						 -->
 
 					ID: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>

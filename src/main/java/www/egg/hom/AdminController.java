@@ -346,6 +346,7 @@ public class AdminController {
 			pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 검색결과 튜플개수만큼만 적용 
 		}
 		
+		// ---------------------------------------(푸슝~)--->
 		System.out.println("배달토탈튜플갯수 after: "+pagevo.getTotalCount());
 		// finally...
 		pagevo.prt();
