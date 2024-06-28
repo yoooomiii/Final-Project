@@ -311,8 +311,7 @@ body{
 				<h2>${username} 배달관리 페이지입니다.</h2>
 				<form action="adminDSearch" method="get" name=form>
 				
-					  
-					  	   <label for="d_check">배달상태</label>
+					  <label for="d_check">배달상태</label>
 					  <select name="d_check" id="loc" class=select>
 					  		<option value="">(선택안함)</option>
 					  		<option value="배정대기">배정대기</option>
@@ -320,13 +319,9 @@ body{
 					  		<option value="배달중">배달중</option>
 					  		<option value="배달완료">배달완료</option>
 					  </select>
-					  
-						  <label for="option1">옵션1</label>
-					    <input type="radio" id="option1" name="키값" value="값">
-						  <label for="option2">옵션2</label>
-						  <input type="radio" id="option2" name="키값" value="값">
 
-					주문번호: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="주문번호 검색" id="srcbtn">
+					Rider번호: <input type="text" name="d_num"> <input type="submit" value="Rider번호 검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
@@ -344,7 +339,6 @@ body{
 		<table border=1 id="dtable" style="font-size: 15px">
 			<thead>
 				<tr style="background-color: gray">
-					<td>배달번호</td>
 					<td>등록번호</td>
 					<td>주문번호</td>
 					<td>배달주소</td>
@@ -357,10 +351,9 @@ body{
 			<tbody style="font-size: 15px">
 			    <c:forEach items="${deliverys }" var="deliveryvo">
 					<tr class="minfo_row">
-						<td>(추후수정)</td>
 						<td>${deliveryvo.d_num }</td>
 						<td>${deliveryvo.d_no }</td>
-						<td>배달주소</td>
+						<td style="color:gray">(배달주소)</td>
 						<td>${deliveryvo.d_time }</td>
 						<td>${deliveryvo.d_check }</td>
 						<td><a href="adminDUpform?m_num=${deliveryvo.d_no }"><input type="button" value="수정하기" id="mbtn"></a></td>

@@ -162,12 +162,21 @@ public class AdminDAOImpl implements IF_AdminDAO{
 				DeliveryVO dvo = (DeliveryVO) spage.get("deliveryvo");
 				
 				//String m_num = ovo.getM_num()+"";
+				Integer d_num = dvo.getD_num();
 				String d_check = dvo.getD_check();
-				if(d_check==null||d_check.equals("")) {
+				if(d_num!=null) {
+					return sqlSession.selectList(mapperQuery+".selectdeliveryrider_p", spage);
+				}else if(d_check!=null) {
+					return sqlSession.selectList(mapperQuery+".selectdeliverysearch_p", spage);
+				}else {
+					return sqlSession.selectList(mapperQuery+".selectdeliverynum_p", spage);
+				}
+				
+				/*if(d_check==null||d_check.equals("")) {
 					return sqlSession.selectList(mapperQuery+".selectdeliverynum_p", spage);
 				}else {
 					return sqlSession.selectList(mapperQuery+".selectdeliverysearch_p", spage);
-				}
+				}*/
 	}
 
 	@Override

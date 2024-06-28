@@ -289,7 +289,9 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminDSearch", method = RequestMethod.GET)
 	public String adminDsearch( Model model, @RequestParam("sword") String sw,  
-			@RequestParam("d_check") String d_check, @ModelAttribute DeliveryVO dvo
+			@RequestParam("d_check") String d_check, 
+			@RequestParam("d_num") String d_num,
+			@ModelAttribute DeliveryVO dvo
 			, PageVO pagevo) throws Exception {
 
 		if(pagevo.getPage()==null) { // 클라에서 보낸 페이지 정보가 없으면 
@@ -311,24 +313,35 @@ public class AdminController {
 		System.out.println("어드민콘트롤러 sw: "+sw);
 		System.out.println("어드민콘트롤러 d_check: "+d_check);
 		List<DeliveryVO> dlist = null;
-		if(sw==null || sw.equals("")) { // 검색어 유무!
-			if(d_check==null || d_check.equals("")) { // 검색어도 없고 검색조건도 없으면...
-				System.out.println("어드민콘트롤러 DVO(all null): "+dvo.toString());
-				dlist = aservice.deliverylist(pagevo); // DB에서 배달내역 가져와라~^^ 
-			}else {
-				dvo.setD_check(d_check);
+		
+		if(d_num==null || d_num.equals("")) { // rider번호가 없다면
+			if(sw==null || sw.equals("")) { // 검색어 유무!
+				if(d_check==null || d_check.equals("")) { // 검색어도 없고 검색조건도 없으면...
+					System.out.println("어드민콘트롤러 DVO(all null): "+dvo.toString());
+					dlist = aservice.deliverylist(pagevo); // DB에서 배달내역 가져와라~^^ 
+				}else {
+					dvo.setD_check(d_check);
+					spaging.put("deliveryvo", dvo);
+					System.out.println("어드민콘트롤러 dvo(sw null): "+dvo.toString());
+					//dlist = aservice.searchDelivery(dvo);
+					dlist = aservice.searchDeliveryPaging(spaging);
+					pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 검색결과 튜플개수만큼만 적용 
+				}
+			}else if(d_check==null || d_check.equals("")){ // 검색조건 유무!
+				Integer d_no = Integer.parseInt(sw);
+				dvo.setD_no(d_no);
 				spaging.put("deliveryvo", dvo);
-				System.out.println("어드민콘트롤러 dvo(sw null): "+dvo.toString());
+				System.out.println("어드민콘트롤러 dvo(sw ok): "+dvo.toString());
 				//dlist = aservice.searchDelivery(dvo);
-				dlist = aservice.searchDeliveryPaging(spaging);
+				dlist = aservice.searchDeliveryPaging(spaging); // DB에서 배달내역 가져와라~^^ 
 				pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 검색결과 튜플개수만큼만 적용 
 			}
-		}else if(d_check==null || d_check.equals("")){ // 검색조건 유무!
-			Integer d_no = Integer.parseInt(sw);
-			dvo.setD_no(d_no);
+			
+		}else { // rider번호가 있다면
+			Integer set_dnum = Integer.parseInt(d_num);
+			dvo.setD_num(set_dnum);
 			spaging.put("deliveryvo", dvo);
-			System.out.println("어드민콘트롤러 dvo(sw ok): "+dvo.toString());
-			//dlist = aservice.searchDelivery(dvo);
+			
 			dlist = aservice.searchDeliveryPaging(spaging); // DB에서 배달내역 가져와라~^^ 
 			pagevo.setTotalCount(aservice.getTotalCountD(dvo)); // 검색결과 튜플개수만큼만 적용 
 		}
@@ -359,14 +372,15 @@ public class AdminController {
 	}
 	@RequestMapping(value = "adminDSave", method = RequestMethod.GET)
 	public String adminDSpform(@ModelAttribute DeliveryVO dvo, Model model) throws Exception {
+		String dlvtime = dvo.getD_time()+"분";
+		dvo.setD_time(dlvtime);
 		aservice.insertDelivery(dvo); // insert작업 수행 
 		//System.out.println("어드민dao dvo before: "+dvo.toString());
 		
 		DeliveryVO modied_dvo = aservice.pickDeliverynum(dvo.getD_no()+""); // 수행한 거 가져옴 
 		//System.out.println("어드민dao dvo after: "+dvo.toString());
 		
-		Integer d_no = dvo.getD_no();
-		String m_num = Integer.toString(d_no);
+		String m_num = Integer.toString(dvo.getD_no());
 		model.addAttribute("dvo", modied_dvo);
 		model.addAttribute("ordernum",m_num );
 		return "admin/adminODelivery";
