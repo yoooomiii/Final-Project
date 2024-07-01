@@ -18,6 +18,7 @@ public interface IF_MypageServiece {
 	
 	public void rsave(ReviewVO rvo) throws Exception;  
 	public List<ReviewVO>myreview(String userid) throws Exception;
+	public List<ReviewVO>reviewmaster() throws Exception;
 	//--------------------------------------------------- 리뷰내용 저장(사진 포함), 리뷰 내용 불러오기
 	
 	public List<Map<String, Object>> getfile(Integer re_num) throws Exception;

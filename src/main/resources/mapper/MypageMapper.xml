@@ -39,6 +39,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE re_id =
 		#{userid} order by re_num desc
 	</select>
+	
+	<select id="reviewmaster" parameterType="String" resultType="www.egg.vo.ReviewVO">
+		SELECT re_num, re_no, re_id, re_ex, re_star
+		FROM review order by re_num desc
+	</select>
 
 	<select id="getphoto" parameterType="Integer" resultType="map">		<!-- 리뷰에 맞는 사진 불러오기 -->
 		SELECT

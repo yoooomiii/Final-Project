@@ -92,5 +92,11 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		return mpdao.getTotalCountPick(userid);
 	}
 
+	@Override
+	public List<ReviewVO> reviewmaster() throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.reviewmaster();
+	}
+
 }
 

@@ -115,6 +115,12 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		return sqlsession.selectOne(mapperQuery+ ".getTotalCountPick", userid);
 	}
 
+	@Override
+	public List<ReviewVO> reviewmaster() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery+".reviewmaster");
+	}
+
 
 	//	@Override
 	//	public boolean deletePick(List<String> pickIds) {

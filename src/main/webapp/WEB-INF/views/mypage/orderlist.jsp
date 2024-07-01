@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
+<link href="${path}/resources/css/menubar.css" rel="stylesheet" />
 <title>Home</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -21,8 +21,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>	
-	</script>
+	crossorigin="anonymous"></script>
+</script>
 </head>
 <style>
 @font-face {
@@ -55,7 +55,8 @@
 	height: 1040px;
 	margin-left: 135px;
 	margin-top: 40px;
-	border: 7px solid  rgb(240, 240, 95);
+	margin-bottom: 100px;
+	border: 7px solid rgb(240, 240, 95);
 	border-radius: 50px;
 }
 
@@ -127,7 +128,8 @@ td {
 .page-container a {
 	margin: 0 5px;
 	text-decoration: none;
-	font-size: 20px; font-family : 'SUITE-Regular', sans-serif;
+	font-size: 20px;
+	font-family: 'SUITE-Regular', sans-serif;
 	color: black;
 	font-family: 'SUITE-Regular', sans-serif;
 }
@@ -139,11 +141,18 @@ td {
 </style>
 <body>
 	<header>
+		<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 		<div class="login box">
-			<a href="login"><span> 로그인 </span></a>
+			<c:if test="${userid == null }">
+				<a href="login"><span> 로그인 </span></a>
+			</c:if>
 		</div>
 		<div class="join box">
-			<a href="#"><span> 회원가입 </span></a>
+			<c:if test="${userid == null }">
+				<a href="join"><span> 회원가입 </span></a>
+			</c:if>
 		</div>
 	</header>
 
@@ -211,7 +220,8 @@ td {
 								<form action="write" method="get">
 									<input type="hidden" name="m_num" value="${mm.m_num}">
 									<input type="hidden" name="m_name" value="${mm.m_name}">
-									<button type="submit" id="rbtn" onsubmit="pickcheck" name="chkpick">리뷰쓰기</button>
+									<button type="submit" id="rbtn" onsubmit="pickcheck"
+										name="chkpick">리뷰쓰기</button>
 								</form>
 							</td>
 						</tr>
@@ -234,47 +244,48 @@ td {
 						</c:if></td>
 				</tr>
 			</div>
-			<br>
-			<br>
-			 <br>
+			<br> <br> <br>
 		</div>
 	</div>
-<footer>
-			<div class="footer-box">
-				<div class="footer-logo">
-					<a href="./"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
+	<footer>
+		<div class="footer-box">
+			<div class="footer-logo">
+				<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+					alt=""></a>
+			</div>
+			<div class="footer-con">
+				<div class="con-text">
+					<span> 상호명 : Golden Egg chicken (골든에그) </span>
 				</div>
-				<div class="footer-con">
-					<div class="con-text">
-						<span> 상호명 : Golden Egg chicken (골든에그) </span>
-					</div>
-					<div class="con-text">
-						<span> 대표자 : 송유미 </span>
-					</div>
-					<div class="con-text">
-						<span> 사업자등록번호 : 112-00-001234 </span>
-					</div>
-					<div class="con-text">
-						<span> 대표번호 : 031-500-1234 </span>
-					</div>
-					<div class="con-text">
-						<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
-					</div>
-					<div class="con-text">
-						<span> 이메일 : goldenEgg @ gmail.com </span>
-					</div>
-					<div class="con-text">
-						<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
-					</div>
+				<div class="con-text">
+					<span> 대표자 : 송유미 </span>
 				</div>
-				<div class="sns">
-					<span><a href="#"><img
-							src="/Gold.html/img/instahram_icon.jpg" alt=""></a></span> <span><a
-						href="#"><img src="/Gold.html/img/facebook_icon.jpg" alt=""></a></span>
-					<span><a href="#"><img
-							src="/Gold.html/img/twiter_icon.jpg" alt=""></a></span>
+				<div class="con-text">
+					<span> 사업자등록번호 : 112-00-001234 </span>
+				</div>
+				<div class="con-text">
+					<span> 대표번호 : 031-500-1234 </span>
+				</div>
+				<div class="con-text">
+					<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
+				</div>
+				<div class="con-text">
+					<span> 이메일 : goldenEgg @ gmail.com </span>
+				</div>
+				<div class="con-text">
+					<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
 				</div>
 			</div>
-		</footer>
+			<div class="sns">
+				<span><a href="#"><img
+						src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
+					href="#"><img src="${path}/resources/img/facebook_icon.jpg"
+						alt=""></a></span> <span><a href="#"><img
+						src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
+			</div>
+		</div>
+	</footer>
+
+
 </body>
 </html>

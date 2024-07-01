@@ -213,6 +213,28 @@ public class MypageController {
 
 		return "mypage/myreview";
 	}
+	
+	@GetMapping(value="review_master") // 내가 쓴 리뷰만 불러오기 (사진 포함)  
+	public String mreview( Model model,HttpSession session ) throws Exception {
+		String userid = (String) session.getAttribute("userid");
+		List<ReviewVO> m_review = mpservice.reviewmaster();
+		// 각 리뷰에 대해 사진 데이터 가져오기
+		List<Map<String, Object>> photolist = new ArrayList<>(); // 사진 데이터를 저장할 리스트를 초기화
+		for (ReviewVO review :m_review) { // myreview 리스트에 있는 각 리뷰에 대해 반복
+			List<Map<String, Object>> photos = mpservice.getfile(review.getRe_num()); // 현재 리뷰의 re_num에 해당하는 사진 리스트를 가져오기
+			for (Map<String, Object> photo : photos) { // 가져온 사진 리스트의 각 사진에 대해 반복
+				if (photo.get("filename") != null && !photo.get("filename").toString().trim().isEmpty()) { // filename이 null이 아니고 비어 있지 않은 경우를 확인
+					photolist.add(photo); // 조건을 만족하는 사진 데이터를 photolist에 추가
+					System.out.println(photolist);
+				}
+			}
+		}
+		model.addAttribute("master_review", m_review);
+		model.addAttribute("photolist", photolist);
+		System.out.println("사진 넘겼니?");
+
+		return "mypage/reviewmaster";
+	}
 
 
 
