@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
+<link href="${path}/resources/css/menubar.css" rel="stylesheet" />
 <title>Home</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -46,19 +46,19 @@
 }
 
 #photo {
-    float: left;
-    width: 150px;
-    height: 150px;
-    margin-left: 330px;
-    border-radius: 50%; /* 원형으로 만들기 위해 50%로 변경 */
-    border: 5px solid grey;
-    overflow: hidden; /* 자식 요소가 부모 요소를 넘지 않도록 하기 위해 */
+	float: left;
+	width: 150px;
+	height: 150px;
+	margin-left: 330px;
+	border-radius: 50%; /* 원형으로 만들기 위해 50%로 변경 */
+	border: 5px solid grey;
+	overflow: hidden; /* 자식 요소가 부모 요소를 넘지 않도록 하기 위해 */
 }
 
 #photo .profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 이미지가 컨테이너에 맞게 조정되도록 */
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* 이미지가 컨테이너에 맞게 조정되도록 */
 }
 
 #btn {
@@ -96,11 +96,18 @@
 
 <body>
 	<header>
+		<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 		<div class="login box">
-			<a href="login"><span> 로그인 </span></a>
+			<c:if test="${userid == null }">
+				<a href="login"><span> 로그인 </span></a>
+			</c:if>
 		</div>
 		<div class="join box">
-			<a href="#"><span> 회원가입 </span></a>
+			<c:if test="${userid == null }">
+				<a href="join"><span> 회원가입 </span></a>
+			</c:if>
 		</div>
 	</header>
 

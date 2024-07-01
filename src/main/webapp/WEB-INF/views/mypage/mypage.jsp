@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -22,6 +21,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
+	
 </head>
 <style>
 #line {
@@ -190,11 +190,18 @@ td {
 <body>
 	<div id="Box">
 		<header>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
-				<a href="login"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
 			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+				<c:if test="${userid == null }">
+					<a href="join"><span> 회원가입 </span></a>
+				</c:if>
 			</div>
 		</header>
 

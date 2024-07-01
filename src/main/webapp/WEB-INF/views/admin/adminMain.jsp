@@ -77,7 +77,7 @@ body{
                                 <a href="answerList"> (답변 관리) </a>
                             </li>
                             <li>
-                                <a href="#"> 리뷰 관리 </a>
+                                <a href="review_master"> 리뷰 관리 </a>
                             </li>
                         </ul>
                     </li>
@@ -103,16 +103,16 @@ body{
 				<div id="carouselExampleInterval" class="carousel slide"
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
-						<div class="carousel-item active" data-bs-interval="1000">
-							<img src="./resources/img/화면 캡처 2024-06-27 121409.png" width="1260" , height="150"
+						<div class="carousel-item active" data-bs-interval="2000">
+							<img src="./resources/img/화면 캡처 2024-07-01 111023.png" width="1260" , height="500"
 								class="d-block w-100" alt="준비중">
 						</div>
-						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/화면 캡처 2024-06-27 121753.png" width="1260" , height="150"
+						<div class="carousel-item" data-bs-interval="2000">
+							<img src="./resources/img/화면 캡처 2024-07-01 105717.png" width="1260" , height="500"
 								class="d-block w-100" alt="준비중">
 						</div>
-						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/화면 캡처 2024-06-27 122740.png" width="1260" , height="150"
+						<div class="carousel-item" data-bs-interval="2000">
+							<img src="./resources/img/화면 캡처 2024-07-01 104832.png" width="1260" , height="500"
 								class="d-block w-100" alt="준비중">
 						</div>
 					</div>
@@ -131,32 +131,44 @@ body{
 		</aside>
         <hr>
 		<section class="fame-menu">
-            <div class="title"> 인기 메뉴 </div>
+			<div class="title">인기 메뉴</div>
 			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/image.png"></div>
-				<span><a href="gold01.html" order> 후라이드 치킨 </a></span>
+				<div class="menu-img">
+					<img src="${path}/resources/img/egg.png">
+				</div>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=18" order> 후라이드 치킨 </a></span>
 			</div>
+			
 			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/egg02.png"></div>
-				<span><a href="gold01.html" order> 고추 치킨 </a></span>
+				<div class="menu-img">
+					<img src="${path}/resources/img/화면 캡처 2024-06-21 165935.png">
+				</div>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=31" order> 블랙시그니처 치킨 </a></span>
 			</div>
+			
 			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/egg03.png"></div>
-				<span><a href="gold01.html" order> 양념 치킨 </a></span>
+				<div class="menu-img">
+					<img src="${path}/resources/img/화면 캡처 2024-06-27 144811.png">
+				</div>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=1007" order> 마라바사삭 치킨 </a></span>
 			</div>
+			
 			<div class="menulist">
-				<div class="menu-img"><img src="${path}/resources/img/egg04.png"></div>
-				<span><a href="gold01.html" order> 간장 치킨 </a></span>
-            </div>
+				<div class="menu-img">
+					<img src="${path}/resources/img/egg06.png">
+				</div>
+				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=21" order> 크리미언 치킨 </a></span>
+			</div>
 		</section>
         <section class="main-banner">
-            <div class="banner notice">
-                <a href="#"> 공지사항 / 안내 </a>
-            </div>
-            <div class="banner event">
-                <a href="#"> 이벤트 </a>
-            </div>
-        </section>
+			<div class="banner notice">
+				<a href="#"><img alt="" src="${path}/resources/img/공지사항.png"></a>
+				
+			</div>
+			<div class="banner event">
+				<a href="#"><img alt="" src="${path}/resources/img/이벤트 배너.png"> </a>
+			</div>
+		</section>
 		<footer>
             <div class="footer-box">
                 <div class="footer-logo">

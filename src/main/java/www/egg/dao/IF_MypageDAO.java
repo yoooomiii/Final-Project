@@ -20,6 +20,7 @@ public interface IF_MypageDAO {
 	public void rsave(ReviewVO rvo) throws Exception;
 	public void savefile(Integer re_num, String filename) throws Exception;
 	public List<ReviewVO> myreview(String userid) throws Exception;
+	public List<ReviewVO>reviewmaster() throws Exception;
 	//--------------------------------------------------- 리뷰 내용, 사진 저장, 나의 리뷰 전체불러오기
 	
 	public List<MlistVO> orderlist(String userid, PageVO pagevo) throws Exception;

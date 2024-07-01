@@ -76,7 +76,7 @@ hr {
 	height: auto;
 	margin-left: 22px;
 	margin-top: -12px;
-	/*  border: 1px solid blue;    */
+	/*   border: 1px solid blue;     */
 }
 
 #content {
@@ -88,7 +88,7 @@ hr {
 	font-weight: normal;
 	font-family: 'SUITE-Regular', sans-serif;
 
-	/*  border: 1px solid red;   */
+	/*  border: 1px solid red;    */
 }
 
 .image-container {
@@ -109,22 +109,23 @@ hr {
 
 #num {
 	float: left;
-	width: 150px;
+	width: 60px;
 	height: 30px;
 	font-size: 22px;
 	margin-top: 5px;
 	color: rgb(4, 178, 247);
 	font-family: 'SUITE-Regular', sans-serif;
-	/*  border: 1px solid black;   */
+	 /*  border: 1px solid black;    */
 }
 
 #star {
 	float: left;
 	width: 190px;
 	height: 40px;
+	margin-left:300px;
+	margin-top:-40px;
 	font-size: 22px;
-	margin-left: 130px;
-	/*  border: 1px solid black;  */
+	/*   border: 1px solid black;   */
 }
 
 #menuname {
@@ -135,7 +136,15 @@ hr {
 	font-size: 24px;
 	font-weight: bold;
 	font-family: 'SUITE-Regular', sans-serif;
-	/* border: 1px solid black;    */
+	/*  border: 1px solid black;     */
+}
+#user{
+	width:110px;
+	height:40px;
+	margin-left:50px;
+	margin-top:10px;
+	/*  border: 1px solid blue;   */
+	
 }
 
 #review {
@@ -146,7 +155,7 @@ hr {
 	font-weight: bold;
 	color: grey;
 	font-family: 'SUITE-Regular', sans-serif;
-	/*  border: 1px solid black;   */
+	/*   border: 1px solid black;    */
 }
 
 .star-rating {
@@ -167,18 +176,11 @@ hr {
 </style>
 <body>
 	<header>
-		<c:if test="${userid != null }">
-					'${userid }'님 접속을 환영합니다.
-			</c:if>
 		<div class="login box">
-			<c:if test="${userid == null }">
-				<a href="login"><span> 로그인 </span></a>
-			</c:if>
+			<a href="login"><span> 로그인 </span></a>
 		</div>
 		<div class="join box">
-			<c:if test="${userid == null }">
-				<a href="join"><span> 회원가입 </span></a>
-			</c:if>
+			<a href="#"><span> 회원가입 </span></a>
 		</div>
 	</header>
 
@@ -222,10 +224,10 @@ hr {
 	<br>
 	<br>
 	<br>
-	<h2>${username}님의리뷰</h2>
+	<h2>전체 리뷰보기</h2>
 	<br>
 	<br>
-	<c:forEach items="${review}" var="review">
+	<c:forEach items="${master_review}" var="review">
 
 		<div id="reviewcard">
 			<div id="photo">
@@ -242,6 +244,7 @@ hr {
 			</div>
 			<div id="content">
 				<div id="num">${review.re_num}번</div>
+				<div id="user">${review.re_id}</div>
 				<div id="star">
 					<div class="star-rating">
 						<c:forEach var="star" begin="1" end="5">
