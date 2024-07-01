@@ -17,7 +17,6 @@
 				<td>주문 금액</td>
 				<td>배달팁</td>
 				<td>총 결제금액</td>
-				<td>포인트</td>
 				<td>결제수단</td>
 				<td>결제정보</td>
 				<td>주문일시</td>
@@ -36,7 +35,6 @@
 					<td>${pvo.pm_price}</td>
 					<td>${pvo.pm_tip }원</td>
 					<td>${pvo.pm_total}원</td>
-					<td>${pvo.pm_point}</td>
 					<td>${pvo.pm_pay }</td>
 					<td>${pvo.pm_card}</td>
 					<td>${pvo.pm_date}</td>
