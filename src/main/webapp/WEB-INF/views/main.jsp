@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="${path}/resources/css/main_fixed.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>Home</title>
 <script type="text/javascript">
 	function call_confirm(){
@@ -83,10 +84,10 @@ body{
 
                     </li>
                     <li>
-                        <a href="#"> 브랜드 소개 </a>
+                        <a href="brand"> 브랜드 소개 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 브랜드 소개 </a>
+                                <a href="brand"> 브랜드 소개 </a>
                             </li>
                         </ul>
                     </li>
@@ -117,7 +118,7 @@ body{
                                 <a href="ask"> 1:1 문의 </a>
                             </li>
                             <li>
-                                <a href="#"> FAQ </a>
+                                <a href="faqpage"> FAQ </a>
                             </li>
                         </ul>
                     </li>
@@ -233,10 +234,11 @@ body{
 		</section>
 		<section class="main-banner">
 			<div class="banner notice">
-				<a href="#"> 공지사항 / 안내 </a>
+				<a href="#"><img alt="" src="${path}/resources/img/공지사항.png"></a>
+				
 			</div>
 			<div class="banner event">
-				<a href="#"> 이벤트 </a>
+				<a href="#"><img alt="" src="${path}/resources/img/이벤트 배너.png"> </a>
 			</div>
 		</section>
 		<footer>

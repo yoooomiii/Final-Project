@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
     font-family: 'Cafe24Ssurround';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
@@ -21,6 +23,7 @@
 body {
 	margin: 0px;
     margin-top: 30px;
+    font-family: 'SUITE-Regular';
 
 }
 
@@ -90,6 +93,14 @@ header a:hover {
    
 }
 
+.logout {
+    float: right;
+	width: 100px; /*가로 넓이*/
+    height: 90%;
+    margin-right: 30px;
+   
+}
+
 .quite {
     float: right;
 	width: 100px; /*가로 넓이*/
@@ -153,7 +164,11 @@ nav {
         text-align: center;
         line-height: 30px;
         outline: 0;
+
+
     }
+
+
 
     .menu a:hover {
         color: #f1b546;
@@ -163,9 +178,9 @@ nav {
     .submenu {
         position: absolute;
         display: none;
-        top: 75px;
-        height: 300px;
-        background-color: rgb(180, 110, 0);
+        top: 80px;
+        height: 200px;
+        background: linear-gradient(325deg, rgba(255, 252, 163, 0.8), rgba(255, 202, 56, 0.8));
         font-size: 20px;
     }
 
@@ -181,107 +196,8 @@ nav {
         height: 100%;
         text-align: center;
         line-height: 40px;
-        color: white;
     }
 
-aside {
-	float: left;
-	width: 1260px; /*가로 넓이*/
-	height: 500px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(101, 206, 145) */
-}
-
-#silde {
-	float: left;
-	border: 1px solid black; /*틀 선 굵기와 종류 색상*/
-	width: 1260px; /*가로 넓이*/
-	height: 500px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(204, 159, 224) */
-}
-
-.fame-menu {
-	float: left;
-	width: 1260px; /*가로 넓이*/
-	height: 500px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(192, 240, 188) */
-
-}
-
-.title {
-    width: 100%;
-    height: 35px;
-    background-color: #eccd54;
-    font-family: 'Cafe24Ssurround';
-    font-size: 22px;
-    padding-top: 2px;
-}
-
-.menulist {
-	float: left;
-	width: 25%; /*가로 넓이*/
-	height: 250px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.menulist img {
-    width: 240px;
-    height: 200px;
-    margin: 5px 0;
-}
-
-.menulist span {
-	font-size: 25px;
-    font-weight: bold;
-
-}
-
-.menulist a {
-    text-decoration: none;
-    font-family: 'SUITE-Regular';
-    color: black;
-    text-shadow: 0px 1px 1px black;
-}
-
-.menulist a:hover {
-    text-shadow: 0px 2px 3px black;
-    font-size: 27px;
-}
-
-.main-banner {
-    float: left;
-    width: 1260px;
-    height: 200px;
-    padding-top: 20px;
-}
-
-.banner {
-    display: inline-block;
-    height: 85%;
-    background-color: #e2cf20;
-    margin-right: 70px;
-}
-
-.banner img {
-    display: block;
-    width:100%;
-    height: 100%;
-   
-}
-
-.notice {
-    width:450px;
-}
-
-
-.event {
-    width: 500px;
-    height: 150px;
-}
 
 footer {
     font-family: 'SUITE-Regular';
@@ -332,5 +248,5 @@ footer {
     width: 40px;
     height: 40px;
     margin-right: 20px;
-}
 
+}

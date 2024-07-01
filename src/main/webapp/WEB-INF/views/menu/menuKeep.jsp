@@ -1,12 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<c:set var="path" value="${pageContext.request.contextPath}" />
+<%@ page session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>메뉴</title>
 <link href="./resources/css/menukeep.css" rel="stylesheet"/>
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -45,10 +49,10 @@
                         <a href="./"> HOME </a>
                     </li>
                     <li>
-                        <a href="#"> 브랜드 소개 </a>
+                        <a href="brand"> 브랜드 소개 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 브랜드 소개 </a>
+                                <a href="brand"> 브랜드 소개 </a>
                             </li>
                         </ul>
                     </li>
@@ -79,7 +83,7 @@
                                 <a href="ask"> 1:1 문의 </a>
                             </li>
                             <li>
-                                <a href="#"> FAQ </a>
+                                <a href="faqpage"> FAQ </a>
                             </li>
                         </ul>
                     </li>

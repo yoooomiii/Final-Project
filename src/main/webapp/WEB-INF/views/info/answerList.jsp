@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/answerList.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>Info Page</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -41,7 +42,7 @@
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="#"> HOME </a></li>
+					<li><a href="./"> HOME </a></li>
 					<li><a href="adminMView"> 회원 관리 </a>
 						<ul class="submenu">
 							<li><a href="#"> 회원 정보 조회 </a></li>
@@ -52,10 +53,10 @@
 							<li><a href="adminDView"> (배달 관리) </a></li>
 							<li><a href="#"> 배달 관리 </a></li>
 						</ul></li>
-					<li><a href="#"> 글 관리 </a>
+					<li><a href="masterview"> 글 관리 </a>
 						<ul class="submenu">
 							<li><a href="masterview"> 문의글 관리 </a></li>
-							<li><a href="#"> (답변 관리) </a></li>
+							<li><a href="answerList"> (답변 관리) </a></li>
 							<li><a href="#"> 리뷰 관리 </a></li>
 						</ul></li>
 					<li><a href="#"> 상품 관리 </a>
