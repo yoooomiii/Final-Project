@@ -6,7 +6,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html lang="kor">
 <head>
@@ -35,12 +34,7 @@
 			}
 			
 		}
-		
-		
 		//------------>
-		
-		
-		
      var cnt = new Array();
      cnt[0] = new Array('전체');
      cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
@@ -69,12 +63,10 @@
        for (i=0; i < cnt[add].length;i++){                     
                          sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
          }         
-     }
-
+     
 	</script>
 </head>
 <style>
-
 .login {
 	float: right;
 	width: 100px; /*가로 넓이*/
@@ -231,7 +223,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -247,7 +238,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -305,7 +295,6 @@ body{
                 </ul>
 			</div>
 		</nav>
-
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 배달관리 페이지입니다.</h2>
@@ -325,13 +314,8 @@ body{
 				</form>
 			</div>
 		</div>
-
 		</div>
-
-		<section id="page">
-
-
-
+    <section id="page">
 	<form action="adminDDelete" method="get" onsubmit="return call_confirm()" id="dlv-form">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
@@ -405,16 +389,10 @@ body{
 									<a href="adminDView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
 								</c:if>
 						</div>
-					</div>
+			</div>
 	</form>
-		</section>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -453,15 +431,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

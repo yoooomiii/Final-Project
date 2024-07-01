@@ -33,9 +33,7 @@
 	width: 100px; /*가로 넓이*/
     height: 90%;
     margin-left: 30px;
-    
 }
-
 .logout {
     float: right;
 	width: 100px; /*가로 넓이*/
@@ -43,7 +41,6 @@
     margin-right: 30px;
    
 }
-
 #span {
 	width: 1210px;
 	height: 150px;
@@ -51,7 +48,6 @@
 	margin-left: 20px;
 	border-radius: 30px;
 }
-
 #surchpan {
 	float: left;
 	width: 1210px;
@@ -88,7 +84,6 @@
 	border-radius: 100px;
 	border: 5px solid yellow;;
 }
-
 #info {
 	float: left;
 	width: 300px;
@@ -180,7 +175,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -196,72 +190,65 @@ body{
 				</c:if>
 			</div>
 		</header>
-
-		<nav>
-			<div class="logo">
-				<a href="adminEnter"><span><img
-						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
-			</div>
-			<div class="menu">
-			<ul>
-                    <li>
-                        <a href="adminEnter"> HOME </a>
-                    </li>
-                    <li>
-                        <a href="adminMView"> 회원 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#"> 회원 정보 조회 </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="adminOView"> 주문 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="adminOView"> 주문 상태 관리 </a>
-                            </li>
-                            <li>
-                                <a href="adminDView"> 배달 관리(정비 중) </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"> 글 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#"> 문의글 관리 </a>
-                            </li>
-                            <li>
-                                <a href="#"> (답변 관리) </a>
-                            </li>
-                            <li>
-                                <a href="#"> 리뷰 관리 </a>
-                            </li>
-                        </ul>
-                    </li>
-                      <li>
-                        <a href="menu_List"> 상품 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="menu_List"> 상품 조회 </a>
-                            </li>
-                            <li>
-                                <a href="menu_input"> 상품 등록 </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-			</div>
-		</nav>
-
-
+			<nav>
+				<div class="logo">
+					<a href="adminEnter"><span><img
+							src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				</div>
+				<div class="menu">
+				<ul>
+	                    <li>
+	                        <a href="adminEnter"> HOME </a>
+	                    </li>
+	                    <li>
+	                        <a href="adminMView"> 회원 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="#"> 회원 정보 조회 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                    <li>
+	                        <a href="adminOView"> 주문 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="adminOView"> 주문 상태 관리 </a>
+	                            </li>
+	                            <li>
+	                                <a href="adminDView"> 배달 관리(정비 중) </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                    <li>
+	                        <a href="#"> 글 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="#"> 문의글 관리 </a>
+	                            </li>
+	                            <li>
+	                                <a href="#"> (답변 관리) </a>
+	                            </li>
+	                            <li>
+	                                <a href="#"> 리뷰 관리 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                      <li>
+	                        <a href="menu_List"> 상품 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="menu_List"> 상품 조회 </a>
+	                            </li>
+	                            <li>
+	                                <a href="menu_input"> 상품 등록 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                </ul>
+				</div>
+			</nav>
 		</div>
-
-		<section id="page">
-
-
-
+	<section id="page">
 	<form action="adminDUp" method="post" id="dlv-form">
 		<div id="dpan">
 			배달 상태 수정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
@@ -303,17 +290,10 @@ body{
 			<tr style="font-size: 15px"><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
 			<tr style="font-size: 15px"><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
 			<tr style="font-size: 15px"><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
-			
 		</table>
 	</form>
-		</section>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -352,15 +332,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

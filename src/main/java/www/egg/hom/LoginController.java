@@ -22,16 +22,15 @@ public class LoginController {
 	@Inject
 	IF_LoginService lservice;
 	
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "login", method = RequestMethod.GET) // 로그인 페이지 
 	public String login() {
 
 		return "login/loginForm";
 	}
-	@RequestMapping(value = "join", method = RequestMethod.GET)
+	@RequestMapping(value = "join", method = RequestMethod.GET) // 회원가입 페이지 
 	public String join() {
 		return "login/joinForm";
 	}
-	
 	@RequestMapping(value = "signUp", method = RequestMethod.POST) // 회원가입 요청 
 
 	public String signUp(@ModelAttribute MemberVO mvo) {
@@ -39,20 +38,14 @@ public class LoginController {
 		//System.out.println(mvo.toString());
 		return "redirect:/";
 	}
-
-	@RequestMapping(value = "signIn", method = RequestMethod.POST) // 로그인 요청 (인터셉트에서 한번 걸러지고 난 뒤임!)
+	@RequestMapping(value = "signIn", method = RequestMethod.POST) // 로그인 요청
 	public String signIn(@RequestParam("id") String id,
-			@RequestParam("pw") String pw, HttpSession session ,Model model) {
-		
+		@RequestParam("pw") String pw, HttpSession session ,Model model) {
 		String flag = null;
 		
-		// return "login/welcome";
-		// System.out.println("id/pw: "+id+"/"+pw);
-		// System.out.println(" mvo: "+mvo);
-		
-		MemberVO mvo = lservice.signIn(id); 
-		if(mvo  != null) { 
-			if(mvo.getPw().equals(pw)) { 
+		MemberVO mvo = lservice.signIn(id); // 요청 아이디와 일치하는 계정 찾기 
+		if(mvo != null) { // 존재하면 
+			if(mvo.getPw().equals(pw)) { // 요청 비번과 일치하면 
 				if(session.getAttribute("userid")!=null) { 
 					session.removeAttribute("userid");
 					session.removeAttribute("username");
@@ -72,43 +65,27 @@ public class LoginController {
 				if(grade.equals("1")){ // 관리자 등급이면 관리자 페이지로 보내라. 
 					  return "admin/adminMain"; 
 				}
-				 
-				return "redirect:/";
-				
-			}else { 
+				return "redirect:/"; // 메인으로
+			}else { // 요청 비번과 불일치 
 				flag = "Y";
 				model.addAttribute("flag", flag);
 				return "login/loginForm";
 			}
-		}else {
+		}else { // 요청 아이디와 일치하는 계정이 없으면 
 			flag = "Y";
 			model.addAttribute("flag", flag);
 			return "login/loginForm";
 		}
-		/* 
-		 * System.out.println("session.getAttribute: "+session.getAttribute("userid"));
-		 * System.out.println("session.getAttribute: "+session.getAttribute("username"))
-		 * ;
-		 */
-		
-	
 	}
-	@GetMapping("logout") 
+	@GetMapping("logout") // 로그아웃 요청 
 	public String logout(HttpSession session) {
-		session.invalidate();
+		session.invalidate(); // 세션에서 정보 삭제 
 		return "redirect:/";
 	}
-	
-	/*
-	 * @RequestMapping(value = "myPage", method = RequestMethod.GET) public String // 로그인 잘 되는지 테스트
-	 * myPage() { return "ownPage"; }
-	 */
-	
-	@RequestMapping(value = "quiteAccount", method = RequestMethod.POST)
+	@RequestMapping(value = "quiteAccount", method = RequestMethod.POST) // 탈퇴 요청
 	public String quiteAccount(@RequestParam("id") String id, HttpSession session) {
-		System.out.println(session.getAttribute("userid")+" 제출됨");
-		lservice.quiteAccount(id);
-		if(session.getAttribute("userid")!=null) { // 회원 탈퇴 후 세션에 남은 정보까지 싹 날림 
+		lservice.quiteAccount(id); // 요청 계정 삭제 
+		if(session.getAttribute("userid")!=null) { // 회원 탈퇴 후 세션에 남은 정보까지 청소 
 			session.removeAttribute("userid");
 			session.removeAttribute("username");
 			session.removeAttribute("userphone");
@@ -116,18 +93,17 @@ public class LoginController {
 			session.removeAttribute("useraddress");
 			session.removeAttribute("usergrade");
 		}
-		System.out.println(session.getAttribute("userid")+"는 세션에서 삭제되었는가?");
+		// System.out.println(session.getAttribute("userid")+"는 세션에서 삭제되었는가?");
 		return "redirect:/";
 	}
-	
-	@RequestMapping(value = "byebye", method = RequestMethod.GET)
+	@RequestMapping(value = "byebye", method = RequestMethod.GET) // 탈퇴 페이지 
 	public String byebye() {
 		return "login/goodBye";
 	}
 	
 	// ---------------------> 회원 정보 확인  
 	@ResponseBody
-	@RequestMapping(value = "quiteConfirm_now", method = RequestMethod.POST) // 로그인비번컨펌 메소드
+	@RequestMapping(value = "quiteConfirm_now", method = RequestMethod.POST) // 탈퇴 시 회원 정보 재확인 용도 
 	public String quiteConfirm(HttpServletRequest request, Model model) {
 		int result = 0;
 		String id = request.getParameter("id");
@@ -151,9 +127,7 @@ public class LoginController {
 	 @RequestMapping(value = "checkSignupId", method = RequestMethod.POST)
 	 public String checkSignupId(HttpServletRequest request, Model model) throws Exception {
 		 String id = request.getParameter("id");
-	       
-	     int rowcount = lservice.userIdChk(id);
-	        
+	     int rowcount = lservice.userIdChk(id); // 요청 아이디와 일치하는 계정 찾기 
 	     return String.valueOf(rowcount);
 	 }
 

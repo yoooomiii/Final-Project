@@ -16,8 +16,7 @@
         var lengcheck = lengthChek();
         var valicheck = valiCheck($('#pw').val());
         
-        
-        if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면...
+        if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면
         	alert("ID 중복체크가 완료되지 않았습니다.");
         	return false;
         }else if(check==false){
@@ -31,9 +30,7 @@
         	return false;
         }
         return true;
-        
       } // 전체체크함수 끝 
-
       function nullChek(){ // 공백체크
           if($("#id").val()==""){
             // alert("ID을 입력해 주세요.");
@@ -87,8 +84,6 @@
               return false;
             } 
     	  return true
-    	
-    	  
       }
       function valiCheck(text){ // pw유효성 체크 (Password1!)
     	  var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,}$/;
@@ -99,11 +94,10 @@
     	  }
     	  return true;
       }
-      
-      // 아이디 중복체크 함수
+      // 아이디 중복체크 
 	 $(document).ready(function(){
           $('#btn_idcheck').on('click', function(){
-        	  if($("#id").val()==""){ // 공백이면 그냥 종료해라... 
+        	  if($("#id").val()==""){ // 공백이면 그냥 종료
         		  alert('아이디가 입력되지 않았습니다!')
         		  return false;
         	  }
@@ -112,11 +106,9 @@
                   type: 'POST',
                   url: 'checkSignupId', // url 콘트롤러 요청
                   data: {
-                      "id" : $('#id').val() // json 데이터로 보내겠다.
+                      "id" : $('#id').val() // json 데이터
                   },
-                  
                   // ------------------------->
-                  
                   success: function(data){
                       if($.trim(data) == 0){
                     	 // alert("사용 가능한 아이디입니다. ")
@@ -134,12 +126,6 @@
               });    //end ajax    
           });    //end on    
       });
-
-      // div 색바꾸기 함수
-      function lengthChek(){
-      
-      }
-      
     </script>
 	<link href="${path}./resources/css/sign.css?after" rel="stylesheet"/>
 </head>
