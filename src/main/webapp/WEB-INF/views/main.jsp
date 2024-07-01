@@ -35,6 +35,9 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>

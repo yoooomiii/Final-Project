@@ -6,7 +6,7 @@ import java.util.Map;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
-import www.egg.vo.PaymentVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.ReviewVO;
 
 public interface IF_MypageServiece {
@@ -24,15 +24,18 @@ public interface IF_MypageServiece {
 
 	//--------------------------------------------------- 리뷰에 저장된 사진 가져오기 
 	
-	public List<MlistVO> orderlist(String userid) throws Exception;
+	public List<MlistVO> orderlist(String userid, PageVO pagevo) throws Exception;
+	public int getTotalCount(String userid) throws Exception;
 	//--------------------------------------------------- 주문내역 불러오기
 	
 	public void pickinsert(FavorVO fvo) throws Exception;
 	//--------------------------------------------------- 찜한 메뉴 저장
 	
-	public List<FavorVO> picklist(String userid) throws Exception;
+	public List<FavorVO> picklist(String userid, PageVO pagevo) throws Exception;
+	public int getTotalCountPick(String userid) throws Exception;
 	//--------------------------------------------------- 찜한 메뉴 불러오기
 	
+	public void pickdelete(String f_no) throws Exception;
 	
 	
 	

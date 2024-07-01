@@ -227,6 +227,9 @@ td {
 #paging{
 	text-align: center;
 }
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>
@@ -270,7 +273,7 @@ td {
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                 <a href="adminDView"> (배달 관리) </a>
+                                 <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -295,7 +298,7 @@ td {
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>
@@ -308,8 +311,7 @@ td {
 				<h2>${username} 배달관리 페이지입니다.</h2>
 				<form action="adminDSearch" method="get" name=form>
 				
-					  
-					  	   <label for="d_check">배달상태</label>
+					  <label for="d_check">배달상태</label>
 					  <select name="d_check" id="loc" class=select>
 					  		<option value="">(선택안함)</option>
 					  		<option value="배정대기">배정대기</option>
@@ -317,13 +319,9 @@ td {
 					  		<option value="배달중">배달중</option>
 					  		<option value="배달완료">배달완료</option>
 					  </select>
-					  
-						  <label for="option1">옵션1</label>
-					    <input type="radio" id="option1" name="키값" value="값">
-						  <label for="option2">옵션2</label>
-						  <input type="radio" id="option2" name="키값" value="값">
 
-					주문번호: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
+					주문번호: <input type="text" name="sword"> <input type="submit" value="주문번호 검색" id="srcbtn">
+					Rider번호: <input type="text" name="d_num"> <input type="submit" value="Rider번호 검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
@@ -341,7 +339,6 @@ td {
 		<table border=1 id="dtable" style="font-size: 15px">
 			<thead>
 				<tr style="background-color: gray">
-					<td>배달번호</td>
 					<td>등록번호</td>
 					<td>주문번호</td>
 					<td>배달주소</td>
@@ -354,10 +351,9 @@ td {
 			<tbody style="font-size: 15px">
 			    <c:forEach items="${deliverys }" var="deliveryvo">
 					<tr class="minfo_row">
-						<td>(추후수정)</td>
 						<td>${deliveryvo.d_num }</td>
 						<td>${deliveryvo.d_no }</td>
-						<td>배달주소</td>
+						<td style="color:gray">(배달주소)</td>
 						<td>${deliveryvo.d_time }</td>
 						<td>${deliveryvo.d_check }</td>
 						<td><a href="adminDUpform?m_num=${deliveryvo.d_no }"><input type="button" value="수정하기" id="mbtn"></a></td>
@@ -368,9 +364,13 @@ td {
 		</table>
 		<br>
 		<div id ="paging">
-						<c:if test="${m_state != null}">
+						<c:if test="${not_data !=null }">
+							<div>${not_data }</div>
+						</c:if>
+						<br>
+						<c:if test="${d_check != null}">
+								<div>검색조건 | 주문번호: ${d_no } 주문상태: ${d_check} </div>
 							<div>
-								<h5>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </h5>
 								검색결과 목록:
 									<c:if test="${pagevo.prev }">
 										<a href="adminDSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>

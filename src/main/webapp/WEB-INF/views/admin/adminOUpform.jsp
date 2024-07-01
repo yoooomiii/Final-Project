@@ -205,6 +205,9 @@ td {
 	box-shadow : 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>
@@ -248,7 +251,7 @@ td {
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                 <a href="adminDView"> (배달 관리) </a>
+                                 <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -256,7 +259,7 @@ td {
                         <a href="#"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 문의글 관리 </a>
+                                <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
                                 <a href="#"> (답변 관리) </a>
@@ -273,7 +276,7 @@ td {
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>
@@ -284,8 +287,9 @@ td {
 		<div id="span">
 			<div id="surchpan">
 				<h2>주문 관리 페이지입니다.</h2>
-				<form action="adminMSearch" method="get">
-				  
+				<form action="adminOSearch" method="get" name=form>
+				
+					  
 					   <label for="m_state">주문상태</label>
 					  <select name="m_state" id="loc" >
 					  		<option value="">(선택안함)</option>
@@ -293,6 +297,7 @@ td {
 					  		<option value="주문취소">주문취소</option>
 					  		<option value="결제완료">결제완료</option>
 					  		<option value="환불처리">환불처리</option>
+					  		<option value="수령완료">수령완료</option>
 					  </select>
 					  
 					  
@@ -333,8 +338,9 @@ td {
 							 <select name="m_state" id="ms">
 						  			<option value="주문접수">주문접수</option>
 						  			<option value="주문취소">주문취소</option>
-						  			<option value="주문완료">주문완료</option>
+						  			<option value="결제완료">결제완료</option>
 						  			<option value="환불처리">환불처리</option>
+						  			<option value="수령완료">수령완료</option>
 					  		 </select>
 							</td>
 							<td><input type="text" name="m_id" value=${ovo.m_id } readonly></td>

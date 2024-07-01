@@ -76,7 +76,7 @@
                                 <a href="ask"> 1:1 문의 </a>
                             </li>
                             <li>
-                                <a href="#"> FAQ </a>
+                                <a href="faqpage"> FAQ </a>
                             </li>
                         </ul>
                     </li>
@@ -102,24 +102,22 @@
 		</nav>
 		<section>
             <hr style="border:0px; height: 30px; background : linear-gradient(to left, rgb(230, 217, 15), rgb(247, 203, 110), rgb(255, 255, 20))" >
+            <h1> 무엇을 도와드릴까요? </h5>
             <div class="info-box">
                 <a href="ask">
                     <div class="info-banner">
                         <span> 1:1 문의하기 </span>
                     </div>
                 </a>
-                <a href="#">
+                <a href="faqpage">
                     <div class="info-banner">
                         <span> 자주 묻는 질문 FAQ </span>
                     </div>
                 </a>
                 <div class="info-text">
-                    <span class="text-ex"> 1:1문의 내가 등록한 문의글을 볼 수 있습니다. </span>
-                </div>
-                <div class="info-text">
-                    <span> 문의전화 : 031 - 500 - 1234</span>
-                </div>
-                
+                    <span class="text-ex"> 로그인 하시면 1:1문의를 통해 내가 등록한 문의글을 볼 수 있습니다. </span>
+                  	<p><span class="text-ex"> 문의전화 : 031 - 500 - 1234</span></p>
+                </div>                
             </div>
         </section>
 		<footer>

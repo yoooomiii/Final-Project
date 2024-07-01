@@ -225,6 +225,9 @@ td {
 	box-shadow : 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
+body{
+	font-family: 'SUITE-Regular';
+}
 </style>
 
 <body>
@@ -268,7 +271,7 @@ td {
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                  <a href="adminDView"> (배달 관리) </a>
+                                  <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -276,7 +279,7 @@ td {
                         <a href="#"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 문의글 관리 </a>
+                                <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
                                 <a href="#"> (답변 관리) </a>
@@ -293,7 +296,7 @@ td {
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>
@@ -331,10 +334,12 @@ td {
 					  		<option value="">전체</option>
 					  </select>
 					  
+					  <!-- 
 						  <label for="option1">일반</label>
 					    <input type="radio" id="option1" name="master" value="0">
 						  <label for="option2">관리자</label>
 						  <input type="radio" id="option2" name="master" value="1">
+						 -->
 
 					ID: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
@@ -416,9 +421,13 @@ td {
 		</table>
 		<br>
 					<div id ="paging">
+						<c:if test="${not_data !=null }">
+							<div>${not_data }</div>
+						</c:if>
+						<br>
 						<c:if test="${sword != null}">
+								<div>검색조건 | 회원ID: ${sword } 지역: ${city} ${county }</div>
 							<div>
-								<h5>(숨길 열입니다.) 회원ID(sword): ${sword } 시티: ${city} 주: ${county }</h5>
 								검색결과 목록:
 									<c:if test="${pagevo.prev }">
 										<a href="adminMSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>

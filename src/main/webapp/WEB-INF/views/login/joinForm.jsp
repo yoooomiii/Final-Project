@@ -12,32 +12,25 @@
     	var idCheckT = 0; 
     	
     	function checkForm(){ // 전체체크함수 시작
-        // var check = nullChek();
-        // var lengcheck = lengthChek();
-        // var valicheck = valiCheck($('#pw').val());
+        var check = nullChek();
+        var lengcheck = lengthChek();
+        var valicheck = valiCheck($('#pw').val());
         
         
         if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면...
         	alert("ID 중복체크가 완료되지 않았습니다.");
         	return false;
-        }else{
-	        if(nullChek()==true){
-	        	if(lengthChek()==true){
-	        		if(valiCheck($('#pw').val())==true){
-	        			return true;
-	        		}else{
-	        			alert('PW 조건을 확인해 주세요.');
-		        		return false;
-	        		}
-	        	}else{
-	        	    alert('길이를 확인해 주세요.');
-	        		return false;
-	        	}
-	        }else{
-	        	alert('공백을 확인해 주세요.');
-	        	return false;
-	        }
+        }else if(check==false){
+        	alert("누락된 항목이 있습니다.");
+        	return false;
+        }else if(lengcheck==false){
+        	alert("ID는 6자, PW는 8자 이상이어야 합니다.");
+        	return false;
+        }else if(valicheck==false){
+        	alert("PW가 조건을 충족하지 않습니다.");
+        	return false;
         }
+        return true;
         
       } // 전체체크함수 끝 
 
@@ -196,7 +189,7 @@
 				  </div>
 	              <br>
 	              <div id="form-controls">
-	                <button type="submit" onclick="checkForm()">가입</button>
+	                <button type="submit" onclick="return checkForm()">가입</button>
 	              </div>
 	              <h5 style="color:gray;">
 	              	<a href="./">메인 HOME</a> | <a href="login">로그인</a>

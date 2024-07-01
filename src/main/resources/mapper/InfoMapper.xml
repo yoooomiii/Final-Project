@@ -8,21 +8,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO ask VALUES (NEXT VALUE FOR ask_cnt, #{a_id}, #{a_title}, #{a_ex}, #{a_checkVal}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'))
 	</insert>
 	
+	<select id="joinall" resultMap="infojoinMap">
+		SELECT *
+		FROM ask a 
+		LEFT JOIN answer an ON a.a_num = an.an_num
+		ORDER BY a.a_num ASC LIMIT 10
+	</select>
+	
 	<resultMap id="infojoinMap" type="www.egg.vo.InfojoinVO">
 		<association property="askVO" javaType="www.egg.vo.AskVO">
-		<id property="a_num" column="a_num" />
-		<result property="a_id" column="a_id"></result>
-		<result property="a_title" column="a_title"></result>
-		<result property="a_checkVal" column="a_checkVal"></result>
-		<result property="a_date" column="a_date"></result>
+			<id property="a_num" column="a_num" />
+			<result property="a_id" column="a_id"></result>
+			<result property="a_title" column="a_title"></result>
+			<result property="a_checkVal" column="a_checkVal"></result>
+			<result property="a_date" column="a_date"></result>
 		</association>
 		<association property="answerVO" javaType="www.egg.vo.AnswerVO">
-		<id property="an_num" column="an_num" />
-		<result property="an_re" column="an_re"></result>
-		<result property="an_date" column="an_date"></result>
+			<id property="an_num" column="an_num" />
+			<result property="an_re" column="an_re"></result>
+			<result property="an_date" column="an_date"></result>
 		</association>
 	</resultMap>
 	
+	
+
 	<select id="selectall" parameterType="String" resultMap="infojoinMap">
 		SELECT a_num, a.a_id, a.a_title, a.a_checkVal, a.a_date,
 		an.an_num, an.an_re, an.an_date
@@ -34,12 +43,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from ask where a_num = #{a_num}
 	</select>
 	
-	<select id="selectallMa" parameterType="map" resultType="map">
+	<select id="infoselectall" parameterType="map" resultMap="infojoinMap">
+		SELECT a.a_num, a.a_id, a.a_title, a.a_checkVal, a.a_date,
+		an.an_num, an.an_re, an.an_date
+		FROM ask a LEFT JOIN answer an ON a.a_num=an.an_num
+		ORDER BY a.a_num ASC LIMIT #{startNo}, #{endNo} 
+	</select>
+	
+	<!-- <select id="selectallMa" parameterType="map" resultType="map">
 		SELECT a.a_num, a.a_id, a.a_title, a.a_checkVal, a.a_date,
 		an.an_num, an.an_date
 		FROM ask a LEFT JOIN answer an ON a.a_num = an.an_num 
-		ORDER BY a.a_num DESC LIMIT #{startRow}, #{perPageNum}
-	</select>
+		ORDER BY a.a_num DESC LIMIT #{perPageNum} OFFSET #{startRow}
+	</select> -->
 	
 	<delete id="delete">
 		delete from ask where a_num = #{a_num}
@@ -54,8 +70,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getTotalCount" resultType="int">
-		select count(*) from ask
+		select count(*) 
+		FROM ask a LEFT JOIN answer an ON a.a_num=an.an_num
 	</select>
 	
+	<update id="updateTrigger" parameterType="www.egg.vo.AnswerVO">
+		CALL complete_answer
+	</update>
 	
+	<!-- <select id=".answerall" resultType="www.egg.vo.AnswerVO">
+		select * from answer
+	</select> -->
 </mapper>

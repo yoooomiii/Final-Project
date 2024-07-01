@@ -15,6 +15,7 @@ encoding//src/main/java/www/egg/interceptor/AuthenticationInterceptor.java=UTF-8
 encoding//src/main/java/www/egg/service/IF_MenuService.java=UTF-8
 encoding//src/main/java/www/egg/service/MenuServiceImpl.java=UTF-8
 encoding//src/main/java/www/egg/util/FileDataUtil.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/info/faq.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/main.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/mypage/mypage.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/mypage/myreview.jsp=UTF-8

@@ -217,7 +217,7 @@ td {
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="adminDView"> (배달 관리) </a>
+                                <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -225,7 +225,7 @@ td {
                         <a href="#"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 문의글 관리 </a>
+                                <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
                                 <a href="#"> (답변 관리) </a>
@@ -242,7 +242,7 @@ td {
                                 <a href="menu_List"> 상품 조회 </a>
                             </li>
                             <li>
-                                <a href="menu_input"> (상품 등록) </a>
+                                <a href="menu_input"> 상품 등록 </a>
                             </li>
                         </ul>
                     </li>
@@ -278,7 +278,7 @@ td {
 					<td>(추후수정)</td>
 					<td><input type="text" name="d_num"  ></td>
 					<td><input type="text" name="d_no" value=${ordernum } readonly></td>
-					<td><input type="text" name="d_time"  ></td>
+					<td><input type="text" name="d_time"  > 분</td>
 					<td><input type="text" name="d_check"  value="자동등록" readonly></td>
 				</tr>
 			</tbody>

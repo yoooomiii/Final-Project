@@ -97,14 +97,20 @@
 	width: 1100px;
 	height: 150px;
 	margin-top: 25px;
-	margin-left: 30px;
+	margin-left: 100px;
 	/* border: 1px solid blue; */
 }
 
 .iconimg {
 	float: left;
-	margin-left: 120px;
+	margin-left: 150px;
 	margin-top: 20px;
+}
+.iconimg:hover {
+	transform: scale(1.05);
+}
+.iconimg:active {
+	transform: scale(1);
 }
 
 footer {
@@ -160,7 +166,7 @@ td {
 }
 
 #mod-button {
-	background-color: skyblue;
+	background-color:  #b3c5fd;
 	color: black;
 	border: none;
 	border-radius: 15px;
@@ -172,11 +178,12 @@ td {
 }
 
 #mod-button:hover {
-	background-color: skyblue;
+	background-color:  #b3c5fd;
+	transform: scale(1.05);
 }
 
 #mod-button:active {
-	transform: scale(0.95);
+	transform: scale(1);
 }
 </style>
 
@@ -226,7 +233,9 @@ td {
 				</ul>
 			</div>
 		</nav>
-
+		<br>
+		<br>
+		<br>
 		<div id="line">
 			<div id="mypage">
 				<span class="username" id="name">${username}</span>  님의 마이페이지입니다
@@ -276,25 +285,11 @@ td {
 					</a>
 					<h3>리뷰</h3>
 				</div>
-				<div class="iconimg">
-					<a href="${pageContext.request.contextPath}/point"> <img
-						src="${pageContext.request.contextPath}/resources/img/포인트 최종.png"
-						width="140" height="140">
-					</a>
-					<h3>포인트</h3>
-				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
+		<br>
+		<br>
+		<br>
 
 		<footer>
 			<div class="footer-box">

@@ -23,6 +23,7 @@ import www.egg.util.ReviewFileDataUtil;
 import www.egg.vo.FavorVO;
 import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
+import www.egg.vo.PageVO;
 import www.egg.vo.ReviewVO;
 
 
@@ -35,7 +36,7 @@ public class MypageController {
 
 	@Inject
 	ReviewFileDataUtil reviewfiledatautil;
-	
+
 	@Inject
 	FileDataUtil filedatautil;
 
@@ -77,34 +78,60 @@ public class MypageController {
 
 
 
-	
+
 
 	@GetMapping(value="mylist")			//주문내역 불러오기
-	public String oderlist(HttpSession session, Model model) throws Exception {
+	public String oderlist(HttpSession session, Model model,@ModelAttribute PageVO pagevo) throws Exception {
 		String userid = (String) session.getAttribute("userid");
 		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
-		
-		
-	
+
+		if(pagevo.getPage()==null) {
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 번호:" +pagevo.getPage());
+
+
 		if (userid != null) {
-			List<MlistVO> mlist = mpservice.orderlist(userid);
+			pagevo.setTotalCount(mpservice.getTotalCount(userid));
+			List<MlistVO> mlist = mpservice.orderlist(userid, pagevo);
+			System.out.println("시작페이지 번호:" + pagevo.getStartNo());
+			System.out.println("끝페이지 번호:" + pagevo.getEndNo());
 			for (MlistVO list : mlist) {
-				System.out.println(list);  // 디버그용 로그 출력
+				//				System.out.println(list);  // 디버그용 로그 출력
 			}
 			model.addAttribute("mlist", mlist);
+			model.addAttribute("pagevo", pagevo);
 		} else {
 			System.out.println("아이디 없음");  // 디버그용 로그 출력
 		}
-
-
 		return "mypage/orderlist";
 	}
-	
-	
 
-	
-	
-	 
+
+	@GetMapping(value="picklist")
+	public String picklist(HttpSession session, Model model,@ModelAttribute PageVO pagevo) throws Exception {
+		String userid = (String) session.getAttribute("userid");
+		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
+
+		if(pagevo.getPage()==null) {
+			pagevo.setPage(1);
+		}
+		System.out.println("현재 페이지 번호:" +pagevo.getPage());
+
+		pagevo.setTotalCount(mpservice.getTotalCountPick(userid));
+
+		System.out.println("시작페이지 번호:" + pagevo.getStartNo());
+		System.out.println("끝페이지 번호:" + pagevo.getEndNo());
+
+		List<FavorVO> picklist = mpservice.picklist(userid, pagevo);
+		model.addAttribute("plist", picklist);
+		model.addAttribute("pagevo", pagevo);
+		System.out.println("불러와졌나?");	
+		return "mypage/pick";
+	}
+
+
+
 
 	@RequestMapping(value = "write", method = RequestMethod.GET)     //리뷰쓰기 버튼을 누르면 주문번호를 넘겨주고 리뷰작성폼으로 이동
 	public String review(@RequestParam("m_num") Integer m_num, Model model,
@@ -152,22 +179,22 @@ public class MypageController {
 		fvo.setF_no(menu_no);
 		fvo.setF_menu(menu_name);
 		fvo.setF_price(Integer.parseInt(menu_price));
-		
-		
+
+
 		mpservice.pickinsert(fvo);
 		session.setAttribute("menu_no", menu_no);
 		System.out.println("찜 저장됨");
 		return "redirect:picklist";
 	}
-	
+
 	@GetMapping(value="allreview") // 내가 쓴 리뷰만 불러오기 (사진 포함)  
 	public String allreviews(HttpSession session, Model model,
 			@ModelAttribute MlistVO mlvo) throws Exception {
 		String userid = (String) session.getAttribute("userid");	
-		
+
 		List<ReviewVO> myreview = mpservice.myreview(userid);
-		List<MlistVO> mmm = mpservice.orderlist(userid);
-	
+		List<MlistVO> mmm = mpservice.orderlist(userid, null);
+
 		// 각 리뷰에 대해 사진 데이터 가져오기
 		List<Map<String, Object>> photolist = new ArrayList<>(); // 사진 데이터를 저장할 리스트를 초기화
 		for (ReviewVO review : myreview) { // myreview 리스트에 있는 각 리뷰에 대해 반복
@@ -183,35 +210,24 @@ public class MypageController {
 		model.addAttribute("review", myreview); 
 		model.addAttribute("photolist", photolist);
 		System.out.println("사진 넘겼니?");
-		
+
 		return "mypage/myreview";
 	}
-	
-	@GetMapping(value="picklist")
-	public String picklist(HttpSession session, Model model) throws Exception {
-		String userid = (String) session.getAttribute("userid");
-		System.out.println("UserID from session: " + userid);  // 디버그용 로그 출력
 
-		List<FavorVO> picklist = mpservice.picklist(userid);
 
-	
-		model.addAttribute("plist", picklist);
-		System.out.println("불러와졌나?");
-		return "mypage/pick";
+
+
+	@GetMapping(value="pickdelete")
+	public String pickdelete(@RequestParam List<String> chkid) throws Exception {
+		for(String check :chkid) {
+			mpservice.pickdelete(check);
+			System.out.println("삭제되었습니당");
+		}
+		return "redirect:picklist";
+
 	}
-	
 
-	@GetMapping(value="point")
-	public String point() {
-		return "mypage/point";
-	}
-	//	 @PostMapping("/deletePick")
-	//	    public Map<String, Object> deletePick(@RequestBody Map<String, List<String>> request) throws Exception {
-	//	        List<String> pickIds = request.get("pickIds");
-	//	        boolean success = mpservice.deletePick(pickIds);
-	//	        return Collections.singletonMap("success", success);
-	//	    }
-
+	//남은것 : ajax , 페이징, 체크박스 전체삭제 , 업무일지, 요청명세서  
 }
 
 

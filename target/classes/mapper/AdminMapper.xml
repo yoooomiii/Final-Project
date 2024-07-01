@@ -51,6 +51,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectdeliverysearch_p" resultType="www.egg.vo.DeliveryVO" parameterType="map">
 		select * from delivery where d_check = #{deliveryvo.d_check}  order by d_no asc LIMIT 10 OFFSET #{pagevo.startNo}
 	</select>
+	<select id="selectdeliveryrider_p" resultType="www.egg.vo.DeliveryVO" parameterType="map">
+		select * from delivery where d_num = #{deliveryvo.d_num}  order by d_no asc LIMIT 10 OFFSET #{pagevo.startNo}
+	</select>
 	<insert id="insertdelivery" parameterType="www.egg.vo.DeliveryVO">
 	 	insert into delivery values(#{d_no},#{d_num},#{d_time},default)
 	</insert>
