@@ -163,7 +163,7 @@ public class MenuController {
 	@GetMapping(value ="/menu_input")
 	public String menu_input() {	//치킨 입력 창으로 이동
 
-		return "menu/menuInput";
+		return "menu/adminMenuInput";
 	}
 
 	@PostMapping(value="/menu_inputSave")
@@ -202,7 +202,7 @@ public class MenuController {
 		List<MenuVO> allList = mservice.menuList();
 		model.addAttribute("menuList", allList);
 
-		return "menu/menuList";
+		return "menu/adminMenuList";
 	}
 
 	@PostMapping(value = "/menu_delete")

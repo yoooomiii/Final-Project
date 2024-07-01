@@ -65,7 +65,7 @@ hr {
 	height: 200px;
 	margin-top: 20px;
 	margin-left: 190px;
-	border: 4px solid  rgb(162, 220, 243);
+	border: 4px solid  grey;
 	border-radius: 30px;
 	font-family: 'SUITE-Regular', sans-serif;
 }
