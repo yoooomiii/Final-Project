@@ -247,7 +247,7 @@ body {
 					<li><a href="#"> 글 관리 </a>
 						<ul class="submenu">
 							<li><a href="masterview"> 문의글 관리 </a></li>
-							<li><a href="#"> (답변 관리) </a></li>
+							<li><a href="answerList"> (답변 관리) </a></li>
 							<li><a href="#"> 리뷰 관리 </a></li>
 						</ul></li>
 					<li><a href="menu_List"> 상품 관리 </a>
@@ -298,7 +298,7 @@ body {
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
-			<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+			<a href="adminEnter"><img src="${path}/resources/img/footer_logo_s1.png"
 				alt=""></a>
 		</div>
 		<div class="footer-con">

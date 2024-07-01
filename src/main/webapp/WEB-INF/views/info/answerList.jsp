@@ -37,12 +37,12 @@
 
 		<nav>
 			<div class="logo">
-				<a href="./"><span>
+				<a href="adminEnter"><span>
 				<img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="./"> HOME </a></li>
+					<li><a href="adminEnter"> HOME </a></li>
 					<li><a href="adminMView"> 회원 관리 </a>
 						<ul class="submenu">
 							<li><a href="#"> 회원 정보 조회 </a></li>
@@ -93,7 +93,7 @@
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+					<a href="adminEnter"><img src="${path}/resources/img/footer_logo_s1.png"
 						alt=""></a>
 				</div>
 				<div class="footer-con">

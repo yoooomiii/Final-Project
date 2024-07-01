@@ -187,18 +187,10 @@
         </div>
     	</section>
         <hr>
-        <section class="main-banner">
-            <div class="banner notice">
-                <a href="#"> 공지사항 / 안내 </a>
-            </div>
-            <div class="banner event">
-                <a href="#"> 이벤트 </a>
-            </div>
-        </section>
         <footer>
             <div class="footer-box">
                 <div class="footer-logo">
-                    <a href="#"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
+                    <a href="./"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
                 </div>
                 <div class="footer-con">
                     <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>

@@ -37,7 +37,7 @@
 
 		<nav>
 			<div class="logo">
-				<a href="#"><span><img
+				<a href="./"><span><img
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
@@ -120,7 +120,7 @@
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+					<a href="./"><img src="${path}/resources/img/logo1_ size60.png"
 						alt=""></a>
 				</div>
 				<div class="footer-con">

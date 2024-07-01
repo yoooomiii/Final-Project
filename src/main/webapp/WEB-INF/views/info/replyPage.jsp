@@ -108,7 +108,7 @@
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+					<a href="adminEnter"><img src="${path}/resources/img/footer_logo_s1.png"
 						alt=""></a>
 				</div>
 				<div class="footer-con">
