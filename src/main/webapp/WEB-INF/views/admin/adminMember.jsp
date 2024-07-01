@@ -400,23 +400,25 @@ body{
 									</c:if>
 							</div>
 						</c:if>
-						<div>
-							일반 목록:
-								<c:if test="${pagevo.prev }">
-									<a href="adminMView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-								</c:if> 
-								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-									var="idx">
-									<a href="adminMView?page=${idx}"> 
-										<c:if
-											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-											test="${idx == pagevo.page }">]</c:if>
-									</a>
-								</c:forEach> 
-								<c:if test="${pagevo.next }">
-									<a href="adminMView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-								</c:if>
-						</div>
+						<c:if test="${sword == null}">
+							<div>
+								일반 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminMView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminMView?page=${idx}"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										<a href="adminMView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						</c:if>
 					</div>
 	</form>
 	</section>
