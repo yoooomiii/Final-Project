@@ -17,8 +17,19 @@
           <div id="sign-in-container" >
             <h3>잘못된 접근입니다.</h3>
             <h4>
-            	페이지 조회 및 url 요청 권한이 없습니다. 로그인 상태를 다시 확인해 주세요.  
+            	페이지 조회 및 url 요청 권한이 없습니다. 
             </h4>
+            <c:if test="${usergrade == 1 }">
+            <a href="adminEnter">HOME으로...</a>
+            </c:if>
+            <c:if test="${usergrade == 0 }">
+            <a href="./">HOME으로...</a>
+            </c:if>
+            <c:if test="${userid == null }">
+            <a href="./">HOME으로...</a>
+            <br>
+          	 현재 로그인 정보가 없습니다.
+            </c:if>
           </div>
     </div>
 </body>
