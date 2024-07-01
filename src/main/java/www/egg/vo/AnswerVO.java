@@ -36,12 +36,6 @@ public class AnswerVO {
 		return "AnswerVO [an_num=" + an_num + ", an_re=" + an_re + ", an_date=" + an_date + ", format=" + format
 				+ ", dateString=" + dateString + "]";
 	}
-	public void setAn_num(AskVO a_num) {
-		if(this.getAn_num() == null) {
-			
-			this.setAn_num(a_num);
-		}
-		
-	}
+	
 	
 }

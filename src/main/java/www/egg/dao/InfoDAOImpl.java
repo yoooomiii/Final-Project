@@ -75,10 +75,29 @@ public class InfoDAOImpl implements IF_InfoDAO {
 	}
 
 	@Override
-	public List<InfojoinVO> infoListAll(PageVO pvo) {
+	public List<InfojoinVO> infoListAll(Map<String, Object> params) throws Exception {
 		
-		return sql.selectList(mapperQurey + ".infoselectall", pvo);
+		return sql.selectList(mapperQurey +".infoselectall", params);
 	}
+	
+	@Override
+	public void trigger_complete() throws Exception {
+		
+		sql.update(mapperQurey + ".updateTrigger");
+	}
+
+	@Override
+	public List<InfojoinVO> infojoin() throws Exception {
+		
+		return sql.selectList(mapperQurey + ".joinall");
+	}
+
+	@Override
+	public List<AnswerVO> answerList() throws Exception {
+		
+		return sql.selectList(mapperQurey + ".answerall");
+	}
+
 
 
 
