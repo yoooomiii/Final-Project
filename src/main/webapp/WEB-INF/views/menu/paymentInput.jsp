@@ -88,13 +88,13 @@
                         <a href="mypage"> 마이 페이지 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="mypage"> 주문 내역 </a>
+                                <a href="mylist"> 주문 내역 </a>
                             </li>
                             <li>
-                                <a href="mypage"> 찜목록 </a>
+                                <a href="picklist"> 찜목록 </a>
                             </li>
                             <li>
-                                <a href="mypage"> 나의 리뷰 </a>
+                                <a href="allreview"> 나의 리뷰 </a>
                             </li>
                             <li>
                                 <a href="mypage"> 내 정보관리 </a>
@@ -148,7 +148,6 @@
 					<br> <b>배달팁</b> <input type="text" value="2000" name="pm_tip" class="text">
 					<br>
 					<br> <b>총 결제금액</b> <input type="text" value="${i_price + 2000}" name="pm_total" class="text">
-					<br>
 					<br>
 					<br> <b>결제수단 선택</b> <select name="pm_pay" class="text">
 						<option value="">(선택안함)</option>
