@@ -106,15 +106,15 @@
 
 	<nav>
 		<div class="logo">
-			<a href="main"><span><img
+			<a href="./"><span><img
 					src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 		</div>
 		<div class="menu">
 			<ul>
-				<li><a href="main"> HOME </a></li>
-				<li><a href="#"> 브랜드 소개 </a>
+				<li><a href="./"> HOME </a></li>
+				<li><a href="brand"> 브랜드 소개 </a>
 					<ul class="submenu">
-						<li><a href="#"> 브랜드 소개 </a></li>
+						<li><a href="brand"> 브랜드 소개 </a></li>
 					</ul></li>
 				<li><a href="#"> 메뉴 주문하기 </a>
 					<ul class="submenu">
@@ -131,9 +131,9 @@
 					</ul></li>
 				<li><a href="mypage"> 마이 페이지 </a>
 					<ul class="submenu">
-						<li><a href="mypage"> 주문 내역 </a></li>
-						<li><a href="mypage"> 찜목록 </a></li>
-						<li><a href="mypage"> 나의 리뷰 </a></li>
+						<li><a href="mylist"> 주문 내역 </a></li>
+						<li><a href="picklist"> 찜목록 </a></li>
+						<li><a href="allreview"> 나의 리뷰 </a></li>
 						<li><a href="mypage"> 내 정보관리 </a></li>
 					</ul></li>
 			</ul>
@@ -169,7 +169,43 @@
 			</form>
 		</div>
 	</div>
-
+<footer>
+			<div class="footer-box">
+				<div class="footer-logo">
+					<a href="./"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
+				</div>
+				<div class="footer-con">
+					<div class="con-text">
+						<span> 상호명 : Golden Egg chicken (골든에그) </span>
+					</div>
+					<div class="con-text">
+						<span> 대표자 : 송유미 </span>
+					</div>
+					<div class="con-text">
+						<span> 사업자등록번호 : 112-00-001234 </span>
+					</div>
+					<div class="con-text">
+						<span> 대표번호 : 031-500-1234 </span>
+					</div>
+					<div class="con-text">
+						<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
+					</div>
+					<div class="con-text">
+						<span> 이메일 : goldenEgg @ gmail.com </span>
+					</div>
+					<div class="con-text">
+						<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
+					</div>
+				</div>
+				<div class="sns">
+					<span><a href="#"><img
+							src="./Gold.html/img/instahram_icon.jpg" alt=""></a></span> <span><a
+						href="#"><img src="./Gold.html/img/facebook_icon.jpg" alt=""></a></span>
+					<span><a href="#"><img
+							src="./Gold.html/img/twiter_icon.jpg" alt=""></a></span>
+				</div>
+			</div>
+		</footer>
 
 </body>
 </html>

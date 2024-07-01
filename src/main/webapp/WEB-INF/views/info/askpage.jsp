@@ -54,22 +54,19 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 메뉴 주문하기 </a>
+                        <a href="menuForm"> 메뉴 주문하기 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 인기 메뉴 </a>
+                                <a href="menuForm"> 인기 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 대표 메뉴 </a>
+                                <a href="menuForm"> 대표 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 치킨 메뉴 </a>
+                                <a href="menuForm"> 전제 메뉴 </a>
                             </li>
                             <li>
-                                <a href="#"> 사이드 / 음료 </a>
-                            </li>
-                            <li>
-                                <a href="#"> 세트 메뉴 </a>
+                                <a href="menuForm"> 사이드 / 음료 </a>
                             </li>
                         </ul>
                     </li>
@@ -85,19 +82,19 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 마이 페이지 </a>
+                        <a href="mypage"> 마이 페이지 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 주문 내역 </a>
+                                <a href="mylist"> 주문 내역 </a>
                             </li>
                             <li>
-                                <a href="#"> 찜목록 </a>
+                                <a href="picklist"> 찜목록 </a>
                             </li>
                             <li>
-                                <a href="#"> 나의 리뷰 </a>
+                                <a href="allreview"> 나의 리뷰 </a>
                             </li>
                             <li>
-                                <a href="#"> 내 정보관리 </a>
+                                <a href="mypage"> 내 정보관리 </a>
                             </li>
                         </ul>
                     </li>
@@ -137,7 +134,7 @@
 		<footer>
             <div class="footer-box">
                 <div class="footer-logo">
-                    <a href="#"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
+                    <a href="./"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
                 </div>
                 <div class="footer-con">
                     <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>

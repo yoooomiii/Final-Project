@@ -91,13 +91,13 @@
                         <a href="mypage"> 마이 페이지 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="mypage"> 주문 내역 </a>
+                                <a href="mylist"> 주문 내역 </a>
                             </li>
                             <li>
-                                <a href="mypage"> 찜목록 </a>
+                                <a href="picklist"> 찜목록 </a>
                             </li>
                             <li>
-                                <a href="mypage"> 나의 리뷰 </a>
+                                <a href="allreview"> 나의 리뷰 </a>
                             </li>
                             <li>
                                 <a href="mypage"> 내 정보관리 </a>
@@ -190,7 +190,7 @@
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="#"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
+					<a href="./"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
 				</div>
 				<div class="footer-con">
 					<div class="con-text">

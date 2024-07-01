@@ -310,7 +310,6 @@ body{
 	                </ul>
 				</div>
 			</nav>
->>>>>>> aa76ed7a53e00e640df8f5c4ae5a2a0eb4ad0449
 		</div>
 	<section id="page">
 	<form action="adminDUp" method="post" id="dlv-form">
@@ -361,7 +360,7 @@ body{
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
-			<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+			<a href="adminEnter"><img src="${path}/resources/img/footer_logo_s1.png"
 				alt=""></a>
 		</div>
 		<div class="footer-con">

@@ -225,9 +225,9 @@ td {
 						</ul></li>
 					<li><a href="mypage"> 마이 페이지 </a>
 						<ul class="submenu">
-							<li><a href="mypage"> 주문 내역 </a></li>
-							<li><a href="mypage"> 찜목록 </a></li>
-							<li><a href="mypage"> 나의 리뷰 </a></li>
+							<li><a href="mylist"> 주문 내역 </a></li>
+							<li><a href="picklist"> 찜목록 </a></li>
+							<li><a href="allreview"> 나의 리뷰 </a></li>
 							<li><a href="mypage"> 내 정보관리 </a></li>
 						</ul></li>
 				</ul>
@@ -294,7 +294,7 @@ td {
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+					<a href="./"><img src="${path}/resources/img/logo1_ size60.png"
 						alt=""></a>
 				</div>
 				<div class="footer-con">
