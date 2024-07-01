@@ -267,10 +267,10 @@ body{
                         <a href="adminOView"> 주문 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 주문 상태 관리 </a>
+                                <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> 배달 관리(정비 중) </a>
+                                <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
