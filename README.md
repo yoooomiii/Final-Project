@@ -1,6 +1,3 @@
-
-
-
 <div align= "center">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:efafaf,100:d2c793&height=180&text=GoldenEGG%20Project&animation=fadeIn&fontColor=000000&fontSize=70" />
     </div>
@@ -30,8 +27,10 @@
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🏅 Stats </h2>
         <div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yoooomiii&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
         </div> 
-        <div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
-        </div> 
+        <h1>개발자 : 송사리</h1>
+        <a href="https://github.com/Hongseongwo"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
+        </div></a>
+        <h1>개발자 : 홍성우</h1>
         <div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=orca0504&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
         </div> 
     </div>
