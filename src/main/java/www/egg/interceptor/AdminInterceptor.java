@@ -20,7 +20,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
 				return super.preHandle(request, response, handler);
 			}
 		}
-		response.sendRedirect(request.getContextPath()+"/"); /// 메인 화면으로 돌아가라. 
+		response.sendRedirect(request.getContextPath()+"/wrongEnter"); /// 메인 화면으로 돌아가라. 
 		System.out.println("관리자 preHandle 발동!!! you blocked"); 
 		return false;
 	}
