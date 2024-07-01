@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>수정페이지</title>
+<title>메뉴 등록</title>
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -281,17 +281,21 @@ body {
 		</div>
 	</div>
 	<section id="page">
-		<h1>메뉴 수정하기</h1>
-		
-		<form action="menu_updateset" method="post">
-			수정할 음식 코드 : <input type=text value="${menu_code}" name="menu_code">
-			<input type=hidden value="${mmvo.menu_no}" name="menu_no">
-			<br> 수정할 음식 이름 : <input type=text value="${menu_name}" name="menu_name">
-			<br> 수정할 음식 가격 : <input type=text value="${menu_price}" name="menu_price">
-			<br> 수정할 음식 설명 : <input type=text value="${menu_ex}" name="menu_ex">
-			<br> 카테고리 수정 : <input type=text value="${menu_side}" name="menu_side">
-			
-			<br> <input type=submit value="수정하기" name="update">
+		<h1>메뉴 등록창입니다</h1>
+		<form action="menu_inputSave" method="post" encType="multipart/form-data">
+		메뉴 코드<input type=text name="menu_code">
+		<br>
+		메뉴 이름<input type=text name="menu_name">
+		<br>
+		메뉴 가격<input type=text name="menu_price">
+		<br>
+		메뉴 설명<input type=text name="menu_ex">
+		<br>
+		카테고리<input type=text name="menu_side">
+		<br>
+		참부파일 1<input type=file name="file">
+		<br>
+		<input type=submit value="메뉴 저장">
 		</form>
 	</section>
 </body>

@@ -173,16 +173,16 @@ body{
 				<div id="carouselExampleInterval" class="carousel slide"
 					data-bs-ride="carousel">
 					<div class="carousel-inner">
-						<div class="carousel-item active" data-bs-interval="1000">
-							<img src="./resources/img/화면 캡처 2024-06-27 121409.png" width="1260" , height="150"
+						<div class="carousel-item active" data-bs-interval="2000">
+							<img src="./resources/img/화면 캡처 2024-07-01 111023.png" width="1260" , height="500"
 								class="d-block w-100" alt="준비중">
 						</div>
-						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/화면 캡처 2024-06-27 121753.png" width="1260" , height="150"
+						<div class="carousel-item" data-bs-interval="2000">
+							<img src="./resources/img/화면 캡처 2024-07-01 105717.png" width="1260" , height="500"
 								class="d-block w-100" alt="준비중">
 						</div>
-						<div class="carousel-item" data-bs-interval="1000">
-							<img src="./resources/img/화면 캡처 2024-06-27 122740.png" width="1260" , height="150"
+						<div class="carousel-item" data-bs-interval="2000">
+							<img src="./resources/img/화면 캡처 2024-07-01 104832.png" width="1260" , height="500"
 								class="d-block w-100" alt="준비중">
 						</div>
 					</div>

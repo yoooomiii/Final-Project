@@ -163,7 +163,7 @@ public class MenuController {
 	@GetMapping(value ="/menu_input")
 	public String menu_input() {	//치킨 입력 창으로 이동
 
-		return "menu/menuInput";
+		return "menu/adminMenuInput";
 	}
 
 	@PostMapping(value="/menu_inputSave")
@@ -202,7 +202,7 @@ public class MenuController {
 		List<MenuVO> allList = mservice.menuList();
 		model.addAttribute("menuList", allList);
 
-		return "menu/menuList";
+		return "menu/adminMenuList";
 	}
 
 	@PostMapping(value = "/menu_delete")
@@ -213,8 +213,20 @@ public class MenuController {
 	}
 
 	@GetMapping(value ="/menu_update")
-	public String menu_up(@ModelAttribute MenuVO mvo, Model model) {	//수정 창으로 이동
-		model.addAttribute("mvo", mvo);
+	public String menu_up(@ModelAttribute MenuVO mmvo, Model model,
+			@RequestParam("menu_no") String menu_no,
+            @RequestParam("menu_code") String menu_code,
+            @RequestParam("menu_name") String menu_name,
+            @RequestParam("menu_price") String menu_price,
+            @RequestParam("menu_ex") String menu_ex,
+            @RequestParam("menu_side") String menu_side) throws Exception {	//수정 창으로 이동
+		model.addAttribute("mmvo", mmvo);
+		model.addAttribute("menu_no", menu_no);
+        model.addAttribute("menu_code", menu_code);
+        model.addAttribute("menu_name", menu_name);
+        model.addAttribute("menu_price", menu_price);
+        model.addAttribute("menu_ex", menu_ex);
+        model.addAttribute("menu_side", menu_side);
 
 		return "menu/menuUpdate";
 	}
