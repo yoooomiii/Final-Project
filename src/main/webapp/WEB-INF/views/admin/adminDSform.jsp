@@ -25,7 +25,6 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 	   <script type="text/javascript">
-		
 	</script>
 </head>
 <style>
@@ -176,7 +175,6 @@ td {
 	transition-duration: 0.3s;
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -192,7 +190,6 @@ td {
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -250,58 +247,46 @@ td {
                 </ul>
 			</div>
 		</nav>
-
-
 		</div>
-
-		<section id="page">
-
-
-
-	<form action="adminDSave" method="get">
-		<div id="dpan">
-			배달 배정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
-			<hr>
-		<input type="submit" value="제출하기">
-		</div>
-		<table border=1 id="mtable">
-			<thead>
-				<tr style="background-color: gray">
-					<td>배달번호</td>
-					<td>등록번호</td>
-					<td>주문번호</td>
-					<td>예상시간</td>
-					<td>배달상태</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="minfo_row">
-					<td>(추후수정)</td>
-					<td><input type="text" name="d_num"  ></td>
-					<td><input type="text" name="d_no" value=${ordernum } readonly></td>
-					<td><input type="text" name="d_time"  > 분</td>
-					<td><input type="text" name="d_check"  value="자동등록" readonly></td>
-				</tr>
-			</tbody>
-		</table>
-		<br>
-		<table border=1 id="mtable">
-			<tr><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
-			<tr><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
-			<tr><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
-			<tr><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
-			<tr><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
-			
-		</table>
-	</form>
-		</section>
+	<section id="page">
+		<form action="adminDSave" method="get">
+			<div id="dpan">
+				배달 배정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
+				<hr>
+			<input type="submit" value="제출하기">
+			</div>
+			<table border=1 id="mtable">
+				<thead>
+					<tr style="background-color: gray">
+						<td>배달번호</td>
+						<td>등록번호</td>
+						<td>주문번호</td>
+						<td>예상시간</td>
+						<td>배달상태</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="minfo_row">
+						<td>(추후수정)</td>
+						<td><input type="text" name="d_num"  ></td>
+						<td><input type="text" name="d_no" value=${ordernum } readonly></td>
+						<td><input type="text" name="d_time"  > 분</td>
+						<td><input type="text" name="d_check"  value="자동등록" readonly></td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<table border=1 id="mtable">
+				<tr><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
+				<tr><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
+				<tr><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
+				<tr><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
+				<tr><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
+				
+			</table>
+		</form>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -340,15 +325,7 @@ td {
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

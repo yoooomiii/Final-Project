@@ -4,7 +4,7 @@
     float: left;
     border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
 	width: 1260px; /*가로 넓이*/
-	height: 5000px; /*세로 높이*/
+	height: 5300px; /*세로 높이*/
 	text-align: center; /*중앙 정렬*/
 	/* background-color: rgb(101, 206, 145) */
 }
@@ -56,6 +56,7 @@ aside {
 
 .opp{
 	float: left;
+    border: 0px solid black;      /*틀 선 굵기와 종류 색상*/
 	width: 1250; /*가로 넓이*/
 	height: 2200px; /*세로 높이*/
 	text-align: center; /*중앙 정렬*/
@@ -63,8 +64,9 @@ aside {
 
 .pop{
 	float: left;
+    border: 0px solid black;      /*틀 선 굵기와 종류 색상*/
 	width: 1250; /*가로 넓이*/
-	height: 2000px; /*세로 높이*/
+	height: 1200px; /*세로 높이*/
 	text-align: center; /*중앙 정렬*/
 }
 
@@ -114,4 +116,66 @@ aside {
 
 
 
+<<<<<<< HEAD
 
+=======
+.notice {
+    width: 35%;
+    margin-right: 20px;
+}
+
+.event {
+    width: 60%;
+}
+
+footer {
+    font-family: 'SUITE-Regular';
+    font-size: 20px;
+	float: left;
+    background-color: #180e02;
+	width: 1260px; /*가로 넓이*/
+	height: 250px; /*세로 높이*/
+	margin: 20px 0;
+
+}
+
+.footer-box {
+    float: left;
+    font-size: medium;
+    width: 90%;
+    height: 90%;
+
+}
+
+.footer-logo {
+    width: 100px;
+    height: 40px;
+}
+
+.footer-con {
+    float: left;
+    width: 50%;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.con-text {
+    color: white;
+    text-align: left;
+}
+
+.sns {
+    float: right;
+    width: 40%;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+.sns img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+>>>>>>> aa76ed7a53e00e640df8f5c4ae5a2a0eb4ad0449

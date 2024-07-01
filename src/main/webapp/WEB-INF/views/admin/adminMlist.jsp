@@ -36,13 +36,7 @@
 			}
 			
 		}
-		
-	
-		
 		//------------>
-		
-		
-		
      var cnt = new Array();
      cnt[0] = new Array('전체');
      cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
@@ -72,8 +66,7 @@
                          sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
          }         
      }
-
-	</script>
+</script>
 </head>
 <style>
 .login {
@@ -232,7 +225,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -248,7 +240,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -306,14 +297,11 @@ body{
                 </ul>
 			</div>
 		</nav>
-
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 주문상태 관리 페이지입니다.</h2>
 				<form action="adminOSearch" method="get" name=form>
-				
-					  
-					   <label for="m_state">주문상태</label>
+					  <label for="m_state">주문상태</label>
 					  <select name="m_state" id="loc" >
 					  		<option value="">(선택안함)</option>
 					  		<option value="주문접수">주문접수</option>
@@ -322,24 +310,16 @@ body{
 					  		<option value="환불처리">환불처리</option>
 					  		<option value="수령완료">수령완료</option>
 					  </select>
-					  
-					  
 						  <label for="option1">옵션1</label>
 					    <input type="radio" id="option1" name="키값" value="값">
 						  <label for="option2">옵션2</label>
 						  <input type="radio" id="option2" name="키값" value="값">
-
 					주문번호: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
-
 		</div>
-
-		<section id="page">
-
-
-
+	<section id="page">
 	<form action="adminODelete" method="get" onsubmit="return call_confirm()" id="odr-form">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
@@ -396,33 +376,29 @@ body{
 									</c:if>
 							</div>
 						</c:if>
-						<div>
-							일반 목록:
-								<c:if test="${pagevo.prev }">
-									<a href="adminOView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-								</c:if> 
-								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-									var="idx">
-									<a href="adminOView?page=${idx}"> 
-										<c:if
-											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-											test="${idx == pagevo.page }">]</c:if>
-									</a>
-								</c:forEach> 
-								<c:if test="${pagevo.next }">
-									<a href="adminOView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-								</c:if>
-						</div>
+						<c:if test="${m_state == null}">
+							<div>
+								일반 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminOView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminOView?page=${idx}"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										<a href="adminOView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						</c:if>
 					</div>
 	</form>
-		</section>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -461,15 +437,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

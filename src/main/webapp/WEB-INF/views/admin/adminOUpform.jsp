@@ -6,7 +6,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html lang="kor">
 <head>
@@ -36,19 +35,7 @@
 			}
 			
 		}
-		
-		function tdCng(){
-			var chktr = $(this);
-			var td = chktr.children();
-			var master = td.eq(5).text();
-			
-			alert(master);
-		}
-		
-		$("tbody > tr").click(function() {
-			alert($(this).children().eq(2).text());
-		});
-	</script>
+</script>
 </head>
 <style>
 .login {
@@ -210,7 +197,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -226,7 +212,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -284,7 +269,6 @@ body{
                 </ul>
 			</div>
 		</nav>
-
 		<div id="span">
 			<div id="surchpan">
 				<h2>주문 관리 페이지입니다.</h2>
@@ -311,54 +295,43 @@ body{
 				</form>
 			</div>
 		</div>
-
 		</div>
-
-		<section id="page">
-
-
-
-	<form action="adminOUp" method="post" id="odr-form">
-			<div id="dpan">
-			주문 상태만 수정하실 수 있습니다.
-		</div>
-		<table border=1 id="mtable" style="font-size: 15px">
-			<thead>
-				<tr style="background-color: gray">
-					<td>주문번호</td>
-					<td>주문상태</td>
-					<td>회원ID</td>
-					<td>수령방법</td>
-					<td>제출</td>
-				</tr>
-			</thead>
-			<tbody style="font-size: 15px">
-						<tr class="minfo_row">
-							<td><input type="text" name="m_num" value=${ovo.m_num } readonly></td>
-							<td>
-							 <select name="m_state" id="ms">
-						  			<option value="주문접수">주문접수</option>
-						  			<option value="주문취소">주문취소</option>
-						  			<option value="결제완료">결제완료</option>
-						  			<option value="환불처리">환불처리</option>
-						  			<option value="수령완료">수령완료</option>
-					  		 </select>
-							</td>
-							<td><input type="text" name="m_id" value=${ovo.m_id } readonly></td>
-							<td>수령방법</td>
-							<td><input type="submit" value="제출하기" id="sbtn"></td>
-						</tr>
-			</tbody>
-		</table>
-	</form>
-		</section>
+	<section id="page">
+		<form action="adminOUp" method="post" id="odr-form">
+				<div id="dpan">
+				주문 상태만 수정하실 수 있습니다.
+			</div>
+			<table border=1 id="mtable" style="font-size: 15px">
+				<thead>
+					<tr style="background-color: gray">
+						<td>주문번호</td>
+						<td>주문상태</td>
+						<td>회원ID</td>
+						<td>수령방법</td>
+						<td>제출</td>
+					</tr>
+				</thead>
+				<tbody style="font-size: 15px">
+							<tr class="minfo_row">
+								<td><input type="text" name="m_num" value=${ovo.m_num } readonly></td>
+								<td>
+								 <select name="m_state" id="ms">
+							  			<option value="주문접수">주문접수</option>
+							  			<option value="주문취소">주문취소</option>
+							  			<option value="결제완료">결제완료</option>
+							  			<option value="환불처리">환불처리</option>
+							  			<option value="수령완료">수령완료</option>
+						  		 </select>
+								</td>
+								<td><input type="text" name="m_id" value=${ovo.m_id } readonly></td>
+								<td>수령방법</td>
+								<td><input type="submit" value="제출하기" id="sbtn"></td>
+							</tr>
+				</tbody>
+			</table>
+		</form>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -397,15 +370,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

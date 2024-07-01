@@ -27,7 +27,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -45,7 +44,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-        
 		<nav>
             <div class="logo">
 				<a href="adminEnter"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>

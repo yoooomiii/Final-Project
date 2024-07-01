@@ -25,8 +25,7 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 	   <script type="text/javascript">
-		function call_confirm(){
-			
+		function call_confirm(){ // 삭제 컨펌 
 			if(confirm("회원 정보를 삭제하시겠습니까?")){
 				alert("정상적으로 제출되었습니다.");
 				return true;
@@ -36,7 +35,6 @@
 			}
 			
 		}
-		
 		function tdCng(){
 			var chktr = $(this);
 			var td = chktr.children();
@@ -44,14 +42,7 @@
 			
 			alert(master);
 		}
-		
-		$("tbody > tr").click(function() {
-			alert($(this).children().eq(2).text());
-		});
-		
-		
-		// --------------------> selectbox 함수
-			
+		// --------------------> selectbox 
      var cnt = new Array();
      cnt[0] = new Array('전체');
      cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
@@ -81,7 +72,7 @@
                          sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
          }         
      }
-	</script>
+</script>
 </head>
 <style>
 .login {
@@ -240,7 +231,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -256,7 +246,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -279,10 +268,10 @@ body{
                         <a href="adminOView"> 주문 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 주문 상태 관리 </a>
+                                <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> 배달 관리(정비 중) </a>
+                                <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -314,12 +303,10 @@ body{
                 </ul>
 			</div>
 		</nav>
-
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 관리 페이지입니다.</h2>
 					<form action="adminMSearch" method="get" name=form>
-				
 					  <label for="city">시도</label>
 					  <select name="city" id="loc" onchange="change(this.selectedIndex);" class=input >
 					  <option value="">(선택안함)</option>
@@ -344,27 +331,14 @@ body{
 					  <select name="county" id="loc" class=select>
 					  		<option value="">전체</option>
 					  </select>
-					  
-					  <!-- 
-						  <label for="option1">일반</label>
-					    <input type="radio" id="option1" name="master" value="0">
-						  <label for="option2">관리자</label>
-						  <input type="radio" id="option2" name="master" value="1">
-						 -->
-
 					ID: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
-
 		</div>
-
-		<section id="page">
-
-
-
+	<section id="page">
 	<form action="adminMUp" method="post" id="mbr-form">
-			<div id="dpan">
+		<div id="dpan">
 			회원 권한만 수정하실 수 있습니다.
 		</div>
 		<table border=1 id="mtable" style="font-size: 15px">
@@ -416,14 +390,8 @@ body{
 			</tbody>
 		</table>
 	</form>
-		</section>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -462,15 +430,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

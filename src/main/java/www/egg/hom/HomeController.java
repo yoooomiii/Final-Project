@@ -12,14 +12,15 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-		
+	
 		return "main";
 	}
+
 
 	@GetMapping("brand")
 	public String brand(Model model) {
 		
 		return "brand";
 	}
-	
+
 }

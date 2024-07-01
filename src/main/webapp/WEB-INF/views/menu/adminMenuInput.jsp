@@ -1,20 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html lang="kor">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메뉴 등록</title>
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
-<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
-<title>배달정보</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -24,35 +22,45 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
-	   <script type="text/javascript">
-		function call_confirm(){
-			
-			if(confirm("회원 정보를 삭제하시겠습니까?")){
-				alert("정상적으로 제출되었습니다.");
-				return true;
-			}else{
-				alert("삭제 취소");
-				return false;
-			}
-			
+<script type="text/javascript">
+	function call_confirm() {
+
+		if (confirm("회원 정보를 삭제하시겠습니까?")) {
+			alert("정상적으로 제출되었습니다.");
+			return true;
+		} else {
+			alert("삭제 취소");
+			return false;
 		}
+
+	}
+
+	function tdCng() {
+		var chktr = $(this);
+		var td = chktr.children();
+		var master = td.eq(5).text();
+
+		alert(master);
+	}
+
+	$("tbody > tr").click(function() {
+		alert($(this).children().eq(2).text());
+	});
 </script>
 </head>
 <style>
 .login {
 	float: right;
 	width: 100px; /*가로 넓이*/
-    height: 90%;
-    margin-left: 30px;
-    
+	height: 90%;
+	margin-left: 30px;
 }
 
 .logout {
-    float: right;
+	float: right;
 	width: 100px; /*가로 넓이*/
-    height: 90%;
-    margin-right: 30px;
-   
+	height: 90%;
+	margin-right: 30px;
 }
 
 #span {
@@ -61,6 +69,11 @@
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
+	font-family: 'SUITE-Regular';
+}
+
+#srcbtn {
+	width: 100px;
 }
 
 #surchpan {
@@ -70,9 +83,11 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-#dlv-form{
-    font-family: 'SUITE-Regular';
+
+#odr-form {
+	font-family: 'SUITE-Regular';
 }
+
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -124,9 +139,10 @@
 #page {
 	float: left;
 	width: 1210px;
-	height: 1000px;
+	height: 500px;
 	margin-top: 10px;
 	border: 4px solid gray;
+	text-align: center; /*중앙 정렬*/
 	margin-left: 20px;
 	border-radius: 30px;
 }
@@ -147,15 +163,16 @@ h3 {
 h2 {
 	font-size: large;
 }
-#dpan{
+
+#dpan {
 	float: left;
 	padding-left: 40px;
 	margin-top: 20px;
 	margin-bottom: 10px;
-	width: 1170px;
-	
+	width: 800px;
 }
-#sbtn{
+
+#sbtn {
 	width: 80px;
 }
 
@@ -180,21 +197,25 @@ td {
 	padding: 15px 0px;
 	border-bottom: 2px solid grey;
 }
-#mbtn{
+
+#mbtn {
 	width: 60px;
 }
-.iconimg:hover{
-	box-shadow : 4px 4px 4px black;
+
+.iconimg:hover {
+	box-shadow: 4px 4px 4px black;
 	transition-duration: 0.3s;
 }
-body{
+
+body {
 	font-family: 'SUITE-Regular';
 }
 </style>
+
 <body>
 	<div id="Box">
 		<header>
-				관리자 HOME입니다. (MASTER) 
+			관리자 HOME입니다. (MASTER)
 			<div class="login box">
 				<c:if test="${userid == null }">
 					<a href="login"><span> 로그인 </span></a>
@@ -212,78 +233,70 @@ body{
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
-			<ul>
-                    <li>
-                        <a href="adminEnter"> HOME </a>
-                    </li>
-                    <li>
-                        <a href="adminMView"> 회원 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#"> 회원 정보 조회 </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="adminOView"> 주문 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="adminOView"> 주문 상태 관리 </a>
-                            </li>
-                            <li>
-                                <a href="adminDView"> 배달 관리(정비 중) </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="masterview"> 글 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="masterview"> 문의글 관리 </a>
-                            </li>
-                            <li>
-                                <a href="answerList"> (답변 관리) </a>
-                            </li>
-                            <li>
-                                <a href="#"> 리뷰 관리 </a>
-                            </li>
-                        </ul>
-                    </li>
-                      <li>
-                        <a href="menu_List"> 상품 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="menu_List"> 상품 조회 </a>
-                            </li>
-                            <li>
-                                <a href="menu_input"> 상품 등록 </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+				<ul>
+					<li><a href="adminEnter"> HOME </a></li>
+					<li><a href="adminMView"> 회원 관리 </a>
+						<ul class="submenu">
+							<li><a href="#"> 회원 정보 조회 </a></li>
+						</ul></li>
+					<li><a href="adminOView"> 주문 관리 </a>
+						<ul class="submenu">
+							<li><a href="adminOView"> 주문 상태 관리 </a></li>
+							<li><a href="adminDView"> 배달 관리(정비 중) </a></li>
+						</ul></li>
+					<li><a href="#"> 글 관리 </a>
+						<ul class="submenu">
+							<li><a href="masterview"> 문의글 관리 </a></li>
+							<li><a href="#"> (답변 관리) </a></li>
+							<li><a href="#"> 리뷰 관리 </a></li>
+						</ul></li>
+					<li><a href="menu_List"> 상품 관리 </a>
+						<ul class="submenu">
+							<li><a href="menu_List"> 상품 조회 </a></li>
+							<li><a href="menu_input"> 상품 등록 </a></li>
+						</ul></li>
+				</ul>
 			</div>
 		</nav>
+		<div id="span">
+			<div id="surchpan">
+				<h2>주문 관리 페이지입니다.</h2>
+				<form action="adminOSearch" method="get" name=form>
+
+
+					<label for="m_state">주문상태</label> <select name="m_state" id="loc">
+						<option value="">(선택안함)</option>
+						<option value="주문접수">주문접수</option>
+						<option value="주문취소">주문취소</option>
+						<option value="결제완료">결제완료</option>
+						<option value="환불처리">환불처리</option>
+						<option value="수령완료">수령완료</option>
+					</select> <label for="option1">옵션1</label> <input type="radio" id="option1"
+						name="키값" value="값"> <label for="option2">옵션2</label> <input
+						type="radio" id="option2" name="키값" value="값"> 주문번호: <input
+						type="text" name="sword"> <input type="submit" value="검색"
+						id="srcbtn">
+				</form>
+			</div>
 		</div>
+	</div>
 	<section id="page">
-			<form action="요청URL" method="post" id="dlv-form">
-					<div id="dpan">
-					${dvo.d_no }번 주문의 배달 현황입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
-					<hr>
-					<c:if test="${dvo.d_num != null }">
-						<a href="adminDUpform?m_num=${dvo.d_no}"><input type="button" value="수정하기"></a>
-					</c:if>
-					<c:if test="${dvo.d_num == null }">
-						<a href="adminDSpform?m_num=${ordernum}"><input type="button" value="배정하기"></a>
-					</c:if>
-				</div>
-				<table border=1 id="mtable" >
-					<tr style="font-size: 15px"><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
-					<tr style="font-size: 15px"><td style="background-color: gray">등록번호:</td><td><a href="배달원보기url">${dvo.d_num}</a></td></tr>
-					<tr style="font-size: 15px"><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
-					<tr style="font-size: 15px"><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
-					<tr style="font-size: 15px"><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
-				</table>
-			</form>
+		<h1>메뉴 등록창입니다</h1>
+		<form action="menu_inputSave" method="post" encType="multipart/form-data">
+		메뉴 코드<input type=text name="menu_code">
+		<br>
+		메뉴 이름<input type=text name="menu_name">
+		<br>
+		메뉴 가격<input type=text name="menu_price">
+		<br>
+		메뉴 설명<input type=text name="menu_ex">
+		<br>
+		카테고리<input type=text name="menu_side">
+		<br>
+		참부파일 1<input type=file name="file">
+		<br>
+		<input type=submit value="메뉴 저장">
+		</form>
 	</section>
 </body>
 <footer>
@@ -325,6 +338,13 @@ body{
 	</div>
 </footer>
 <script>
+	function list() {
+		alert("hohoho");
+	}
+
+	function review() {
+		location.href = "main";
+	}
 </script>
 </body>
 </html>

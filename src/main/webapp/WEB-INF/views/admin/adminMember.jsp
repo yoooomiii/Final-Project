@@ -6,7 +6,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html lang="kor">
 <head>
@@ -36,12 +35,7 @@
 			}
 			
 		}
-		
-	
 		//------------>
-		
-		
-		
      var cnt = new Array();
      cnt[0] = new Array('전체');
      cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
@@ -71,7 +65,6 @@
                          sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
          }         
      }
-
 	</script>
 </head>
 <style>
@@ -230,7 +223,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -246,7 +238,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -304,12 +295,10 @@ body{
                 </ul>
 			</div>
 		</nav>
-
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 회원 관리 페이지입니다.</h2>
 				<form action="adminMSearch" method="get" name=form>
-				
 					  <label for="city">시도</label>
 					  <select name="city" id="loc" onchange="change(this.selectedIndex);" class=input >
 					  <option value="">(선택안함)</option>
@@ -334,25 +323,12 @@ body{
 					  <select name="county" id="loc" class=select>
 					  		<option value="">전체</option>
 					  </select>
-					  
-					  <!-- 
-						  <label for="option1">일반</label>
-					    <input type="radio" id="option1" name="master" value="0">
-						  <label for="option2">관리자</label>
-						  <input type="radio" id="option2" name="master" value="1">
-						 -->
-
 					ID: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
-
 		</div>
-
-		<section id="page">
-
-
-
+	<section id="page">
 	<form action="adminMDelete" method="get" onsubmit="return call_confirm()" id="mbr-form">
 			<div id="dpan">
 			<input type="submit" value="삭제하기">
@@ -397,27 +373,6 @@ body{
 					</tr>
 			    </c:if>
 				</c:forEach>
-				<!-- 
-				
-						<tr>
-						<td colspan=4 align=center>
-							<c:if test="${pagevo.prev }">
-								<a href="adminMView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-							</c:if> 
-							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-								var="idx">
-								<a href="adminMView?page=${idx}"> 
-									<c:if
-										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-										test="${idx == pagevo.page }">]</c:if>
-								</a>
-							</c:forEach> 
-							<c:if test="${pagevo.next }">
-								<a href="adminMView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-							</c:if>
-						</td>
-					</tr>
-				 -->
 			</tbody>
 		</table>
 		<br>
@@ -446,33 +401,29 @@ body{
 									</c:if>
 							</div>
 						</c:if>
-						<div>
-							일반 목록:
-								<c:if test="${pagevo.prev }">
-									<a href="adminMView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-								</c:if> 
-								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-									var="idx">
-									<a href="adminMView?page=${idx}"> 
-										<c:if
-											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-											test="${idx == pagevo.page }">]</c:if>
-									</a>
-								</c:forEach> 
-								<c:if test="${pagevo.next }">
-									<a href="adminMView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-								</c:if>
-						</div>
+						<c:if test="${sword == null}">
+							<div>
+								일반 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminMView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminMView?page=${idx}"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										<a href="adminMView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						</c:if>
 					</div>
 	</form>
-		</section>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -511,15 +462,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

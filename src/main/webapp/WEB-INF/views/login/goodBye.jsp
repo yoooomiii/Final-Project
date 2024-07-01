@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page session ="true" %>
 <!DOCTYPE html>
@@ -10,8 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
     	var usCheckT = 0;
-    
-    	// 탈퇴 컨펌 함수 
+    	// 탈퇴 컨펌 
 		function call_confirm(){
     		if(usCheckT==0){
     			alert("회원정보 확인을 먼저 진행해 주세요.");
@@ -27,25 +25,21 @@
 			}
 			
 		}
-		
-		 // 아이디 중복체크 함수
+		 // 아이디 중복체크
 		 $(document).ready(function(){
 	          $('#btn_uscheck').on('click', function(){
-	        	  if($("#id").val()==""){ // 공백이면 그냥 종료해라... 
+	        	  if($("#id").val()==""){ // 공백이면 그냥 종료
 	        		  alert('아이디가 입력되지 않았습니다!')
 	        		  return false;
 	        	  }
-	        	  
-	              $.ajax({
+	              $.ajax({ // ajax
 	                  type: 'POST',
 	                  url: 'quiteConfirm_now', // url 콘트롤러 요청
 	                  data: {
 	                      "id" : $('#id').val(),
-	                      "pw" : $('#pw').val()// json 데이터로 보내겠다.
+	                      "pw" : $('#pw').val()// json 데이터
 	                  },
-	                  
 	                  // ------------------------->
-	                  
 	                  success: function(data){
 	                      if($.trim(data) == 1){
 	                    	 // alert("회원 정보가 확인되었습니다.")
@@ -64,8 +58,7 @@
 	          });    //end on    
 	      });
 	</script>
-    
-	<link href="${path}./resources/css/sign.css" rel="stylesheet"/>
+<link href="${path}./resources/css/sign.css" rel="stylesheet"/>
 </head>
 <body>
     <div id="form-container"> 
@@ -92,4 +85,3 @@
     </div>
 </body>
 </html>
-
