@@ -21,7 +21,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>	
+	</script>
 </head>
 <style>
 @font-face {
@@ -173,9 +174,9 @@ td {
 					</ul></li>
 				<li><a href="mypage"> 마이 페이지 </a>
 					<ul class="submenu">
-						<li><a href="mypage"> 주문 내역 </a></li>
-						<li><a href="mypage"> 찜목록 </a></li>
-						<li><a href="mypage"> 나의 리뷰 </a></li>
+						<li><a href="mylist"> 주문 내역 </a></li>
+						<li><a href="picklist"> 찜목록 </a></li>
+						<li><a href="allreview"> 나의 리뷰 </a></li>
 						<li><a href="mypage"> 내 정보관리 </a></li>
 					</ul></li>
 			</ul>
@@ -210,7 +211,7 @@ td {
 								<form action="write" method="get">
 									<input type="hidden" name="m_num" value="${mm.m_num}">
 									<input type="hidden" name="m_name" value="${mm.m_name}">
-									<button type="submit" id="rbtn">리뷰쓰기</button>
+									<button type="submit" id="rbtn" onsubmit="pickcheck" name="chkpick">리뷰쓰기</button>
 								</form>
 							</td>
 						</tr>

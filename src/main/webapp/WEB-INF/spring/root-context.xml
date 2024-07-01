@@ -14,13 +14,9 @@
 			value="jdbc:mariadb://192.168.0.72:3305/goldenegg" />
 
 
-<<<<<<< HEAD
-		<property name="username" value="root" />
-=======
+
 
 		<property name="username" value="root" />
-
->>>>>>> aa76ed7a53e00e640df8f5c4ae5a2a0eb4ad0449
 
 		<property name="password" value="1111" />
 

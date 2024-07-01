@@ -65,7 +65,7 @@ hr {
 	height: 200px;
 	margin-top: 20px;
 	margin-left: 190px;
-	border: 4px solid  rgb(162, 220, 243);
+	border: 4px solid  grey;
 	border-radius: 30px;
 	font-family: 'SUITE-Regular', sans-serif;
 }
@@ -204,9 +204,9 @@ hr {
 					</ul></li>
 				<li><a href="mypage"> 마이 페이지 </a>
 					<ul class="submenu">
-						<li><a href="mypage"> 주문 내역 </a></li>
-						<li><a href="mypage"> 찜목록 </a></li>
-						<li><a href="mypage"> 나의 리뷰 </a></li>
+						<li><a href="mylist"> 주문 내역 </a></li>
+						<li><a href="picklist"> 찜목록 </a></li>
+						<li><a href="allreview"> 나의 리뷰 </a></li>
 						<li><a href="mypage"> 내 정보관리 </a></li>
 					</ul></li>
 			</ul>
