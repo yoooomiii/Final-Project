@@ -34,7 +34,7 @@
          <a href="https://github.com/orca0504"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=orca0504&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
         </div><a/>
         <h1>개발자 : 김어진</h1>
-_             <a href="https://github.com/jasmine-dg"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
+             <a href="https://github.com/jasmine-dg"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
         </div></a>
         <h1>개발자 : 김정재</h1>_
     </div>
