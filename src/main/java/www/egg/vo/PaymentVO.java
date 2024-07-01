@@ -8,20 +8,18 @@ public class PaymentVO {
 	private int pm_price = 0;          //주문 금액
 	private int pm_tip = 0;            //배달비
 	private int pm_total = 0;          //총 결제금액
-	private int pm_point = 0;          //포인트
 	private String pm_pay = null;      //결제수단
 	private String pm_card = null;     //결제정보
 	private String pm_date = null;     //주문일시
 	private String pm_address = null;  //배달주소
 	private String pm_pick = null;     //수령방법
 	private String pm_comment = null;  //요청사항
-	
 	@Override
 	public String toString() {
 		return "PaymentVO [pm_no=" + pm_no + ", pm_num=" + pm_num + ", pm_id=" + pm_id + ", pm_price=" + pm_price
-				+ ", pm_tip=" + pm_tip + ", pm_total=" + pm_total + ", pm_point=" + pm_point + ", pm_pay=" + pm_pay
-				+ ", pm_card=" + pm_card + ", pm_date=" + pm_date + ", pm_address=" + pm_address + ", pm_pick="
-				+ pm_pick + ", pm_comment=" + pm_comment + "]";
+				+ ", pm_tip=" + pm_tip + ", pm_total=" + pm_total + ", pm_pay=" + pm_pay + ", pm_card=" + pm_card
+				+ ", pm_date=" + pm_date + ", pm_address=" + pm_address + ", pm_pick=" + pm_pick + ", pm_comment="
+				+ pm_comment + "]";
 	}
 	public Integer getPm_no() {
 		return pm_no;
@@ -58,12 +56,6 @@ public class PaymentVO {
 	}
 	public void setPm_total(int pm_total) {
 		this.pm_total = pm_total;
-	}
-	public int getPm_point() {
-		return pm_point;
-	}
-	public void setPm_point(int pm_point) {
-		this.pm_point = pm_point;
 	}
 	public String getPm_pay() {
 		return pm_pay;
