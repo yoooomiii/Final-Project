@@ -187,17 +187,17 @@ td {
 <body>
 	<div id="Box">
 		<header>
-				관리자 HOME입니다. (MASTER) 
-			<div class="login box">
-				<c:if test="${userid == null }">
-					<a href="login"><span> 로그인 </span></a>
-				</c:if>
-			</div>
-			<div class="logout box">
-				<c:if test="${userid != null }">
-					<a href="logout"><span> 로그아웃 </span></a>
-				</c:if>
-			</div>
+					관리자 HOME입니다. (MASTER) 
+			<c:if test="${userid == null }">
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
 		</header>
 		<nav>
 			<div class="logo">
@@ -284,7 +284,7 @@ td {
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
-			<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+			<a href="adminEnter"><img src="${path}/resources/img/footer_logo_s1.png"
 				alt=""></a>
 		</div>
 		<div class="footer-con">

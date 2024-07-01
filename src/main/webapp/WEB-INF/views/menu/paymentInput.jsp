@@ -190,7 +190,7 @@
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="#"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
+					<a href="./"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
 				</div>
 				<div class="footer-con">
 					<div class="con-text">

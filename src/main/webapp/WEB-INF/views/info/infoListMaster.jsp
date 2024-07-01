@@ -49,22 +49,29 @@
 <body>
 	<div id="Box">
 		<header>
+				관리자 HOME입니다. (MASTER) 
+				<c:if test="${userid != null }">
+			</c:if>
 			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
-			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+			<div class="logout box">
+				<c:if test="${userid != null }">
+					<a href="logout"><span> 로그아웃 </span></a>
+				</c:if>
 			</div>
 		</header>
 
 		<nav>
 			<div class="logo">
-				<a href="#"><span><img
+				<a href="adminEnter"><span><img
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="#"> HOME </a></li>
+					<li><a href="adminEnter"> HOME </a></li>
 					<li><a href="adminMView"> 회원 관리 </a>
 						<ul class="submenu">
 							<li><a href="#"> 회원 정보 조회 </a></li>
@@ -210,7 +217,7 @@
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+					<a href="adminEnter"><img src="${path}/resources/img/footer_logo_s1.png"
 						alt=""></a>
 				</div>
 				<div class="footer-con">

@@ -26,28 +26,45 @@
 <body>
 	<div id="Box">
 		<header>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
 			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
+				<c:if test="${userid == null }">
+					<a href="login"><span> 로그인 </span></a>
+				</c:if>
 			</div>
 			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
+				<c:if test="${userid == null }">
+					<a href="join"><span> 회원가입 </span></a>
+				</c:if>
+			</div>
+			<div class="logout box">
+				<c:if test="${userid != null }">
+					<a href="logout"><span> 로그아웃 </span></a>
+				</c:if>
+			</div>
+			<div class="quite box">
+				<c:if test="${userid != null }">
+					<a href="byebye"><span> 회원탈퇴 </span></a>
+				</c:if>
 			</div>
 		</header>
         
 		<nav>
             <div class="logo">
-				<a href="#"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
                     <li>
-                        <a href="#"> HOME </a>
+                        <a href="./"> HOME </a>
                     </li>
                     <li>
-                        <a href="#"> 브랜드 소개 </a>
+                        <a href="brand"> 브랜드 소개 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 브랜드 소개 </a>
+                                <a href="brand"> 브랜드 소개 </a>
                             </li>
                         </ul>
                     </li>
@@ -550,7 +567,7 @@
 		<footer>
             <div class="footer-box">
                 <div class="footer-logo">
-                    <a href="#"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
+                    <a href="./"><img src="${path}/resources/img/logo1_ size60.png" alt=""></a>
                 </div>
                 <div class="footer-con">
                     <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>

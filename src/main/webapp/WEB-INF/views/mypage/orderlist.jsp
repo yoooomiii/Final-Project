@@ -55,7 +55,7 @@
 	height: 1040px;
 	margin-left: 135px;
 	margin-top: 40px;
-	margin-bottom:100px;
+	margin-bottom: 100px;
 	border: 7px solid rgb(240, 240, 95);
 	border-radius: 50px;
 }
@@ -158,15 +158,15 @@ td {
 
 	<nav>
 		<div class="logo">
-			<a href="main"><span><img
+			<a href="./"><span><img
 					src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 		</div>
 		<div class="menu">
 			<ul>
-				<li><a href="main"> HOME </a></li>
-				<li><a href="#"> 브랜드 소개 </a>
+				<li><a href="./"> HOME </a></li>
+				<li><a href="brand"> 브랜드 소개 </a>
 					<ul class="submenu">
-						<li><a href="#"> 브랜드 소개 </a></li>
+						<li><a href="brand"> 브랜드 소개 </a></li>
 					</ul></li>
 				<li><a href="#"> 메뉴 주문하기 </a>
 					<ul class="submenu">
@@ -247,7 +247,6 @@ td {
 			<br> <br> <br>
 		</div>
 	</div>
-
 	<footer>
 		<div class="footer-box">
 			<div class="footer-logo">
@@ -286,6 +285,7 @@ td {
 			</div>
 		</div>
 	</footer>
+
 
 </body>
 </html>
