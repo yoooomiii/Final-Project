@@ -13,6 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>수정페이지</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -190,6 +191,68 @@ body{
 				</c:if>
 			</div>
 		</header>
+<<<<<<< HEAD
+
+		<nav>
+			<div class="logo">
+				<a href="adminEnter"><span><img
+						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+			</div>
+			<div class="menu">
+			<ul>
+                    <li>
+                        <a href="adminEnter"> HOME </a>
+                    </li>
+                    <li>
+                        <a href="adminMView"> 회원 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"> 회원 정보 조회 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="adminOView"> 주문 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="adminOView"> 주문 상태 관리 </a>
+                            </li>
+                            <li>
+                                <a href="adminDView"> 배달 관리(정비 중) </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="masterview"> 글 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="masterview"> 문의글 관리 </a>
+                            </li>
+                            <li>
+                                <a href="answerList"> (답변 관리) </a>
+                            </li>
+                            <li>
+                                <a href="#"> 리뷰 관리 </a>
+                            </li>
+                        </ul>
+                    </li>
+                      <li>
+                        <a href="menu_List"> 상품 관리 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="menu_List"> 상품 조회 </a>
+                            </li>
+                            <li>
+                                <a href="menu_input"> 상품 등록 </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+			</div>
+		</nav>
+
+
+=======
 			<nav>
 				<div class="logo">
 					<a href="adminEnter"><span><img
@@ -247,6 +310,7 @@ body{
 	                </ul>
 				</div>
 			</nav>
+>>>>>>> aa76ed7a53e00e640df8f5c4ae5a2a0eb4ad0449
 		</div>
 	<section id="page">
 	<form action="adminDUp" method="post" id="dlv-form">

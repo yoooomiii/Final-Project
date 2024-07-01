@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>축하드립니다</title>
 <link href="./resources/css/payment.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 </head>
 <body>
 	<div id="box">

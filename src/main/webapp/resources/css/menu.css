@@ -1,188 +1,5 @@
 @charset "UTF-8";
-@font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'SUITE-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-	margin: 0px;
-    margin-top: 30px;
-
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-li {
-    list-style-type: none;
-}
-
-img {
-    display: inline;
-}
-
-#Box {
-	float: left;
-	width: 1260px; /*가로 넓이*/
-	height: auto; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-
-}
-
-header {
-	width: 1260px; /*가로 넓이*/
-	height: 50px; /*세로 높이*/
-    padding-right: 100px;
-    padding-top: 10px;
-    background-color: #e2cf20;
-}
-
-header .box {
-    font-family: 'Cafe24Ssurround';
-    font-size: 16px;
-    text-decoration: none;
-    background-color: rgb(45, 12, 0);
-    border-radius: 15px;
-    padding-top: 5px;
-    border: 2px solid rgb(40, 10, 0);
-
-}
-
-header a {
-    text-decoration: none;
-    color: white;
-    
-}
-
-header a:hover {
-    color: #f3a227;
-    text-shadow: 2px 2px 1px rgb(0, 0, 0);
-}
-
-.login {
-	float: right;
-	width: 100px; /*가로 넓이*/
-    height: 90%;
-    margin-left: 30px;
-    
-}
-
-.join {
-    float: right;
-	width: 100px; /*가로 넓이*/
-    height: 90%;
-   
-}
-
-.quite {
-    float: right;
-	width: 100px; /*가로 넓이*/
-    height: 90%;
-    margin-right: 30px;
-   
-}
-
-nav {
-    position: relative;
-	width: 1260px; /*가로 넓이*/
-	height: 100px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	/* background-color: rgb(208, 249, 252) */
-    padding-top: 10px;
-    z-index: 10;
-}
-
-.logo {
-	float: left;
-	width: 150px; /*가로 넓이*/
-	height: 80px; /*세로 높이*/
-	text-align: center; /*중앙 정렬*/
-	
-}
-
-.logo img {
-    display: inline;
-    width: 100px;
-    height: 80px;
-}
-
-    .menu {
-        font-family: 'Cafe24Ssurround';
-        width: 1000px; /*가로 넓이*/
-        height: 50px; /*세로 높이*/
-        text-align: center; /*중앙 정렬*/
-        margin-top: 15px;
-        padding-top: 20px;
-        font-size: 25px;
-        margin-left: auto;
-
-    }
-
-    .menu > ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .menu > li {
-        margin-right: 3px;
-    }
-
-    .menu a {
-        text-decoration: none;
-        color: rgb(30, 10, 0);
-        display: block;
-        width: 180px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        outline: 0;
-    }
-
-    .menu a:hover {
-        color: #f1b546;
-        text-shadow: 0 2px 3px rgb(30, 0, 0);
-    }
-
-    .submenu {
-        position: absolute;
-        display: none;
-        top: 75px;
-        height: 100%;
-        background-color: rgb(248, 248, 243, 0.5);
-        font-size: 20px;
-    }
-
-    .menu > ul > li:hover .submenu {
-        display: block;
-        padding: 0 2px;
-        
-    }
-
-    .submenu a {
-        display: block;
-        width: 180px;
-        height: 100%;
-        text-align: center;
-        line-height: 40px;
-    }
 #foodList{
     float: left;
     border: 2px solid black;      /*틀 선 굵기와 종류 색상*/
@@ -297,19 +114,11 @@ aside {
     font-size: 27px;
 }
 
-.main-banner {
-    float: left;
-    width: 1260px;
-    height: 200px;
-    padding-top: 20px;
-}
 
-.banner {
-    display: inline-block;
-    height: 85%;
-    background-color: #eccd54;
-}
 
+<<<<<<< HEAD
+
+=======
 .notice {
     width: 35%;
     margin-right: 20px;
@@ -369,3 +178,4 @@ footer {
     height: 40px;
     margin-right: 20px;
 }
+>>>>>>> aa76ed7a53e00e640df8f5c4ae5a2a0eb4ad0449
