@@ -67,7 +67,7 @@
 		</interceptor>
 	</interceptors>
 	
-	<interceptors>  <!-- 비회원 접근에 대한 회원/관리자 페이지 권한 제한 -->
+	<interceptors>  <!-- 비회원 접근에 대한 회원/관리자 전용 페이지 권한 제한 -->
 		<interceptor>
 		<mapping path="/picklist"></mapping>
 		<mapping path="/mypage"></mapping>
