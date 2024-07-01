@@ -310,6 +310,8 @@ body{
 					  </select>
 
 					주문번호: <input type="text" name="sword"> <input type="submit" value="주문번호 검색" id="srcbtn">
+					<br>
+					<br>
 					Rider번호: <input type="text" name="d_num"> <input type="submit" value="Rider번호 검색" id="srcbtn">
 				</form>
 			</div>

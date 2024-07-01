@@ -130,6 +130,11 @@ public class LoginController {
 	     int rowcount = lservice.userIdChk(id); // 요청 아이디와 일치하는 계정 찾기 
 	     return String.valueOf(rowcount);
 	 }
+	 @RequestMapping(value = "wrongEnter", method = RequestMethod.GET) // 로그인 페이지 
+	 public String wrongEnter() {
+
+		 return "login/notice";
+	 }
 
 	
 }
