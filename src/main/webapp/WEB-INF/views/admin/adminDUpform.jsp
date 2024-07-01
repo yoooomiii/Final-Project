@@ -180,19 +180,17 @@ body{
 	<div id="Box">
 		<header>
 				관리자 HOME입니다. (MASTER) 
-			<div class="login box">
-				<c:if test="${userid == null }">
-					<a href="login"><span> 로그인 </span></a>
-				</c:if>
-			</div>
-			<div class="logout box">
-				<c:if test="${userid != null }">
-					<a href="logout"><span> 로그아웃 </span></a>
-				</c:if>
-			</div>
+			<c:if test="${userid == null }">
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
 		</header>
-<<<<<<< HEAD
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -250,68 +248,7 @@ body{
                 </ul>
 			</div>
 		</nav>
-
-
-=======
-			<nav>
-				<div class="logo">
-					<a href="adminEnter"><span><img
-							src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
-				</div>
-				<div class="menu">
-				<ul>
-	                    <li>
-	                        <a href="adminEnter"> HOME </a>
-	                    </li>
-	                    <li>
-	                        <a href="adminMView"> 회원 관리 </a>
-	                        <ul class="submenu">
-	                            <li>
-	                                <a href="#"> 회원 정보 조회 </a>
-	                            </li>
-	                        </ul>
-	                    </li>
-	                    <li>
-	                        <a href="adminOView"> 주문 관리 </a>
-	                        <ul class="submenu">
-	                            <li>
-	                                <a href="adminOView"> 주문 상태 관리 </a>
-	                            </li>
-	                            <li>
-	                                <a href="adminDView"> 배달 관리(정비 중) </a>
-	                            </li>
-	                        </ul>
-	                    </li>
-	                    <li>
-	                        <a href="#"> 글 관리 </a>
-	                        <ul class="submenu">
-	                            <li>
-	                                <a href="#"> 문의글 관리 </a>
-	                            </li>
-	                            <li>
-	                                <a href="#"> (답변 관리) </a>
-	                            </li>
-	                            <li>
-	                                <a href="#"> 리뷰 관리 </a>
-	                            </li>
-	                        </ul>
-	                    </li>
-	                      <li>
-	                        <a href="menu_List"> 상품 관리 </a>
-	                        <ul class="submenu">
-	                            <li>
-	                                <a href="menu_List"> 상품 조회 </a>
-	                            </li>
-	                            <li>
-	                                <a href="menu_input"> 상품 등록 </a>
-	                            </li>
-	                        </ul>
-	                    </li>
-	                </ul>
-				</div>
-			</nav>
->>>>>>> aa76ed7a53e00e640df8f5c4ae5a2a0eb4ad0449
-		</div>
+	</div>
 	<section id="page">
 	<form action="adminDUp" method="post" id="dlv-form">
 		<div id="dpan">
