@@ -6,13 +6,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html lang="kor">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>배달관리</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -35,12 +35,7 @@
 			}
 			
 		}
-		
-		
 		//------------>
-		
-		
-		
      var cnt = new Array();
      cnt[0] = new Array('전체');
      cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
@@ -69,12 +64,10 @@
        for (i=0; i < cnt[add].length;i++){                     
                          sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
          }         
-     }
-
+     
 	</script>
 </head>
 <style>
-
 .login {
 	float: right;
 	width: 100px; /*가로 넓이*/
@@ -231,7 +224,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -247,7 +239,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -278,13 +269,13 @@ body{
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 글 관리 </a>
+                        <a href="masterview"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 문의글 관리 </a>
+                                <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> (답변 관리) </a>
+                                <a href="answerList"> (답변 관리) </a>
                             </li>
                             <li>
                                 <a href="#"> 리뷰 관리 </a>
@@ -305,7 +296,6 @@ body{
                 </ul>
 			</div>
 		</nav>
-
 		<div id="span">
 			<div id="surchpan">
 				<h2>${username} 배달관리 페이지입니다.</h2>
@@ -321,17 +311,14 @@ body{
 					  </select>
 
 					주문번호: <input type="text" name="sword"> <input type="submit" value="주문번호 검색" id="srcbtn">
+					<br>
+					<br>
 					Rider번호: <input type="text" name="d_num"> <input type="submit" value="Rider번호 검색" id="srcbtn">
 				</form>
 			</div>
 		</div>
-
 		</div>
-
-		<section id="page">
-
-
-
+    <section id="page">
 	<form action="adminDDelete" method="get" onsubmit="return call_confirm()" id="dlv-form">
 		<div id="dpan">
 			<input type="submit" value="삭제하기">
@@ -388,33 +375,29 @@ body{
 									</c:if>
 							</div>
 						</c:if>
-						<div>
-							일반 목록:
-								<c:if test="${pagevo.prev }">
-									<a href="adminDView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-								</c:if> 
-								<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-									var="idx">
-									<a href="adminDView?page=${idx}"> 
-										<c:if
-											test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-											test="${idx == pagevo.page }">]</c:if>
-									</a>
-								</c:forEach> 
-								<c:if test="${pagevo.next }">
-									<a href="adminDView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-								</c:if>
-						</div>
-					</div>
+						<c:if test="${d_check == null}">
+							<div>
+								일반 목록:
+									<c:if test="${pagevo.prev }">
+										<a href="adminDView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
+									</c:if> 
+									<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
+										var="idx">
+										<a href="adminDView?page=${idx}"> 
+											<c:if
+												test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
+												test="${idx == pagevo.page }">]</c:if>
+										</a>
+									</c:forEach> 
+									<c:if test="${pagevo.next }">
+										<a href="adminDView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
+									</c:if>
+							</div>
+						</c:if>
+			</div>
 	</form>
-		</section>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -453,15 +436,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

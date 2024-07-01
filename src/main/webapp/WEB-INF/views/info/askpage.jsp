@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <link href="${path}/resources/css/info.css" rel="stylesheet"/>
 <title> Info Page </title>
 <link
@@ -45,10 +46,10 @@
                         <a href="./"> HOME </a>
                     </li>
                     <li>
-                        <a href="#"> 브랜드 소개 </a>
+                        <a href="brand"> 브랜드 소개 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 브랜드 소개 </a>
+                                <a href="brand"> 브랜드 소개 </a>
                             </li>
                         </ul>
                     </li>
@@ -73,13 +74,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="ask"> 고객센터 </a>
+                        <a href="infomain"> 고객센터 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 1:1 문의 </a>
+                                <a href="ask"> 1:1 문의 </a>
                             </li>
                             <li>
-                                <a href="#"> FAQ </a>
+                                <a href="faqpage"> FAQ </a>
                             </li>
                         </ul>
                     </li>

@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/infoList.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>Info Page</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -41,10 +42,10 @@
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="#"> HOME </a></li>
-					<li><a href="#"> 브랜드 소개 </a>
+					<li><a href="./"> HOME </a></li>
+					<li><a href="brand"> 브랜드 소개 </a>
 						<ul class="submenu">
-							<li><a href="#"> 브랜드 소개 </a></li>
+							<li><a href="brand"> 브랜드 소개 </a></li>
 						</ul></li>
 					<li><a href="#"> 메뉴 주문하기 </a>
 						<ul class="submenu">
@@ -57,7 +58,7 @@
 					<li><a href="infomain"> 고객센터 </a>
 						<ul class="submenu">
 							<li><a href="ask"> 1:1 문의 </a></li>
-							<li><a href="#"> FAQ </a></li>
+							<li><a href="faqpage"> FAQ </a></li>
 						</ul></li>
 					<li><a href="mypage"> 마이 페이지 </a>
 						<ul class="submenu">

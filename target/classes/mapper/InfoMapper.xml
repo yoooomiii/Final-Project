@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		CALL complete_answer
 	</update>
 	
-	<!-- <select id=".answerall" resultType="www.egg.vo.AnswerVO">
+	<select id="answerall" resultType="www.egg.vo.AnswerVO">
 		select * from answer
-	</select> -->
+	</select>
 </mapper>

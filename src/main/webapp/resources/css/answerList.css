@@ -1,0 +1,41 @@
+
+section {
+    float: left;
+    width: 1260px;
+    height: 1000px;
+    text-align: center;
+    background-color: azure;
+}
+
+#answertable {
+	float: left;
+	text-align: center;
+	border-collapse: collapse;
+	width: 1000px;
+	font-size: 18px;
+	margin-top: 20px;
+	margin-left: 38px;
+	border: 3px solid black
+}
+
+thead {
+	text-align: center;
+	font-weight: bold;
+	background-color: gray;
+}
+
+tbody {
+	font-size: 12px;
+}
+
+td {
+	padding: 15px 0px;
+	border-bottom: 2px solid grey;
+}
+#mbtn{
+	width: 60px;
+}
+.iconimg:hover{
+	box-shadow : 4px 4px 4px black;
+	transition-duration: 0.3s;
+}

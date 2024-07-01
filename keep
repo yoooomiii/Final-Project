@@ -1,86 +1,52 @@
-					<tr>
-						<td colspan=4 align=center>
-						일반 페이징:
-							<c:if test="${pagevo.prev }">
-								<a href="adminOView?page=${pagevo.startPage -1 }">[이전페이지그룹]</a>
-							</c:if> 
-							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-								var="idx">
-								<a href="adminOView?page=${idx}"> 
-									<c:if
-										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-										test="${idx == pagevo.page }">]</c:if>
-								</a>
-							</c:forEach> 
-							<c:if test="${pagevo.next }">
-								<a href="adminOView?page=${pagevo.endPage +1 }">[다음페이지그룹]</a>
-							</c:if>
-						</td>
-					</tr>
-					<tr>
-						<td colspan=4 align=center>
-						검색결과 페이징:
-							<c:if test="${pagevo.prev }">
-								<a href="adminOSearch?page=${pagevo.startPage -1 }&sword=${sword}&m_state=${m_state}">[이전페이지그룹]</a>
-							</c:if> 
-							<c:forEach begin="${pagevo.startPage }" end="${pagevo.endPage }"
-								var="idx">
-								<a href="adminOSearch?page=${idx}&sword=${sword}&m_state=${m_state }"> 
-									<c:if
-										test="${idx == pagevo.page }">[</c:if> ${idx } <c:if
-										test="${idx == pagevo.page }">]</c:if>
-								</a>
-							</c:forEach> 
-							<c:if test="${pagevo.next }">
-								 <a href="adminOSearch?page=${pagevo.endPage +1 }&sword=${sword}&m_state=${m_state}">[다음페이지그룹]</a>
-							</c:if>
-						</td>
-					</tr>
-					<tr>
-						<td>(숨길 열입니다.) 주문번호(sword): ${sword } 주문상태: ${m_state} </td>
-					</tr>
-					
-					
-					
-					
-					---
-					
-					
-					letContext resource [/WEB-INF/spring/root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\src\spring\common\apache-tomcat-8.5.97-windows-x64\apache-tomcat-8.5.97\wtpwebapps\Golden_EGG\WEB-INF\classes\mapper\AdminMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 78; columnNumber: 10; 요소 유형 "mapper"의 콘텐츠는 "(cache-ref|cache|resultMap*|parameterMap*|sql*|insert*|update*|delete*|select*)+"과(와) 일치해야 합니다.
-					
-					
-					
-					
-					-----
-					
-					
-					
-					function checkForm(){ // 전체체크함수 시작
-        // var check = nullChek();
-        // var lengcheck = lengthChek();
-        // var valicheck = valiCheck($('#pw').val());
-        
-        
-        if(idCheckT==0){ // 아이디 중복체크 통과 안 했으면...
-        	alert("ID 중복체크가 완료되지 않았습니다.");
-        	return false;
-        }else{
-	        if(nullChek()==true){
-	        	if(lengthChek()==true){
-	        		if(valiCheck($('#pw').val())==true){
-	        			return true;
-	        		}else{
-	        			alert('PW 조건을 확인해 주세요.');
-		        		return false;
-	        		}
-	        	}else{
-	        	    alert('길이를 확인해 주세요.');
-	        		return false;
-	        	}
-	        }else{
-	        	alert('공백을 확인해 주세요.');
-	        	return false;
-	        }
-        }
-        
-      } // 전체체크함수 끝      * God1!
+<interceptors>  <!-- 비회원 접근에 대한 회원/관리자 페이지 권한 제한 -->
+		<interceptor>
+		<mapping path=""></mapping>
+		<exclude-mapping path="mviewDetail" /> 
+		<exclude-mapping path="picklist" /> 
+		<exclude-mapping path="mypage" /> 
+		<!-- 고객센터 관련 url -->
+		<exclude-mapping path="ask" /> 
+		<exclude-mapping path="detailView" /> 
+		<exclude-mapping path="allList" /> 
+		<exclude-mapping path="masterview" /> 
+		<exclude-mapping path="detailViewMa" /> 
+		<exclude-mapping path="replyPage" /> 
+		<exclude-mapping path="answerList" /> 
+		<beans:ref bean="authenticationInterceptor"></beans:ref>
+		</interceptor>
+	</interceptors>
+	
+	
+	
+	
+	?
+	
+	
+	
+	@Override 
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		HttpSession session = request.getSession(); 
+		Object getSession = session.getAttribute("userid");
+		String usergrade = String.valueOf(session.getAttribute("usergrade"));
+		// Object getGrade = session.getAttribute("usergrade");
+
+		if(getSession==null) { 
+			response.sendRedirect(request.getContextPath()+"/wrongEnter");  
+
+			// System.out.println("preHandle"); 
+
+
+			/*
+			 * if(usergrade.equals("1")) { // 愿�由ъ옄 濡쒓렇�씤�씪 �븣
+			 * response.sendRedirect(request.getContextPath()+"/login"); /// 愿�由ъ옄 �솕硫댁쑝濡� �룎�븘媛��씪.
+			 * 
+			 * System.out.println("�씤利� preHandle 諛쒕룞!!! �쁽�옱 愿�由ъ옄 �젒�냽�엯�땲�떎."); return false; }
+			 */
+
+
+		}
+		return super.preHandle(request, response, handler);
+
+	}
+      

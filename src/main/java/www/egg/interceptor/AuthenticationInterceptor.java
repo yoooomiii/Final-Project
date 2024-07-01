@@ -18,10 +18,9 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 		// Object getGrade = session.getAttribute("usergrade");
 
 		if(getSession==null) { 
-			response.sendRedirect(request.getContextPath()+"/");  
-
-			// System.out.println("preHandle"); 
-
+			response.sendRedirect(request.getContextPath()+"/wrongEnter");  
+			System.out.println("접속 preHandle 발동!!! you blocked"); 
+			return false;
 
 			/*
 			 * if(usergrade.equals("1")) { // 愿�由ъ옄 濡쒓렇�씤�씪 �븣
@@ -30,9 +29,8 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 			 * System.out.println("�씤利� preHandle 諛쒕룞!!! �쁽�옱 愿�由ъ옄 �젒�냽�엯�땲�떎."); return false; }
 			 */
 
-
+		}else {
+			return super.preHandle(request, response, handler);
 		}
-		return super.preHandle(request, response, handler);
-
 	}
 }

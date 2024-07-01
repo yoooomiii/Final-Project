@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/main.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>Insert title here</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -177,10 +177,10 @@ h2 {
 						<li><a href="#"> 사이드 / 음료 </a></li>
 						<li><a href="#"> 세트 메뉴 </a></li>
 					</ul></li>
-				<li><a href="#"> 고객센터 </a>
+				<li><a href="infomain"> 고객센터 </a>
 					<ul class="submenu">
-						<li><a href="#"> 1:1 문의 </a></li>
-						<li><a href="#"> FAQ </a></li>
+						<li><a href="ask"> 1:1 문의 </a></li>
+						<li><a href="faqpage"> FAQ </a></li>
 					</ul></li>
 				<li><a href="mypage"> 마이 페이지 </a>
 					<ul class="submenu">

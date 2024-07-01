@@ -1,12 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+<%@ page session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>장바구니</title>
 <link href="./resources/css/itemList.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -37,7 +40,7 @@
 		</header>
 		<nav>
             <div class="logo">
-				<a href="./"><span><img src="./resources/img/logo1_ size60.png" alt=""></span></a>
+				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 			</div>
 			<div class="menu">
 				<ul>
@@ -45,10 +48,10 @@
                         <a href="./"> HOME </a>
                     </li>
                     <li>
-                        <a href="#"> 브랜드 소개 </a>
+                        <a href="brand"> 브랜드 소개 </a>
                         <ul class="submenu">
                             <li>
-                                <a href="#"> 브랜드 소개 </a>
+                                <a href="brand"> 브랜드 소개 </a>
                             </li>
                         </ul>
                     </li>
@@ -79,7 +82,7 @@
                                 <a href="ask"> 1:1 문의 </a>
                             </li>
                             <li>
-                                <a href="#"> FAQ </a>
+                                <a href="faqpage"> FAQ </a>
                             </li>
                         </ul>
                     </li>
@@ -183,7 +186,7 @@
             <footer>
                 <div class="footer-box">
                     <div class="footer-logo">
-                        <a href="#"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
+                        <a href="#"><img src="${path}/resources/img/footer_logo_s1.png" alt=""></a>
                     </div>
                     <div class="footer-con">
                         <div class="con-text"><span> 상호명 : Golden Egg chicken (골든에그) </span></div>
@@ -195,9 +198,9 @@
                         <div class="con-text"><span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span></div>
                     </div>
                     <div class="sns">
-                        <span><a href="#"><img src="./resources/img/instahram_icon.jpg" alt=""></a></span>
-                        <span><a href="#"><img src="./resources/img/facebook_icon.jpg" alt=""></a></span>
-                        <span><a href="#"><img src="./resources/img/twiter_icon.jpg" alt=""></a></span>
+                        <span><a href="#"><img src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span>
+                        <span><a href="#"><img src="${path}/resources/img/facebook_icon.jpg" alt=""></a></span>
+                        <span><a href="#"><img src="${path}/resources/img/twiter_icon.jpg" alt=""></a></span>
                     </div>
                 </div>
             </footer>

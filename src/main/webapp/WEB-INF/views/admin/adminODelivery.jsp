@@ -13,6 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>배달정보</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -35,19 +36,7 @@
 			}
 			
 		}
-		
-		function tdCng(){
-			var chktr = $(this);
-			var td = chktr.children();
-			var master = td.eq(5).text();
-			
-			alert(master);
-		}
-		
-		$("tbody > tr").click(function() {
-			alert($(this).children().eq(2).text());
-		});
-	</script>
+</script>
 </head>
 <style>
 .login {
@@ -202,7 +191,6 @@ body{
 	font-family: 'SUITE-Regular';
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -218,7 +206,6 @@ body{
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -249,13 +236,13 @@ body{
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 글 관리 </a>
+                        <a href="masterview"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
                                 <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> (답변 관리) </a>
+                                <a href="answerList"> (답변 관리) </a>
                             </li>
                             <li>
                                 <a href="#"> 리뷰 관리 </a>
@@ -276,43 +263,29 @@ body{
                 </ul>
 			</div>
 		</nav>
-
-
 		</div>
-
-		<section id="page">
-
-
-
-	<form action="요청URL" method="post" id="dlv-form">
-			<div id="dpan">
-			${dvo.d_no }번 주문의 배달 현황입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
-			<hr>
-			<c:if test="${dvo.d_num != null }">
-				<a href="adminDUpform?m_num=${dvo.d_no}"><input type="button" value="수정하기"></a>
-			</c:if>
-			<c:if test="${dvo.d_num == null }">
-				<a href="adminDSpform?m_num=${ordernum}"><input type="button" value="배정하기"></a>
-			</c:if>
-		</div>
-		<table border=1 id="mtable" >
-			<tr style="font-size: 15px"><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
-			<tr style="font-size: 15px"><td style="background-color: gray">등록번호:</td><td><a href="배달원보기url">${dvo.d_num}</a></td></tr>
-			<tr style="font-size: 15px"><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
-			<tr style="font-size: 15px"><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
-			<tr style="font-size: 15px"><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
-			
-		</table>
-		
-	</form>
-		</section>
+	<section id="page">
+			<form action="요청URL" method="post" id="dlv-form">
+					<div id="dpan">
+					${dvo.d_no }번 주문의 배달 현황입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
+					<hr>
+					<c:if test="${dvo.d_num != null }">
+						<a href="adminDUpform?m_num=${dvo.d_no}"><input type="button" value="수정하기"></a>
+					</c:if>
+					<c:if test="${dvo.d_num == null }">
+						<a href="adminDSpform?m_num=${ordernum}"><input type="button" value="배정하기"></a>
+					</c:if>
+				</div>
+				<table border=1 id="mtable" >
+					<tr style="font-size: 15px"><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
+					<tr style="font-size: 15px"><td style="background-color: gray">등록번호:</td><td><a href="배달원보기url">${dvo.d_num}</a></td></tr>
+					<tr style="font-size: 15px"><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
+					<tr style="font-size: 15px"><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
+					<tr style="font-size: 15px"><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
+				</table>
+			</form>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -351,15 +324,7 @@ body{
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>

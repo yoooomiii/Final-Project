@@ -6,13 +6,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html lang="kor">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${path}/resources/css/menuPick.css" rel="stylesheet" />
+<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>주문상세</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -24,8 +24,7 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 	   <script type="text/javascript">
-		function call_confirm(){
-			
+		function call_confirm(){ // 삭제 컨펌 
 			if(confirm("회원 정보를 삭제하시겠습니까?")){
 				alert("정상적으로 제출되었습니다.");
 				return true;
@@ -33,21 +32,9 @@
 				alert("삭제 취소");
 				return false;
 			}
-			
 		}
-		
-		function tdCng(){
-			var chktr = $(this);
-			var td = chktr.children();
-			var master = td.eq(5).text();
-			
-			alert(master);
-		}
-		
-		$("tbody > tr").click(function() {
-			alert($(this).children().eq(2).text());
-		});
-	</script>
+	
+</script>
 </head>
 <style>
 .login {
@@ -197,7 +184,6 @@ td {
 	transition-duration: 0.3s;
 }
 </style>
-
 <body>
 	<div id="Box">
 		<header>
@@ -213,7 +199,6 @@ td {
 				</c:if>
 			</div>
 		</header>
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -244,13 +229,13 @@ td {
                         </ul>
                     </li>
                     <li>
-                        <a href="#"> 글 관리 </a>
+                        <a href="masterview"> 글 관리 </a>
                         <ul class="submenu">
                             <li>
                                 <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> (답변 관리) </a>
+                                <a href="answerList"> (답변 관리) </a>
                             </li>
                             <li>
                                 <a href="#"> 리뷰 관리 </a>
@@ -271,43 +256,31 @@ td {
                 </ul>
 			</div>
 		</nav>
-
-
 		</div>
-
-		<section id="page">
-
-
-
-	<form action="요청URL" method="post">
-			<div id="dpan">
-			주문 상세(결제내역)입니다.
-			<hr>
-		</div>
-		<table border=1 id="mtable">
-			<tr><td style="background-color: gray">주문번호:</td><td>${pvo.pm_num }</td></tr>
-			<tr><td style="background-color: gray">결제번호:</td><td>${pvo.pm_no }</td></tr>
-			<tr><td style="background-color: gray">회원ID:</td><td>${pvo.pm_id }</td></tr>
-			<tr><td style="background-color: gray">주문금액:</td><td>${pvo.pm_price }</td></tr>
-			<tr><td style="background-color: gray">배달비:</td><td>${pvo.pm_tip }</td></tr>
-			<tr><td style="background-color: gray">총결제:</td><td>${pvo.pm_total }</td></tr>
-			<tr><td style="background-color: gray">포인트:</td><td>${pvo.pm_point }</td></tr>
-			<tr><td style="background-color: gray">결제수단:</td><td>${pvo.pm_pay }</td></tr>
-			<tr><td style="background-color: gray">결제정보:</td><td>${pvo.pm_card }</td></tr>
-			<tr><td style="background-color: gray">주문일시:</td><td>${pvo.pm_date }</td></tr>
-			<tr><td style="background-color: gray">배달주소:</td><td>${pvo.pm_address }</td></tr>
-			<tr><td style="background-color: gray">수령방법:</td><td>${pvo.pm_pick }</td></tr>
-			<tr><td style="background-color: gray">요청사항:</td><td>${pvo.pm_comment }</td></tr>
-		</table>
-	</form>
-		</section>
+	<section id="page">
+		<form action="요청URL" method="post">
+				<div id="dpan">
+				주문 상세(결제내역)입니다.
+				<hr>
+			</div>
+			<table border=1 id="mtable">
+				<tr><td style="background-color: gray">주문번호:</td><td>${pvo.pm_num }</td></tr>
+				<tr><td style="background-color: gray">결제번호:</td><td>${pvo.pm_no }</td></tr>
+				<tr><td style="background-color: gray">회원ID:</td><td>${pvo.pm_id }</td></tr>
+				<tr><td style="background-color: gray">주문금액:</td><td>${pvo.pm_price }</td></tr>
+				<tr><td style="background-color: gray">배달비:</td><td>${pvo.pm_tip }</td></tr>
+				<tr><td style="background-color: gray">총결제:</td><td>${pvo.pm_total }</td></tr>
+				<tr><td style="background-color: gray">포인트:</td><td>${pvo.pm_point }</td></tr>
+				<tr><td style="background-color: gray">결제수단:</td><td>${pvo.pm_pay }</td></tr>
+				<tr><td style="background-color: gray">결제정보:</td><td>${pvo.pm_card }</td></tr>
+				<tr><td style="background-color: gray">주문일시:</td><td>${pvo.pm_date }</td></tr>
+				<tr><td style="background-color: gray">배달주소:</td><td>${pvo.pm_address }</td></tr>
+				<tr><td style="background-color: gray">수령방법:</td><td>${pvo.pm_pick }</td></tr>
+				<tr><td style="background-color: gray">요청사항:</td><td>${pvo.pm_comment }</td></tr>
+			</table>
+		</form>
+	</section>
 </body>
-
-
-
-
-
-
 <footer>
 	<div class="footer-box">
 		<div class="footer-logo">
@@ -346,15 +319,7 @@ td {
 		</div>
 	</div>
 </footer>
-
 <script>
-	function list() {
-		alert("hohoho");
-	}
-
-	function review() {
-		location.href = "main";
-	}
 </script>
 </body>
 </html>
