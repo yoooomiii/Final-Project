@@ -149,7 +149,6 @@
 					<br>
 					<br> <b>총 결제금액</b> <input type="text" value="${i_price + 2000}" name="pm_total" class="text">
 					<br>
-					<br>
 					<br> <b>결제수단 선택</b> <select name="pm_pay" class="text">
 						<option value="">(선택안함)</option>
 						<option value='현장결제'>현장결제</option>

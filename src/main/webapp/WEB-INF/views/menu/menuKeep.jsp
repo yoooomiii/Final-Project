@@ -230,8 +230,8 @@
                 allNames += ', ' + cb.getAttribute('data-name');
             });
 
-            if (isNaN(totalPrice)) {
-                alert("총 가격 계산에 오류가 발생했습니다.");
+            if (isNaN(totalPrice) > 15000) {
+                alert("최소금액 15,000원 주문시 가능");
                 return false;
             }
 
