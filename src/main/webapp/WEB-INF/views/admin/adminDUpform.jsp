@@ -180,19 +180,17 @@ body{
 	<div id="Box">
 		<header>
 				관리자 HOME입니다. (MASTER) 
-			<div class="login box">
-				<c:if test="${userid == null }">
-					<a href="login"><span> 로그인 </span></a>
-				</c:if>
-			</div>
-			<div class="logout box">
-				<c:if test="${userid != null }">
-					<a href="logout"><span> 로그아웃 </span></a>
-				</c:if>
-			</div>
+			<c:if test="${userid == null }">
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
 		</header>
-<<<<<<< HEAD
-
 		<nav>
 			<div class="logo">
 				<a href="adminEnter"><span><img
@@ -250,6 +248,7 @@ body{
                 </ul>
 			</div>
 		</nav>
+<<<<<<< HEAD
 
 
 =======
@@ -311,6 +310,9 @@ body{
 				</div>
 			</nav>
 		</div>
+=======
+	</div>
+>>>>>>> 34ac49ed69f187a650eebef6dcd3608f8d3bfc18
 	<section id="page">
 	<form action="adminDUp" method="post" id="dlv-form">
 		<div id="dpan">

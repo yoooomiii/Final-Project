@@ -31,18 +31,16 @@ body{
 	<div id="Box">
 		<header>
 				관리자 HOME입니다. (MASTER) 
-				<c:if test="${userid != null }">
+			<c:if test="${userid == null }">
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
 			</c:if>
-			<div class="login box">
-				<c:if test="${userid == null }">
-					<a href="login"><span> 로그인 </span></a>
-				</c:if>
-			</div>
-			<div class="logout box">
-				<c:if test="${userid != null }">
-					<a href="logout"><span> 로그아웃 </span></a>
-				</c:if>
-			</div>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
 		</header>
 		<nav>
             <div class="logo">
