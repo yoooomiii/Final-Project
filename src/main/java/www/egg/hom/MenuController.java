@@ -61,7 +61,7 @@ public class MenuController {
 		mservice.payment_delete(ppvo);
 		mservice.item_delete(iivo);
 		System.out.println("끝");
-		return "redirect:menuForm";
+		return "redirect:mylist";
 	}
 	
 	//---------------------------------------------------결제
