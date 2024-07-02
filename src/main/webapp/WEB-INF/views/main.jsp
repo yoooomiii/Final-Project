@@ -21,7 +21,7 @@
 		}else{
 			alert("제출실패");
 		}
-		
+	
 	}
 </script>
 
@@ -73,15 +73,11 @@ body{
 
             <div class="logo">
 				<a href="./"><span><img src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
-			</div>
-			
+			</div>		
 			<div class="menu">
 		 		<ul>
-
                     <li>
-
                         <a href="./"> HOME </a>
-
                     </li>
                     <li>
                         <a href="brand"> 브랜드 소개 </a>
@@ -140,33 +136,6 @@ body{
                         </ul>
                     </li>
                 </ul> 
-
-					<!-- <li><a href="#"> HOME </a></li>
-					<li><a href="#"> 브랜드 소개 </a>
-						<ul class="submenu">
-							<li><a href="#"> 브랜드 소개 </a></li>
-						</ul></li>_
-					<li><a href="#"> 메뉴 주문하기</a>
-						<ul class="submenu">
-							<li><a href="#"> 인기 메뉴 </a></li>
-							<li><a href="#"> 대표 메뉴 </a></li>
-							<li><a href="#"> 사이드 / 음료 </a></li>
-							<li><a href="#"> 세트 메뉴 </a></li>
-						</ul></li>
-					<li><a href="#"> 고객센터 </a>
-						<ul class="submenu">
-							<li><a href="#"> 1:1 문의 </a></li>
-							<li><a href="#"> FAQ </a></li>
-						</ul></li>
-					<li><a href="#"> 마이 페이지 </a>
-						<ul class="submenu">
-							<li><a href="#"> 주문 내역 </a></li>
-							<li><a href="#"> 찜목록 </a></li>
-							<li><a href="#"> 나의 리뷰 </a></li>
-							<li><a href="#"> 내 정보관리 </a></li>
-						</ul></li>
-				</ul>
- -->
 			</div>
 		</nav>
 		<aside>
@@ -245,7 +214,7 @@ body{
 
             <div class="footer-box">
                 <div class="footer-logo">
-                    <a href="main"><img src="${path}/resources/img/footer_logo_s1.png" alt=""></a>
+                    <a href="./"><img src="${path}/resources/img/footer_logo_s1.png" alt=""></a>
                 </div>
                 <div class="footer-con">
                     <div class="con-text"><span> 상호명 : Golden Egg Chicken (골든에그) </span></div>

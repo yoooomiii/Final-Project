@@ -331,7 +331,7 @@ header a:hover {
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="./"><img src="${path}/resources/img/logo1_ size60.png"
+					<a href="./"><img src="${path}/resources/img/footer_logo_s1.png"
 						alt=""></a>
 				</div>
 				<div class="footer-con">
@@ -358,7 +358,7 @@ header a:hover {
 					</div>
 				</div>
 				<div class="sns">
-					<span><a href="#"><img
+					<span> <a href="#"><img
 							src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
 						href="#"><img src="${path}/resources/img/facebook_icon.jpg"
 							alt=""></a></span> <span><a href="#"><img
