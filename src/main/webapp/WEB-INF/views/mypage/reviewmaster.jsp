@@ -203,15 +203,15 @@ hr {
 
 	<nav>
 		<div class="logo">
-			<a href="main"><span><img
+			<a href="./"><span><img
 					src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
 		</div>
 		<div class="menu">
 			<ul>
-				<li><a href="main"> HOME </a></li>
-				<li><a href="#"> 브랜드 소개 </a>
+				<li><a href="./"> HOME </a></li>
+				<li><a href="brand"> 브랜드 소개 </a>
 					<ul class="submenu">
-						<li><a href="#"> 브랜드 소개 </a></li>
+						<li><a href="brand"> 브랜드 소개 </a></li>
 					</ul></li>
 				<li>
                         <a href="menuForm"> 메뉴 주문하기 </a>
