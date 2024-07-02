@@ -14,12 +14,11 @@
 			value="jdbc:mariadb://192.168.0.72:3305/goldenegg" />
 
 		<property name="username" value="root" />
+
 		<property name="password" value="1111" />
 
 	</bean> 
 	
-
-
 	<!-- MariaDB JDBC DataSource -->
 <!-- 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
