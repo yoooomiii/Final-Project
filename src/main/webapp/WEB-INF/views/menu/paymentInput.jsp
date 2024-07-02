@@ -226,10 +226,10 @@
 				</div>
 				<div class="sns">
 					<span><a href="#"><img
-							src="/Gold.html/img/instahram_icon.jpg" alt=""></a></span> <span><a
-						href="#"><img src="/Gold.html/img/facebook_icon.jpg" alt=""></a></span>
+							src="./Gold.html/img/instahram_icon.jpg" alt=""></a></span> <span><a
+						href="#"><img src="./Gold.html/img/facebook_icon.jpg" alt=""></a></span>
 					<span><a href="#"><img
-							src="/Gold.html/img/twiter_icon.jpg" alt=""></a></span>
+							src="./Gold.html/img/twiter_icon.jpg" alt=""></a></span>
 				</div>
 			</div>
 		</footer>

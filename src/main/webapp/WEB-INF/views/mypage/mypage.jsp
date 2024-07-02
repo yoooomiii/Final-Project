@@ -188,6 +188,26 @@ td {
 #mod-button:active {
 	transform: scale(1);
 }
+
+header .box {
+	font-family: 'Cafe24Ssurround';
+	font-size: 16px;
+	text-decoration: none;
+	background-color: rgb(45, 12, 0);
+	border-radius: 15px;
+	padding-top: 5px;
+	border: 2px solid rgb(40, 10, 0);
+}
+
+header a {
+	text-decoration: none;
+	color: white;
+}
+
+header a:hover {
+	color: #f3a227;
+	text-shadow: 2px 2px 1px rgb(0, 0, 0);
+}
 </style>
 
 <body>
@@ -198,25 +218,26 @@ td {
 			</c:if>
 			<c:if test="${userid == null }">
 				<div class="login box">
-						<a href="login"><span> 로그인 </span></a>
+					<a href="login"><span> 로그인 </span></a>
 				</div>
 			</c:if>
 			<c:if test="${userid == null }">
 				<div class="join box">
-						<a href="join"><span> 회원가입 </span></a>
+					<a href="join"><span> 회원가입 </span></a>
 				</div>
 			</c:if>
 			<c:if test="${userid != null }">
 				<div class="logout box">
-						<a href="logout"><span> 로그아웃 </span></a>
+					<a href="logout"><span> 로그아웃 </span></a>
 				</div>
 			</c:if>
 			<c:if test="${userid != null }">
 				<div class="quite box">
-						<a href="byebye"><span> 회원탈퇴 </span></a>
+					<a href="byebye"><span> 회원탈퇴 </span></a>
 				</div>
 			</c:if>
 		</header>
+
 
 		<nav>
 			<div class="logo">
@@ -230,26 +251,14 @@ td {
 						<ul class="submenu">
 							<li><a href="brand"> 브랜드 소개 </a></li>
 						</ul></li>
-					<li>
-                        <a href="menuForm"> 메뉴 주문하기 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="menuForm"> 인기 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 대표 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 전체 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 사이드 / 음료 </a>
-                            </li>
-                            <li>
-                            
-                            </li>
-                        </ul>
-                    </li>
+					<li><a href="menuForm"> 메뉴 주문하기 </a>
+						<ul class="submenu">
+							<li><a href="menuForm"> 인기 메뉴 </a></li>
+							<li><a href="menuForm"> 대표 메뉴 </a></li>
+							<li><a href="menuForm"> 전체 메뉴 </a></li>
+							<li><a href="menuForm"> 사이드 / 음료 </a></li>
+							<li></li>
+						</ul></li>
 					<li><a href="infomain"> 고객센터 </a>
 						<ul class="submenu">
 							<li><a href="ask"> 1:1 문의 </a></li>

@@ -115,15 +115,15 @@ hr {
 	margin-top: 5px;
 	color: rgb(4, 178, 247);
 	font-family: 'SUITE-Regular', sans-serif;
-	 /*  border: 1px solid black;    */
+	/*  border: 1px solid black;    */
 }
 
 #star {
 	float: left;
 	width: 190px;
 	height: 40px;
-	margin-left:300px;
-	margin-top:-40px;
+	margin-left: 300px;
+	margin-top: -40px;
 	font-size: 22px;
 	/*   border: 1px solid black;   */
 }
@@ -138,13 +138,13 @@ hr {
 	font-family: 'SUITE-Regular', sans-serif;
 	/*  border: 1px solid black;     */
 }
-#user{
-	width:110px;
-	height:40px;
-	margin-left:50px;
-	margin-top:10px;
+
+#user {
+	width: 110px;
+	height: 40px;
+	margin-left: 50px;
+	margin-top: 10px;
 	/*  border: 1px solid blue;   */
-	
 }
 
 #review {
@@ -179,26 +179,26 @@ hr {
 		<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
-			<c:if test="${userid == null }">
-				<div class="login box">
-						<a href="login"><span> 로그인 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid == null }">
-				<div class="join box">
-						<a href="join"><span> 회원가입 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid != null }">
-				<div class="logout box">
-						<a href="logout"><span> 로그아웃 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid != null }">
-				<div class="quite box">
-						<a href="byebye"><span> 회원탈퇴 </span></a>
-				</div>
-			</c:if>
+		<c:if test="${userid == null }">
+			<div class="login box">
+				<a href="login"><span> 로그인 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid == null }">
+			<div class="join box">
+				<a href="join"><span> 회원가입 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid != null }">
+			<div class="logout box">
+				<a href="logout"><span> 로그아웃 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid != null }">
+			<div class="quite box">
+				<a href="byebye"><span> 회원탈퇴 </span></a>
+			</div>
+		</c:if>
 	</header>
 
 	<nav>
@@ -213,26 +213,14 @@ hr {
 					<ul class="submenu">
 						<li><a href="brand"> 브랜드 소개 </a></li>
 					</ul></li>
-				<li>
-                        <a href="menuForm"> 메뉴 주문하기 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="menuForm"> 인기 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 대표 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 전체 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 사이드 / 음료 </a>
-                            </li>
-                            <li>
-                            
-                            </li>
-                        </ul>
-                    </li>
+				<li><a href="menuForm"> 메뉴 주문하기 </a>
+					<ul class="submenu">
+						<li><a href="menuForm"> 인기 메뉴 </a></li>
+						<li><a href="menuForm"> 대표 메뉴 </a></li>
+						<li><a href="menuForm"> 전체 메뉴 </a></li>
+						<li><a href="menuForm"> 사이드 / 음료 </a></li>
+						<li></li>
+					</ul></li>
 				<li><a href="infomain"> 고객센터 </a>
 					<ul class="submenu">
 						<li><a href="ask"> 1:1 문의 </a></li>

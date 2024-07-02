@@ -169,12 +169,9 @@ body{
                 <img src="./resources/img/화면 캡처 2024-06-21 165935.png" width="298" , height="250" class="e">
                 <h3><b>블랙시그니처 치킨</b></h3>
                 <h5>지금까지 이런 맛은 없었다 이맛은 차원이 다르다</h5>
-<<<<<<< HEAD
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=31"><input type="submit" value="상세보기" class="t"></a>
-=======
-                <br>
+				 
                 <a href="viewDetail?menu_no=31"><input type="submit" value="상세보기" class="t"></a>
->>>>>>> 5e4b3e6ce84cf759b812f637ac9c4ed1a9e02b50
+
             </div>
             <div class="list">
                 <img src="./resources/img/화면 캡처 2024-06-27 144811.png" width="298" , height="250" class="e">
@@ -319,12 +316,10 @@ body{
               
                 <h3><b>블랙 시그니처 치킨</b></h3>
                 <h5>지금까지 이런맛은 없었다 이맛은 차원이 다르다</h5>
-<<<<<<< HEAD
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=31"><input type="submit" value="상세보기" class="t"></a>
-=======
-                <br>
+
+                
                 <a href="viewDetail?menu_no=31"><input type="submit" value="상세보기" class="t"></a>
->>>>>>> 5e4b3e6ce84cf759b812f637ac9c4ed1a9e02b50
+
             </div>
             <div class="list">
                 <img src="./resources/img/화면 캡처 2024-06-27 144301.png" width="298" , height="250" class="e">

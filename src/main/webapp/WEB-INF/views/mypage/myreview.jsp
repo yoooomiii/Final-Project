@@ -132,7 +132,7 @@ hr {
 	width: 500px;
 	height: 40px;
 	margin-top: 5px;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: bold;
 	font-family: 'SUITE-Regular', sans-serif;
 	/* border: 1px solid black;    */
@@ -164,32 +164,41 @@ hr {
 .star-rating label.star.checked {
 	color: gold;
 }
+
+footer {
+	float: left;
+	width: 100%;
+	height: 300px;
+	margin-top: 40px;
+	text-align: center;
+	/* border: 1px solid black; */
+}
 </style>
 <body>
 	<header>
 		<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
-			<c:if test="${userid == null }">
-				<div class="login box">
-						<a href="login"><span> 로그인 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid == null }">
-				<div class="join box">
-						<a href="join"><span> 회원가입 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid != null }">
-				<div class="logout box">
-						<a href="logout"><span> 로그아웃 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid != null }">
-				<div class="quite box">
-						<a href="byebye"><span> 회원탈퇴 </span></a>
-				</div>
-			</c:if>
+		<c:if test="${userid == null }">
+			<div class="login box">
+				<a href="login"><span> 로그인 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid == null }">
+			<div class="join box">
+				<a href="join"><span> 회원가입 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid != null }">
+			<div class="logout box">
+				<a href="logout"><span> 로그아웃 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid != null }">
+			<div class="quite box">
+				<a href="byebye"><span> 회원탈퇴 </span></a>
+			</div>
+		</c:if>
 	</header>
 
 	<nav>
@@ -204,26 +213,14 @@ hr {
 					<ul class="submenu">
 						<li><a href="brand"> 브랜드 소개 </a></li>
 					</ul></li>
-				<li>
-                        <a href="menuForm"> 메뉴 주문하기 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="menuForm"> 인기 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 대표 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 전체 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 사이드 / 음료 </a>
-                            </li>
-                            <li>
-                            
-                            </li>
-                        </ul>
-                    </li>
+				<li><a href="menuForm"> 메뉴 주문하기 </a>
+					<ul class="submenu">
+						<li><a href="menuForm"> 인기 메뉴 </a></li>
+						<li><a href="menuForm"> 대표 메뉴 </a></li>
+						<li><a href="menuForm"> 전체 메뉴 </a></li>
+						<li><a href="menuForm"> 사이드 / 음료 </a></li>
+						<li></li>
+					</ul></li>
 				<li><a href="infomain"> 고객센터 </a>
 					<ul class="submenu">
 						<li><a href="ask"> 1:1 문의 </a></li>
@@ -283,43 +280,44 @@ hr {
 			</div>
 		</div>
 	</c:forEach>
-<footer>
-			<div class="footer-box">
-				<div class="footer-logo">
-					<a href="./"><img src="./resources/img/footer_logo_s1.png" alt=""></a>
+	<footer>
+		<div class="footer-box">
+			<div class="footer-logo">
+				<a href="./"><img src="./resources/img/footer_logo_s1.png"
+					alt=""></a>
+			</div>
+			<div class="footer-con">
+				<div class="con-text">
+					<span> 상호명 : Golden Egg chicken (골든에그) </span>
 				</div>
-				<div class="footer-con">
-					<div class="con-text">
-						<span> 상호명 : Golden Egg chicken (골든에그) </span>
-					</div>
-					<div class="con-text">
-						<span> 대표자 : 송유미 </span>
-					</div>
-					<div class="con-text">
-						<span> 사업자등록번호 : 112-00-001234 </span>
-					</div>
-					<div class="con-text">
-						<span> 대표번호 : 031-500-1234 </span>
-					</div>
-					<div class="con-text">
-						<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
-					</div>
-					<div class="con-text">
-						<span> 이메일 : goldenEgg @ gmail.com </span>
-					</div>
-					<div class="con-text">
-						<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
-					</div>
+				<div class="con-text">
+					<span> 대표자 : 송유미 </span>
 				</div>
-				<div class="sns">
-					<span><a href="#"><img
-							src="/Gold.html/img/instahram_icon.jpg" alt=""></a></span> <span><a
-						href="#"><img src="/Gold.html/img/facebook_icon.jpg" alt=""></a></span>
-					<span><a href="#"><img
-							src="/Gold.html/img/twiter_icon.jpg" alt=""></a></span>
+				<div class="con-text">
+					<span> 사업자등록번호 : 112-00-001234 </span>
+				</div>
+				<div class="con-text">
+					<span> 대표번호 : 031-500-1234 </span>
+				</div>
+				<div class="con-text">
+					<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
+				</div>
+				<div class="con-text">
+					<span> 이메일 : goldenEgg @ gmail.com </span>
+				</div>
+				<div class="con-text">
+					<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
 				</div>
 			</div>
-		</footer>
+			<div class="sns">
+				<span><a href="#"><img
+						src="/Gold.html/img/instahram_icon.jpg" alt=""></a></span> <span><a
+					href="#"><img src="/Gold.html/img/facebook_icon.jpg" alt=""></a></span>
+				<span><a href="#"><img
+						src="/Gold.html/img/twiter_icon.jpg" alt=""></a></span>
+			</div>
+		</div>
+	</footer>
 
 
 
