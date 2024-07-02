@@ -248,7 +248,71 @@ body{
                 </ul>
 			</div>
 		</nav>
+<<<<<<< HEAD
 
+
+=======
+			<nav>
+				<div class="logo">
+					<a href="adminEnter"><span><img
+							src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				</div>
+				<div class="menu">
+				<ul>
+	                    <li>
+	                        <a href="adminEnter"> HOME </a>
+	                    </li>
+	                    <li>
+	                        <a href="adminMView"> 회원 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="#"> 회원 정보 조회 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                    <li>
+	                        <a href="adminOView"> 주문 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="adminOView"> 주문 상태 관리 </a>
+	                            </li>
+	                            <li>
+	                                <a href="adminDView"> 배달 관리(정비 중) </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                    <li>
+	                        <a href="#"> 글 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="#"> 문의글 관리 </a>
+	                            </li>
+	                            <li>
+	                                <a href="#"> (답변 관리) </a>
+	                            </li>
+	                            <li>
+	                                <a href="#"> 리뷰 관리 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                      <li>
+	                        <a href="menu_List"> 상품 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="menu_List"> 상품 조회 </a>
+	                            </li>
+	                            <li>
+	                                <a href="menu_input"> 상품 등록 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                </ul>
+				</div>
+			</nav>
+		</div>
+=======
+	</div>
+>>>>>>> 34ac49ed69f187a650eebef6dcd3608f8d3bfc18
 	<section id="page">
 	<form action="adminDUp" method="post" id="dlv-form">
 		<div id="dpan">
