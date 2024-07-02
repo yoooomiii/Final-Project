@@ -217,14 +217,26 @@ td {
 						<ul class="submenu">
 							<li><a href="brand"> 브랜드 소개 </a></li>
 						</ul></li>
-					<li><a href="menuForm"> 메뉴 주문하기 </a>
-						<ul class="submenu">
-							<li><a href="popoo"> 인기 메뉴 </a></li>
-							<li><a href="#"> 대표 메뉴 </a></li>
-							<li><a href="#"> 치킨 메뉴 </a></li>
-							<li><a href="#"> 사이드 / 음료 </a></li>
-							<li><a href="#"> 세트 메뉴 </a></li>
-						</ul></li>
+					<li>
+                        <a href="menuForm"> 메뉴 주문하기 </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="menuForm"> 인기 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="menuForm"> 대표 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="menuForm"> 전체 메뉴 </a>
+                            </li>
+                            <li>
+                                <a href="menuForm"> 사이드 / 음료 </a>
+                            </li>
+                            <li>
+                            
+                            </li>
+                        </ul>
+                    </li>
 					<li><a href="infomain"> 고객센터 </a>
 						<ul class="submenu">
 							<li><a href="ask"> 1:1 문의 </a></li>
