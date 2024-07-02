@@ -214,21 +214,21 @@ body{
 				<div class="menu-img">
 					<img src="${path}/resources/img/화면 캡처 2024-06-21 165935.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=31" order> 블랙시그니처 치킨 </a></span>
+				<span><a href="viewDetail?menu_no=31" order> 블랙시그니처 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/화면 캡처 2024-06-27 144811.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=1007" order> 마라바사삭 치킨 </a></span>
+				<span><a href="viewDetail?menu_no=1007" order> 마라바사삭 치킨 </a></span>
 			</div>
 			
 			<div class="menulist">
 				<div class="menu-img">
 					<img src="${path}/resources/img/egg06.png">
 				</div>
-				<span><a href="http://localhost:8080/hom/viewDetail?menu_no=21" order> 크리미언 치킨 </a></span>
+				<span><a href="viewDetail?menu_no=21" order> 크리미언 치킨 </a></span>
 			</div>
 			
 		</section>
