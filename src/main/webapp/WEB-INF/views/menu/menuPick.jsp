@@ -14,10 +14,10 @@
 	crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous">
-    </script>
-    </head>
-    <style>
+	crossorigin="anonymous"></script>
+</head>
+<body>
+<style>
 @font-face {
     font-family: 'Cafe24Ssurround';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
@@ -384,17 +384,26 @@ footer {
 			<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
-			<div class="login box">
-				<c:if test="${userid == null }">
-					<a href="login"><span> 로그인 </span></a>
-				</c:if>
-			</div>
-			<div class="join box">
-				<c:if test="${userid == null }">
-					<a href="join"><span> 회원가입 </span></a>
-				</c:if>
-			</div>
-			
+			<c:if test="${userid == null }">
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid == null }">
+				<div class="join box">
+						<a href="join"><span> 회원가입 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="quite box">
+						<a href="byebye"><span> 회원탈퇴 </span></a>
+				</div>
+			</c:if>
 		</header>
 		<nav>
             <div class="logo">

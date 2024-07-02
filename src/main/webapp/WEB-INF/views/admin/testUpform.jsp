@@ -6,6 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="kor">
 <head>
@@ -24,18 +25,8 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 	   <script type="text/javascript">
-		function call_confirm(){
-			
-			if(confirm("회원 정보를 삭제하시겠습니까?")){
-				alert("정상적으로 제출되었습니다.");
-				return true;
-			}else{
-				alert("삭제 취소");
-				return false;
-			}
-			
-		}
-</script>
+		
+	</script>
 </head>
 <style>
 .login {
@@ -43,9 +34,7 @@
 	width: 100px; /*가로 넓이*/
     height: 90%;
     margin-left: 30px;
-    
 }
-
 .logout {
     float: right;
 	width: 100px; /*가로 넓이*/
@@ -53,20 +42,13 @@
     margin-right: 30px;
    
 }
-
 #span {
 	width: 1210px;
 	height: 150px;
 	border: 4px solid gray;
 	margin-left: 20px;
 	border-radius: 30px;
-	font-family: 'SUITE-Regular';
 }
-
-#srcbtn{
-	width: 100px;
-}
-
 #surchpan {
 	float: left;
 	width: 1210px;
@@ -74,11 +56,9 @@
 	/* border: 1px solid black; */
 	margin-top: 20px;
 }
-
-#odr-form{
-    font-family: 'SUITE-Regular';
+#dlv-form{
+	font-family: 'SUITE-Regular';
 }
-
 #modbutton {
 	padding-left: 40px;
 	padding-right: 40px;
@@ -105,7 +85,6 @@
 	border-radius: 100px;
 	border: 5px solid yellow;;
 }
-
 #info {
 	float: left;
 	width: 300px;
@@ -130,7 +109,7 @@
 #page {
 	float: left;
 	width: 1210px;
-	height: 500px;
+	height: 1000px;
 	margin-top: 10px;
 	border: 4px solid gray;
 	margin-left: 20px;
@@ -158,7 +137,7 @@ h2 {
 	padding-left: 40px;
 	margin-top: 20px;
 	margin-bottom: 10px;
-	width: 800px;
+	width: 1170px;
 	
 }
 #sbtn{
@@ -200,27 +179,15 @@ body{
 <body>
 	<div id="Box">
 		<header>
-			<c:if test="${userid != null }">
-					'${userid }'님 접속을 환영합니다.
-			</c:if>
+				관리자 HOME입니다. (MASTER) 
 			<c:if test="${userid == null }">
 				<div class="login box">
 						<a href="login"><span> 로그인 </span></a>
 				</div>
 			</c:if>
-			<c:if test="${userid == null }">
-				<div class="join box">
-						<a href="join"><span> 회원가입 </span></a>
-				</div>
-			</c:if>
 			<c:if test="${userid != null }">
 				<div class="logout box">
 						<a href="logout"><span> 로그아웃 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid != null }">
-				<div class="quite box">
-						<a href="byebye"><span> 회원탈퇴 </span></a>
 				</div>
 			</c:if>
 		</header>
@@ -249,7 +216,7 @@ body{
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                 <a href="adminDView"> 배달 관리(정비 중) </a>
+                                <a href="adminDView"> 배달 관리(정비 중) </a>
                             </li>
                         </ul>
                     </li>
@@ -281,67 +248,115 @@ body{
                 </ul>
 			</div>
 		</nav>
-		<div id="span">
-			<div id="surchpan">
-				<h2>주문 관리 페이지입니다.</h2>
-				<form action="adminOSearch" method="get" name=form>
-				
-					  
-					   <label for="m_state">주문상태</label>
-					  <select name="m_state" id="loc" >
-					  		<option value="">(선택안함)</option>
-					  		<option value="주문접수">주문접수</option>
-					  		<option value="주문취소">주문취소</option>
-					  		<option value="결제완료">결제완료</option>
-					  		<option value="환불처리">환불처리</option>
-					  		<option value="수령완료">수령완료</option>
-					  </select>
-					  
-					  
-						  <label for="option1">옵션1</label>
-					    <input type="radio" id="option1" name="키값" value="값">
-						  <label for="option2">옵션2</label>
-						  <input type="radio" id="option2" name="키값" value="값">
+<<<<<<< HEAD
 
-					주문번호: <input type="text" name="sword"> <input type="submit" value="검색" id="srcbtn">
-				</form>
-			</div>
+
+=======
+			<nav>
+				<div class="logo">
+					<a href="adminEnter"><span><img
+							src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
+				</div>
+				<div class="menu">
+				<ul>
+	                    <li>
+	                        <a href="adminEnter"> HOME </a>
+	                    </li>
+	                    <li>
+	                        <a href="adminMView"> 회원 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="#"> 회원 정보 조회 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                    <li>
+	                        <a href="adminOView"> 주문 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="adminOView"> 주문 상태 관리 </a>
+	                            </li>
+	                            <li>
+	                                <a href="adminDView"> 배달 관리(정비 중) </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                    <li>
+	                        <a href="#"> 글 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="#"> 문의글 관리 </a>
+	                            </li>
+	                            <li>
+	                                <a href="#"> (답변 관리) </a>
+	                            </li>
+	                            <li>
+	                                <a href="#"> 리뷰 관리 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                      <li>
+	                        <a href="menu_List"> 상품 관리 </a>
+	                        <ul class="submenu">
+	                            <li>
+	                                <a href="menu_List"> 상품 조회 </a>
+	                            </li>
+	                            <li>
+	                                <a href="menu_input"> 상품 등록 </a>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                </ul>
+				</div>
+			</nav>
 		</div>
-		</div>
+=======
+	</div>
+>>>>>>> 34ac49ed69f187a650eebef6dcd3608f8d3bfc18
 	<section id="page">
-		<form action="adminOUp" method="post" id="odr-form">
-				<div id="dpan">
-				주문 상태만 수정하실 수 있습니다.
-			</div>
-			<table border=1 id="mtable" style="font-size: 15px">
-				<thead>
-					<tr style="background-color: gray">
-						<td>주문번호</td>
-						<td>주문상태</td>
-						<td>회원ID</td>
-						<td>수령방법</td>
-						<td>제출</td>
-					</tr>
-				</thead>
-				<tbody style="font-size: 15px">
-							<tr class="minfo_row">
-								<td><input type="text" name="m_num" value=${ovo.m_num } readonly></td>
-								<td>
-								 <select name="m_state" id="ms">
-							  			<option value="주문접수">주문접수</option>
-							  			<option value="주문취소">주문취소</option>
-							  			<option value="결제완료">결제완료</option>
-							  			<option value="환불처리">환불처리</option>
-							  			<option value="수령완료">수령완료</option>
-						  		 </select>
-								</td>
-								<td><input type="text" name="m_id" value=${ovo.m_id } readonly></td>
-								<td>수령방법</td>
-								<td><input type="submit" value="제출하기" id="sbtn"></td>
-							</tr>
-				</tbody>
-			</table>
-		</form>
+	<form action="adminDUp" method="post" id="dlv-form">
+		<div id="dpan">
+			배달 상태 수정 페이지입니다. <a href="adminOView">주문목록으로...</a> | <a href="adminDView">배달목록으로...</a>
+			<hr>
+		<input type="submit" value="제출하기">
+		</div>
+		<table border=1 id="mtable">
+			<thead>
+				<tr style="background-color: gray">
+					<td>배달번호</td>
+					<td>등록번호</td>
+					<td>주문번호</td>
+					<td>예상시간</td>
+					<td>배달상태</td>
+				</tr>
+			</thead>
+			<tbody style="font-size: 15px">
+				<tr class="minfo_row">
+					<td>(추후수정)</td>
+					<td><input type="text" name="d_num" value=${dvo.d_num } ></td>
+					<td><input type="text" name="d_no" value=${dvo.d_no } readonly></td>
+					<td><input type="text" name="d_time" value=${dvo.d_time } >분</td>
+					<!-- <td><input type="text" name="d_check" value=${dvo.d_check } ></td> -->
+					<td>
+					 <select name="d_check" id="dc">
+					  		<option value="배정대기">배정대기</option>
+					  		<option value="배달준비">배달준비</option>
+					  		<option value="배달중">배달중</option>
+					  		<option value="배달완료">배달완료</option>
+					  </select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<table border=1 id="mtable">
+			<tr style="font-size: 15px"><td style="background-color: gray">배달번호:</td><td>(추후수정)</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">등록번호:</td><td>${dvo.d_num}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">주문번호:</td><td>${dvo.d_no}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">예상시간:</td><td>${dvo.d_time}</td></tr>
+			<tr style="font-size: 15px"><td style="background-color: gray">배달상태:</td><td>${dvo.d_check}</td></tr>
+		</table>
+	</form>
 	</section>
 </body>
 <footer>
