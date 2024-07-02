@@ -163,7 +163,7 @@ public class MypageController {
 		mpservice.rsave(rvo);
 		System.out.println("리뷰 및 파일 저장됨");
 
-		return "redirect:/"; 
+		return "redirect:allreview"; 
 	}
 
 

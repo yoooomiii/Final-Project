@@ -57,7 +57,7 @@
 						<ul class="submenu">
 							<li><a href="masterview"> 문의글 관리 </a></li>
 							<li><a href="answerList"> (답변 관리) </a></li>
-							<li><a href="#"> 리뷰 관리 </a></li>
+							<li><a href="review_master"> 리뷰 관리 </a></li>
 						</ul></li>
 					<li>
                         <a href="menu_List"> 상품 관리 </a>

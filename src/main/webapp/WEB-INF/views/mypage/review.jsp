@@ -29,6 +29,7 @@
 	margin-top: 130px;
 	border: 5px solid gray;
 	border-radius: 15px;
+	text-align: center;
 }
 
 #myform fieldset {
@@ -77,6 +78,7 @@
 h2 {
 	font-family: 'Cafe24Ssurround';
 	font-weight: border;
+	text-align: center;
 }
 
 #files {
@@ -105,17 +107,40 @@ h2 {
 	justify-content: center;
 	margin-top: 20px;
 }
-</style>
+header {
+	text-align: center;
+}
+span{
+	text-align: center;
+}
 
+</style>
 <body>
 	<div id="Box">
 		<header>
-			<div class="login box">
-				<a href="#"><span> 로그인 </span></a>
-			</div>
-			<div class="join box">
-				<a href="#"><span> 회원가입 </span></a>
-			</div>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
+				<c:if test="${userid == null }">
+					<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+					</div>
+				</c:if>
+			<c:if test="${userid == null }">
+				<div class="join box">
+					<a href="join"><span> 회원가입 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+					<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="quite box">
+					<a href="byebye"><span> 회원탈퇴 </span></a>
+				</div>
+			</c:if>
 		</header>
 
 		<nav>

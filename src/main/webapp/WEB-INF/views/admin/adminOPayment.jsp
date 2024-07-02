@@ -238,7 +238,7 @@ td {
                                 <a href="answerList"> (답변 관리) </a>
                             </li>
                             <li>
-                                <a href="#"> 리뷰 관리 </a>
+                                <a href="review_master"> 리뷰 관리 </a>
                             </li>
                         </ul>
                     </li>
