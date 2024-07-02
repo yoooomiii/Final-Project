@@ -31,17 +31,26 @@ body{
 			<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
-			<div class="login box">
-				<c:if test="${userid == null }">
-					<a href="login"><span> 로그인 </span></a>
-				</c:if>
-			</div>
-			<div class="join box">
-				<c:if test="${userid == null }">
-					<a href="join"><span> 회원가입 </span></a>
-				</c:if>
-			</div>
-			
+			<c:if test="${userid == null }">
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid == null }">
+				<div class="join box">
+						<a href="join"><span> 회원가입 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="quite box">
+						<a href="byebye"><span> 회원탈퇴 </span></a>
+				</div>
+			</c:if>
 		</header>
 		<nav>
             <div class="logo">
@@ -156,7 +165,7 @@ body{
                 <h3><b>후라이드 치킨</b></h3>
                 <h5>바삭한 튀김옷으로 무장한 치킨</h5>
                 <br>
-                <a href="http://localhost:8080/hom/viewDetail?menu_no=18"><input type="submit" value="상세보기" class="t"></a>
+                <a href="viewDetail?menu_no=18"><input type="submit" value="상세보기" class="t"></a>
             </div>
             <div class="list">
                 <img src="./resources/img/화면 캡처 2024-06-21 165935.png" width="298" , height="250" class="e">

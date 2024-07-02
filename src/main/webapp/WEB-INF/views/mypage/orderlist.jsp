@@ -144,16 +144,26 @@ td {
 		<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
-		<div class="login box">
 			<c:if test="${userid == null }">
-				<a href="login"><span> 로그인 </span></a>
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
 			</c:if>
-		</div>
-		<div class="join box">
 			<c:if test="${userid == null }">
-				<a href="join"><span> 회원가입 </span></a>
+				<div class="join box">
+						<a href="join"><span> 회원가입 </span></a>
+				</div>
 			</c:if>
-		</div>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="quite box">
+						<a href="byebye"><span> 회원탈퇴 </span></a>
+				</div>
+			</c:if>
 	</header>
 
 	<nav>
