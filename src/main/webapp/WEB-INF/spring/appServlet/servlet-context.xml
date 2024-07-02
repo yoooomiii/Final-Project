@@ -59,7 +59,7 @@
 	<interceptors> <!-- 미승인 접근에 대한 myPage 권한 제한 -->
 		<interceptor>
 			<mapping path="/mypage"></mapping> <!-- mypage 요청을 가로챈다. -->
-			<!-- <mapping path="/"></mapping> -->  
+			<mapping path="/"></mapping>  
 			<mapping path="/ask"></mapping>
 			<beans:ref bean="userTnterceptor"></beans:ref>
 		</interceptor>

@@ -18,8 +18,6 @@
 
 	</bean> 
 	
-
-
 	<!-- MariaDB JDBC DataSource -->
 <!-- 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

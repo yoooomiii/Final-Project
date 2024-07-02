@@ -9,11 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link href="${path}/resources/css/main_fixed.css" rel="stylesheet" />
 <link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
 <title>brand</title>
-
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -29,7 +27,6 @@
 body {
 	font-family: 'SUITE-Regular';
 }
-
 section {
     float: left;
     width: 1260px;
@@ -57,7 +54,7 @@ section {
 <body>
 	<div id="Box">
 		<header>
-				<c:if test="${userid != null }">
+			<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
 			<c:if test="${userid == null }">
@@ -83,7 +80,6 @@ section {
 		</header>
 
 		<nav>
-
 			<div class="logo">
 				<a href="./"><span><img
 						src="${path}/resources/img/logo1_ size60.png" alt=""></span></a>
@@ -119,6 +115,7 @@ section {
 						</ul></li>
 				</ul>
 			</div>
+		</nav>
 
 			<section>
 				<hr>

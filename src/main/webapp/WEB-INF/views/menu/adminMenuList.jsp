@@ -238,17 +238,29 @@ body{
 <body>
 	<div id="Box">
 		<header>
-			관리자 HOME입니다. (MASTER)
-			<div class="login box">
-				<c:if test="${userid == null }">
-					<a href="login"><span> 로그인 </span></a>
-				</c:if>
-			</div>
-			<div class="logout box">
-				<c:if test="${userid != null }">
-					<a href="logout"><span> 로그아웃 </span></a>
-				</c:if>
-			</div>
+			<c:if test="${userid != null }">
+					'${userid }'님 접속을 환영합니다.
+			</c:if>
+			<c:if test="${userid == null }">
+				<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid == null }">
+				<div class="join box">
+						<a href="join"><span> 회원가입 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="logout box">
+						<a href="logout"><span> 로그아웃 </span></a>
+				</div>
+			</c:if>
+			<c:if test="${userid != null }">
+				<div class="quite box">
+						<a href="byebye"><span> 회원탈퇴 </span></a>
+				</div>
+			</c:if>
 		</header>
 
 		<nav>
@@ -260,24 +272,21 @@ body{
 				<ul>
 					<li><a href="adminEnter"> HOME </a></li>
 					<li><a href="adminMView"> 회원 관리 </a>
-						<ul class="submenu">
-							<li><a href="#"> 회원 정보 조회 </a></li>
-						</ul></li>
 					<li><a href="adminOView"> 주문 관리 </a>
 						<ul class="submenu">
 							<li><a href="adminOView"> 주문 상태 관리 </a></li>
-							<li><a href="adminDView"> (배달 관리) </a></li>
+							<li><a href="adminDView"> 배달 관리 </a></li>
 						</ul></li>
 					<li><a href="masterview"> 글 관리 </a>
 						<ul class="submenu">
 							<li><a href="masterview"> 문의글 관리 </a></li>
-							<li><a href="answerList"> (답변 관리) </a></li>
+							<li><a href="answerList"> 답변 관리 </a></li>
 							<li><a href="#"> 리뷰 관리 </a></li>
 						</ul></li>
 					<li><a href="#"> 상품 관리 </a>
 						<ul class="submenu">
 							<li><a href="#"> 상품 조회 </a></li>
-							<li><a href="#"> (상품 등록) </a></li>
+							<li><a href="#"> 상품 등록 </a></li>
 						</ul></li>
 				</ul>
 			</div>
