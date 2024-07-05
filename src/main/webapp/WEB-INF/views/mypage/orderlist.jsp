@@ -70,28 +70,26 @@ h2 {
 	font-family: 'Cafe24Ssurround', sans-serif;
 }
 
+/* 기존 스타일을 유지하면서 추가 */
 table {
 	border-collapse: collapse;
-	width: 985px;
+	width: 980px;
 	font-size: 16px;
 	text-align: center;
-}
-
-thead {
-	text-align: center;
-	font-weight: bold;
-	font-size: x-large;
-	font-family: 'Cafe24Ssurround', sans-serif;
-}
-
-tbody {
-	font-size: 15px;
-	font-family: 'SUITE-Regular', sans-serif;
 }
 
 td {
 	padding: 15px 0px;
 	border-bottom: 2px solid rgb(197, 194, 194);
+	white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+	overflow: hidden; /* 넘치는 텍스트 숨기기 */
+	text-overflow: ellipsis; /* 넘치는 텍스트를 '...'으로 표시 */
+	max-width: 200px; /* 최대 폭 설정 (필요에 따라 조정) */
+}
+
+tbody {
+	font-size: 15px;
+	font-family: 'SUITE-Regular', sans-serif;
 }
 
 #rbtn {
@@ -142,8 +140,6 @@ td {
 header {
 	text-align: center;
 }
-
-
 </style>
 <body>
 	<header>
@@ -243,7 +239,6 @@ header {
 						</tr>
 					</c:forEach>
 				</tbody>
-
 			</table>
 			<div class="page-container">
 				<tr>
@@ -263,7 +258,7 @@ header {
 			<br> <br> <br>
 		</div>
 	</div>
-	<footer>
+	<%-- <footer>
 		<div class="footer-box">
 			<div class="footer-logo">
 				<a href="./"><img src="${path}/resources/img/footer_logo_s1.png"
@@ -301,7 +296,7 @@ header {
 			</div>
 		</div>
 	</footer>
-
+ --%>
 
 </body>
 </html>
