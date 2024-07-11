@@ -18,7 +18,7 @@
           <img src="https://img.shields.io/badge/Spring-6DB33F?style=plastic&logo=Spring&logoColor=white">
         <img src="https://img.shields.io/badge/Eclipse-2C2255?style=plastic&logo=Spring&logoColor=white">
          <img src="https://img.shields.io/badge/CSS3-1572B6?style=plastic&logo=Spring&logoColor=white">
-        <img src="https://img.shields.io/badge/Linux-#FCC624?style=plastic&logo=Spring&logoColor=white">
+        <img src="https://img.shields.io/badge/Linux-FCC624?style=plastic&logo=Spring&logoColor=white">
           </div>
     </div>
     <div align= "center">
