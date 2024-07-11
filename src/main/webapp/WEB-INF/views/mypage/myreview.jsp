@@ -73,10 +73,10 @@ hr {
 #photo {
 	float: left;
 	width: 330px;
-	height: auto;
+	height: 150px;
 	margin-left: 22px;
 	margin-top: -12px;
-	/*  border: 1px solid blue;    */
+	/* border: 1px solid blue;     */
 }
 
 #content {
@@ -88,7 +88,7 @@ hr {
 	font-weight: normal;
 	font-family: 'SUITE-Regular', sans-serif;
 
-	/*  border: 1px solid red;   */
+	 /*  border: 1px solid red;    */
 }
 
 .image-container {
@@ -124,7 +124,7 @@ hr {
 	height: 40px;
 	font-size: 22px;
 	margin-left: 130px;
-	/*  border: 1px solid black;  */
+	 /*  border: 1px solid black;   */
 }
 
 #menuname {
@@ -146,7 +146,7 @@ hr {
 	font-weight: bold;
 	color: grey;
 	font-family: 'SUITE-Regular', sans-serif;
-	/*  border: 1px solid black;   */
+	/*   border: 1px solid black;  */  
 }
 
 .star-rating {

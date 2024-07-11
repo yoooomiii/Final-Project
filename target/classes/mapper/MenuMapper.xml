@@ -4,24 +4,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="www.egg.dao.IF_MenuDAO">
 	<select id="sselectall" resultType="www.egg.vo.MenuVO">
-		SELECT * FROM MENU WHERE menu_side = 1
+		SELECT * FROM menu WHERE menu_side = 1
 	</select>
 	<!-- 사이드 메뉴 리스트 -->
 
 	<insert id="insert" parameterType="www.egg.vo.MenuVO">
-		INSERT INTO MENU VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_side}) 
+		INSERT INTO menu VALUES (#{menu_code}, NEXT VALUE FOR menu_cnt, #{menu_name}, #{menu_price}, #{menu_ex}, #{menu_side}) 
 	</insert>
 	<!-- 입력 -->
 	<select id="selectall" resultType="www.egg.vo.MenuVO">
-		SELECT * FROM MENU
+		SELECT * FROM menu
 	</select>
 	<!-- 전체보기 -->
 	<update id="update" parameterType="www.egg.vo.MenuVO">
-		UPDATE MENU SET menu_code = #{menu_code}, menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_side = #{menu_side} WHERE menu_no = #{menu_no}
+		UPDATE menu SET menu_code = #{menu_code}, menu_name = #{menu_name}, menu_price = #{menu_price}, menu_ex = #{menu_ex}, menu_side = #{menu_side} WHERE menu_no = #{menu_no}
 	</update>
 	<!-- 수정 -->
 	<delete id="delete" parameterType="www.egg.vo.MenuVO">
-		DELETE FROM MENU WHERE menu_no = #{menu_no}
+		DELETE FROM menu WHERE menu_no = #{menu_no}
 	</delete>
 	<!-- 삭제 -->
 	<insert id="saveFile" parameterType="String">
@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	<!-- 사진 넣기 -->
 	<select id="selectone" resultType="www.egg.vo.MenuVO">
-		SELECT * FROM MENU WHERE menu_no = #{menu_no}
+		SELECT * FROM menu WHERE menu_no = #{menu_no}
 	</select>
 	<!-- 리스트 불러오기 -->
 	<select id="getFiles" resultType="String">
@@ -43,31 +43,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	<!-- 장바구니 입력 -->
 	<select id="iselectall" resultType="www.egg.vo.ItemVO">
-		SELECT * FROM ITEM
+		SELECT * FROM item
 	</select>
 	<!-- 장바구니 전체보기 -->
 	<delete id="idelete" parameterType="www.egg.vo.ItemVO">
-		DELETE FROM ITEM WHERE i_num = #{i_num}
+		DELETE FROM item WHERE i_num = #{i_num}
 	</delete>
 	<!-- 장바구니 삭제 -->
 	
 	<!-- 결제 -->
 	<insert id="pinsert" parameterType="www.egg.vo.PaymentVO">
-		INSERT INTO PAYMENT VALUES (NEXT VALUE FOR payment_cnt, #{pm_num}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'), #{pm_address}, #{pm_pick}, #{pm_comment})
+		INSERT INTO payment VALUES (NEXT VALUE FOR payment_cnt, #{pm_num}, #{pm_id}, #{pm_price}, #{pm_tip}, #{pm_total}, #{pm_pay}, #{pm_card}, DATE_FORMAT(CURDATE(), '%Y-%m-%d %H-%i-00'), #{pm_address}, #{pm_pick}, #{pm_comment})
 	</insert>
 	<!-- 결제테이블 입력 -->
 	<select id="pselectall" resultType="www.egg.vo.PaymentVO">
-		SELECT * FROM PAYMENT
+		SELECT * FROM payment
 	</select>
 	<!-- 결제테이블 전체보기 -->
 	<delete id="pdelete" parameterType="www.egg.vo.PaymentVO">
-		DELETE FROM PAYMENT WHERE pm_no = #{pm_no}
+		DELETE FROM payment WHERE pm_no = #{pm_no}
 	</delete>
 	<!-- 결제테이블 삭제 -->
 
 	<!-- 주문내역 -->
 	<insert id="minsert" parameterType="www.egg.vo.MlistVO">
-		INSERT INTO MLIST VALUES (NEXT VALUE FOR mlist_cnt, #{m_id}, #{m_no}, #{m_state}, #{m_name})
+		INSERT INTO mlist VALUES (NEXT VALUE FOR mlist_cnt, #{m_id}, #{m_no}, #{m_state}, #{m_name})
 	</insert>
 	<!-- 주문내역 등록 -->
 </mapper>
