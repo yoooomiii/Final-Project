@@ -38,9 +38,7 @@
         </div></a>
         <h1>개발자 : 김정재</h1>_
     </div>
-
-
-    <table>
+<table>
   <tbody>
     <tr>
       <td align="center"><a href="https://github.com/yoooomiii"><img src="width="100px;" alt=""/><br /><sub><b> 팀장 : 송유미</b></sub></a><br /></td>
