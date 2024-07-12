@@ -97,6 +97,13 @@ public class MypageServiceImpl implements IF_MypageServiece{
 		// TODO Auto-generated method stub
 		return mpdao.reviewmaster();
 	}
+	
+	@Override
+	public List<MlistVO> exceldown(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return mpdao.exceldown(userid);
+	}
+
 
 }
 

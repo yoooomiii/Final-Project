@@ -94,6 +94,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(*) FROM favor WHERE f_id = #{userid}
 	</select>
 
+	<select id="exceldown" resultType="www.egg.vo.MlistVO">
+		select * from mlist where m_id= #{userid}
+	</select>
 
 
 
