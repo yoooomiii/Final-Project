@@ -267,7 +267,7 @@ public class MenuController {
 		}
 
 		response.setContentType("application/vnd.ms-excel");  //Microsoft Excel파일 형식
-		response.setHeader("Content-Disposition", "attachment;filename=mlist.xls");
+		response.setHeader("Content-Disposition", "attachment;filename=menulist.xls");
 
 		wb.write(response.getOutputStream());//엑셀 출력
 		wb.close();  //workbook닫기
