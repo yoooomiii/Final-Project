@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import www.egg.vo.DeliveryVO;
+import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PageVO;
 import www.egg.vo.PaymentVO;
@@ -28,5 +29,7 @@ public interface IF_AdminDAO {
 	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage);
 	
 	public int userIdChk(String userid) throws Exception;
+	
+	public List<MemberVO> allMembers() throws Exception;
 
 }

@@ -78,4 +78,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getToatalDCountForSelect" resultType="int" parameterType="String">
 		select count (*) from delivery where d_check = #{d_check}
 	</select>
+	
+	<select id="getallmember" resultType="www.egg.vo.MemberVO" >
+		select * from member
+	</select>
 </mapper>
