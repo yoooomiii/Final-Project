@@ -25,6 +25,7 @@ public interface IF_MypageDAO {
 	
 	public List<MlistVO> orderlist(String userid, PageVO pagevo) throws Exception;
 	public int getTotalCount(String userid) throws Exception;
+	public List<MlistVO> exceldown(String userid) throws Exception;
 	//--------------------------------------------------- 주문내역 전체보기
 	
 	public List<Map<String, Object>> getfile(Integer re_num) throws Exception;	

@@ -27,6 +27,7 @@ public interface IF_MypageServiece {
 	
 	public List<MlistVO> orderlist(String userid, PageVO pagevo) throws Exception;
 	public int getTotalCount(String userid) throws Exception;
+	public List<MlistVO> exceldown(String userid) throws Exception;
 	//--------------------------------------------------- 주문내역 불러오기
 	
 	public void pickinsert(FavorVO fvo) throws Exception;
