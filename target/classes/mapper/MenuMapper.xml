@@ -35,6 +35,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getFiles" resultType="String">
 		SELECT filename FROM picture WHERE no = #{no}
 	</select>
+	<select id="exceldown" resultType="www.egg.vo.MenuVO">
+		select * from menu where menu_no = #{menu_no}
+	</select>
 	<!-- 사진 불러오기 -->
 	
 	<!-- 장바구니 -->

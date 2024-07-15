@@ -4,8 +4,20 @@ package www.egg.hom;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor.HSSFColorPredefined;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -159,6 +171,107 @@ public class MenuController {
 	}
 	
 	//-------------------------------------------------------------메뉴
+	
+	@GetMapping(value ="/down")
+	public void exceldown(HttpServletResponse response,HttpSession session) throws Exception {
+		
+		List<MenuVO> allList = mservice.menuList();
+
+		Workbook wb = new HSSFWorkbook(); //.xls 파일 지원
+		Sheet sheet = wb.createSheet("엑셀 다운");
+		Row row =null;
+		Cell cell =null;
+		int rownum =0;
+
+		CellStyle HeadStyle =wb.createCellStyle();  //셀 스타이 설정
+		HeadStyle.setBorderTop(BorderStyle.THIN); 	//셀의 선 두께 설정
+		HeadStyle.setBorderBottom(BorderStyle.THIN);
+		HeadStyle.setBorderLeft(BorderStyle.THIN);
+		HeadStyle.setBorderRight(BorderStyle.THIN);
+
+		HeadStyle.setFillForegroundColor(HSSFColorPredefined.LIGHT_CORNFLOWER_BLUE.getIndex()); //셀 배경색 설정
+		HeadStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);		// 채우기 적용
+		HeadStyle.setAlignment(HorizontalAlignment.CENTER);  //가운데 정렬
+
+		Font headerFont = wb.createFont();
+		headerFont.setFontHeightInPoints((short) 12); // 폰트 크기 설정
+		headerFont.setBold(true); // 굵게 설정
+		HeadStyle.setFont(headerFont); // 폰트를 셀 스타일에 적용
+
+		CellStyle BodyStyle =wb.createCellStyle();
+		BodyStyle.setBorderTop(BorderStyle.THIN); 
+		BodyStyle.setBorderBottom(BorderStyle.THIN);
+		BodyStyle.setBorderLeft(BorderStyle.THIN);
+		BodyStyle.setBorderRight(BorderStyle.THIN);
+
+		Font bodyFont = wb.createFont();
+		bodyFont.setFontHeightInPoints((short) 12); // 폰트 크기 설정
+		BodyStyle.setFont(bodyFont); // 폰트를 셀 스타일에 적용
+
+		int columnWidth1 = 3000; // 원하는 너비로 설정 
+		int columnWidth2 = 6000;
+		int columnWidth3 = 3000;
+		int columnWidth4 = 11000;
+		int columnWidth5 = 3000;
+		short rowHeight = 500; // 원하는 높이로 설정 
+
+		row = sheet.createRow(rownum++);
+		cell =row.createCell(0);
+		cell.setCellStyle(HeadStyle); 	//HeadStyle 적용
+		cell.setCellValue("메뉴 코드"); //1째 컬럼명
+		row.setHeight(rowHeight); // 첫 번째 행 높이 설정
+		cell =row.createCell(1);
+		cell.setCellStyle(HeadStyle);
+		cell.setCellValue("메뉴 번호"); //2째 컬럼명
+		sheet.setColumnWidth(1, columnWidth1); // 두 번째 컬럼 너비 설정
+		cell =row.createCell(2);
+		cell.setCellStyle(HeadStyle);
+		cell.setCellValue("메뉴 이름"); //3째 컬럼명
+		sheet.setColumnWidth(2, columnWidth2); // 두 번째 컬럼 너비 설정
+		cell =row.createCell(3);
+		cell.setCellStyle(HeadStyle);
+		cell.setCellValue("메뉴 가격"); //4째 컬럼명
+		sheet.setColumnWidth(3, columnWidth3); // 두 번째 컬럼 너비 설정
+		cell =row.createCell(4);
+		cell.setCellStyle(HeadStyle);
+		cell.setCellValue("메뉴 설명"); //5째 컬럼명
+		sheet.setColumnWidth(4, columnWidth4); // 두 번째 컬럼 너비 설정
+		cell =row.createCell(5);
+		cell.setCellStyle(HeadStyle);
+		cell.setCellValue("카테고리"); //6째 컬럼명
+		sheet.setColumnWidth(5, columnWidth5); // 두 번째 컬럼 너비 설정
+
+
+
+		for(MenuVO mvo : allList) {
+			row = sheet.createRow(rownum++);
+			cell = row.createCell(0);
+			cell.setCellStyle(BodyStyle); //데이터 부분에는 BodyStyle 적용
+			cell.setCellValue(mvo.getMenu_code()); //첫번째 열에 주문번호
+			row.setHeight(rowHeight); // 데이터 행 높이 설정
+			cell = row.createCell(1);
+			cell.setCellStyle(BodyStyle); 
+			cell.setCellValue(mvo.getMenu_no()); //두번째 열에 메뉴이름 
+			cell = row.createCell(2);
+			cell.setCellStyle(BodyStyle);
+			cell.setCellValue(mvo.getMenu_name()); //세번째 열에 주문상태
+			cell = row.createCell(3);
+			cell.setCellStyle(BodyStyle);
+			cell.setCellValue(mvo.getMenu_price()); //세번째 열에 주문상태
+			cell = row.createCell(4);
+			cell.setCellStyle(BodyStyle);
+			cell.setCellValue(mvo.getMenu_ex()); //세번째 열에 주문상태
+			cell = row.createCell(5);
+			cell.setCellStyle(BodyStyle);
+			cell.setCellValue(mvo.getMenu_side()); //세번째 열에 주문상태
+		}
+
+		response.setContentType("application/vnd.ms-excel");  //Microsoft Excel파일 형식
+		response.setHeader("Content-Disposition", "attachment;filename=mlist.xls");
+
+		wb.write(response.getOutputStream());//엑셀 출력
+		wb.close();  //workbook닫기
+	}
 
 	@GetMapping(value ="/menu_input")
 	public String menu_input() {	//치킨 입력 창으로 이동

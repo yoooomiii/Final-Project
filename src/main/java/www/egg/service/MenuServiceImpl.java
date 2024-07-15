@@ -113,5 +113,11 @@ public class MenuServiceImpl implements IF_MenuService {
 		mdao.mlist_insert(mvo);
 	}
 
+	@Override
+	public List<MenuVO> exceldown(String menu_no) throws Exception {
+		// TODO Auto-generated method stub
+		return mdao.exceldown(menu_no);
+	}
+
 }
 

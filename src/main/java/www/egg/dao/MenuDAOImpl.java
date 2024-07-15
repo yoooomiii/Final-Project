@@ -119,5 +119,11 @@ public class MenuDAOImpl implements IF_MenuDAO {
 		sqlSession.insert(mapperQuery+".minsert", mvo);
 	}
 
+	@Override
+	public List<MenuVO> exceldown(String menu_no) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(mapperQuery + ".exceldown", menu_no);
+	}
+
 }
 

@@ -17,6 +17,8 @@ public interface IF_MenuService {
 	
 	//------------------------------------------------주문내역
 	
+	public List<MenuVO> exceldown(String menu_no) throws Exception;	//엑셀 다운로드
+	
 	public void payment_delete(PaymentVO pvo) throws Exception;	//결제 삭제
 	
 	public List<PaymentVO> paymentList() throws Exception;	//결제 전체보기
