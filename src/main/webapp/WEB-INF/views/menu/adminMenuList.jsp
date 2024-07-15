@@ -233,6 +233,31 @@ td {
 body{
 	font-family: 'SUITE-Regular';
 }
+#excel{
+	background-color:rgb(152, 218, 240); 
+	border: none;
+	color: white;
+	padding: 8px 24px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+	margin-left: 200px;
+	border-radius: 15px;
+	transition: background-color 0.3s, transform 0.3s;
+	font-family: 'SUITE-Regular', sans-serif;
+}
+#excel:hover {
+	background-color: rgb(152, 218, 240);
+	transform: scale(1.05);
+}
+
+#excel:active {
+	background-color: rgb(152, 218, 240);
+	transform: scale(1);
+}
 </style>
 
 <body>
@@ -315,6 +340,9 @@ body{
 		</div>
 	</div>
 	<section id="page">
+	<form action="down" method="get">
+		<input type="submit" value="엑셀 다운로드 " id="excel">
+	</form>
 	<div id="isert">
 	<form action="menu_input" method="get">
 		<input type="submit" value="메뉴 등록하기">

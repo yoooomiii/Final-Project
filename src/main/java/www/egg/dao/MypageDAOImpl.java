@@ -120,30 +120,15 @@ public class MypageDAOImpl implements IF_MypageDAO {
 		// TODO Auto-generated method stub
 		return sqlsession.selectList(mapperQuery+".reviewmaster");
 	}
+	
 
-
-	//	@Override
-	//	public boolean deletePick(List<String> pickIds) {
-	//		try {
-	//			String sql = "DELETE FROM orders WHERE id = ?";
-	//			for (String pickId : pickIds) {
-	//				jdbcTemplate.update(sql, pickId);
-	//			}
-	//			return true;
-	//		} catch (Exception e) {
-	//			e.printStackTrace();
-	//			return false;
-	//		}
-	//	}
+	@Override
+	public List<MlistVO> exceldown(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(mapperQuery + ".exceldown", userid);
+	}
 }
 
-
-
-//	@Override
-//	public List<String> testfile(Integer re_num) throws Exception {			//사진만 불러오기 테스트용
-//		// TODO Auto-generated method stub
-//		return sqlsession.selectList(mapperQuery +".testfile", re_num);
-//	}
 
 
 
