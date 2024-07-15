@@ -72,7 +72,7 @@ body{
                                 <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
-                                <a href="answerList"> (답변 관리) </a>
+                                <a href="answerList"> 답변 관리 </a>
                             </li>
                             <li>
                                 <a href="review_master"> 리뷰 관리 </a>
@@ -87,9 +87,6 @@ body{
                             </li>
                             <li>
                                 <a href="menu_input"> 상품 등록 </a>
-                            </li>
-                             <li>
-                                <a href="#"> (필요하면 추가하세요) </a>
                             </li>
                         </ul>
                     </li>

@@ -70,28 +70,26 @@ h2 {
 	font-family: 'Cafe24Ssurround', sans-serif;
 }
 
+/* 기존 스타일을 유지하면서 추가 */
 table {
 	border-collapse: collapse;
-	width: 985px;
+	width: 980px;
 	font-size: 16px;
 	text-align: center;
-}
-
-thead {
-	text-align: center;
-	font-weight: bold;
-	font-size: x-large;
-	font-family: 'Cafe24Ssurround', sans-serif;
-}
-
-tbody {
-	font-size: 15px;
-	font-family: 'SUITE-Regular', sans-serif;
 }
 
 td {
 	padding: 15px 0px;
 	border-bottom: 2px solid rgb(197, 194, 194);
+	white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+	overflow: hidden; /* 넘치는 텍스트 숨기기 */
+	text-overflow: ellipsis; /* 넘치는 텍스트를 '...'으로 표시 */
+	max-width: 200px; /* 최대 폭 설정 (필요에 따라 조정) */
+}
+
+tbody {
+	font-size: 15px;
+	font-family: 'SUITE-Regular', sans-serif;
 }
 
 #rbtn {
@@ -138,32 +136,36 @@ td {
 	font-weight: bold;
 	text-decoration: underline;
 }
+
+header {
+	text-align: center;
+}
 </style>
 <body>
 	<header>
 		<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
-			<c:if test="${userid == null }">
-				<div class="login box">
-						<a href="login"><span> 로그인 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid == null }">
-				<div class="join box">
-						<a href="join"><span> 회원가입 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid != null }">
-				<div class="logout box">
-						<a href="logout"><span> 로그아웃 </span></a>
-				</div>
-			</c:if>
-			<c:if test="${userid != null }">
-				<div class="quite box">
-						<a href="byebye"><span> 회원탈퇴 </span></a>
-				</div>
-			</c:if>
+		<c:if test="${userid == null }">
+			<div class="login box">
+				<a href="login"><span> 로그인 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid == null }">
+			<div class="join box">
+				<a href="join"><span> 회원가입 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid != null }">
+			<div class="logout box">
+				<a href="logout"><span> 로그아웃 </span></a>
+			</div>
+		</c:if>
+		<c:if test="${userid != null }">
+			<div class="quite box">
+				<a href="byebye"><span> 회원탈퇴 </span></a>
+			</div>
+		</c:if>
 	</header>
 
 	<nav>
@@ -178,26 +180,14 @@ td {
 					<ul class="submenu">
 						<li><a href="brand"> 브랜드 소개 </a></li>
 					</ul></li>
-				<li>
-                        <a href="menuForm"> 메뉴 주문하기 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="menuForm"> 인기 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 대표 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 전체 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 사이드 / 음료 </a>
-                            </li>
-                            <li>
-                            
-                            </li>
-                        </ul>
-                    </li>
+				<li><a href="menuForm"> 메뉴 주문하기 </a>
+					<ul class="submenu">
+						<li><a href="menuForm"> 인기 메뉴 </a></li>
+						<li><a href="menuForm"> 대표 메뉴 </a></li>
+						<li><a href="menuForm"> 전체 메뉴 </a></li>
+						<li><a href="menuForm"> 사이드 / 음료 </a></li>
+						<li></li>
+					</ul></li>
 				<li><a href="infomain"> 고객센터 </a>
 					<ul class="submenu">
 						<li><a href="ask"> 1:1 문의 </a></li>
@@ -249,7 +239,6 @@ td {
 						</tr>
 					</c:forEach>
 				</tbody>
-
 			</table>
 			<div class="page-container">
 				<tr>
@@ -269,10 +258,10 @@ td {
 			<br> <br> <br>
 		</div>
 	</div>
-	<footer>
+	<%-- <footer>
 		<div class="footer-box">
 			<div class="footer-logo">
-				<a href="#"><img src="${path}/resources/img/logo1_ size60.png"
+				<a href="./"><img src="${path}/resources/img/footer_logo_s1.png"
 					alt=""></a>
 			</div>
 			<div class="footer-con">
@@ -307,7 +296,7 @@ td {
 			</div>
 		</div>
 	</footer>
-
+ --%>
 
 </body>
 </html>

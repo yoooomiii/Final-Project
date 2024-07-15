@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="${path}/resources/css/menubar.css" rel="stylesheet"/>
+<link href="${path}/resources/css/menubar.css" rel="stylesheet" />
 <title>Home</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -21,7 +21,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
-	
+
 </head>
 <style>
 #line {
@@ -39,13 +39,13 @@
 	height: 30px;
 	/* border: 1px solid black;  */
 	margin-top: 25px;
-	font-size: 26px; 
+	font-size: 26px;
 	font-family: 'SUITE-Regular', sans-serif;
-	
 }
+
 .username {
 	font-family: 'Cafe24Ssurround', sans-serif;
-	font-size :30px;
+	font-size: 30px;
 }
 
 #modbutton {
@@ -106,9 +106,11 @@
 	margin-left: 150px;
 	margin-top: 20px;
 }
+
 .iconimg:hover {
 	transform: scale(1.05);
 }
+
 .iconimg:active {
 	transform: scale(1);
 }
@@ -129,10 +131,11 @@ h3 {
 
 #name {
 	text-align: center;
-	font-size:30px;
+	font-size: 30px;
 	font-family: 'Cafe24Ssurround', sans-serif;
 }
-h2{
+
+h2 {
 	font-family: 'SUITE-Regular', sans-serif;
 	font-size: 22px;
 }
@@ -166,7 +169,7 @@ td {
 }
 
 #mod-button {
-	background-color:  #b3c5fd;
+	background-color: #b3c5fd;
 	color: black;
 	border: none;
 	border-radius: 15px;
@@ -178,12 +181,32 @@ td {
 }
 
 #mod-button:hover {
-	background-color:  #b3c5fd;
+	background-color: #b3c5fd;
 	transform: scale(1.05);
 }
 
 #mod-button:active {
 	transform: scale(1);
+}
+
+header .box {
+	font-family: 'Cafe24Ssurround';
+	font-size: 16px;
+	text-decoration: none;
+	background-color: rgb(45, 12, 0);
+	border-radius: 15px;
+	padding-top: 5px;
+	border: 2px solid rgb(40, 10, 0);
+}
+
+header a {
+	text-decoration: none;
+	color: white;
+}
+
+header a:hover {
+	color: #f3a227;
+	text-shadow: 2px 2px 1px rgb(0, 0, 0);
 }
 </style>
 
@@ -195,25 +218,26 @@ td {
 			</c:if>
 			<c:if test="${userid == null }">
 				<div class="login box">
-						<a href="login"><span> 로그인 </span></a>
+					<a href="login"><span> 로그인 </span></a>
 				</div>
 			</c:if>
 			<c:if test="${userid == null }">
 				<div class="join box">
-						<a href="join"><span> 회원가입 </span></a>
+					<a href="join"><span> 회원가입 </span></a>
 				</div>
 			</c:if>
 			<c:if test="${userid != null }">
 				<div class="logout box">
-						<a href="logout"><span> 로그아웃 </span></a>
+					<a href="logout"><span> 로그아웃 </span></a>
 				</div>
 			</c:if>
 			<c:if test="${userid != null }">
 				<div class="quite box">
-						<a href="byebye"><span> 회원탈퇴 </span></a>
+					<a href="byebye"><span> 회원탈퇴 </span></a>
 				</div>
 			</c:if>
 		</header>
+
 
 		<nav>
 			<div class="logo">
@@ -227,26 +251,14 @@ td {
 						<ul class="submenu">
 							<li><a href="brand"> 브랜드 소개 </a></li>
 						</ul></li>
-					<li>
-                        <a href="menuForm"> 메뉴 주문하기 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="menuForm"> 인기 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 대표 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 전체 메뉴 </a>
-                            </li>
-                            <li>
-                                <a href="menuForm"> 사이드 / 음료 </a>
-                            </li>
-                            <li>
-                            
-                            </li>
-                        </ul>
-                    </li>
+					<li><a href="menuForm"> 메뉴 주문하기 </a>
+						<ul class="submenu">
+							<li><a href="menuForm"> 인기 메뉴 </a></li>
+							<li><a href="menuForm"> 대표 메뉴 </a></li>
+							<li><a href="menuForm"> 전체 메뉴 </a></li>
+							<li><a href="menuForm"> 사이드 / 음료 </a></li>
+							<li></li>
+						</ul></li>
 					<li><a href="infomain"> 고객센터 </a>
 						<ul class="submenu">
 							<li><a href="ask"> 1:1 문의 </a></li>
@@ -262,12 +274,10 @@ td {
 				</ul>
 			</div>
 		</nav>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<div id="line">
 			<div id="mypage">
-				<span class="username" id="name">${username}</span>  님의 마이페이지입니다
+				<span class="username" id="name">${username}</span> 님의 마이페이지입니다
 			</div>
 
 
@@ -277,7 +287,7 @@ td {
 						src="${pageContext.request.contextPath}/resources/img/기본 프로필.png"
 						class="profile-img">
 				</div>
-				
+
 				<div id="info">
 					<h2>아이디 : ${userid}</h2>
 					<br>
@@ -316,14 +326,12 @@ td {
 				</div>
 			</div>
 		</div>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 
 		<footer>
 			<div class="footer-box">
 				<div class="footer-logo">
-					<a href="./"><img src="${path}/resources/img/logo1_ size60.png"
+					<a href="./"><img src="${path}/resources/img/footer_logo_s1.png"
 						alt=""></a>
 				</div>
 				<div class="footer-con">
@@ -350,7 +358,7 @@ td {
 					</div>
 				</div>
 				<div class="sns">
-					<span><a href="#"><img
+					<span> <a href="#"><img
 							src="${path}/resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
 						href="#"><img src="${path}/resources/img/facebook_icon.jpg"
 							alt=""></a></span> <span><a href="#"><img

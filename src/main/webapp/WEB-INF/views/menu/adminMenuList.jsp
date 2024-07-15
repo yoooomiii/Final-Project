@@ -272,24 +272,23 @@ body{
 				<ul>
 					<li><a href="adminEnter"> HOME </a></li>
 					<li><a href="adminMView"> 회원 관리 </a>
-						<ul class="submenu">
-							<li><a href="#"> 회원 정보 조회 </a></li>
-						</ul></li>
 					<li><a href="adminOView"> 주문 관리 </a>
 						<ul class="submenu">
 							<li><a href="adminOView"> 주문 상태 관리 </a></li>
-							<li><a href="adminDView"> (배달 관리) </a></li>
+							<li><a href="adminDView"> 배달 관리 </a></li>
 						</ul></li>
 					<li><a href="masterview"> 글 관리 </a>
 						<ul class="submenu">
 							<li><a href="masterview"> 문의글 관리 </a></li>
-							<li><a href="answerList"> (답변 관리) </a></li>
+
+							<li><a href="answerList"> 답변 관리 </a></li>
 							<li><a href="#"> 리뷰 관리 </a></li>
+
 						</ul></li>
 					<li><a href="#"> 상품 관리 </a>
 						<ul class="submenu">
 							<li><a href="#"> 상품 조회 </a></li>
-							<li><a href="#"> (상품 등록) </a></li>
+							<li><a href="#"> 상품 등록 </a></li>
 						</ul></li>
 				</ul>
 			</div>

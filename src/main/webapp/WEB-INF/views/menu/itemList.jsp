@@ -184,14 +184,7 @@
                 </div>
             </section>
             <hr>
-            <section class="main-banner">
-                <div class="banner notice">
-                    <a href="#"> 공지사항 / 안내 </a>
-                </div>
-                <div class="banner event">
-                    <a href="#"> 이벤트 </a>
-                </div>
-            </section>
+            
             <footer>
                 <div class="footer-box">
                     <div class="footer-logo">

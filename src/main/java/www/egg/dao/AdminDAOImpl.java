@@ -191,4 +191,10 @@ public class AdminDAOImpl implements IF_AdminDAO{
 		return 0;
 	}
 
+	@Override
+	public List<MemberVO> allMembers() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(mapperQuery+".getallmember");
+	}
+
 }

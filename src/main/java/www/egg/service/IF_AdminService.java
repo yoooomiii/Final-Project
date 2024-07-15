@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import www.egg.vo.DeliveryVO;
+import www.egg.vo.MemberVO;
 import www.egg.vo.MlistVO;
 import www.egg.vo.PageVO;
 import www.egg.vo.PaymentVO;
@@ -31,5 +32,7 @@ public interface IF_AdminService {
 	public List<DeliveryVO> searchDeliveryPaging(Map<String, Object> spage) throws Exception;
 	
 	public int userIdChk(String userid) throws Exception; // 잘못만듦 (loginservice에있어야댐) 
+	
+	public List<MemberVO> allMembers() throws Exception;
 
 }

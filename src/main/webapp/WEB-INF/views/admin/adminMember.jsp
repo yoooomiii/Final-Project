@@ -250,11 +250,6 @@ body{
                     </li>
                     <li>
                         <a href="adminMView"> 회원 관리 </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#"> 회원 정보 조회 </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="adminOView"> 주문 관리 </a>
@@ -263,7 +258,7 @@ body{
                                 <a href="adminOView"> 주문 상태 관리 </a>
                             </li>
                             <li>
-                                  <a href="adminDView"> 배달 관리(정비 중) </a>
+                                  <a href="adminDView"> 배달 관리 </a>
                             </li>
                         </ul>
                     </li>
@@ -274,10 +269,10 @@ body{
                                 <a href="masterview"> 문의글 관리 </a>
                             </li>
                             <li>
-                                <a href="answerList"> (답변 관리) </a>
+                                <a href="answerList"> 답변 관리 </a>
                             </li>
                             <li>
-                                <a href="#"> 리뷰 관리 </a>
+                                <a href="review_master"> 리뷰 관리 </a>
                             </li>
                         </ul>
                     </li>
@@ -332,6 +327,7 @@ body{
 	<form action="adminMDelete" method="get" onsubmit="return call_confirm()" id="mbr-form">
 			<div id="dpan">
 			<input type="submit" value="삭제하기">
+			<a href="<c:url value='/excelDown' />"><input type="button" value="excel다운"></a>
 		</div>
 		<table border=1 id="mtable" style="font-size: 15px">
 			<thead>

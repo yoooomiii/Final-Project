@@ -393,11 +393,11 @@ footer {
 			<c:if test="${userid != null }">
 					'${userid }'님 접속을 환영합니다.
 			</c:if>
-			<c:if test="${userid == null }">
-				<div class="login box">
-					<a href="login"><span> 로그인 </span></a>
-				</div>
-			</c:if>
+				<c:if test="${userid == null }">
+					<div class="login box">
+						<a href="login"><span> 로그인 </span></a>
+					</div>
+				</c:if>
 			<c:if test="${userid == null }">
 				<div class="join box">
 					<a href="join"><span> 회원가입 </span></a>
@@ -414,6 +414,7 @@ footer {
 				</div>
 			</c:if>
 		</header>
+
 		<nav>
 			<div class="logo">
 				<a href="./"><span><img
@@ -519,54 +520,26 @@ footer {
 			</div>
 		</section>
 		<hr>
-		<section class="main-banner">
-			<div class="banner notice">
-				<a href="#"><img alt="" src="${path}./resources/img/공지사항.png"></a>
-
-			</div>
-			<div class="banner event">
-				<a href="#"><img alt="" src="${path}./resources/img/이벤트 배너.png">
-				</a>
-			</div>
-		</section>
 		<footer>
-
-			<div class="footer-box">
-				<div class="footer-logo">
-					<a href="main"><img
-						src="${path}./resources/img/footer_logo_s1.png" alt=""></a>
-				</div>
-				<div class="footer-con">
-					<div class="con-text">
-						<span> 상호명 : Golden Egg Chicken (골든에그) </span>
-					</div>
-					<div class="con-text">
-						<span> 대표자 : 송유미 </span>
-					</div>
-					<div class="con-text">
-						<span> 사업자등록번호 : 112-00-001234 </span>
-					</div>
-					<div class="con-text">
-						<span> 대표번호 : 031-500-1234 </span>
-					</div>
-					<div class="con-text">
-						<span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span>
-					</div>
-					<div class="con-text">
-						<span> 이메일 : goldenEgg @ gmail.com </span>
-					</div>
-					<div class="con-text">
-						<span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span>
-					</div>
-				</div>
-				<div class="sns">
-					<span><a href="#"><img
-							src="${path}./resources/img/instahram_icon.jpg" alt=""></a></span> <span><a
-						href="#"><img src="${path}./resources/img/facebook_icon.jpg"
-							alt=""></a></span> <span><a href="#"><img
-							src="${path}./resources/img/twiter_icon.jpg" alt=""></a></span>
-				</div>
-			</div>
+            <div class="footer-box">
+                <div class="footer-logo">
+                    <a href="./"><img src="${path}./resources/img/footer_logo_s1.png" alt=""></a>
+                </div>
+                <div class="footer-con">
+                    <div class="con-text"><span> 상호명 : Golden Egg Chicken (골든에그) </span></div>
+                    <div class="con-text"><span> 대표자 : 송유미 </span></div>
+                    <div class="con-text"><span> 사업자등록번호 : 112-00-001234 </span></div>
+                    <div class="con-text"><span> 대표번호 : 031-500-1234 </span></div>
+                    <div class="con-text"><span> 주소 : 경기도 수원시 중부대로 500 (인계동) </span></div>
+                    <div class="con-text"><span> 이메일 : goldenEgg @ gmail.com </span></div>
+                    <div class="con-text"><span> COPYRIGHT © 2024 IDUS KOREA. ALL RIGHTS RESERVED. </span></div>
+                </div>
+                <div class="sns">
+                    <span><a href="#"><img src="${path}./resources/img/instahram_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="${path}./resources/img/facebook_icon.jpg" alt=""></a></span>
+                    <span><a href="#"><img src="${path}./resources/img/twiter_icon.jpg" alt=""></a></span>
+                </div>
+            </div>
 
 		</footer>
 	</div>

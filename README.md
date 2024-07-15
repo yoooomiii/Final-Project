@@ -16,6 +16,9 @@
           <img src="https://img.shields.io/badge/MariaDB-003545?style=plastic&logo=MariaDB&logoColor=white">
           <img src="https://img.shields.io/badge/MySQL-4479A1?style=plastic&logo=MySQL&logoColor=white">
           <img src="https://img.shields.io/badge/Spring-6DB33F?style=plastic&logo=Spring&logoColor=white">
+        <img src="https://img.shields.io/badge/Eclipse-2C2255?style=plastic&logo=Spring&logoColor=white">
+         <img src="https://img.shields.io/badge/CSS3-1572B6?style=plastic&logo=Spring&logoColor=white">
+        <img src="https://img.shields.io/badge/Linux-FCC624?style=plastic&logo=Spring&logoColor=white">
           </div>
     </div>
     <div align= "center">
@@ -27,7 +30,7 @@
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🏅 Stats </h2>
         <a href="https://github.com/yoooomiii"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
         </div></a>
-        <h1>개발자 : 송사리</h1>
+        <h1>개발자 : 송유미</h1>
         <a href="https://github.com/Hongseongwo"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
         </div></a>
         <h1>개발자 : 홍성우</h1>
@@ -38,4 +41,3 @@
         </div></a>
         <h1>개발자 : 김정재</h1>_
     </div>
-    
