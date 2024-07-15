@@ -327,6 +327,7 @@ body{
 	<form action="adminMDelete" method="get" onsubmit="return call_confirm()" id="mbr-form">
 			<div id="dpan">
 			<input type="submit" value="삭제하기">
+			<a href="<c:url value='/excelDown' />"><input type="button" value="excel다운"></a>
 		</div>
 		<table border=1 id="mtable" style="font-size: 15px">
 			<thead>

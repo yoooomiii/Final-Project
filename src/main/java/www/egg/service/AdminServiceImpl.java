@@ -123,6 +123,12 @@ public class AdminServiceImpl implements IF_AdminService {
 		return 0;
 	}
 
+	@Override
+	public List<MemberVO> allMembers() throws Exception {
+		// TODO Auto-generated method stub
+		return adao.allMembers();
+	}
+
 	
 
 

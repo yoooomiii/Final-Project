@@ -5,8 +5,19 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor.HSSFColorPredefined;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -313,5 +324,91 @@ public class AdminController {
 		model.addAttribute("dvo", modied_dvo);
 		model.addAttribute("ordernum",m_num );
 		return "admin/adminODelivery";
+	}
+	
+	// --------------(excel 다운)---->
+	@RequestMapping(value = "/excelDown")
+	public void excelDown(HttpServletResponse response) throws Exception {
+		
+		// DB 에서 데이터 리스트 가져오기 
+		List<MemberVO> memberlist = aservice.allMembers();
+		
+		// HSSFWorkbook
+		Workbook wb = new HSSFWorkbook();
+		Sheet sheet = wb.createSheet("멤버목록");
+		Row row = null;
+		Cell cell = null;
+		int rowNo = 0;
+
+		// 스타일 설정 부분 
+		CellStyle headStyle = wb.createCellStyle();
+		// "
+		headStyle.setBorderTop(BorderStyle.THIN);
+		headStyle.setBorderBottom(BorderStyle.THIN);
+		headStyle.setBorderLeft(BorderStyle.THIN);
+		headStyle.setBorderRight(BorderStyle.THIN);
+		// "
+		headStyle.setFillForegroundColor(HSSFColorPredefined.WHITE.getIndex());
+		headStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		// "
+		headStyle.setAlignment(HorizontalAlignment.CENTER);
+		
+		// "
+		CellStyle bodyStyle = wb.createCellStyle();
+		bodyStyle.setBorderTop(BorderStyle.THIN);
+		bodyStyle.setBorderBottom(BorderStyle.THIN);
+		bodyStyle.setBorderLeft(BorderStyle.THIN);
+		bodyStyle.setBorderRight(BorderStyle.THIN);
+
+		// header 만들기 
+		row = sheet.createRow(rowNo++);
+		cell = row.createCell(0);
+		cell.setCellStyle(headStyle);
+		cell.setCellValue("회원ID");
+		cell = row.createCell(1);
+		cell.setCellStyle(headStyle);
+		cell.setCellValue("회원명");
+		cell = row.createCell(2);
+		cell.setCellStyle(headStyle);
+		cell.setCellValue("전화번호");
+		cell = row.createCell(3);
+		cell.setCellStyle(headStyle);
+		cell.setCellValue("이메일");
+		cell = row.createCell(4);
+		cell.setCellStyle(headStyle);
+		cell.setCellValue("주소");
+		cell = row.createCell(5);
+		cell.setCellStyle(headStyle);
+		cell.setCellValue("권한");
+		
+		// body(value값 데이터) 만들기 
+		for(MemberVO vo : memberlist) { // 가져온 list 
+			row = sheet.createRow(rowNo++);
+			cell = row.createCell(0);
+			cell.setCellStyle(bodyStyle);
+			cell.setCellValue(vo.getId());
+			cell = row.createCell(1);
+			cell.setCellStyle(bodyStyle);
+			cell.setCellValue(vo.getName());
+			cell = row.createCell(2);
+			cell.setCellStyle(bodyStyle);
+			cell.setCellValue(vo.getPhone());
+			cell = row.createCell(3);
+			cell.setCellStyle(headStyle);
+			cell.setCellValue(vo.getEmail());
+			cell = row.createCell(4);
+			cell.setCellStyle(headStyle);
+			cell.setCellValue(vo.getAddress());
+			cell = row.createCell(5);
+			cell.setCellStyle(headStyle);
+			cell.setCellValue(vo.getMaster());
+		}
+		
+		// 컨텐츠 타입과 파일명 지정 
+		response.setContentType("application/vnd.ms-excel");
+		response.setHeader("Content-Disposition", "attachment;filename=goldenEgg_member.xls");
+		
+		wb.write(response.getOutputStream());
+		wb.close();
 	}
 }
