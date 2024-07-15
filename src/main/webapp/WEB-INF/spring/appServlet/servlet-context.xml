@@ -83,7 +83,7 @@
 	</beans:bean>
 
 	<beans:bean class="java.lang.String" id="uploadPath">
-		<beans:constructor-arg value="/foodimg"></beans:constructor-arg>
+		<beans:constructor-arg value="/home/foodimg"></beans:constructor-arg>
 	</beans:bean>
 	
 	<context:component-scan
