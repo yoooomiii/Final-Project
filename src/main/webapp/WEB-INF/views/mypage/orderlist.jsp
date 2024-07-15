@@ -52,7 +52,7 @@
 #box {
 	float: left;
 	width: 1000px;
-	height: 1040px;
+	height: 1070px;
 	margin-left: 135px;
 	margin-top: 40px;
 	margin-bottom: 100px;
