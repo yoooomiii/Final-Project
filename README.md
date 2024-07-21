@@ -28,7 +28,7 @@ __<div align= "center">
     </div>
     <div align= "center"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🏅 Stats </h2>
-         ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomi&hide=contribs,prs&show_icons=true&theme=default&bg_color=gray&title_color=gray&text_color=gray&icon_color=gray
+        ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마)
 )
         </div></a>
         <h1>개발자 : 송유미</h1>
