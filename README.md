@@ -1,4 +1,4 @@
-_<div align= "center">
+__<div align= "center">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:efafaf,100:d2c793&height=180&text=GoldenEGG%20Project&animation=fadeIn&fontColor=000000&fontSize=70" />
     </div>
     <div align= "center"> 
@@ -28,8 +28,8 @@ _<div align= "center">
     </div>
     <div align= "center"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🏅 Stats </h2>
-         ![Yoomi's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마)
-         [![Yoomi's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomiii)](https://github.com/anuraghazra/github-readme-stats)
+         ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomi&hide=contribs,prs&show_icons=true&theme=default&bg_color=ffffff&title_color=gray&text_color=gray&icon_color=gray
+)
         </div></a>
         <h1>개발자 : 송유미</h1>
         <a href="https://github.com/Hongseongwo"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
@@ -42,4 +42,5 @@ _<div align= "center">
         </div></a>
         <h1>개발자 : 김정재</h1>_
     </div>
+_
 _
