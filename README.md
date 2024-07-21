@@ -28,7 +28,7 @@ __<div align= "center">
     </div>
     <div align= "center"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🏅 Stats </h2>
-        ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마)
+       [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/yoooomiii)
         </div></a>
        <h2 align="center">개발자 : 송유미</h2>
         <a href="https://github.com/Hongseongwo"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
