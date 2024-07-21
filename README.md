@@ -1,4 +1,4 @@
-_<div align="center">
+<div align="center">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:efafaf,100:d2c793&height=180&text=GoldenEGG%20Project&animation=fadeIn&fontColor=000000&fontSize=70" />
 </div>
 
@@ -56,4 +56,3 @@ _<div align="center">
         <h2>개발자 : 김정재</h2>
     </div>
 </div>
-_
