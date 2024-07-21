@@ -38,8 +38,7 @@
         <a href="https://github.com/yoooomiii">
             <img src="https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats">
         </a>
-        <h2>개발자 : 송유미</h2>
-        
+        <h2>개발자 : 송유미</h2>        
         <a href="https://github.com/Hongseongwo">
             <img src="https://github-readme-stats.vercel.app/api?username=Hongseongwo&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats">
         </a>
