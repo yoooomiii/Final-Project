@@ -1,13 +1,4 @@
-_    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <style>
-        .center {
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-        }
-        h2 {
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
+
 ___<div align= "center">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:efafaf,100:d2c793&height=180&text=GoldenEGG%20Project&animation=fadeIn&fontColor=000000&fontSize=70" />
     </div>
@@ -38,26 +29,18 @@ ___<div align= "center">
     </div>
     <div class="center">
         <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🏅 Stats </h2>
-        
-        <a href="https://github.com/yoooomiii">
-            <img src="https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats" />
-        </a>
-        <h2>개발자 : 송유미</h2>
-        
-        <a href="https://github.com/Hongseongwo">
-            <img src="https://github-readme-stats.vercel.app/api?username=Hongseongwo&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats" />
-        </a>
-        <h2>개발자 : 홍성우</h2>
-        
-        <a href="https://github.com/orca0504">
-            <img src="https://github-readme-stats.vercel.app/api?username=orca0504&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats" />
-        </a>
-        <h2>개발자 : 김어진</h2>
-        
-        <a href="https://github.com/jasmine-dg">
-            <img src="https://github-readme-stats.vercel.app/api?username=jasmine-dg&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats" />
-        </a>
-        <h2>개발자 : 김정재</h2>
+
+    <div align= "center">
+        [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/yoooomiii)
+        <h2 align="center">개발자 : 송유미</h2>
+         [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Hongseongwo&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/Hongseongwo)
+         <h2 align="center">개발자 : 홍성우</h2>
+         [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=orca0504&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/orca0504)
+         <h2 align="center">개발자 : 김어진</h2>
+         [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?
+username=jasmine-dg&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/jasmine-dg)
+         <h2 align="center">개발자 : 김정재</h2>
+
     </div>
 _
 _
