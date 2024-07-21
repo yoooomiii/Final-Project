@@ -42,13 +42,11 @@
         <a href="https://github.com/Hongseongwo">
             <img src="https://github-readme-stats.vercel.app/api?username=Hongseongwo&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats">
         </a>
-        <h2>개발자 : 홍성우</h2>
-        
+        <h2>개발자 : 홍성우</h2>        
         <a href="https://github.com/orca0504">
             <img src="https://github-readme-stats.vercel.app/api?username=orca0504&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats">
         </a>
-        <h2>개발자 : 김어진</h2>
-        
+        <h2>개발자 : 김어진</h2>      
         <a href="https://github.com/jasmine-dg">
             <img src="https://github-readme-stats.vercel.app/api?username=jasmine-dg&hide=contribs,prs&show_icons=true&theme=테마" alt="Anurag's GitHub stats">
         </a>
