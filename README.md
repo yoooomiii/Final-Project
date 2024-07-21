@@ -31,15 +31,17 @@ __<div align= "center">
        [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=yoooomiii&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/yoooomiii)
         </div></a>
        <h2 align="center">개발자 : 송유미</h2>
-        <a href="https://github.com/Hongseongwo"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
+       
+       [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Hongseongwo&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/Hongseongwo)
         </div></a>
-        <h1>개발자 : 홍성우</h1>
-         <a href="https://github.com/orca0504"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=orca0504&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
-        </div><a/>
-        <h1>개발자 : 김어진</h1>
-             <a href="https://github.com/jasmine-dg"><div align= "center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hongseongwo&layout=compact&bg_color=180,f2cfcf,00000000&title_color=000000&text_color=000000"/> 
+        <h2 align="center">개발자 : 홍성우</h2>
+
+        [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=orca0504&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/orca0504)
         </div></a>
-        <h1>개발자 : 김정재</h1>_
+        <h2 align="center">개발자 : 김어진</h2>
+
+         [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=jasmine-dg&hide=contribs,prs&show_icons=true&theme=테마)](https://github.com/jasmine-dg)
+        </div></a>
+        <h2 align="center">개발자 : 김정재</h2>
+            
     </div>
-_
-_
