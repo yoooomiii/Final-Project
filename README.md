@@ -4,8 +4,8 @@
 <div align="center">
 <img src="src/main/webapp/resources/img/에그그.png" width="900" height="300">
     <br>
-    배포주소 : 34.64.140.53/GoldenEGG
-    테스트 계정(사용자) : ID:lemon3 / PW:7777
+    배포주소 : 34.64.140.53/GoldenEGG<br>
+    테스트 계정(사용자) : ID:lemon3 / PW:7777<br>
     테스트 계정(관리자) : ID:MASTER / PW:9999    
 </div>
 <div align="center"> 
