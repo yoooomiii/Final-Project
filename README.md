@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:efafaf,100:d2c793&height=180&text=GoldenEGG%20Project&animation=fadeIn&fontColor=000000&fontSize=70" />
 </div>
-<img src="src/main/webapp/resources/img/에그그.png" width="700" height="400">
+<img src="src/main/webapp/resources/img/에그그.png" width="1000" height="200">
 <div align="center"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 골든에그 치킨 주문 및 딜리버리 </h2>  
      <div style="font-weight: 700; font-size: 15px; text-align: center; color: #282d33;"> 주제 : 치킨 주문 및  매장관리 사이트<br><br>
