@@ -2,7 +2,7 @@
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:efafaf,100:d2c793&height=180&text=GoldenEGG%20Project&animation=fadeIn&fontColor=000000&fontSize=70" />
 </div>
 <div align="center">
-<img src="src/main/webapp/resources/img/에그그.png" width="900" height="300">
+<img src="src/main/webapp/resources/img/취킨.png">
     <br>
     <br>
     배포주소 : 34.64.140.53/GoldenEGG<br>
